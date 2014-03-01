@@ -1,4 +1,8 @@
-mac_config
-==========
+Mac OS X Configuration
+======================
 
-Scripted installation and configuration of Mac OS X apps and preferences
+These scripts will configure Mac OS X the way we want, including:
+
+  * Configuring OS preferences
+  * Installing applications
+  * Configuring applications
