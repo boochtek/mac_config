@@ -46,8 +46,8 @@ function main {
   # TODO: Do we want light and dark versions?
   defaults+ copy com.apple.Terminal 'Window Settings.Basic' 'Window Settings.BoochTek Presentations'
   defaults+ write com.apple.Terminal 'Window Settings.BoochTek Presentations.name' 'BoochTek Presentations'
-  defaults+ write com.apple.Terminal 'Window Settings.BoochTek.columnCount' 80
-  defaults+ write com.apple.Terminal 'Window Settings.BoochTek.rowCount' 24
+  defaults+ write com.apple.Terminal 'Window Settings.BoochTek Presentations.columnCount' 80
+  defaults+ write com.apple.Terminal 'Window Settings.BoochTek Presentations.rowCount' 24
   # TODO: Font: Courier New, Bold, 29 pt
 
   # Set default profile to use for new windows.
