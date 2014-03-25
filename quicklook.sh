@@ -35,3 +35,7 @@ brew cask install cert-quicklook
 
 # Reload QuickLook daemon, so new plugins will work.
 qlmanage -r
+
+# Enable text selection in QuickLook views.
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE
+killall Finder
