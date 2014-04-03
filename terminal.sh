@@ -71,14 +71,20 @@ function bind_cursor_keys {
   local PROFILE_NAME="$1"
 
   terminal_keybinding $PROFILE_NAME 'del' "${CSI}3~"
-  # terminal_keybinding $PROFILE_NAME 'ins' "${CSI}2~"
+  terminal_keybinding $PROFILE_NAME 'ins' "${CSI}2~"
 
   terminal_keybinding $PROFILE_NAME 'shift del' "${CSI}3;2~"  # CUA Cut
-  # terminal_keybinding $PROFILE_NAME 'shift ins' "${CSI}2;2~"  # CUA Paste
+  terminal_keybinding $PROFILE_NAME 'shift ins' "${CSI}2;2~"  # CUA Paste
 
   terminal_keybinding $PROFILE_NAME 'control bs'  "${ESC}?"     # Delete word to the left of cursor. From https://github.com/vmalloc/emacs_config/blob/master/.emacs.d/terminal-config.el
   terminal_keybinding $PROFILE_NAME 'control del' "${CSI}3;5~"  # Delete word to the right of cursor.
-  # terminal_keybinding $PROFILE_NAME 'control ins' "${CSI}2;5~"  # CUA Copy
+  terminal_keybinding $PROFILE_NAME 'control ins' "${CSI}2;5~"  # CUA Copy
+
+  # Make Fn key act like Insert key. Useful for Apple Keyboard with Numeric Keypad.
+  # Requires using KeyRemap4MacBook to send F19 when pressing the Fn key.
+  terminal_keybinding $PROFILE_NAME 'F19' "${CSI}2~"
+  terminal_keybinding $PROFILE_NAME 'shift F19' "${CSI}2;2~"
+  terminal_keybinding $PROFILE_NAME 'control F19' "${CSI}2;5~"
 
   terminal_keybinding $PROFILE_NAME 'up'      "${ESC}OA"  # Alternatives: "${CSI}A"
   terminal_keybinding $PROFILE_NAME 'down'    "${ESC}OB"  # Alternatives: "${CSI}B"
