@@ -69,6 +69,7 @@ KEY_CODES=(
 # Note that the order they're listed is the order they need to be used within a shortcut definition.
 # Also see http://xahlee.info/kbd/osx_keybinding_key_syntax.html
 # Also see /Applications/Utilities/Terminal.app/Contents/Resources/English.lproj/modifierDescriptions.strings
+# Note that mappings in Terminal.app don't support command (and probably not numpad).
 MODIFIERS=(
   'command=@'
   'apple=@'
