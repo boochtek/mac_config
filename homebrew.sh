@@ -24,4 +24,7 @@ if [[ ! -d /usr/local/Cellar ]]; then
     git remote add origin https://github.com/Homebrew/homebrew
     git fetch origin master:refs/remotes/origin/master -n
     git reset --hard origin/master
+
+    # Check for configuration issues.
+    brew doctor
 fi
