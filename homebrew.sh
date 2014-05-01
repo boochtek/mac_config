@@ -41,3 +41,10 @@ if ! brew list | grep -q brew-cask ; then
     # Check for issues. Set permissions (prompting for sudo password) if necessary.
     brew cask doctor
 fi
+
+
+# Enable Bash completion for Homebrew commands.
+if [[ ! -f /usr/local/etc/bash_completion.d/brew_bash_completion.sh ]]; then
+    mkdir -p /usr/local/etc/bash_completion.d
+    ln -sf /usr/local/Library/Contributions/brew_bash_completion.sh /usr/local/etc/bash_completion.d/
+fi
