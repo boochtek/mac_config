@@ -13,6 +13,7 @@
 source 'ansi_codes.sh'
 source 'key_codes.sh'
 source 'defaults+.sh'
+source 'docutil.sh'
 
 
 function main {
@@ -48,6 +49,9 @@ function main {
   # Set default profile to use for new windows.
   defaults write -app Terminal 'Default Window Settings' -string 'BoochTek'
   defaults write -app Terminal 'Startup Window Settings' -string 'BoochTek'
+
+  # Add to the Dock.
+  dockutil --add '/Applications/Utilities/Terminal.app' --replacing 'Terminal'
 
   # Kill the preferences cache and Terminal app, so it will pick up new settings, and so it doesn't overwrite our changes.
   killall -u $USER cfprefsd
