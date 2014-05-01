@@ -12,12 +12,7 @@
 
 source 'ansi_codes.sh'
 source 'key_codes.sh'
-
-
-# Make sure we have latest defaults+.
-curl --silent https://raw.github.com/boochtek/defaults_plus/master/defaults+ -o /usr/local/bin/defaults+
-chmod a+x /usr/local/bin/defaults+
-hash -r
+source 'defaults+.sh'
 
 
 function main {
