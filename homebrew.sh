@@ -6,17 +6,20 @@
 source 'xcode.sh'
 
 
+# Install Homebrew itself, if it's not already installed.
 # Non-interactive, based on [https://github.com/Homebrew/homebrew/blob/go/install].
 if [[ ! -d /usr/local/Cellar ]]; then
+    # Create destination directory for Homebrew, and set permissions.
     sudo mkdir -p /usr/local
     sudo chmod g+rwx /usr/local
     sudo chgrp admin /usr/local
 
+    # Create cache directory for Homebrew, and set permissions.
     sudo mkdir -p /Library/Caches/Homebrew
     sudo chmod g+rwx /Library/Caches/Homebrew
 
+    # Download the latest version of Homebrew using git.
     cd /usr/local
-    
     git init -q
     git remote add origin https://github.com/Homebrew/homebrew
     git fetch origin master:refs/remotes/origin/master -n
