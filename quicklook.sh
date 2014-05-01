@@ -7,6 +7,9 @@
 ##  Text selection feature recommended by http://lifehacker.com/5874280/copy-text-from-quick-look-previews-with-a-terminal-hack
 
 
+source 'homebrew.sh'
+
+
 # Preview Markdown files.
 # TODO: Had to download and install 1.3.1 manually, until `brew cask` includes that version.
 # TODO: Also had to apply patch from https://github.com/toland/qlmarkdown/pull/32.
