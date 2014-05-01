@@ -28,3 +28,16 @@ if [[ ! -d /usr/local/Cellar ]]; then
     # Check for configuration issues.
     brew doctor
 fi
+
+
+# Install Homebrew Cask, if it's not already installed.
+if ! brew list | grep -q brew-cask ; then
+    # Add the "tap" for Homebrew Cask to Homebrew.
+    brew tap phinze/cask
+
+    # Install Homebrew
+    brew install brew-cask
+
+    # Check for issues. Set permissions (prompting for sudo password) if necessary.
+    brew cask doctor
+fi
