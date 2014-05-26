@@ -43,6 +43,10 @@ if ! brew list | grep -q brew-cask ; then
 fi
 
 
+# Allow installing non-standard versions of packages. (Sublime Text 3, for example. Or older versions of GCC.)
+brew tap homebrew/versions
+
+
 # Enable Bash completion for Homebrew commands.
 if [[ ! -f /usr/local/etc/bash_completion.d/brew_bash_completion.sh ]]; then
     mkdir -p /usr/local/etc/bash_completion.d
