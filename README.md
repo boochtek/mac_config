@@ -32,5 +32,6 @@ cd mac_config
 ./finder.sh
 ./quicklook.sh
 ./ruby.sh
+./java.sh
 ./terminal.sh   # NOTE: This will kill Terminal when it's done.
 ~~~
