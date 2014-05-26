@@ -13,7 +13,7 @@
 source 'ansi_codes.sh'
 source 'key_codes.sh'
 source 'defaults+.sh'
-source 'docutil.sh'
+source 'dockutil.sh'
 
 
 function main {
