@@ -6,6 +6,13 @@
 ## Note that some of these settings also affect File Open and Save dialogs.
 
 
+## TODO:
+##  * Add items to Sidebar Favorites (com.apple.sidebarlists):
+##    * Personal
+##    * Work
+##    * Projects
+
+
 # Don't bother with the "desktop" behind all our windows. From http://lifehacker.com/hide-and-show-desktop-icons-on-os-x-with-an-automator-s-5704241
 defaults write com.apple.finder CreateDesktop false
 
