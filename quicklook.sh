@@ -11,8 +11,6 @@ source 'homebrew.sh'
 
 
 # Preview Markdown files.
-# TODO: Had to download and install 1.3.1 manually, until `brew cask` includes that version.
-# TODO: Also had to apply patch from https://github.com/toland/qlmarkdown/pull/32.
 brew cask install qlmarkdown
 
 # Preview plain text files without a file extension (README, CHANGELOG, etc.).
