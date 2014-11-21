@@ -43,8 +43,9 @@ if ! brew list | grep -q brew-cask ; then
 fi
 
 
-# Allow installing non-standard versions of packages. (Sublime Text 3, for example. Or older versions of GCC.)
+# Allow installing non-standard versions of packages. (For example, Sublime Text 3, Java 6, and older versions of GCC.)
 brew tap homebrew/versions
+brew tap caskroom/versions
 
 
 # Enable Bash completion for Homebrew commands.
