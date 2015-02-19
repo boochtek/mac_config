@@ -48,7 +48,7 @@ EOF
 # Install some gems for every version of Ruby. These are either for irb or for the commands they provide,
 GEMS_TO_INSTALL='rake bundler awesome_print hirb wirble pry rails haml html2haml'
 ALL_RUBY_VERSIONS=$(chruby | sed -e 's/*//' | awk '{print $1}')
-CURRENT_RUBY_VERSIONS=$(chruby | grep '*' | awk '{print $2}' | tr -d '\n')
+CURRENT_RUBY_VERSION=$(chruby | grep '*' | awk '{print $2}' | tr -d '\n')
 if [[ -z "$CURRENT_RUBY_VERSION" ]]; then
     CURRENT_RUBY_VERSION=system
 fi
