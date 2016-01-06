@@ -1,0 +1,7 @@
+---
+
+# TODO: Split this out into separate handler files, once https://github.com/ansible/ansible/issues/13485 is resolved.
+
+
+- name: Restart Finder
+  command: killall Finder

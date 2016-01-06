@@ -1,0 +1,18 @@
+---
+
+- hosts: mac
+  roles:
+    - mac
+
+- hosts: dev
+  roles:
+    - development
+
+
+- hosts: mercy
+  roles:
+    - mercy
+
+- hosts: centurylink
+  roles:
+    - centurylink
