@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BackgroundColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
+	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NPECcw
+	Ljg5MzE0MTE4ODEgMC44Njk2MTk0MzU4IDAuNzc5NjgyNzA0NQAQAYAC0hAREhNaJGNs
+	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohIUWE5TT2JqZWN0XxAPTlNLZXllZEFyY2hp
+	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
+	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
+	</data>
+	<key>Bell</key>
+	<false/>
+	<key>CursorBlink</key>
+	<true/>
+	<key>Font</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGGBlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
+	AAGGoKQHCBESVSRudWxs1AkKCwwNDg8QVk5TU2l6ZVhOU2ZGbGFnc1ZOU05hbWVWJGNs
+	YXNzI0AxAAAAAAAAEBCAAoADXU1lbmxvLVJlZ3VsYXLSExQVFlokY2xhc3NuYW1lWCRj
+	bGFzc2VzVk5TRm9udKIVF1hOU09iamVjdF8QD05TS2V5ZWRBcmNoaXZlctEaG1Ryb290
+	gAEIERojLTI3PEJLUltiaXJ0dniGi5afpqmyxMfMAAAAAAAAAQEAAAAAAAAAHAAAAAAA
+	AAAAAAAAAAAAAM4=
+	</data>
+	<key>FontAntialias</key>
+	<true/>
+	<key>ProfileCurrentVersion</key>
+	<real>2.04</real>
+	<key>VisualBellOnlyWhenMuted</key>
+	<false/>
+	<key>columnCount</key>
+	<integer>120</integer>
+	<key>name</key>
+	<string>BoochTek</string>
+	<key>rowCount</key>
+	<integer>32</integer>
+	<key>type</key>
+	<string>Window Settings</string>
+</dict>
+</plist>

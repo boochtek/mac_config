@@ -1,0 +1,18 @@
+---
+
+- name: Set 'terminal_profile' to name of current Terminal profile
+  shell: defaults read com.apple.Terminal 'Default Window Settings'
+  register: terminal_profile
+
+- name: Import "Boochtek" profile into Terminal
+  shell: open "{{ role_path }}/files/BoochTek.terminal"
+  when: "'BoochTek' not in terminal_profile.stdout"
+
+- name: Set "BoochTek" Terminal profile as default
+  osx_defaults:
+    domain: com.apple.Terminal
+    key: "{{ item }}"
+    value: BoochTek
+  with_items:
+    - "Default Window Settings"
+    - "Startup Window Settings"

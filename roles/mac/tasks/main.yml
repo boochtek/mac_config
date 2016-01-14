@@ -4,3 +4,4 @@
     msg: Configuring Mac
 
 - include: finder.yml
+- include: terminal.yml
