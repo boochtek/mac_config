@@ -29,9 +29,18 @@ cd mac_config
 ./xcode.sh      # NOTE: May take a long time (perhaps an hour).
 ./trackpad.sh
 ./homebrew.sh
+./misc.sh
+./keyboard.sh
 ./finder.sh
+./menubar.sh
 ./quicklook.sh
-./ruby.sh
 ./java.sh
+./ruby.sh
+./vim.sh
+./sublime.sh
+./atom.sh
+./twitter.sh
+./mail.sh
+./safari.sh
 ./terminal.sh   # NOTE: This will kill Terminal when it's done.
 ~~~

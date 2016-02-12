@@ -11,6 +11,12 @@
 ##    * Personal
 ##    * Work
 ##    * Projects
+##    * Utilities
+##  * Remove items from Sidebar Favorites (com.apple.sidebarlists):
+##    * All My Files
+##    * iCloud Drive
+##    * Airdrop
+
 
 
 # Don't bother with the "desktop" behind all our windows. From http://lifehacker.com/hide-and-show-desktop-icons-on-os-x-with-an-automator-s-5704241

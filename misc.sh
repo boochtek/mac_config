@@ -7,6 +7,9 @@ source 'homebrew.sh'
 # Cache the root password.
 sudo -v
 
+### TODO: sysdig/csysdig!!!
+### TODO: slackcat
+
 
 ## Install some command-line utilities that we like to have.
 
@@ -220,5 +223,3 @@ sudo defaults write com.apple.appstore ShowDebugMenu -bool true
 # brew install findutils
 # brew tap homebrew/dupes
 # brew install homebrew/dupes/grep
-
-
