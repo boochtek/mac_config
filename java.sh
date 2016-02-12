@@ -17,6 +17,10 @@ brew cask install java7
 open "/opt/homebrew-cask/Caskroom/java7/1.7.0_72/JDK 7 Update 72.pkg"
 
 # Install Java 8. (Requires sudo and interactive GUI.)
-# NOTE: To use Java 8, unset JAVA_HOME.
+# NOTE: To use Java 8, unset JAVA_HOME, or set it to /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home.
 brew cask install java
 open "/opt/homebrew-cask/Caskroom/java/1.8.0_25/JDK 8 Update 25.pkg"
+
+
+# TODO: MANUAL: Open the Java control panel from System Preferences.
+# In Security tab, UNCHECK "Enable Java content in the browser".
