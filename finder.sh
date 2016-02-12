@@ -94,3 +94,11 @@ killall SystemUIServer
 
 # Restart Finder so settings will take effect.
 killall Finder
+
+
+sudo defaults write /.Spotlight-V100/VolumeConfiguration.plist Exclusions -array-add "$HOME/Downloads"
+# From http://superuser.com/a/591462 -- didn't seem to work.
+touch ~/Downloads/.metadata_never_index
+
+# Remove the index and force the volume to reindex. No longer required?
+#sudo mdutil -E /
