@@ -8,3 +8,4 @@
 - include: trackpad.yml
 - include: keyboard.yml
 - include: terminal.yml
+- include: bash.yml

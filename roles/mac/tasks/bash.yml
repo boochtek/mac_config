@@ -1,0 +1,26 @@
+---
+
+# Mac OS X 10.11 comes with Bash 3.2. This will upgrade that to Bash 4.3.
+- name: Install Homebrew version of Bash
+  homebrew:
+    name: bash
+
+- name: Allow Homebrew version of Bash to be used as login shell
+  lineinfile:
+    dest: /etc/shells
+    line: /usr/local/bin/bash
+  become: true
+
+- name: Set 'current_shell' to path of current shell
+  shell: echo $SHELL
+  register: current_shell
+  changed_when: false
+
+- name: Use Homebrew version of Bash as login shell
+  command: "chsh -s /usr/local/bin/bash {{ ansible_user }}"
+  become: yes
+  when: "current_shell.stdout != '/usr/local/bin/bash'"
+
+- name: Install Bash command-line completion
+  homebrew:
+    name: bash-completion
