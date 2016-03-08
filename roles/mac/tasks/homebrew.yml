@@ -1,0 +1,26 @@
+---
+
+- name: Update Homebrew to get latest packages and package updates
+  homebrew:
+    update_homebrew: yes
+
+# Allow installation of Sublime Text 3, Java 6, older versions of GCC, etc.
+- name: Add Homebrew tap to allow installation of non-standard versions of packages
+  homebrew_tap:
+    tap: "{{ item }}"
+  with_items:
+    - "homebrew/versions"
+    - "caskroom/versions"
+
+- name: Ensure Bash completion directory exists
+  file:
+    state: directory
+    path: /usr/local/etc/bash_completion.d/
+
+- name: Enable Bash completion for Homebrew commands
+  file:
+    state: link
+    src: /usr/local/Library/Contributions/brew_bash_completion.sh
+    dest: /usr/local/etc/bash_completion.d/brew_bash_completion.sh
+
+# - name: Add Homebrew tap to allow installation of various fonts

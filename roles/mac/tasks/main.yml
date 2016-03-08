@@ -3,4 +3,5 @@
 - debug:
     msg: Configuring Mac
 
+- include: homebrew.yml
 - include: finder.yml
