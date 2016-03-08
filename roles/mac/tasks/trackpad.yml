@@ -1,0 +1,62 @@
+---
+
+## NOTE: You may have to log out and back in for these to take effect.
+
+
+# Enable tap to click. (Don't have to press down on the trackpad -- just tap it.)
+- name: Enable tap-to-click
+  osx_defaults:
+    domain: "{{ item }}"
+    key: Clicking
+    value: "TRUE"
+    type: bool
+  with_items:
+    - com.apple.driver.AppleBluetoothMultitouch.trackpad
+    - com.apple.AppleMultitouchTrackpad
+
+# Enable "tap-and-a-half" to drag.
+- name: Enable "tap-and-a-half" to drag
+  osx_defaults:
+    domain: "{{ item }}"
+    key: Dragging
+    value: "TRUE"
+    type: bool
+  with_items:
+    - com.apple.driver.AppleBluetoothMultitouch.trackpad
+    - com.apple.AppleMultitouchTrackpad
+
+# Enable tap to click for login screen. (May or may not work in newer versions of OS X.)
+- name: Enable tap to click for login screen
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.tapBehavior
+    value: 1
+    type: int
+
+# Enable 3-finger drag. (Moving with 3 fingers in any window "chrome" moves the window.)
+- name: Enable 3-finger drag
+  osx_defaults:
+    domain: "{{ item }}"
+    key: TrackpadThreeFingerDrag
+    value: "TRUE"
+    type: bool
+  with_items:
+    - com.apple.driver.AppleBluetoothMultitouch.trackpad
+    - com.apple.AppleMultitouchTrackpad
+
+# Enable scroll-to-zoom with Ctrl (^) modifier key (and 2 fingers).
+- name: Enable scroll-to-zoom
+  osx_defaults:
+    domain: com.apple.universalaccess
+    key: closeViewScrollWheelToggle
+    value: "TRUE"
+    type: bool
+- name: Enable scroll-to-zoom when Control key is held down
+  osx_defaults:
+    domain: "{{ item }}"
+    key: HIDScrollZoomModifierMask
+    value: 262144
+    type: int
+  with_items:
+    - com.apple.driver.AppleBluetoothMultitouch.trackpad
+    - com.apple.AppleMultitouchTrackpad

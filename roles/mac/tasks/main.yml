@@ -5,3 +5,5 @@
 
 - include: homebrew.yml
 - include: finder.yml
+- include: trackpad.yml
+- include: terminal.yml
