@@ -1,0 +1,45 @@
+---
+
+# NOTE: Some of these (like function key settings) require a reboot to take effect.
+
+
+# Use function keys as standard function keys. (Require Fn modifier to enable media functions.)
+- name: Use function keys as standard function keys
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.keyboard.fnState
+    value: "TRUE"
+    type: bool
+
+# Make Caps Lock key do nothing. (We'll have Seil and Karabiner fix it later.)
+# Apple's vendor ID is 1452. Product ID is 610 for internal keyboard on mid-2012 MacBook Pro, 628 for mid-2015 MacBook Pro.
+- name: Unmap Caps Lock key
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: "com.apple.keyboard.modifiermapping.1452-{{ item }}-0"
+    value: [ "<dict><key>HIDKeyboardModifierMappingDst</key><integer>-1</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>" ]
+    type: array
+    array_add: true
+  with_items:
+    - 610
+    - 628
+
+# Karabiner allows remapping (almost) any key on the keyboard.
+- name: Install Karabiner
+  homebrew_cask:
+    name: karabiner
+- name: Install Karabiner CLI stub
+  copy:
+    dest: /usr/local/bin/karabiner
+    src: "{{ role_path }}/files/karabiner.sh"
+    mode: 0755
+
+# Seil is used to remap the Caps Lock key, so that Karabiner can remap it.
+- name: Install Seil
+  homebrew_cask:
+    name: seil
+- name: Install Seil CLI stub
+  copy:
+    dest: /usr/local/bin/seil
+    src: "{{ role_path }}/files/seil.sh"
+    mode: 0755
