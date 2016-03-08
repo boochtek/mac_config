@@ -1,6 +1,7 @@
 TODO
 ====
 
+* Make Ctrl+Shift+Down not have a special meaning in OS X, so we can use it in Atom.
 * Fix sublime setup
   * Add more plugins
     * AdvancedNewFile with show_files enabled.
@@ -14,6 +15,7 @@ TODO
 * Check that everything worked as expected
 * 1Password
 * brew cask install macs-fan-control # (or smcfancontrol)
+* Pull down my SSL CA certificate and trust it
 
 
 Ansible
