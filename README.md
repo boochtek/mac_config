@@ -52,5 +52,5 @@ Ansible
 
 ~~~ shell
 cd mac_config
-ansible2-playbook mac.yml # Requires Ansible 2.0
+ansible-playbook --ask-become-pass mac.yml # Requires Ansible 2.0
 ~~~
