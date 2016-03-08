@@ -1,0 +1,15 @@
+---
+
+- name: Install Elm programming language
+  homebrew:
+    name: elm
+
+# - name: Install Elm formatter
+#   homebrew:
+#     name: homebrew/devel-only/elm-format
+#     install_options: --devel
+
+# - name: Install Elm oracle to query info about values in source code
+#   npm:
+#     name: elm-oracle
+#     global: true
