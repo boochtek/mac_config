@@ -2,17 +2,21 @@
 
 - hosts: mac
   roles:
-    - mac
+    - role: mac
+      tags: mac
 
 - hosts: dev
   roles:
-    - development
+    - role: development
+      tags: development
 
 
 - hosts: mercy
   roles:
-    - mercy
+    - role: mercy
+      tags: mercy
 
 - hosts: centurylink
   roles:
-    - centurylink
+    - role: centurylink
+      tags: centurylink
