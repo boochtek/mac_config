@@ -1,0 +1,146 @@
+---
+
+# Ack is great for searching for things within a repo.
+- name: Install ack
+  homebrew:
+    name: ack
+
+# The Silver Searcher (ag) is similar to Ack, newer and possibly better, but I still prefer Ack.
+- name: Install the Silver Searcher (ag)
+  homebrew:
+    name: the_silver_searcher
+
+
+# We use dockutil to add and remove icons in the Mac OS X dock.
+- name: Install dockutil
+  homebrew:
+    name: dockutil
+
+
+# WGet is similar to Curl, but has some different options.
+- name: Install WGet
+  homebrew:
+    name: wget
+
+# HTop is a really nice replacement for top.
+# We set it to be run with setuid privileges so it can get CPU and RAM usage.
+- name: Install HTop
+  homebrew:
+    name: htop-osx
+- name: Set 'htop_binary' to path of 'htop' binary
+  shell: ls -ltr1 /usr/local/Cellar/htop-osx/*/bin/htop | tail
+  register: htop_binary
+  changed_when: false
+- name: Set htop setuid root
+  file:
+    path: "{{ htop_binary.stdout }}"
+    owner: root
+    group: wheel
+    mode: u+s
+  become: true
+
+# This is a little utility missing from Mac OS X, but common to all other OpenSSH installations.
+- name: Install ssh-copy-id
+  homebrew:
+    name: ssh-copy-id
+
+# Tree is a nice tool to display a full directory hierarchy.
+- name: Install tree
+  homebrew:
+    name: tree
+
+# Pstree shows running processes as a tree, showing parent-child relationships.
+- name: Install pstree
+  homebrew:
+    name: pstree
+
+# Lesspipe is an input filter for `less`, allowing non-text files to be translated into text.
+# TODO: Make sure it's used by less automatically
+- name: Install lesspipe
+  homebrew:
+    name: lesspipe
+    install_options: syntax-highlighting
+
+# Pidof allows finding a process by name, similar to `pgrep` or `kill`.
+- name: Install pidof
+  homebrew:
+    name: pidof
+
+# Watch will continuously run a command.
+- name: Install watch
+  homebrew:
+    name: watch
+
+# PV (Pipe Viewer) can be used in shell pipelines to show a progress bar.
+- name: Install PV
+  homebrew:
+    name: pv
+
+# Midnight Commander (mc) is a visual (TUI) file manager, a clone of Norton Commander
+- name: Install Midnight Commander
+  homebrew:
+    name: midnight-commander
+
+# NcFTP and LFTP provide some useful features (bookmarks, resume, mirroring) that other FTP clients don't.
+- name: Install NcFTP
+  homebrew:
+    name: ncftp
+- name: Install LFTP
+  homebrew:
+    name: lftp
+
+# NMap is a network tool for port scanning, network mapping, remote OS detection, firewall detection, and more.
+- name: Install NMap
+  homebrew:
+    name: nmap
+
+# Iftop shows network usage, similar to how `top` shows CPU usage.
+# NOTE: If we compiled this with CFLAGS=-DNO_SYSTEM, we could make it setuid. See http://lists.beasts.org/pipermail/iftop-users/2010-January/000298.html for details.
+- name: Install Iftop
+  homebrew:
+    name: iftop
+
+# Rsnapshot uses rsync to take snapshots of file systems to make remote incremental backups.
+- name: Install rsnapshot
+  homebrew:
+    name: rsnapshot
+
+# Tcpflow is like tcpdump, but shows TCP-layer streams instead of packets.
+- name: Install tcpflow
+  homebrew:
+    name: tcpflow
+
+# Ngrep is like a combination of tcpdump and grep.
+- name: Install Ngrep
+  homebrew:
+    name: ngrep
+
+# Occasionally we need to decompress FLAC and RAR files.
+- name: Install FLAC
+  homebrew:
+    name: flac
+- name: Install unrar
+  homebrew:
+    name: unrar
+
+# It's nice to occasionally show a fortune.
+- name: Install fortune
+  homebrew:
+    name: fortune
+
+# Siege is an HTTP benchmarking tool.
+- name: Install siege
+  homebrew:
+    name: siege
+
+- name: Install newer versions of some tools that Mac OS X already has
+  homebrew:
+    name: "{{ item }}"
+  with_items:
+    - coreutils
+    - findutils
+    - homebrew/dupes/diffutils
+    - homebrew/dupes/nano
+    - homebrew/dupes/grep
+    - homebrew/dupes/less
+    - colordiff
