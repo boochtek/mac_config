@@ -1,0 +1,23 @@
+---
+
+- name: Show battery percentage charged
+  osx_defaults:
+    domain: com.apple.menuextra.battery
+    key: ShowPercent
+    value: "YES"
+
+# System Preferences > Date & Time > Clock
+# Time options: Display the time with seconds: off
+# Date options: Show the day of the week: off
+# Date options: Show date: on
+- name: Set date display to digital
+  osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: IsAnalog
+    value: "FALSE"
+    type: bool
+- name: Set date display format
+  osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: DateFormat
+    value: "EEE h:mm"
