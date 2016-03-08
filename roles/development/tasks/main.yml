@@ -2,3 +2,5 @@
 
 - debug:
     msg: Installing software development tools
+
+- include: atom.yml

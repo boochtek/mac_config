@@ -1,0 +1,170 @@
+---
+
+- name: Install Atom editor
+  homebrew_cask:
+    name: atom
+
+- name: Check to see if Atom editor icon is already in the Dock
+  command: dockutil --find "Atom"
+  register: atom_dock_icon
+  changed_when: false
+
+- name: Add an icon for Atom editor to the Dock
+  command: dockutil --add  '~/Applications/Atom.app' --replacing 'Atom'
+  when: "'was not found' in atom_dock_icon.stdout"
+
+- name: Install Atom plugins to modify UI
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - unity-ui
+    - soda-light-ui
+    - solarized-light-syntax-modified
+    - base16-light-syntax
+    - fonts
+
+- name: Install some miscellaneous Atom plugins
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - pigments
+    - color-picker
+    - highlight-line
+    - trailing-spaces
+    - semanticolor
+    - atom-beautify
+    - pretty-json
+    - auto-indent
+    - autocomplete-plus
+    - autocomplete-paths
+    - autocomplete-snippets
+    - autocomplete-ctags
+    - bracket-matcher
+    - sort-lines
+    - wordcount
+    - open-recent
+    - seti-icons
+    - atom-pair
+    - tag
+
+- name: Install Atom plugins for minimap
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - minimap
+    - minimap-autohide
+    - minimap-selection
+    - minimap-pigments
+    - minimap-find-and-replace
+    - minimap-git-diff
+    - minimap-highlight-selected
+
+- name: Install Atom plugins for git
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - git-log
+    - git-blame
+    - git-plus # I really don't use this one much, but figured it might be useful.
+    - tree-view-git-status
+    - merge-conflicts
+
+- name: Install Atom plugins for HTML, CSS, and XML
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - autoclose-html
+    - autocomplete-html
+    - autocomplete-sass
+    - atom-htmltidy
+    - linter-csslint
+    - linter-xmllint
+    - xml-formatter
+
+- name: Install Atom plugins for Ruby
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - autocomplete-ruby
+    - ruby-test
+    - ruby-block
+    - linter-rubocop
+    - rails-snippets
+    - rspec-snippets
+    - language-gherkin
+    - capybara-snippets
+    - language-rspec
+    - language-slim
+    - linter-slim
+    - html2slim
+    - language-haml
+    - html2haml
+
+- name: Install Atom plugins for JavaScript
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - linter-jshint
+    - linter-jscs
+    - language-javascript-jsx
+    - language-javascript-semantic
+    - javascript-snippets
+    - linter-coffeelint
+
+- name: Install Atom plugins for Crystal
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - language-crystal-actual
+    - linter-crystal
+    - crystal-block
+    - crystal-tools
+
+- name: Install Atom plugins for Elm
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - language-elm
+    - linter-elm-make
+
+- name: Install Atom plugins for Java
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - language-java # Should be built in, but doesn't hurt to be explicit.
+    - autocomplete-java
+    - linter-javac
+    - java-generator
+
+- name: Install Atom plugins for Groovy (and Grails)
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - language-groovy
+    - atom-grails
+
+- name: Install Atom plugins for Ansible
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - language-ansible
+    - language-terraform
+
+- name: Install Atom plugins for Racket
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - language-racket
