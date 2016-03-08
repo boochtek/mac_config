@@ -4,3 +4,4 @@
     msg: Installing software development tools
 
 - include: atom.yml
+- include: devops.yml

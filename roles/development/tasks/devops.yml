@@ -1,0 +1,13 @@
+---
+
+- name: Install Ansible
+  homebrew:
+    name: ansible
+
+- name: Install Terraform
+  homebrew:
+    name: terraform
+
+- name: Install Terraform Inventory
+  homebrew:
+    name: https://raw.github.com/adammck/terraform-inventory/master/homebrew/terraform-inventory.rb
