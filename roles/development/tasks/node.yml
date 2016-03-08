@@ -1,0 +1,8 @@
+---
+
+- name: Install Node
+  homebrew:
+    name: node
+
+- name: Install Electron
+  command: npm install -g electron-prebuilt
