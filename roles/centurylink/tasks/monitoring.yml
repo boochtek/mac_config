@@ -1,0 +1,8 @@
+---
+
+## Install and configure prerequisites for Monitoring team.
+
+# We'll need MySQL to compile the Ruby `mysql` gem.
+- name: Install MySQL
+  homebrew:
+    name: mysql

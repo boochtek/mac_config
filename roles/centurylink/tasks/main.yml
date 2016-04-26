@@ -2,3 +2,5 @@
 
 - debug:
     msg: Configuring for CenturyLink software development
+
+- include: monitoring.yml
