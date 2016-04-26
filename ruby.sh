@@ -9,6 +9,7 @@ source 'homebrew.sh'
 ## Ruby (various versions)
 
 # Install various versions of Ruby.
+# Note that SHA1 signatures are for BZ2 files; get them from the ruby-lang.org release announcements.
 brew install ruby-install
 brew update
 brew upgrade ruby-install
@@ -20,6 +21,7 @@ ruby-install ruby 2.1.8 --sha1 0284eaf42ac76a641abd5cd4b6bd933abeb9934e
 ruby-install ruby 2.2
 ruby-install ruby 2.2.4 --sha1 6132840a859dbf2ac1498ba313021f299a870038
 ruby-install ruby 2.3.0 --sha1 6c8a832d49d22755ea8c45b6d53faf2ccc6d6ac9
+ruby-install ruby 2.3.1 --sha1 4ee76c7c1b12d5c5b0245fc71595c5635d2217c9
 ruby-install rbx 2.5
 ruby-install jruby 1.7
 
