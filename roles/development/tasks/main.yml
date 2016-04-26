@@ -3,6 +3,12 @@
 - debug:
     msg: Installing software development tools
 
+
+- name: Install Homebrew version of git, to get new features
+  homebrew:
+    name: git
+
+
 - include: atom.yml
 - include: node.yml
 - include: elm.yml
