@@ -17,10 +17,4 @@
     state: directory
     path: /usr/local/etc/bash_completion.d/
 
-- name: Enable Bash completion for Homebrew commands
-  file:
-    state: link
-    src: /usr/local/Library/Contributions/brew_bash_completion.sh
-    dest: /usr/local/etc/bash_completion.d/brew_bash_completion.sh
-
 # - name: Add Homebrew tap to allow installation of various fonts
