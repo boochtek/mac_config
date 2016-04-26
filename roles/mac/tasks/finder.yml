@@ -1,9 +1,5 @@
 ---
 
-# TODO:
-#   * Change "TRUE" to TRUE once https://github.com/ansible/ansible-modules-extras/issues/709 is fixed.
-
-
 - debug:
     msg: Configuring Mac Finder
 
@@ -11,7 +7,7 @@
   osx_defaults:
     domain: com.apple.finder
     key: QuitMenuItem
-    value: "TRUE"
+    value: TRUE
     type: bool
   notify:
     - Restart Finder
