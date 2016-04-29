@@ -1,0 +1,60 @@
+---
+
+## Configure QuickLook to handle more file types.
+
+## CREDITS:
+##  Most of these were recommended by https://github.com/sindresorhus/quick-look-plugins
+##  Text selection feature recommended by http://lifehacker.com/5874280/copy-text-from-quick-look-previews-with-a-terminal-hack
+
+
+- name: Install QuickLook preview for Markdown files
+  homebrew_cask:
+    name: qlmarkdown
+  notify:
+    - Reload QuickLook daemon
+
+- name: Install QuickLook preview for plain text files without a file extension (README, CHANGELOG, etc.)
+  homebrew_cask:
+    name: qlstephen
+  notify:
+    - Reload QuickLook daemon
+
+- name: Install QuickLook preview for source code files for various programming languages, with syntax highlighting
+  homebrew_cask:
+    name: qlcolorcode
+  notify:
+    - Reload QuickLook daemon
+
+- name: Install QuickLook preview for JSON files
+  homebrew_cask:
+    name: quicklook-json
+  notify:
+    - Reload QuickLook daemon
+
+- name: Install QuickLook preview for CSV files
+  homebrew_cask:
+    name: quicklook-csv
+  notify:
+    - Reload QuickLook daemon
+
+- name: Install QuickLook preview for diffs
+  homebrew_cask:
+    name: qlprettypatch
+  notify:
+    - Reload QuickLook daemon
+
+- name: Install QuickLook preview for archives (ZIP, tar, gzip, bzip2, ARJ, LZH, ISO, etc.)
+  homebrew_cask:
+    name: betterzipql
+  notify:
+    - Reload QuickLook daemon
+
+# NOTE: This might not work in newer versions of Mac OS X.
+- name: Enable text selection in QuickLook views
+  osx_defaults:
+    domain: com.apple.finder
+    key: QLEnableTextSelection
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Finder

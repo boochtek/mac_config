@@ -11,3 +11,4 @@
 - include: utilities.yml
 - include: menubar.yml
 - include: bash.yml
+- include: quicklook.yml

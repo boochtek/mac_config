@@ -5,3 +5,6 @@
 
 - name: Restart Finder
   command: killall Finder
+
+- name: Reload QuickLook daemon
+  command: qlmanage -r
