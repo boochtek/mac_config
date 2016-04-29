@@ -22,6 +22,12 @@
   homebrew:
     name: wget
 
+# [HTTPie](http://httpie.org/) is similar to cURL, but geared toward troubleshooting.
+# It has colorized output and simpler CLI options.
+- name: Install HTTPie
+  homebrew:
+    name: httpie
+
 # HTop is a really nice replacement for top.
 # We set it to be run with setuid privileges so it can get CPU and RAM usage.
 - name: Install HTop
