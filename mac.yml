@@ -4,6 +4,13 @@
   roles:
     - role: mac
       tags: mac
+  vars_prompt:
+    - name: MAS_LOGIN
+      prompt: "Mac App Store user name"
+    - name: MAS_PASSWORD
+      prompt: "Mac App Store password"
+      private: True
+
 
 - hosts: dev
   roles:

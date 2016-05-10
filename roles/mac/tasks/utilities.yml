@@ -139,6 +139,45 @@
   homebrew:
     name: siege
 
+# Duti is a command-line utility used to set the default application for a Uniform Type Identifiers (UTI).
+- name: Install duti
+  homebrew:
+    name: duti
+
+# Note that MAS is a 3rd-party app, not something supplied by Apple.
+- name: Install Mac App Store command line interface
+  homebrew:
+    name: argon/mas/mas
+
+- name: Determine if we're signed into Mac App Store
+  shell: mas account || true
+  register: mas_account
+  changed_when: False
+
+- name: Sign into Mac App Store
+  shell: "mas signout && mas signin {{ MAS_LOGIN }} {{ MAS_PASSWORD }}"
+  when: mas_account.stdout == "Not signed in"
+
+# Markoff is a Markdown previewer from Thoughbot.
+- name: Install Markoff
+  shell: mas install $(mas search Markoff | grep ' Markoff$' | cut -f1 -d' ')
+  args:
+    creates: /Applications/Markoff.app
+
+- name: Determine current default app for Markdown files
+  shell: duti -x md | tail -1
+  register: markdown_app
+  changed_when: False
+
+- name: Set Markoff as the default app for Markdown files
+  command: duti -s com.thoughtbot.Markoff {{ item }} all
+  when: markdown_app.stdout != "com.thoughtbot.Markoff"
+  with_items:
+    - net.daringfireball.markdown
+    - ".md"
+  notify:
+    - Restart Launch Services
+
 - name: Install newer versions of some tools that Mac OS X already has
   homebrew:
     name: "{{ item }}"
