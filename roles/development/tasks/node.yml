@@ -5,4 +5,6 @@
     name: node
 
 - name: Install Electron
-  command: npm install -g electron-prebuilt
+  npm:
+    name: electron-prebuilt
+    global: True
