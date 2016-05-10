@@ -1,5 +1,11 @@
 ---
 
+# Ensure that the `locate` database is kept up to date.
+- name: Start the locate database daemon
+  command: launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+  become: True
+  changed_when: False
+
 # Ack is great for searching for things within a repo.
 - name: Install ack
   homebrew:
