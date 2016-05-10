@@ -3,6 +3,7 @@
 - name: Set 'terminal_profile' to name of current Terminal profile
   shell: defaults read com.apple.Terminal 'Default Window Settings'
   register: terminal_profile
+  changed_when: False
 
 - name: Import "Boochtek" profile into Terminal
   shell: open "{{ role_path }}/files/BoochTek.terminal"
