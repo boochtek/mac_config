@@ -2,6 +2,26 @@
 
 ## Install and configure prerequisites for Monitoring team.
 
+- name: Install Docker
+  homebrew:
+    name: docker
+
+- name: Install Vagrant
+  homebrew_cask:
+    name: vagrant
+
+- name: Install Ansible
+  homebrew:
+    name: ansible
+
+- name: Install RSync
+  homebrew:
+    name: rsync
+
+- name: Install VirtualBox
+  homebrew_cask:
+    name: virtualbox
+
 # We'll need MySQL to compile the Ruby `mysql` gem.
 - name: Install MySQL
   homebrew:

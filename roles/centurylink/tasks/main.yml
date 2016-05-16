@@ -4,3 +4,4 @@
     msg: Configuring for CenturyLink software development
 
 - include: monitoring.yml
+  tags: monitoring-team
