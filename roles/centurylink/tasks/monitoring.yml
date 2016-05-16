@@ -26,3 +26,16 @@
 - name: Install MySQL
   homebrew:
     name: mysql
+
+- name: Add Vagrant host names to /etc/hosts file
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '.* {{ item.hostname }}$'
+    line: "{{ item.ip_address }}  {{ item.hostname }}"
+  with_items:
+    - { hostname: watcher1.local, ip_address: 192.168.99.91 }
+    - { hostname: watcher2.local, ip_address: 192.168.99.92 }
+    - { hostname: watcher3.local, ip_address: 192.168.99.93 }
+    - { hostname: watcher4.local, ip_address: 192.168.99.94 }
+    - { hostname: watcher5.local, ip_address: 192.168.99.95 }
+  become: true
