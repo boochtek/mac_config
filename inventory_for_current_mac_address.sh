@@ -15,7 +15,7 @@
 # Mappings of MAC address to hostname and groups.
 HOST_MAPPINGS="
 a0:99:9b:00:00:00  hope      mac workstation dev mercy
-a0:99:9b:03:8d:9b  big_bang  mac workstation dev centurylink
+a0:99:9b:03:8d:9b  colbert   mac workstation dev centurylink
 "
 
 
