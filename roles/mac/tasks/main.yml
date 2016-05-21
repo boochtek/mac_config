@@ -1,8 +1,10 @@
 ---
 
+
 - debug:
     msg: Configuring Mac
 
+- include: hostname.yml
 - include: homebrew.yml
 - include: finder.yml
 - include: trackpad.yml

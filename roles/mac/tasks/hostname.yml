@@ -1,0 +1,34 @@
+---
+
+## Mac OS X has several places where the hostname is stored. This updates all of them.
+
+- name: Get current host name
+  command: hostname
+  register: hostname
+  changed_when: FALSE
+
+- name: Get current computer name
+  command: /usr/sbin/networksetup -getcomputername
+  register: computer_name
+  changed_when: FALSE
+
+- name: Get current local name
+  shell: /usr/sbin/systemsetup -getlocalsubnetname | cut -b 20-
+  become: True
+  register: local_name
+  changed_when: FALSE
+
+- name: Set host name
+  command: "scutil --set HostName {{ ansible_host }}"
+  become: TRUE
+  when: hostname.stdout != "{{ ansible_host }}"
+
+- name: Set computer name
+  command: "/usr/sbin/networksetup -setcomputername {{ ansible_host }}"
+  become: TRUE
+  when: computer_name.stdout != "{{ ansible_host }}"
+
+- name: Set local name
+  command: "/usr/sbin/systemsetup -setlocalsubnetname {{ ansible_host }}"
+  become: TRUE
+  when: local_name.stdout != "{{ ansible_host }}"
