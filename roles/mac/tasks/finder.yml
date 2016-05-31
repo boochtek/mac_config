@@ -3,6 +3,15 @@
 - debug:
     msg: Configuring Mac Finder
 
+- name: Show all files in Finder
+  osx_defaults:
+    domain: com.apple.finder
+    key: AppleShowAllFiles
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Finder
+
 - name: Allow quitting Finder
   osx_defaults:
     domain: com.apple.finder
