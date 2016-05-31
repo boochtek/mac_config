@@ -5,12 +5,22 @@
     msg: Configuring Mac
 
 - include: hostname.yml
+  tags: hostname
 - include: homebrew.yml
+  tags: homebrew
 - include: finder.yml
+  tags: finder
 - include: trackpad.yml
+  tags: trackpad
 - include: keyboard.yml
+  tags: keyboard
 - include: terminal.yml
+  tags: terminal
 - include: utilities.yml
+  tags: utilities
 - include: menubar.yml
+  tags: menubar
 - include: bash.yml
+  tags: bash
 - include: quicklook.yml
+  tags: quicklook

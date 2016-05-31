@@ -10,6 +10,10 @@
 
 
 - include: atom.yml
+  tags: atom
 - include: node.yml
+  tags: node
 - include: elm.yml
+  tags: elm
 - include: devops.yml
+  tags: devops
