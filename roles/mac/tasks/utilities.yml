@@ -195,3 +195,8 @@
     - homebrew/dupes/grep
     - homebrew/dupes/less
     - colordiff
+
+# This is a nice tool for creating PDFs from HTML
+- name: Install wkhtmltopdf
+  homebrew_cask:
+    name: wkhtmltopdf
