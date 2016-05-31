@@ -4,6 +4,14 @@
   homebrew:
     name: ansible
 
+- name: Install Vagrant
+  homebrew_cask:
+    name: vagrant
+
+- name: Install VirtualBox
+  homebrew_cask:
+    name: virtualbox
+
 - name: Install Terraform
   homebrew:
     name: terraform
