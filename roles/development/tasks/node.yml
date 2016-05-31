@@ -7,4 +7,9 @@
 - name: Install Electron
   npm:
     name: electron-prebuilt
-    global: True
+    global: TRUE
+
+- name: Install Bower
+  npm:
+    name: bower
+    global: TRUE
