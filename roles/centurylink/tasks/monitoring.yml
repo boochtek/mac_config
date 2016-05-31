@@ -2,6 +2,11 @@
 
 ## Install and configure prerequisites for Monitoring team.
 
+# Note that this is Hashicorp's Vault. Ansible comes with a separate/different `ansible-vault`.
+- name: Install Vault
+  homebrew:
+    name: vault
+
 - name: Install Docker
   homebrew:
     name: docker
@@ -39,3 +44,7 @@
     - { hostname: watcher4.local, ip_address: 192.168.99.94 }
     - { hostname: watcher5.local, ip_address: 192.168.99.95 }
   become: true
+
+- name: Install Tunnelblick
+  homebrew_cask:
+    name: tunnelblick
