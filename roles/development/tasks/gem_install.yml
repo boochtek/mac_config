@@ -1,0 +1,16 @@
+---
+
+# NOTE: You'll need to define all these variables when including this file:
+#           * gem: Name of the gem to install
+#           * ruby_engine: Name of the Ruby engine to install into (`ruby`, `jruby`, `rbx`)
+#           * ruby_version: Version of the Ruby engine to install into (`2.3.1`, `1.9.3`)
+
+- name: Determine if {{ gem }} is installed for {{ ruby_engine }} {{ ruby_version }}
+  shell: "source /usr/local/share/chruby/chruby.sh && chruby {{ ruby_engine }}-{{ ruby_version }} && gem list {{ gem }} | grep {{ gem }}"
+  register: gem_installed
+  ignore_errors: TRUE
+  changed_when: FALSE
+
+- name: Install {{ gem }} for {{ ruby_engine }} {{ ruby_version }}
+  shell: "source /usr/local/share/chruby/chruby.sh && chruby {{ ruby_engine }}-{{ ruby_version }} && gem install {{ gem }}"
+  when: gem_installed.rc == 1

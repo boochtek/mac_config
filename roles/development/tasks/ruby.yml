@@ -1,0 +1,52 @@
+---
+
+- name: Install chruby
+  homebrew:
+    name: chruby
+
+- name: Ensure chruby is available in Bash
+  lineinfile:
+    dest: ~/.bash_profile
+    line: source /usr/local/share/chruby/chruby.sh
+
+- name: Enable chruby to automatically use `.ruby-version` when changing directories in Bash
+  lineinfile:
+    dest: ~/.bash_profile
+    line: source /usr/local/share/chruby/auto.sh
+
+- name: Install ruby-install
+  homebrew:
+    name: ruby-install
+
+# NOTE: It will take several minutes to compile each version of Ruby.
+- name: Install Ruby
+  include: ruby_install.yml
+  vars:
+    engine: "{{ item.engine }}"
+    version: "{{ item.version }}"
+    sha1: "{{ item.sha1 }}"
+  with_items: "{{ ruby_versions }}"
+
+- name: Install common Ruby gems for all versions of Ruby
+  include: gem_install.yml
+  vars:
+    ruby_engine: "{{ item[0].engine }}"
+    ruby_version: "{{ item[0].version }}"
+    gem: "{{ item[1] }}"
+  with_nested:
+    - "{{ ruby_versions }}"
+    - "{{ gems_for_all_rubies }}"
+
+- name: Install Ruby gems for latest version of Ruby
+  include: gem_install.yml
+  vars:
+    ruby_engine: "{{ ruby_versions[0].engine }}"
+    ruby_version: "{{ ruby_versions[0].version }}"
+    gem: "{{ item }}"
+  with_items:
+    - "{{ gems_for_latest_ruby }}"
+
+- name: Ensure bundled gems are installed locally to each app
+  lineinfile:
+    dest: ~/.bash_profile
+    line: export BUNDLE_PATH=vendor/bundle

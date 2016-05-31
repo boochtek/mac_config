@@ -11,6 +11,8 @@
 
 - include: atom.yml
   tags: atom
+- include: ruby.yml
+  tags: ruby
 - include: node.yml
   tags: node
 - include: elm.yml

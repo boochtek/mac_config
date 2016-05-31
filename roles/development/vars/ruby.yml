@@ -1,0 +1,27 @@
+---
+
+rubies_dir: ~/.rubies
+
+# NOTE: The *first* listed Ruby version will be the *default*.
+# Note that SHA1 signatures are for BZ2 files; get them from the ruby-lang.org release announcements.
+ruby_versions:
+  - engine: ruby
+    version: 2.3.1
+    sha1: 4ee76c7c1b12d5c5b0245fc71595c5635d2217c9
+  - engine: ruby
+    version: 2.2.4
+    sha1: 6132840a859dbf2ac1498ba313021f299a870038
+
+gems_for_all_rubies:
+  - bundler
+  - awesome_print
+  - hirb
+  - wirble
+  - pry
+  - railties
+  - rubocop
+
+gems_for_latest_ruby:
+  - kramdown
+  - rsense
+  - ruby-beautify

@@ -1,0 +1,13 @@
+---
+
+# NOTE: You'll need to define all these variables when including this file:
+#           * engine: Name of the Ruby engine to install (`ruby`, `jruby`, `rbx`)
+#           * version: Version of the Ruby engine to install (`2.3.1`, `1.9.3`)
+#           * sha1: Signature of BZ2 file (get from the ruby-lang.org release announcement)
+
+
+# NOTE: It will take several minutes to compile each version of Ruby.
+- name: Install {{ engine }} {{ version }}
+  command: "ruby-install -r {{ rubies_dir }} {{ engine }} {{ version }} --sha1 {{ sha1 }}"
+  args:
+    creates: "{{ rubies_dir }}/{{ engine }}-{{ version }}"
