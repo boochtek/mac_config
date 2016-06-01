@@ -15,6 +15,18 @@
   homebrew_cask:
     name: vagrant
 
+- name: Determine installed Vagrant plugins
+  command: vagrant plugin list
+  register: vagrant_plugins
+  changed_when: FALSE
+
+- name: Install Vagrant plugins that we use
+  command: "vagrant plugin install {{ item }}"
+  when: "item not in vagrant_plugins.stdout"
+  with_items:
+    - vagrant-omnibus
+    - vagrant-berkshelf
+
 - name: Install Ansible
   homebrew:
     name: ansible
