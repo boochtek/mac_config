@@ -1,0 +1,14 @@
+---
+
+# We usually need PostgreSQL libraries to build Ruby gems.
+# We often need PostgreSQL server running to test Rails apps.
+# Note, however, that we're not starting the PostgreSQL server automatically.
+
+# To start the PostgreSQL server manually:
+#     postgres -D /usr/local/var/postgres
+# To start the PostgreSQL service now and automatically at login:
+#     brew services start postgresql
+
+- name: Install PostgreSQL
+  homebrew:
+    name: postgresql
