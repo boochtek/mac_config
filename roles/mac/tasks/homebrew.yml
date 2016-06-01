@@ -18,3 +18,11 @@
     path: /usr/local/etc/bash_completion.d/
 
 # - name: Add Homebrew tap to allow installation of various fonts
+
+- name: Remove any old versions of Homebrew-installed packages
+  command: brew cleanup
+  changed_when: FALSE
+
+- name: Remove any old versions of Homebrew Cask-installed packages
+  command: brew cask cleanup
+  changed_when: FALSE
