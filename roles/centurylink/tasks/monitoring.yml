@@ -27,6 +27,10 @@
     - vagrant-omnibus
     - vagrant-berkshelf
 
+- name: Install Chef Development Kit
+  homebrew_cask:
+    name: chefdk
+
 - name: Install Ansible
   homebrew:
     name: ansible
