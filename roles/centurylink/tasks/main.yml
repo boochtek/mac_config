@@ -7,3 +7,5 @@
   tags: monitoring-team
 
 - include: guest_account.yml
+
+- include: screen_saver.yml

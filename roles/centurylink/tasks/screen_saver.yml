@@ -1,0 +1,10 @@
+---
+
+# NOTE: This requires Ansible 2.1, due to the `currentHost` option.
+- name: Set screensaver timeout
+  osx_defaults:
+    host: currentHost
+    domain: com.apple.screensaver
+    key: idleTime
+    value: 600
+    type: integer
