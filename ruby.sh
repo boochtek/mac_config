@@ -13,14 +13,11 @@ brew install ruby-install
 brew update
 brew upgrade ruby-install
 ruby-install ruby 1.9.3
-ruby-install ruby 2.0
 ruby-install ruby 2.0.0-p648 --sha1 504be2eae6cdfe93aa7ed02ec55e35043d067ad5
-ruby-install ruby 2.1
-ruby-install ruby 2.1.8 --sha1 0284eaf42ac76a641abd5cd4b6bd933abeb9934e
-ruby-install ruby 2.2
-ruby-install ruby 2.2.4 --sha1 6132840a859dbf2ac1498ba313021f299a870038
-ruby-install ruby 2.3.0 --sha1 6c8a832d49d22755ea8c45b6d53faf2ccc6d6ac9
-ruby-install rbx 2.5
+ruby-install ruby 2.1.10 --sha1 22dcd759d8cbb14c8735988fbc7ee5c35f9d4720
+ruby-install ruby 2.2.5 --sha1 f78473fe60a632b778599374ae64612592c2c9c1
+ruby-install ruby 2.3.1 --sha1 4ee76c7c1b12d5c5b0245fc71595c5635d2217c9
+ruby-install rbx 3.21
 ruby-install jruby 1.7
 
 # If you need Ruby 1.9.3-p125:
