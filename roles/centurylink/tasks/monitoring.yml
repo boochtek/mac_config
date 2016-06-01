@@ -24,6 +24,7 @@
   command: "vagrant plugin install {{ item }}"
   when: "item not in vagrant_plugins.stdout"
   with_items:
+    - vagrant-vbguest
     - vagrant-omnibus
     - vagrant-berkshelf
 
