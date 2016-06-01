@@ -5,3 +5,5 @@
 
 - include: monitoring.yml
   tags: monitoring-team
+
+- include: guest_account.yml

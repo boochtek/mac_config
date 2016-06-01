@@ -1,0 +1,18 @@
+---
+
+- name: Disable guest account (via defaults)
+  osx_defaults:
+    domain: com.apple.loginwindow
+    key: GuestEnabled
+    value: FALSE
+    type: bool
+
+- name: Determine guest account status in Directory Service
+  command: dscl . -read /Users/Guest AuthenticationAuthority
+  register: directory_service_authentication_authority
+  changed_when: FALSE
+
+- name: Disable guest account (via Directory Service)
+  command: "dscl . -append /Users/Guest AuthenticationAuthority ';DisabledUser;'"
+  become: TRUE
+  when: "';DisabledUser;' not in directory_service_authentication_authority.stdout"
