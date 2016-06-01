@@ -62,3 +62,10 @@
 
 # TODO: Had to manually go into Security & Privacy preferences, Privacy Tab, Accessibility, and enable Karabiner_AXNotifier.
 # TODO: Had to manually start Karabiner GUI and close its window.
+
+- name: Hide Karabiner menubar icon
+  osx_defaults:
+    domain: org.pqrs.Karabiner
+    key: isStatusbarEnable
+    value: FALSE
+    type: bool
