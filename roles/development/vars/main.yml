@@ -14,9 +14,6 @@ ruby_versions:
   - engine: ruby
     version: 2.1.10
     sha1: 22dcd759d8cbb14c8735988fbc7ee5c35f9d4720
-  - engine: ruby
-    version: 2.0.0-p648
-    sha1: 504be2eae6cdfe93aa7ed02ec55e35043d067ad5
 
 gems_for_all_rubies:
   - bundler
