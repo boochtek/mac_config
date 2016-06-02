@@ -1,16 +1,14 @@
 Mac OS X Configuration
 ======================
 
-NOTE: We're in the process of moving to Ansible.
-These instructions are currently in transition as well.
-
-These scripts will configure Mac OS X the way we want, including:
+These Ansible playbooks will configure Mac OS X the way we want, including:
 
   * Configuring OS preferences
   * Installing applications
   * Configuring applications
 
 These scripts are written for Mac OS X 10.11 (El Capitan).
+Ansible 2.1 is required, due to a couple features we're using.
 
 
 Usage
@@ -20,37 +18,25 @@ First, clone the repository:
 
 ~~~ shell
 git clone https://github.com/boochtek/mac_config.git
+cd mac_config
 ~~~
 
-Theoretically, any of these scripts could be run independently.
-However, we run them in this order when installing a new system:
+Then run the playbook:
 
 ~~~ shell
-cd mac_config
-./xcode.sh      # NOTE: May take a long time (perhaps an hour).
-./trackpad.sh
-./homebrew.sh
-./misc.sh
-./keyboard.sh
-./finder.sh
-./menubar.sh
-./quicklook.sh
-./java.sh
-./ruby.sh
-./vim.sh
-./sublime.sh
-./atom.sh
-./twitter.sh
-./mail.sh
-./safari.sh
-./terminal.sh   # NOTE: This will kill Terminal when it's done.
+ansible-playbook -K mac.yml
 ~~~
 
+You'll be prompted for your password, as well as your Mac App Store ID and password.
+You can just hit enter on the Mac App store prompts, if you won't be installing anything from the Mac App Store. Currently, we're only installing Markoff, a Markdown reader.
 
-Ansible
--------
+Most roles and included tasks have tags, so you can run a subset of tasks.
+This can be helpful when writing and testing a new task.
+For example:
 
 ~~~ shell
-cd mac_config
-ansible-playbook --ask-become-pass mac.yml # Requires Ansible 2.1
+ansible-playbook -K mac.yml -t keyboard
 ~~~
+
+You can also leave out the `-K` if you know you won't need sudo access,
+and you won't be prompted for your password.
