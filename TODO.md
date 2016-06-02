@@ -1,14 +1,13 @@
 TODO
 ====
 
+* Move Mac App Store stuff to its own file; include it for Markoff.
 * Make Ctrl+Shift+Down not have a special meaning in OS X, so we can use it in Atom.
 * Fix sublime setup
   * Add more plugins
     * AdvancedNewFile with show_files enabled.
 * Fix keyboard setup
 * Remove dock items
-* Prompt for hostname and set it
-  * Also hard drive name
 * Have it download and install Config Files
   * Prompt for github user/repo if not installed, and not in git config
 * Yosemite updates
