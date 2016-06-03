@@ -12,6 +12,15 @@
   notify:
     - Restart Finder
 
+- name: Show file extensions in Finder
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowAllExtensions
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Finder
+
 - name: When opening a new Finder window, start in the home directory
   osx_defaults:
     domain: com.apple.finder
