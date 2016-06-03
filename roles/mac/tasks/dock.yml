@@ -1,0 +1,8 @@
+---
+
+- name: Disable animations when opening an application from the Dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: launchanim
+    value: FALSE
+    type: bool

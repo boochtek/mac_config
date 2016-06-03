@@ -33,3 +33,24 @@
 - name: Set wallpaper image
   command: wallpaper "~/Pictures/WDF_683106.jpg"
   changed_when: False
+
+- name: Disable animations in Finder
+  osx_defaults:
+    domain: com.apple.finder
+    key: DisableAllAnimations
+    value: TRUE
+    type: bool
+
+- name: Disable animations when opening and closing windows
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSAutomaticWindowAnimationsEnabled
+    value: FALSE
+    type: bool
+
+- name: Disable animations when opening a QuickLook window
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: QLPanelAnimationDuration
+    value: 0
+    type: float

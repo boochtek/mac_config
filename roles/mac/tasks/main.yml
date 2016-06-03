@@ -12,6 +12,8 @@
   tags: appstore
 - include: finder.yml
   tags: finder
+- include: dock.yml
+  tags: dock
 - include: trackpad.yml
   tags: trackpad
 - include: keyboard.yml
