@@ -10,6 +10,12 @@
   tags: homebrew
 - include: appstore.yml
   tags: appstore
+- include: display.yml
+  tags: display
+- include: ui.yml
+  tags: ui
+- include: desktop.yml
+  tags: desktop
 - include: finder.yml
   tags: finder
 - include: dock.yml

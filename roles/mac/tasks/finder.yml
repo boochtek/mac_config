@@ -38,40 +38,11 @@
   notify:
     - Restart Finder
 
-- name: Install OS X Wallpaper utility
-  homebrew:
-    name: wallpaper
-
-- name: Download wallpaper image
-  get_url:
-    url: http://pic.1fotonin.com//data/wallpapers/20/WDF_683106.jpg
-    dest: "~/Pictures/WDF_683106.jpg"
-
-- name: Set wallpaper image
-  command: wallpaper "~/Pictures/WDF_683106.jpg"
-  changed_when: False
-
-- name: Hide everything on the desktop
-  osx_defaults:
-    domain: com.apple.finder
-    key: CreateDesktop
-    value: FALSE
-    type: bool
-  notify:
-    - Restart Finder
-
 - name: Disable animations in Finder
   osx_defaults:
     domain: com.apple.finder
     key: DisableAllAnimations
     value: TRUE
-    type: bool
-
-- name: Disable animations when opening and closing windows
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: NSAutomaticWindowAnimationsEnabled
-    value: FALSE
     type: bool
 
 - name: Disable animations when opening a QuickLook window

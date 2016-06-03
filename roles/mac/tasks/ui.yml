@@ -1,0 +1,8 @@
+---
+
+- name: Disable animations when opening and closing windows
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSAutomaticWindowAnimationsEnabled
+    value: FALSE
+    type: bool
