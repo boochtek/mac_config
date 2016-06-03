@@ -1,5 +1,12 @@
 ---
 
+- name: Show Debug menu in App Store app
+  osx_defaults:
+    domain: com.apple.appstore
+    key: ShowDebugMenu
+    value: TRUE
+    type: bool
+
 # Note that MAS is a 3rd-party app, not something supplied by Apple.
 - name: Install Mac App Store command line interface
   homebrew:
