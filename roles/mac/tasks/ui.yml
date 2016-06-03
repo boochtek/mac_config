@@ -1,8 +1,55 @@
 ---
 
+# System Preferences -> Accessibility -> Display -> Reduce transparency
+- name: Reduce transparency effects
+  osx_defaults:
+    domain: com.apple.universalaccess
+    key: reduceTransparency
+    value: TRUE
+    type: bool
+
 - name: Disable animations when opening and closing windows
   osx_defaults:
     domain: NSGlobalDomain
     key: NSAutomaticWindowAnimationsEnabled
     value: FALSE
     type: bool
+
+- name: Expand save dialogs by default
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSNavPanelExpandedStateForSaveMode
+    value: TRUE
+    type: bool
+
+- name: Save dialogs should not default to iCloud
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSDocumentSaveNewDocumentsToCloud
+    value: FALSE
+    type: bool
+
+- name: Expand print dialogs by default
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: PMPrintingExpandedStateForPrint
+    value: TRUE
+    type: bool
+
+- name: Save screen captures in `Pictures` instead of `Desktop`
+  osx_defaults:
+    domain: com.apple.screencapture
+    key: location
+    value: ~/Pictures
+    type: string
+  notify:
+    - Restart SystemUIServer
+
+- name: Save screen captures as PNG format instead of TIFF
+  osx_defaults:
+    domain: com.apple.screencapture
+    key: type
+    value: PNG
+    type: string
+  notify:
+    - Restart SystemUIServer

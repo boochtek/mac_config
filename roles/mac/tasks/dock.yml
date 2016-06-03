@@ -9,6 +9,15 @@
   notify:
     - Restart Dock
 
+- name: Automatically hide and show the Dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: autohide
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Dock
+
 # We use dockutil to add and remove icons in the Mac OS X dock.
 - name: Install dockutil
   homebrew:

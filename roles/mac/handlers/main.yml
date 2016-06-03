@@ -9,6 +9,9 @@
 - name: Restart Dock
   command: killall Dock
 
+- name: Restart SystemUIServer
+  command: killall SystemUIServer
+
 - name: Reload QuickLook daemon
   command: qlmanage -r
 

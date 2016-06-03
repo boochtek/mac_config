@@ -3,23 +3,36 @@
 ## NOTE: You may have to log out and back in for these to take effect.
 
 
-# Enable tap to click. (Don't have to press down on the trackpad -- just tap it.)
+# Enable tap-to-click. (Don't have to press down on the trackpad -- just tap it.)
 - name: Enable tap-to-click
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.tapBehavior
+    value: 1
+    type: int
+- name: Enable tap-to-click for Bluetooth trackpad
   osx_defaults:
     domain: "{{ item }}"
     key: Clicking
-    value: "TRUE"
+    value: TRUE
     type: bool
   with_items:
     - com.apple.driver.AppleBluetoothMultitouch.trackpad
     - com.apple.AppleMultitouchTrackpad
+- name: Enable tap-to-click for login screen
+  osx_defaults:
+    host: currentHost
+    domain: NSGlobalDomain
+    key: com.apple.mouse.tapBehavior
+    value: 1
+    type: int
 
 # Enable "tap-and-a-half" to drag.
 - name: Enable "tap-and-a-half" to drag
   osx_defaults:
     domain: "{{ item }}"
     key: Dragging
-    value: "TRUE"
+    value: TRUE
     type: bool
   with_items:
     - com.apple.driver.AppleBluetoothMultitouch.trackpad

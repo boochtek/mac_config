@@ -1,23 +1,46 @@
 ---
 
+- name: Disable transparency in the menu bar
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleEnableMenuBarTransparency
+    value: FALSE
+    type: bool
+  notify:
+    - Restart SystemUIServer
+
 - name: Show battery percentage charged
   osx_defaults:
     domain: com.apple.menuextra.battery
     key: ShowPercent
     value: "YES"
+  notify:
+    - Restart SystemUIServer
 
 # System Preferences > Date & Time > Clock
-# Time options: Display the time with seconds: off
-# Date options: Show the day of the week: off
-# Date options: Show date: on
+# Time options: Digital
 - name: Set date display to digital
   osx_defaults:
     domain: com.apple.menuextra.clock
     key: IsAnalog
-    value: "FALSE"
+    value: FALSE
     type: bool
+  notify:
+    - Restart SystemUIServer
+
+# System Preferences > Date & Time > Clock
+# Time options: Display the time with seconds: off
+# Date options: Show the day of the week: on
+# Date options: Show date: off
 - name: Set date display format
   osx_defaults:
     domain: com.apple.menuextra.clock
     key: DateFormat
     value: "EEE h:mm"
+  notify:
+    - Restart SystemUIServer
+
+- name: Disbale Notification Center
+  command: launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+  notify:
+    - Restart SystemUIServer

@@ -21,3 +21,39 @@
     type: bool
   notify:
     - Restart Finder
+
+- name: Hide external hard drives on the desktop
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: ShowExternalHardDrivesOnDesktop
+    value: FALSE
+    type: bool
+  notify:
+    - Restart Finder
+
+- name: Hide hard drives on the desktop
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: ShowHardDrivesOnDesktop
+    value: FALSE
+    type: bool
+  notify:
+    - Restart Finder
+
+- name: Hide removable media on the desktop
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: ShowRemovableMediaOnDesktop
+    value: FALSE
+    type: bool
+  notify:
+    - Restart Finder
+
+- name: Hide mounted servers on the desktop
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: ShowMountedServersOnDesktop
+    value: FALSE
+    type: bool
+  notify:
+    - Restart Finder

@@ -1,5 +1,12 @@
 ---
 
+## Configure Finder the way we want it.
+## Note that some of these settings also affect File Open and Save dialogs.
+
+## CREDITS:
+##   Many of these settings come from https://github.com/mathiasbynens/dotfiles/blob/master/.osx.
+
+
 - debug:
     msg: Configuring Mac Finder
 
@@ -21,11 +28,66 @@
   notify:
     - Restart Finder
 
+- name: Don't warn about changing a file extension in Finder
+  osx_defaults:
+    domain: com.apple.finder
+    key: FXEnableExtensionChangeWarning
+    value: FALSE
+    type: bool
+  notify:
+    - Restart Finder
+
+# Other view modes: 'icnv', 'clmv', 'Flwv'.
+- name: Use list view in all Finder windows by default
+  osx_defaults:
+    domain: com.apple.finder
+    key: FXPreferredViewStyle
+    value: Nlsv
+    type: string
+  notify:
+    - Restart Finder
+
 - name: When opening a new Finder window, start in the home directory
   osx_defaults:
     domain: com.apple.finder
     key: NewWindowTargetPath
     value: "file://{{ ansible_env.HOME }}"
+  notify:
+    - Restart Finder
+
+- name: Display full path in Finder window titles
+  osx_defaults:
+    domain: com.apple.finder
+    key: _FXShowPosixPathInTitle
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Finder
+
+- name: Show Path Bar in Finder windows
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowPathbar
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Finder
+
+- name: Show Status Bar in Finder windows
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowStatusBar
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Finder
+
+- name: Show Tab Bar in Finder windows
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowTabView
+    value: TRUE
+    type: bool
   notify:
     - Restart Finder
 
@@ -44,6 +106,8 @@
     key: DisableAllAnimations
     value: TRUE
     type: bool
+  notify:
+    - Restart Finder
 
 - name: Disable animations when opening a QuickLook window
   osx_defaults:
@@ -51,3 +115,73 @@
     key: QLPanelAnimationDuration
     value: 0
     type: float
+  notify:
+    - Restart Finder
+
+- name: Warn before emptying the Trash
+  osx_defaults:
+    domain: com.apple.finder
+    key: WarnOnEmptyTrash
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Finder
+
+- name: Empty Trash securely by default
+  osx_defaults:
+    domain: com.apple.finder
+    key: EmptyTrashSecurely
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Finder
+
+- name: Don't hide the ~/Library folder
+  command: chflags nohidden ~/Library
+  notify:
+    - Restart Finder
+
+- name: Enable spring loading effect for directories
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.springing.enabled
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Finder
+
+- name: Spring loading effect should proceed without delay
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.springing.delay
+    value: 0
+    type: float
+  notify:
+    - Restart Finder
+
+- name: Show sidebar in Finder
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowSidebar
+    value: TRUE
+    type: bool
+  notify:
+    - Restart Finder
+
+- name: Set sidebar icons to medium size
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSTableViewDefaultSizeMode
+    value: 2
+    type: int
+  notify:
+    - Restart Finder
+
+- name: Hide tags section in Finder sidebar
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowRecentTags
+    value: FALSE
+    type: bool
+  notify:
+    - Restart Finder

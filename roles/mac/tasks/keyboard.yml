@@ -8,8 +8,17 @@
   osx_defaults:
     domain: NSGlobalDomain
     key: com.apple.keyboard.fnState
-    value: "TRUE"
+    value: TRUE
     type: bool
+
+# Allow tab to move between all controls, not just text boxes and drop-downs.
+# Preferences -> Keybaord -> Shortcuts -> Full Keyboard Access
+- name: Enable full keyboard access for all controls in windows and dialogs
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleKeyboardUIMode
+    value: 3
+    type: int
 
 # TODO: Manually disabled Mission Control and Application windows shortcuts in Keyboard preferences / Shortcuts.
 

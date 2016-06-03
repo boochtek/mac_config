@@ -11,10 +11,19 @@ TODO
 * Have it download and install Config Files
   * Prompt for github user/repo if not installed, and not in git config
 * Yosemite updates
-* Check that everything worked as expected
+* Check that everything works as expected
 * 1Password
 * brew cask install macs-fan-control # (or smcfancontrol)
 * Pull down my SSL CA certificate and trust it
+* Add items to Sidebar Favorites (com.apple.sidebarlists):
+  * Personal
+  * Work
+  * Projects
+  * Utilities
+* Remove items from Sidebar Favorites (com.apple.sidebarlists):
+  * All My Files
+  * iCloud Drive
+  * Airdrop
 
 
 Ansible
