@@ -8,6 +8,8 @@
   tags: hostname
 - include: homebrew.yml
   tags: homebrew
+- include: appstore.yml
+  tags: appstore
 - include: finder.yml
   tags: finder
 - include: trackpad.yml

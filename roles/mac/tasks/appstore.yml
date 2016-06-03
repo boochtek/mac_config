@@ -1,0 +1,15 @@
+---
+
+# Note that MAS is a 3rd-party app, not something supplied by Apple.
+- name: Install Mac App Store command line interface
+  homebrew:
+    name: argon/mas/mas
+
+- name: Determine if we're signed into Mac App Store
+  shell: mas account || true
+  register: mas_account
+  changed_when: False
+
+- name: Sign into Mac App Store
+  shell: "mas signout && mas signin {{ MAS_LOGIN }} {{ MAS_PASSWORD }}"
+  when: mas_account.stdout == "Not signed in"
