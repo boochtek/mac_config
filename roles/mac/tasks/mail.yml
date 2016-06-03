@@ -1,0 +1,18 @@
+---
+
+- name: Default to plain text emails in Mac Mail
+  osx_defaults:
+    domain: com.apple.mail
+    key: PreferPlainText
+    value: TRUE
+    type: bool
+
+- name: Disable animations in Mac Mail
+  osx_defaults:
+    domain: com.apple.mail
+    key: "{{ item }}"
+    value: TRUE
+    type: bool
+  with_items:
+    - DisableReplyAnimations
+    - DisableSendAnimations

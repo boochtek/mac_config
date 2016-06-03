@@ -24,3 +24,5 @@
   tags: bash
 - include: quicklook.yml
   tags: quicklook
+- include: mail.yml
+  tags: mail
