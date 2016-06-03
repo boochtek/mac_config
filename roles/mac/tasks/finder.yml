@@ -12,6 +12,14 @@
   notify:
     - Restart Finder
 
+- name: When opening a new Finder window, start in the home directory
+  osx_defaults:
+    domain: com.apple.finder
+    key: NewWindowTargetPath
+    value: "file://{{ ansible_env.HOME }}"
+  notify:
+    - Restart Finder
+
 - name: Allow quitting Finder
   osx_defaults:
     domain: com.apple.finder
