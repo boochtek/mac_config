@@ -34,6 +34,15 @@
   command: wallpaper "~/Pictures/WDF_683106.jpg"
   changed_when: False
 
+- name: Hide everything on the desktop
+  osx_defaults:
+    domain: com.apple.finder
+    key: CreateDesktop
+    value: FALSE
+    type: bool
+  notify:
+    - Restart Finder
+
 - name: Disable animations in Finder
   osx_defaults:
     domain: com.apple.finder
