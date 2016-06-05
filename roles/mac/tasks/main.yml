@@ -36,3 +36,5 @@
   tags: quicklook
 - include: mail.yml
   tags: mail
+- include: fonts.yml
+  tags: fonts
