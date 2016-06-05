@@ -33,7 +33,7 @@
   homebrew:
     name: htop-osx
 - name: Set 'htop_binary' to path of 'htop' binary
-  shell: ls -ltr1 /usr/local/Cellar/htop-osx/*/bin/htop | tail
+  shell: ls -ltr1 {{ homebrew_dir }}/Cellar/htop-osx/*/bin/htop | tail
   register: htop_binary
   changed_when: false
 - name: Set htop setuid root

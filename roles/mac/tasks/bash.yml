@@ -8,7 +8,7 @@
 - name: Allow Homebrew version of Bash to be used as login shell
   lineinfile:
     dest: /etc/shells
-    line: /usr/local/bin/bash
+    line: "{{ homebrew_dir }}/bin/bash"
   become: true
 
 - name: Set 'current_shell' to path of current shell
@@ -17,9 +17,9 @@
   changed_when: false
 
 - name: Use Homebrew version of Bash as login shell
-  command: "chsh -s /usr/local/bin/bash {{ ansible_user }}"
+  command: "chsh -s {{ homebrew_dir }}/bin/bash {{ ansible_user }}"
   become: yes
-  when: "current_shell.stdout != '/usr/local/bin/bash'"
+  when: "current_shell.stdout != '{{ homebrew_dir }}/bin/bash'"
 
 - name: Install Bash command-line completion
   homebrew:

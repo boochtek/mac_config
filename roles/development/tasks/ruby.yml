@@ -7,14 +7,14 @@
 - name: Ensure chruby is available in Bash
   lineinfile:
     dest: ~/.bash_profile
-    line: source /usr/local/share/chruby/chruby.sh
-    regexp: '\s*source /usr/local/share/chruby/chruby.sh'
+    line: source {{ homebrew_dir }}/share/chruby/chruby.sh
+    regexp: '\s*source {{ homebrew_dir }}/share/chruby/chruby.sh'
 
 - name: Enable chruby to automatically use `.ruby-version` when changing directories in Bash
   lineinfile:
     dest: ~/.bash_profile
-    line: source /usr/local/share/chruby/auto.sh
-    regexp: '\s*source /usr/local/share/chruby/auto.sh'
+    line: source {{ homebrew_dir }}/share/chruby/auto.sh
+    regexp: '\s*source {{ homebrew_dir }}/share/chruby/auto.sh'
 
 - name: Install ruby-install
   homebrew:

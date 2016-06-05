@@ -1,0 +1,47 @@
+---
+
+## Install Homebrew itself, if it's not already installed.
+## Non-interactive, based on [https://github.com/Homebrew/homebrew/blob/go/install].
+
+- name: Determine if Homebrew is already installed
+  command: brew help
+  register: brew_command
+  ignore_errors: TRUE
+  changed_when: FALSE
+
+- name: Ensure the Homebrew install directory exists and has proper ownership and permissions
+  file:
+    path: "{{ homebrew_dir }}"
+    state: directory
+    group: admin
+    mode: 0755
+  become: TRUE
+  when: brew_command.rc != 0
+
+- name: Ensure the Homebrew cache directory exists and has proper permissions
+  file:
+    path: /Library/Caches/Homebrew
+    mode: 0755
+  when: brew_command.rc != 0
+
+- name: Download the latest version of Homebrew using git
+  git:
+    dest: "{{ homebrew_dir }}"
+    repo: https://github.com/Homebrew/homebrew.git
+    version: master
+    accept_hostkey: yes
+    update: no
+    depth: 1
+  when: brew_command.rc != 0
+
+- debug:
+    msg: It's recommended that you run `brew doctor` to find any issues with your Homebrew installation
+  when: brew_command.rc != 0
+
+- name: Install Homebrew Cask
+  homebrew_tap:
+    tap: caskroom/cask
+
+- debug:
+    msg: It's recommended that you run `brew cask doctor` to find any issues with your Homebrew Cask installation
+  when: brew_command.rc != 0
