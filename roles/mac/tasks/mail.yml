@@ -16,3 +16,13 @@
   with_items:
     - DisableReplyAnimations
     - DisableSendAnimations
+
+- name: Install Thunderbird
+  homebrew_cask:
+    name: thunderbird
+
+- include: add_to_dock.yml
+  vars:
+    name: Thunderbird
+    path: /Applications/Thunderbird.app
+    after: Calendar
