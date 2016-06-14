@@ -1,4 +1,0 @@
----
-
-homebrew_dir: /usr/local
-bash_completion_dir: "{{ homebrew_dir }}/etc/bash_completion.d"

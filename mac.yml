@@ -10,20 +10,29 @@
     - name: MAS_PASSWORD
       prompt: "Mac App Store password"
       private: True
+  vars_files:
+    - mac_vars.yml
 
 
 - hosts: dev
   roles:
     - role: development
       tags: development
+  vars_files:
+    - mac_vars.yml
 
 
 - hosts: mercy
   roles:
     - role: mercy
       tags: mercy
+  vars_files:
+    - mac_vars.yml
+
 
 - hosts: centurylink
   roles:
     - role: centurylink
       tags: centurylink
+  vars_files:
+    - mac_vars.yml
