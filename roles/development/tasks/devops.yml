@@ -8,6 +8,17 @@
   homebrew_cask:
     name: vagrant
 
+- name: Determine Vagrant version
+  shell: vagrant --version | cut -d ' ' -f 2
+  register: vagrant_version
+  changed_when: FALSE
+
+- name: Enable Bash completion for Vagrant
+  file:
+    dest: "{{ bash_completion_dir }}/vagrant_bash_completion.sh"
+    src: /opt/vagrant/embedded/gems/gems/vagrant-{{ vagrant_version.stdout }}/contrib/bash/completion.sh
+    state: link
+
 - name: Install VirtualBox
   homebrew_cask:
     name: virtualbox
@@ -18,4 +29,4 @@
 
 - name: Install Terraform Inventory
   homebrew:
-    name: https://raw.github.com/adammck/terraform-inventory/master/homebrew/terraform-inventory.rb
+    name: https://raw.github.com/adammck/terraform-inventory/master/HomebrewFormula/terraform-inventory.rb
