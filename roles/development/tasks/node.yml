@@ -13,3 +13,22 @@
   npm:
     name: bower
     global: TRUE
+
+- name: Install ESLint
+  npm:
+    name: "{{ item }}"
+    global: TRUE
+  with_items:
+    - eslint
+    - eslint-plugin-react
+    - eslint-plugin-jsx
+
+- name: Install JSCS
+  npm:
+    name: jscs
+    global: TRUE
+
+- name: Install JSHint
+  npm:
+    name: jshint
+    global: TRUE
