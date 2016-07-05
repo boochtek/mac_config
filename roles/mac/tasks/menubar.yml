@@ -40,7 +40,14 @@
   notify:
     - Restart SystemUIServer
 
-- name: Disbale Notification Center
+- name: Determine whether Notification Center UI is running
+  shell: launchctl list | grep 'com\.apple\.notificationcenterui\.agent'
+  register: notification_center_ui
+  ignore_errors: TRUE
+  changed_when: FALSE
+
+- name: Disable Notification Center UI
   command: launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
   notify:
     - Restart SystemUIServer
+  when: notification_center_ui.rc == 0
