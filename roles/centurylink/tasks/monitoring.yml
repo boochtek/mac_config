@@ -65,3 +65,8 @@
 - name: Install Tunnelblick
   homebrew_cask:
     name: tunnelblick
+
+- name: Install Microsoft Remote Desktop
+  shell: mas install $(mas search 'Microsoft Remote Desktop' | grep ' Microsoft Remote Desktop$' | cut -f1 -d' ')
+  args:
+    creates: /Applications/Microsoft Remote Desktop.app
