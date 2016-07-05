@@ -19,5 +19,7 @@
   tags: node
 - include: elm.yml
   tags: elm
+- include: racket.yml
+  tags: racket
 - include: devops.yml
   tags: devops

@@ -1,0 +1,17 @@
+---
+
+# Racket is the successor of PLT Scheme.
+# NOTE: This installs only the `racket` and `raco` executables; no DrRacket IDE.
+- name: Install Racket
+  homebrew:
+    name: racket
+
+- name: Install extended Racket REPL, with Readline support
+  command: raco pkg install --auto xrepl
+  args:
+    creates: "/usr/local/Cellar/racket/*/share/doc/racket/xrepl"
+
+- name: Use extended Racket REPL
+  lineinfile:
+    dest: ~/.racketrc
+    line: "(require xrepl)"
