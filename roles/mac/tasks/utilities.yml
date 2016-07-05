@@ -120,6 +120,11 @@
   homebrew:
     name: httpie
 
+# Sipcalc is a tool that calculates IP subnets.
+- name: Install Sipcalc
+  homebrew:
+    name: sipcalc
+
 # Ngrep is like a combination of tcpdump and grep.
 - name: Install Ngrep
   homebrew:
