@@ -115,6 +115,11 @@
   homebrew:
     name: tcpflow
 
+# HTTPie is a tool like cURL, but easier to use and more human-friendly.
+- name: Install HTTPie
+  homebrew:
+    name: httpie
+
 # Ngrep is like a combination of tcpdump and grep.
 - name: Install Ngrep
   homebrew:
