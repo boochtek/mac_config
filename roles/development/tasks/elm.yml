@@ -4,10 +4,16 @@
   homebrew:
     name: elm
 
-# - name: Install Elm formatter
-#   homebrew:
-#     name: homebrew/devel-only/elm-format
-#     install_options: --devel
+- name: Install Elm formatter
+  homebrew:
+    name: homebrew/devel-only/elm-format
+    install_options: --devel
+
+- name: Link to current Elm formatter
+  file:
+    dest: /usr/local/bin/elm-format
+    src: "{{ homebrew_dir }}/bin/elm-format-0.17"
+    state: link
 
 # - name: Install Elm oracle to query info about values in source code
 #   npm:
