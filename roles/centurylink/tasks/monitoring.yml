@@ -55,11 +55,11 @@
     regexp: '.* {{ item.hostname }}$'
     line: "{{ item.ip_address }}  {{ item.hostname }}"
   with_items:
-    - { hostname: watcher1.local, ip_address: 192.168.99.91 }
-    - { hostname: watcher2.local, ip_address: 192.168.99.92 }
-    - { hostname: watcher3.local, ip_address: 192.168.99.93 }
-    - { hostname: watcher4.local, ip_address: 192.168.99.94 }
-    - { hostname: watcher5.local, ip_address: 192.168.99.95 }
+    - { hostname: watcher1, ip_address: 192.168.99.91 }
+    - { hostname: watcher2, ip_address: 192.168.99.92 }
+    - { hostname: watcher3, ip_address: 192.168.99.93 }
+    - { hostname: watcher4, ip_address: 192.168.99.94 }
+    - { hostname: watcher5, ip_address: 192.168.99.95 }
   become: true
 
 - name: Install Tunnelblick
