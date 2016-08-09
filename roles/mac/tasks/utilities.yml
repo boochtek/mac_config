@@ -16,6 +16,11 @@
   homebrew:
     name: the_silver_searcher
 
+# Sometimes we get DOS-style text files and want to strip out carriage returns.
+- name: Install DOS2UNIX tool
+  homebrew:
+    name: dos2unix
+
 # WGet is similar to Curl, but has some different options.
 - name: Install WGet
   homebrew:
