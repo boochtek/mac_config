@@ -120,6 +120,11 @@
   homebrew:
     name: httpie
 
+# JQ is a tool for manipluation (usually filtering/querying) JSON.
+- name: Install JQ
+  homebrew:
+    name: jq
+
 # Sipcalc is a tool that calculates IP subnets.
 - name: Install Sipcalc
   homebrew:
