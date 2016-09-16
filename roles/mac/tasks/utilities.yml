@@ -187,11 +187,11 @@
   homebrew:
     name: "{{ item }}"
   with_items:
-    - coreutils
-    - findutils
+    - coreutils # NOTE: Have to call these with `g` prefix.
+    - findutils # NOTE: Have to call these with `g` prefix.
     - homebrew/dupes/diffutils
     - homebrew/dupes/nano
-    - homebrew/dupes/grep
+    - homebrew/dupes/grep # NOTE: Have to call these with `g` prefix.
     - homebrew/dupes/less
     - colordiff
 
