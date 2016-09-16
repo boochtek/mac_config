@@ -194,6 +194,15 @@
     - homebrew/dupes/grep # NOTE: Have to call these with `g` prefix.
     - homebrew/dupes/less
     - colordiff
+    - homebrew/dupes/unzip
+
+# We have to use a command here, as the `homebrew` Ansible module doesn't support forced linking.
+- name: Force use of newer version of some tools
+  command: "brew link --force {{ item }}"
+  with_items:
+    - homebrew/dupes/unzip
+  notify:
+    - Rehash
 
 # This is a nice tool for creating PDFs from HTML
 - name: Install wkhtmltopdf

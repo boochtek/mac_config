@@ -17,3 +17,7 @@
 
 - name: Restart Launch Services
   command: /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user
+
+# This is required for Bash to find newly added commands.
+- name: Rehash
+  command: hash -r
