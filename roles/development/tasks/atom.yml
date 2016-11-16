@@ -111,8 +111,7 @@
   args:
     creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
   with_items:
-    - linter-jshint
-    - linter-jscs
+    - linter-eslint
     - language-javascript-jsx
     - language-javascript-semantic
     - javascript-snippets
