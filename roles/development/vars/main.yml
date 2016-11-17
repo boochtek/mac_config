@@ -6,11 +6,11 @@ rubies_dir: ~/.rubies
 # Note that SHA1 signatures are for BZ2 files; get them from the ruby-lang.org release announcements.
 ruby_versions:
   - engine: ruby
-    version: 2.3.1
-    sha1: 4ee76c7c1b12d5c5b0245fc71595c5635d2217c9
+    version: 2.3.2
+    sha1: 7adc23d308d335486a03f0099dad2b2f44b8a4a8
   - engine: ruby
-    version: 2.2.5
-    sha1: f78473fe60a632b778599374ae64612592c2c9c1
+    version: 2.2.6
+    sha1: 67b15fcc394bb1ffb5a7e926dcd6222d8e988188
   - engine: ruby
     version: 2.1.10
     sha1: 22dcd759d8cbb14c8735988fbc7ee5c35f9d4720
