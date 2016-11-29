@@ -67,6 +67,7 @@
   args:
     creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
   with_items:
+    - atomatigit
     - git-log
     - git-blame
     - git-plus # I really don't use this one much, but figured it might be useful.
