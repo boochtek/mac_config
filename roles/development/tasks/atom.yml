@@ -74,6 +74,14 @@
     - tree-view-git-status
     - merge-conflicts
 
+- name: Install Atom plugins for jumping to definitions
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - goto-definition
+    - hyperclick # Used by Elmjutsu.
+
 - name: Install Atom plugins for HTML, CSS, and XML
   command: "apm install {{ item }}"
   args:
