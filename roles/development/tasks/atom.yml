@@ -135,6 +135,7 @@
   with_items:
     - language-elm
     - linter-elm-make
+    - elmjutsu
 
 - name: Install Atom plugins for Java
   command: "apm install {{ item }}"
