@@ -48,6 +48,7 @@
     - seti-icons
     - atom-pair
     - tag
+    - platformio-atom-ide-terminal
 
 - name: Install Atom plugins for minimap
   command: "apm install {{ item }}"
