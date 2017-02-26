@@ -11,6 +11,11 @@
   homebrew:
     name: ack
 
+# Ripgrep is another Ack knock-off, focused on correctness and speed. It's written in Rust.
+- name: Install Ripgrep (rg)
+  homebrew:
+    name: ripgrep
+
 # The Silver Searcher (ag) is similar to Ack, newer and possibly better, but I still prefer Ack.
 - name: Install the Silver Searcher (ag)
   homebrew:
