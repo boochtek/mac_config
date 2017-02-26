@@ -21,6 +21,11 @@
   homebrew:
     name: the_silver_searcher
 
+# Diff-so-fancy makes colorized `diff` output look *really* nice. See https://github.com/so-fancy/diff-so-fancy.
+- name: Install diff-so-fancy
+  homebrew:
+    name: diff-so-fancy
+
 # Sometimes we get DOS-style text files and want to strip out carriage returns.
 - name: Install DOS2UNIX tool
   homebrew:
