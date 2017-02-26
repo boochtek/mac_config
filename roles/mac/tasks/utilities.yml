@@ -209,6 +209,11 @@
   notify:
     - Rehash
 
+# Proselint is a tool to help catch common issues in English writing. See http://proselint.com/.
+- name: Install Proselint
+  homebrew:
+    name: proselint
+
 # This is a nice tool for creating PDFs from HTML
 - name: Install wkhtmltopdf
   homebrew_cask:
