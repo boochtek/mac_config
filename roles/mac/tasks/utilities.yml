@@ -218,3 +218,10 @@
 - name: Install wkhtmltopdf
   homebrew_cask:
     name: wkhtmltopdf
+
+- name: Install Bash completion for some macOS system tools
+  homebrew:
+    name: "{{ item }}"
+  with_items:
+    - open-completion
+    - launchctl-completion

@@ -178,3 +178,7 @@
     creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
   with_items:
     - language-racket
+
+- name: Install Bash completion for APM (Atom Package Manager)
+  homebrew:
+    name: apm-bash-completion

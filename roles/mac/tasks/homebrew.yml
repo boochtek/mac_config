@@ -26,6 +26,10 @@
     src: "{{ homebrew_dir }}/etc/bash_completion.d/brew_bash_completion.sh.default"
     state: link
 
+- name: Install Bash completion for Homebrew Cask
+  homebrew:
+    name: brew-cask-completion
+
 - name: Add Homebrew taps to allow installation of various fonts
   homebrew_tap:
     tap: "{{ item }}"
