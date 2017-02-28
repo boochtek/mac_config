@@ -6,8 +6,29 @@ TODO
     * sudo defaults write /Library/Preferences/com.apple.dt.Xcode IDELastGMLicenseAgreedTo $xcode_version
     * Hat tip to https://macops.ca/deploying-xcode-the-trick-with-accepting-license-agreements
 * Make Ctrl+Shift+Down not have a special meaning in OS X, so we can use it in Atom.
+    * com.apple.symbolichotkeys / AppleSymbolicHotKeys / 35 / enabled = 0
+    * See http://krypted.com/mac-os-x/defaults-symbolichotkeys/
+    * Both 33 and 35 got disabled
+        * 33 is listed as Application Windows
+            * It's got only Control applied
+        * 35 is not listed, and I only changed 1 thing
+            * It's got Control and Shift applied to the same keycode (125)
+    * Better yet, remap it to the same thing with Alt (and maybe Command) added
 * Move Mac App Store stuff to its own file; include it for Markoff.
 * Fix keyboard setup
+* iTunes settings
+    * Don't auto-start every time iPad is plugged in
+        * Same with Photos app
+    * Don't copy MP3s from their source location into iTunes
+        * Preferences / Advanced / UNCHECK Copy files to iTunes Media folder when adding to library
+    * Set MP3 ripping settings (double-check that these are what I've been using)
+        * Preferences / General / Import Settings
+            * Import Using: MP3 Encoder
+            * Settings: Custom
+                * Stereo Bit Rate: 192 kbps
+                * CHECK Use Variable Bit Rate Encoding (VBR)
+                * Quality: Highest
+            * CHECK Use error correction when reading audio CDs
 * Remove dock items
 * Have it download and install Config Files
     * Prompt for github user/repo if not installed, and not in git config
@@ -121,7 +142,7 @@ These may be in Karabiner, or maybe just Mac key bindings.
 Sublime Text
 ------------
 
-* Consider not installing/configuring it an more
+* Consider not installing/configuring it any more
 * Add more plugins
     * AdvancedNewFile with show_files enabled.
 * Here's some stuff from a while back:
