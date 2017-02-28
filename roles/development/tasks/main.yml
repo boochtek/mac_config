@@ -11,6 +11,8 @@
 
 - include: atom.yml
   tags: atom
+- include: web.yml
+  tags: web
 - include: postgresql.yml
   tags: [postgresql, postgres]
 - include: ruby.yml
