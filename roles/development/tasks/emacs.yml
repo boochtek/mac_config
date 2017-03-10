@@ -1,0 +1,35 @@
+---
+
+# Install Emacs from Homebrew, but compile in a bunch of stuff, including GUI.
+# This is basically the same as emacs-plus (from the Spacemacs author) but without the Spacemacs icon.
+# There's also a `caskroom/cask/emacs` package, but it doesn't seem to have the command-line emacs.
+- name: Install Emacs
+  homebrew:
+    name: name
+    install_options: "with-cocoa,with-imagemagick@6,with-gnutls,with-librsvg,with-modules"
+
+- name: Install Emacs for Mac application
+  copy:
+    src: /usr/local/Cellar/emacs/25.1/Emacs.app
+    dest: /Applications/Emacs.app
+    remote_src: TRUE
+
+- name: Check to see if Emacs icon is already in the Dock
+  command: dockutil --find "Emacs"
+  register: emacs_dock_icon
+  changed_when: false
+
+- name: Add an icon for Emacs to the Dock
+  command: dockutil --add  '/Applications/Emacs.app' --replacing 'Emacs'
+  when: "'was not found' in emacs_dock_icon.stdout"
+
+# Install Spacemacs into /usr/local, so we can maintain it separately from our Emacs config.
+# To enable it, add these 2 lines to your `~/.emacs.d/init.el`:
+# ~~~
+#    (setq spacemacs-start-directory "/usr/local/share/spacemacs/")
+#    (load-file (concat spacemacs-start-directory "init.el"))
+# ~~~
+- name: Install Spacemacs
+  git:
+    dest: /usr/local/share/spacemacs
+    repo: https://github.com/syl20bnr/spacemacs.git

@@ -11,6 +11,8 @@
 
 - include: atom.yml
   tags: atom
+- include: emacs.yml
+  tags: emacs
 - include: web.yml
   tags: web
 - include: postgresql.yml
