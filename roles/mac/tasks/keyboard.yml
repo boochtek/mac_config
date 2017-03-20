@@ -12,13 +12,25 @@
     type: bool
 
 # Allow tab to move between all controls, not just text boxes and drop-downs.
-# Preferences -> Keybaord -> Shortcuts -> Full Keyboard Access
+# Preferences -> Keyboard -> Shortcuts -> Full Keyboard Access
 - name: Enable full keyboard access for all controls in windows and dialogs
   osx_defaults:
     domain: NSGlobalDomain
     key: AppleKeyboardUIMode
     value: 3
     type: int
+
+# Turn off smart quotes and dashes.
+# Preferences -> Keyboard -> Text -> UNCHECK Use smart quotes and dashes
+- name: Disable smart quotes and dashes
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: "{{ item }}"
+    value: FALSE
+    type: bool
+  with_items:
+    - NSAutomaticQuoteSubstitutionEnabled
+    - NSAutomaticDashSubstitutionEnabled
 
 # TODO: Manually disabled Mission Control and Application windows shortcuts in Keyboard preferences / Shortcuts.
 
