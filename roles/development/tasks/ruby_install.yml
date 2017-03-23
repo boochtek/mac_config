@@ -8,6 +8,6 @@
 
 # NOTE: It will take several minutes to compile each version of Ruby.
 - name: Install {{ engine }} {{ version }}
-  command: "ruby-install -r {{ rubies_dir }} {{ engine }} {{ version }} --sha1 {{ sha1 }}"
+  command: "ruby-install -r {{ rubies_dir }} {{ engine }} {{ version }} --sha256 {{ sha256 }}"
   args:
     creates: "{{ rubies_dir }}/{{ engine }}-{{ version }}"

@@ -26,7 +26,7 @@
   vars:
     engine: "{{ item.engine }}"
     version: "{{ item.version }}"
-    sha1: "{{ item.sha1 }}"
+    sha256: "{{ item.sha256 }}"
   with_items: "{{ ruby_versions }}"
 
 - name: Install common Ruby gems for all versions of Ruby
