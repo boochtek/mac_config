@@ -33,6 +33,8 @@
     - NSAutomaticDashSubstitutionEnabled
 
 # TODO: Manually disabled Mission Control and Application windows shortcuts in Keyboard preferences / Shortcuts.
+# This is to allow Ctrl+Up and Ctrl+Down to be used in Atom to multi-select multiple lines.
+# These are nested in com.apple.symbolichotkeys: AppleSymbolicHotKeys / {32,33,34,35} / enabled = FALSE
 
 # TODO: This isn't working on my mid-2015 MacBook Pro; had to manually change it in Keyboard preferences.
 # TODO: Make this idempotent.
