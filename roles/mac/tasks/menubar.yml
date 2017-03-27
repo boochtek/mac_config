@@ -51,3 +51,28 @@
   notify:
     - Restart SystemUIServer
   when: notification_center_ui.rc == 0
+
+# This adds the icon to the menu bar to select your language and keyboard layout
+# System Preferences > Keyboard > Input Sources > Show Input menu in menu bar
+# TODO: Need to test this.
+# - name: Show Input selector icon in menu bar
+#   osx_defaults:
+#     domain: com.apple.systemuiserver
+#     key: menuExtras
+#     value: "/System/Library/CoreServices/Menu Extras/TextInput.menu"
+#     type: string
+#     array_add: TRUE
+
+# This adds the icon to the menu bar to select input from the on-screen keyboard or the symbol/emoji pallette
+# System Preferences > Keyboard > Keyboard > Show Keyboard, Emoji, & Symbol Viewers in menu bar
+# TODO: Need to wait for `dict_add` (or add it myself).
+# - name: Show Symbol and Emoji viewers in Input selector icon in menu bar
+#   osx_defaults:
+#     domain: com.apple.HIToolbox
+#     key: AppleEnabledInputSources
+#     value: "{{ item }}"
+#     type: dict
+#     dict_add: TRUE
+#   with_items:
+#     - { "Bundle ID": "com.apple.CharacterPaletteIM", InputSourceKind: "Non Keyboard Input Method" }
+#     - { "Bundle ID": "com.apple.KeyboardViewer", InputSourceKind: "Non Keyboard Input Method" }
