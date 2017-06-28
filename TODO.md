@@ -1,6 +1,7 @@
 TODO
 ====
 
+* Update to latest Ruby versions
 * Automate accepting the license of the latest version of XCode
     * xcode_version=$(defaults read /Applications/Xcode.app/Contents/Resources/LicenseInfo licenseID)
     * sudo defaults write /Library/Preferences/com.apple.dt.Xcode IDELastGMLicenseAgreedTo $xcode_version
@@ -30,12 +31,31 @@ TODO
                 * Quality: Highest
             * CHECK Use error correction when reading audio CDs
 * Remove dock items
+* Move Mac App Store stuff to its own file; include it for Markoff.
 * Have it download and install Config Files
     * Prompt for github user/repo if not installed, and not in git config
-* MacOS Sierra updates
-* Check that everything works as expected
-* 1Password
 * brew cask install macs-fan-control # (or smcfancontrol)
+    * I've been pretty happy with smcFanControl 2.6
+* MacOS Sierra updates
+* MacOS High Sierra updates
+* Check that everything works as expected
+    * Wipe system and reinstall to test everything fully
+        * Be sure to get a good backup first
+* Install and configure 1Password
+    * Perhaps in a `security.yml` file?
+* Install and configure browsers
+    * Safari (configuration only, obviously)
+    * Google Chrome
+    * Firefox
+    * Chromium
+    * The one that's specifically made for development
+* Other email clients
+    * Airmail
+    * Postbox
+    * MailMate
+    * Spark
+* Install and configure Slack
+* Install Sublime Text?
 * Pull down my SSL CA certificate and trust it
 * Add items to Sidebar Favorites (com.apple.sidebarlists):
     * Personal
@@ -46,18 +66,54 @@ TODO
     * All My Files
     * iCloud Drive
     * Airdrop
-* Keyboard config.
-    * Double-tap caps-lock for caps-lock.
-    * Hold caps-lock for Ctrl.
-    * Tap caps-lock for Esc.
-    * Hold Esc for Hyper.
-    * Hold Tab for Super.
-    * Make Ctrl+Tab work right in Terminal.
+
+
+Bug Reports
+-----------
+
+* Control+F8 doesn't work correctly with 1Password (6.7)
+    * Should focus on the status menu
+    * System Preferences / Keyboard / Shortcuts / Keyboard
+* Control+F8 doesn't work correctly with Magnet (2.1.0)
+    * Should focus on the status menu
+    * System Preferences / Keyboard / Shortcuts / Keyboard
+
+
+Keyboard Mappings
+-----------------
+
+* System Preferences -> Keyboard -> Shortcuts
+    * DISABLE Mission Control / Mission Control
+        * The Ctrl+Up conflicts with Atom/Sublime block selection mode
+    * DISABLE Mission Control / Application Windows
+        * The Ctrl+Down conflicts with Atom/Sublime block selection mode
+    * DISABLE Mission Control / Move left a space
+    * DISABLE Mission Control / Move right a space
+    * DISABLE Mission Control / Show Desktop
+        * F11 should be a regular function key
+        * I don't keep anything on my desktop
+    * DISABLE Mission Control / Show Dashboard
+        * F12 should be a regular function key
+    * CHANGE Mission Control / Switch to Desktop 1
+        * Command+1
+    * CHANGE Mission Control / Switch to Desktop 2
+        * Command+2
+    * ADD App Shortcuts / Finder.app / Rename: F2
+    * ADD App Shortcuts / Thunderbird.app / Send Now: Command+Enter
+    * ADD App Shortcuts / Thunderbird.app / Send: Command+Enter
+* Set some global app key-bindings (can also set them per app) (preferences calls tab \U21E5, but it should probably be \U0011):
+    ~~~ shell
+    defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Select Next Tab"      '^\U21E5'
+    defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Select Previous Tab"  '^~\U21E5'
+    defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Next Tab"             '^\U21E5'
+    defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Previous Tab"         '^~\U21E5'
+    ~~~
 
 
 Ansible
 -------
 
+* Use 4-space indentation
 * Finish moving stuff over from shell scripts to Ansible
     * Terminal key-bindings is a big one
 * Steal Ansible tasks from other sources:
@@ -124,25 +180,10 @@ User-Specific
 - Pull config_files.PRIVATE from wherever it belongs.
 
 
-Keyboard Mappings
------------------
-
-These may be in Karabiner, or maybe just Mac key bindings.
-
-- Map Command+Shift+, to open System Preferences.
-  - Because Command+, is the standard keystroke to open Preferences in applications.
-  - open "/Applications/System Preferences.app"
-- Make Ctrl+Tab, Ctrl+PageDown cycle through tabs.
-  - Probably Command+Right (or Option or Ctrl) too.
-  - And corresponding key binding for reverse cycling.
-- Make Ctrl+Enter, Command+Enter send email (in Mail, Thunderbird, and all other email programs).
-- Do magic to make Finder opening and renaming more sane.
-
-
 Sublime Text
 ------------
 
-* Consider not installing/configuring it any more
+* Consider NOT installing/configuring it any more
 * Add more plugins
     * AdvancedNewFile with show_files enabled.
 * Here's some stuff from a while back:
