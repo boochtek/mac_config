@@ -22,3 +22,18 @@
 - name: Install dockutil
   homebrew:
     name: dockutil
+
+- name: Remove rarely-used Dock items
+  command: dockutil --remove '{{ item }}'
+  with_items:
+    - Siri
+    - Launchpad
+    - Contacts
+    - Notes
+    - Reminders
+    - Maps
+    - Messages
+    - FaceTime
+    - iBooks
+  notify:
+    - Restart Dock
