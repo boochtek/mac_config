@@ -16,3 +16,5 @@
 - name: Add {{ name }} icon to the Dock
   command: dockutil --add '{{ path }}' --label '{{ name }}' --replacing '{{ name }}' --after '{{ after }}'
   when: dock_icon.rc != 0
+  notify:
+    - Restart Dock

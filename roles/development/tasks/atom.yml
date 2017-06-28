@@ -4,14 +4,12 @@
   homebrew_cask:
     name: atom
 
-- name: Check to see if Atom editor icon is already in the Dock
-  command: dockutil --find "Atom"
-  register: atom_dock_icon
-  changed_when: false
-
-- name: Add an icon for Atom editor to the Dock
-  command: dockutil --add  '~/Applications/Atom.app' --replacing 'Atom'
-  when: "'was not found' in atom_dock_icon.stdout"
+- name: Add Atom icon to Dock
+  include: add_to_dock.yml
+  vars:
+    name: Atom
+    path: /Applications/Atom.app
+    after: Terminal
 
 - name: Install Atom plugins to modify UI
   command: "apm install {{ item }}"

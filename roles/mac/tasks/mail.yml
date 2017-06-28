@@ -21,7 +21,8 @@
   homebrew_cask:
     name: thunderbird
 
-- include: add_to_dock.yml
+- name: Add Thunderbird icon to Dock
+  include: add_to_dock.yml
   vars:
     name: Thunderbird
     path: /Applications/Thunderbird.app

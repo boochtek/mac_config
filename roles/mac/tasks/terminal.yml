@@ -17,3 +17,10 @@
   with_items:
     - "Default Window Settings"
     - "Startup Window Settings"
+
+- name: Add Terminal icon to Dock
+  include: add_to_dock.yml
+  vars:
+    name: Terminal
+    path: /Applications/Terminal.app
+    after: Finder
