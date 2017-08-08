@@ -18,6 +18,7 @@
 # The groups correspond to roles (subdirectories in the `roles` directory).
 HOST_MAPPINGS="
 C02JG2RXDKQ4  hope      mac workstation dev
+C02TH22UGTDY  FLD-ML-00021621       mac workstation dev f5
 "
 
 

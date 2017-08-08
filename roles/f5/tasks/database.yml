@@ -1,0 +1,13 @@
+---
+
+- name: Install PostgreSQL
+  homebrew:
+      name: postgresql
+  notify:
+      - Start PostgreSQL
+
+- name: Install Redis
+  homebrew:
+      name: redis
+  notify:
+      - Start Redis

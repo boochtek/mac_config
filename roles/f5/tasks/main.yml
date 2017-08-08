@@ -1,0 +1,13 @@
+---
+
+- debug:
+    msg: Configuring for F5 software development
+
+- include: atlassian.yml
+  tags: atlassian, hipchat
+
+- include: video.yml
+  tags: video, zoom
+
+- include: database.yml
+  tags: database, db

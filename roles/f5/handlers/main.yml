@@ -1,0 +1,7 @@
+---
+
+- name: Start PostgreSQL
+  command: brew services start postgresql
+
+- name: Start Redis
+  command: brew services start redis

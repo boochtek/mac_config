@@ -36,3 +36,11 @@
       tags: centurylink
   vars_files:
     - mac_vars.yml
+
+
+- hosts: f5
+  roles:
+    - role: f5
+      tags: f5
+  vars_files:
+    - mac_vars.yml
