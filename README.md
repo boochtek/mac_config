@@ -19,7 +19,10 @@ First, clone the repository:
 ~~~ shell
 git clone https://github.com/boochtek/mac_config.git
 cd mac_config
+git checkout ansible
 ~~~
+
+Next, edit `inventory_for_mac_serial_number.sh` to add your computer to the list.
 
 Then run the playbook:
 
@@ -28,7 +31,8 @@ ansible-playbook -K mac.yml
 ~~~
 
 You'll be prompted for your password, as well as your Mac App Store ID and password.
-You can just hit enter on the Mac App store prompts, if you won't be installing anything from the Mac App Store. Currently, we're only installing Markoff, a Markdown reader.
+You can just hit `Enter` on the Mac App store prompts, if you won't be installing anything from the Mac App Store.
+Currently, we're only installing Markoff, a Markdown reader.
 
 Most roles and included tasks have tags, so you can run a subset of tasks.
 This can be helpful when writing and testing a new task.
