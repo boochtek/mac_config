@@ -1,19 +1,39 @@
 ---
 
-- name: Ensure Homebrew is installed
-  include: install_homebrew.yml
+- name: Ensure that /usr/local exists and has proper permissions
+  file:
+    path: /usr/local
+    state: directory
+    group: admin
+    mode: 0775
+  become: TRUE
+
+- name: Ensure the Homebrew cache directory exists and has proper permissions
+  file:
+    path: /Library/Caches/Homebrew
+    state: directory
+    group: admin
+    mode: 0775
+  become: TRUE
+
+- name: Install Homebrew
+  shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  args:
+    creates: /usr/local/bin/brew
 
 - name: Update Homebrew to get latest packages and package updates
   homebrew:
     update_homebrew: yes
 
-# Allow installation of Sublime Text 3, Java 6, older versions of GCC, etc.
+- name: Add tap for Homebrew Cask to allow installation of GUI apps 
+  homebrew_tap:
+    tap: caskroom/cask
+
 - name: Add Homebrew taps to allow installation of non-standard versions of packages
   homebrew_tap:
-    tap: "{{ item }}"
-  with_items:
-    - homebrew/versions
-    - caskroom/versions
+    tap:
+      - homebrew/versions
+      - caskroom/versions
 
 - name: Ensure Bash completion directory exists
   file:
@@ -23,7 +43,7 @@
 - name: Enable Bash completion for Homebrew commands
   file:
     dest: "{{ bash_completion_dir }}/brew_bash_completion.sh"
-    src: "{{ homebrew_dir }}/etc/bash_completion.d/brew_bash_completion.sh.default"
+    src: /usr/local/Homebrew/completions/bash/brew
     state: link
 
 - name: Install Bash completion for Homebrew Cask
