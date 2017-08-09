@@ -46,7 +46,7 @@
     - seti-icons
     - atom-pair
     - tag
-    - platformio-atom-ide-terminal
+    - platformio-ide-terminal
 
 - name: Install Atom plugins for minimap
   command: "apm install {{ item }}"
@@ -88,8 +88,8 @@
   with_items:
     - autoclose-html
     - autocomplete-html
-    - autocomplete-sass
-    - atom-htmltidy
+    - language-sass
+    - linter-tidy
     - linter-csslint
     - linter-xmllint
     - xml-formatter
