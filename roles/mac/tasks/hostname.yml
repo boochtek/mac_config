@@ -21,14 +21,14 @@
 - name: Set host name
   command: "scutil --set HostName {{ ansible_host }}"
   become: TRUE
-  when: hostname.stdout != "{{ ansible_host }}"
+  when: hostname.stdout != ansible_host
 
 - name: Set computer name
   command: "/usr/sbin/networksetup -setcomputername {{ ansible_host }}"
   become: TRUE
-  when: computer_name.stdout != "{{ ansible_host }}"
+  when: computer_name.stdout != ansible_host
 
 - name: Set local name
   command: "/usr/sbin/systemsetup -setlocalsubnetname {{ ansible_host }}"
   become: TRUE
-  when: local_name.stdout != "{{ ansible_host }}"
+  when: local_name.stdout != ansible_host

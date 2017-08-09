@@ -19,7 +19,7 @@
 - name: Use Homebrew version of Bash as login shell
   command: "chsh -s {{ homebrew_dir }}/bin/bash {{ ansible_user }}"
   become: yes
-  when: "current_shell.stdout != '{{ homebrew_dir }}/bin/bash'"
+  when: "current_shell.stdout != (homebrew_dir + '/bin/bash')"
 
 - name: Install Bash command-line completion
   homebrew:
