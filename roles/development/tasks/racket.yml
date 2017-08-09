@@ -4,12 +4,18 @@
 # NOTE: This installs only the `racket` and `raco` executables; no DrRacket IDE.
 - name: Install Racket
   homebrew:
-    name: racket
+    name: minimal-racket
 
 - name: Install extended Racket REPL, with Readline support
   command: raco pkg install --auto xrepl
   args:
-    creates: "/usr/local/Cellar/racket/*/share/doc/racket/xrepl"
+    creates: "/usr/local/Cellar/minimal-racket/*/share/doc/racket/xrepl"
+
+- name: Ensure .racketrc exists
+  copy:
+    dest: ~/.racketrc
+    content: ""
+    force: no
 
 - name: Use extended Racket REPL
   lineinfile:
