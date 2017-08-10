@@ -5,22 +5,28 @@
 # There's also a `caskroom/cask/emacs` package, but it doesn't seem to have the command-line emacs.
 - name: Install Emacs
   homebrew:
-    name: name
+    name: emacs
     install_options: "with-cocoa,with-imagemagick@6,with-gnutls,with-librsvg,with-modules"
 
+- name: Determine what version of Emacs is installed
+  shell: ls -1 /usr/local/Cellar/emacs/ | tail -1
+  register: emacs_version
+  changed_when: FALSE
+  ignore_errors: TRUE
+
 - name: Install Emacs for Mac application
-  copy:
-    src: /usr/local/Cellar/emacs/25.1/Emacs.app
-    dest: /Applications/Emacs.app
-    remote_src: TRUE
+  command: mv "/usr/local/Cellar/emacs/{{ emacs_version.stdout }}/Emacs.app" /Applications/Emacs.app
+  args:
+    creates: /Applications/Emacs.app
 
 - name: Check to see if Emacs icon is already in the Dock
   command: dockutil --find "Emacs"
   register: emacs_dock_icon
-  changed_when: false
+  changed_when: FALSE
+  ignore_errors: TRUE
 
 - name: Add an icon for Emacs to the Dock
-  command: dockutil --add  '/Applications/Emacs.app' --replacing 'Emacs'
+  command: dockutil --add  '/Applications/Emacs.app' --replacing 'Emacs' --after 'Atom'
   when: "'was not found' in emacs_dock_icon.stdout"
 
 # Install Spacemacs into /usr/local, so we can maintain it separately from our Emacs config.
