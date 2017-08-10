@@ -1,5 +1,7 @@
 ---
 
+- debug:
+      msg: Zoom installation may prompt for your password, and will open the app.
 - name: Install Zoom video conferencing
-  homebrew:
-      name: caskroom/cask/zoomus
+  homebrew_cask:
+      name: zoomus

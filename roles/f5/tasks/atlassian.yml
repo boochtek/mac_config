@@ -1,5 +1,5 @@
 ---
 
 - name: Install HipChat
-  homebrew:
-      name: caskroom/cask/hipchat
+  homebrew_cask:
+      name: hipchat
