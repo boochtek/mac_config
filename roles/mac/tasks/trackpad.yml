@@ -10,15 +10,18 @@
     key: com.apple.mouse.tapBehavior
     value: 1
     type: int
+
+# NOTE: I'm pretty sure that these were `bool` in previous versions of Mac OS X.
 - name: Enable tap-to-click for Bluetooth trackpad
   osx_defaults:
     domain: "{{ item }}"
     key: Clicking
-    value: TRUE
-    type: bool
+    value: 1
+    type: int
   with_items:
     - com.apple.driver.AppleBluetoothMultitouch.trackpad
     - com.apple.AppleMultitouchTrackpad
+
 - name: Enable tap-to-click for login screen
   osx_defaults:
     host: currentHost
@@ -28,12 +31,13 @@
     type: int
 
 # Enable "tap-and-a-half" to drag.
+# NOTE: I'm pretty sure that these were `bool` in previous versions of Mac OS X.
 - name: Enable "tap-and-a-half" to drag
   osx_defaults:
     domain: "{{ item }}"
     key: Dragging
-    value: TRUE
-    type: bool
+    value: 1
+    type: int
   with_items:
     - com.apple.driver.AppleBluetoothMultitouch.trackpad
     - com.apple.AppleMultitouchTrackpad
