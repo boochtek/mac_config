@@ -9,14 +9,11 @@ ruby_versions:
     version: 2.4.1
     sha256: ccfb2d0a61e2a9c374d51e099b0d833b09241ee78fc17e1fe38e3b282160237c
   - engine: ruby
-    version: 2.3.3
-    sha256: 882e6146ed26c6e78c02342835f5d46b86de95f0dc4e16543294bc656594cc5b
+    version: 2.3.4
+    sha256: cd9808bb53824d6edb58beaadd3906cb23b987438ce75ab7bb279b2229930e2f
   - engine: ruby
-    version: 2.2.6
-    sha256: e845ba41ea3525aafaa4094212f1eadc57392732232b67b4394a7e0f046dddf7
-  - engine: ruby
-    version: 2.1.10
-    sha256: a74675578a9a801ac25eb7152bef3023432d6267f875b198eb9cd6944a5bf4f1
+    version: 2.2.7
+    sha256: 80486c5991783185afeceeb315060a3dafc3889a2912e145b1a8457d7b005c5b
 
 gems_for_all_rubies:
   - bundler
