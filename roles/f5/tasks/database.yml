@@ -11,3 +11,7 @@
       name: redis
   notify:
       - Start Redis
+
+- name: Install Couchbase SDK
+  homebrew:
+      name: libcouchbase
