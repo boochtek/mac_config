@@ -1,0 +1,10 @@
+---
+
+# NOTE: This will likely prompt you for your password to complete the installation.
+- name: Install Java 8 JDK
+  homebrew_cask:
+    name: java
+
+- name: Install Java 8 JDK documentation
+  homebrew_cask:
+    name: java-jdk-javadoc

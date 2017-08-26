@@ -21,6 +21,8 @@
   tags: ruby
 - include: perl.yml
   tags: perl
+- include: java.yml
+  tags: java, jdk
 - include: node.yml
   tags: node
 - include: elm.yml

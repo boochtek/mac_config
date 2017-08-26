@@ -10,6 +10,9 @@ These Ansible playbooks will configure Mac OS X the way we want, including:
 These scripts are written for Mac OS X 10.11 (El Capitan).
 Ansible 2.1 is required, due to a couple features we're using.
 
+Note that some of the tasks will prompt you for your password to complete the installation,
+so this isn't a 100% "fire-and-forget" process.
+
 
 Usage
 -----
