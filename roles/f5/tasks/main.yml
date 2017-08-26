@@ -11,3 +11,6 @@
 
 - include: database.yml
   tags: database, db
+
+- include: javascript.yml
+  tags: javascript, js
