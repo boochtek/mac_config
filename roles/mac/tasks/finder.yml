@@ -47,6 +47,15 @@
   notify:
     - Restart Finder
 
+- name: Show folders before files in Finder
+  osx_defaults:
+    domain: com.apple.finder
+    key: _FXSortFoldersFirst
+    value: 1
+    type: int
+  notify:
+    - Restart Finder
+
 - name: When opening a new Finder window, start in the home directory
   osx_defaults:
     domain: com.apple.finder
