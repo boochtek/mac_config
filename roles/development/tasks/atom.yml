@@ -180,3 +180,12 @@
 - name: Install Bash completion for APM (Atom Package Manager)
   homebrew:
     name: apm-bash-completion
+
+- name: Set Atom as the default editor for Markdown files
+  command: duti -s com.github.atom {{ item }} editor
+  when: markdown_app.stdout != "com.thoughtbot.Markoff"
+  with_items:
+    - net.daringfireball.markdown
+    - ".md"
+  notify:
+    - Restart Launch Services
