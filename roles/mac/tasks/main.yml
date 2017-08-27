@@ -4,6 +4,8 @@
 - debug:
     msg: Configuring Mac
 
+- include: prerequisites.yml
+  tags: always
 - include: hostname.yml
   tags: hostname
 - include: homebrew.yml

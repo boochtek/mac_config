@@ -1,0 +1,23 @@
+---
+
+- name: Determine if we have Xcode installed
+  stat:
+    path: /Applications/Xcode.app
+  register: xcode_dir
+  changed_when: FALSE
+  ignore_errors: TRUE
+
+- name: Get the Xcode license ID
+  command: defaults read /Applications/Xcode.app/Contents/Resources/LicenseInfo licenseID
+  register: xcode_license_id
+  changed_when: FALSE
+  ignore_errors: TRUE
+  when: xcode_dir.stat.exists
+
+- name: Accept Xcode license
+  osx_defaults:
+    domain: /Library/Preferences/com.apple.dt.Xcode
+    key: IDELastGMLicenseAgreedTo
+    value: "{{ xcode_license_id.stdout }}"
+  become: TRUE
+  when: xcode_dir.stat.exists
