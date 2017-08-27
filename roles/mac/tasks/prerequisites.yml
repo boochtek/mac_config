@@ -14,10 +14,17 @@
   ignore_errors: TRUE
   when: xcode_dir.stat.exists
 
+- name: Get the last accepted license ID
+  command: defaults read /Library/Preferences/com.apple.dt.Xcode IDELastGMLicenseAgreedTo
+  register: accepted_xcode_license_id
+  changed_when: FALSE
+  ignore_errors: TRUE
+  when: xcode_dir.stat.exists and xcode_license_id.stdout
+
 - name: Accept Xcode license
   osx_defaults:
     domain: /Library/Preferences/com.apple.dt.Xcode
     key: IDELastGMLicenseAgreedTo
     value: "{{ xcode_license_id.stdout }}"
   become: TRUE
-  when: xcode_dir.stat.exists
+  when: xcode_dir.stat.exists and xcode_license_id.stdout is defined and accepted_xcode_license_id is defined and accepted_xcode_license_id.stdout != xcode_license_id.stdout
