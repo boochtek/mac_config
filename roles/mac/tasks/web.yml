@@ -1,0 +1,26 @@
+---
+
+- name: Install Chrome
+  homebrew_cask:
+    name: google-chrome
+
+- name: Add Chrome icon to Dock
+  include: add_to_dock.yml
+  vars:
+    name: Google Chrome
+    path: /Applications/Google Chrome.app
+    before: Safari
+
+# Force handlers to run, so Chrome icon is in the dock before we try adding Firefox icon.
+- meta: flush_handlers
+
+- name: Install Firefox
+  homebrew_cask:
+    name: firefox
+
+- name: Add Firefox icon to Dock
+  include: add_to_dock.yml
+  vars:
+    name: Firefox
+    path: /Applications/Firefox.app
+    after: Google Chrome

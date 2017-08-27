@@ -38,3 +38,5 @@
   tags: mail
 - include: fonts.yml
   tags: fonts
+- include: web.yml
+  tags: web, browser, browsers
