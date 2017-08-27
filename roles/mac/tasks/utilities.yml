@@ -170,12 +170,12 @@
 
 - name: Determine current default app for Markdown files
   shell: duti -x md | tail -1
-  register: markdown_app
+  register: markdown_viewer
   changed_when: False
 
-- name: Set Markoff as the default app for Markdown files
-  command: duti -s com.thoughtbot.Markoff {{ item }} all
-  when: markdown_app.stdout != "com.thoughtbot.Markoff"
+- name: Set Markoff as the default viewer for Markdown files
+  command: duti -s com.thoughtbot.Markoff {{ item }} viewer
+  when: markdown_viewer.stdout != "com.thoughtbot.Markoff"
   with_items:
     - net.daringfireball.markdown
     - ".md"
