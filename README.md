@@ -27,7 +27,9 @@ git checkout ansible
 
 Next, edit `inventory_for_mac_serial_number.sh` to add your computer to the list.
 
-Then run the playbook:
+Then edit `mac_vars.yml` to your preferences.
+
+Finally, run the playbook:
 
 ~~~ shell
 ansible-playbook -K mac.yml
@@ -35,7 +37,7 @@ ansible-playbook -K mac.yml
 
 You'll be prompted for your password, as well as your Mac App Store ID and password.
 You can just hit `Enter` on the Mac App store prompts, if you won't be installing anything from the Mac App Store.
-Currently, we're only installing Markoff, a Markdown reader.
+The list of App Store apps to be installed are listed in `appstore_apps_to_install` in the `mac_vars.yml` file.
 
 Most roles and included tasks have tags, so you can run a subset of tasks.
 This can be helpful when writing and testing a new task.

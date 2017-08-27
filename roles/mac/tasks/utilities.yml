@@ -168,12 +168,6 @@
   homebrew:
     name: duti
 
-# Markoff is a Markdown previewer from Thoughbot.
-- name: Install Markoff
-  shell: mas install $(mas search Markoff | grep ' Markoff$' | cut -f1 -d' ')
-  args:
-    creates: /Applications/Markoff.app
-
 - name: Determine current default app for Markdown files
   shell: duti -x md | tail -1
   register: markdown_app

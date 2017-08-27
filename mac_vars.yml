@@ -1,4 +1,17 @@
 ---
 
 - homebrew_dir: /usr/local
+
 - bash_completion_dir: "{{ homebrew_dir }}/etc/bash_completion.d"
+
+# Note that some of these are paid apps.
+- appstore_apps_to_install:
+  - name: 1Password                 # Execellent password manager
+  - name: Magnet                    # Makes it easy to arrange and size windows
+  - name: Collective                # Nice clipboard history/manager
+  - name: Browser Fairy             # Use different browsers for different sites
+  - name: Markoff                   # Nice Markdown previewer from Thoughbot
+  - name: Slack                     # Team chat
+  - name: Tweetbot for Twitter      # Nice Twitter client
+    app: Tweetbot
+  - name: Xcode                     # Needed to build some Homebrew packages - WARNING: Will take about an hour to download
