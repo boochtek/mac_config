@@ -29,4 +29,4 @@
 
 - name: Install Terraform Inventory
   homebrew:
-    name: https://raw.github.com/adammck/terraform-inventory/master/HomebrewFormula/terraform-inventory.rb
+    name: terraform-inventory
