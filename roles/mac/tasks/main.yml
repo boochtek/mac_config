@@ -26,6 +26,8 @@
   tags: trackpad
 - include: keyboard.yml
   tags: keyboard
+- include: touchbar.yml
+  tags: touchbar
 - include: terminal.yml
   tags: terminal
 - include: utilities.yml

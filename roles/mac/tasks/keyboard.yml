@@ -4,6 +4,7 @@
 
 
 # Use function keys as standard function keys. (Require Fn modifier to enable media functions.)
+# NOTE: This doesn't really do anything with the Touch Bar.
 - name: Use function keys as standard function keys
   osx_defaults:
     domain: NSGlobalDomain

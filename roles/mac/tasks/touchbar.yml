@@ -1,0 +1,15 @@
+---
+
+# The Control Strip is the right side of the Touch Bar, normally showing 4 icons.
+- name: Change Touch Bar Control Strip
+  osx_defaults:
+    domain: com.apple.controlstrip
+    key: MiniCustomized
+    value:
+      - com.apple.system.brightness
+      - com.apple.system.volume
+      - com.apple.system.mute
+      - com.apple.system.search
+    type: array
+  notify:
+    - Restart Control Strip

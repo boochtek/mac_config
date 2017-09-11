@@ -9,6 +9,9 @@
 - name: Restart Dock
   command: killall Dock
 
+- name: Restart Control Strip
+  command: killall ControlStrip
+
 - name: Restart SystemUIServer
   command: killall SystemUIServer
 
