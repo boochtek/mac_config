@@ -3,6 +3,9 @@
 - debug:
     msg: Configuring for F5 software development
 
+- include: outlook.yml
+  tags: outlook
+
 - include: atlassian.yml
   tags: atlassian, hipchat
 

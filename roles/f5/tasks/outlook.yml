@@ -1,0 +1,8 @@
+---
+
+- name: Dowload pictures in Outlook for emails from trusted sources
+  osx_defaults:
+    domain: com.microsoft.Outlook
+    key: AutomaitcallyDownloadExternalContent # Yes, this is misspelled.
+    value: 1
+    type: int
