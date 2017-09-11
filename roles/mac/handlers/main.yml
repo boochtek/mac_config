@@ -12,6 +12,9 @@
 - name: Restart Control Strip
   command: killall ControlStrip
 
+- name: Restart Touch Bar
+  command: killall TouchBarAgent
+
 - name: Restart SystemUIServer
   command: killall SystemUIServer
 
