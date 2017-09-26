@@ -1,0 +1,68 @@
+---
+
+- name: Install CCMenu
+  homebrew_cask:
+    name: ccmenu
+  notify:
+    - Start CCMenu
+
+- name: Configure CCMenu
+  osx_defaults:
+    domain: net.sourceforge.cruisecontrol.CCMenu
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    type: int
+  with_items:
+    - { key: "PlaySound Broken", value: 1 }
+    - { key: "PlaySound Fixed", value: 1 }
+    - { key: "PlaySound StillFailing", value: 1 }
+    - { key: "PlaySound Successful", value: 1 }
+    - { key: "SendNotification Broken", value: 0 }
+    - { key: "SendNotification Fixed", value: 0 }
+    - { key: "SendNotification StillFailing", value: 0 }
+    - { key: "SendNotification Successful", value: 0 }
+    - { key: "ShowLastBuildLabel", value: 1 }
+    - { key: "ShowLastBuildTimes", value: 1 }
+    - { key: "UseSymbolsForAllStatesInMenuBar", value: 1 }
+  notify:
+    - Start CCMenu
+  register: ccmenu_config
+
+- name: Configure CCMenu sounds
+  osx_defaults:
+    domain: net.sourceforge.cruisecontrol.CCMenu
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    type: string
+  with_items:
+    - { key: "Sound Broken", value: "Submarine" }
+    - { key: "Sound Fixed", value: "Purr" }
+    - { key: "Sound StillFailing", value: "Submarine" }
+    - { key: "Sound Successful", value: "Purr" }
+  notify:
+    - Start CCMenu
+
+# TODO: Make this idempotent. (Probably wait until osx_defaults module supports `dict` type.)
+- name: Configure CCMenu projects
+  block:
+    - shell: defaults delete net.sourceforge.cruisecontrol.CCMenu Projects 2>/dev/null || true
+    - command: defaults write net.sourceforge.cruisecontrol.CCMenu Projects -array-add '{ projectName = "{{ item }}"; serverUrl = "{{ CC_SERVER_URL }}"; }'
+      with_items: "{{ CC_PROJECTS }}"
+      notify:
+        - Start CCMenu
+
+- name: Set CCMenu to start at login
+  osx_defaults:
+    domain: loginwindow
+    key: AutoLaunchedApplicationDictionary
+    value: [ "<dict><key>Name</key><string>CCMenu</string><key>Path</key><string>/Applications/CCMenu.app</string><key>Hide</key><integer>0</integer></dict>" ]
+    type: array
+    array_add: TRUE
+
+- name: Notify about manually setting CCMenu password
+  debug:
+    msg: |
+      You'll need to manually set the password (only once per CI server) in CCMenu Preferences.
+      In the Projects tab, select a project, and click on the cog menu (at the bottom).
+      Select Edit server settings, and enter the username and password.
+  when: ccmenu_config.changed

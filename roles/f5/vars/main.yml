@@ -1,0 +1,15 @@
+---
+
+# This is a TeamCity server, but it supports the same query API as CruiseControl.
+CC_SERVER_URL: "http://c.buchek@portal-ci2.lab5.defense.net:8111/httpAuth/app/rest/cctray/projects.xml"
+
+CC_PROJECTS:
+  - "Customer Portal QA :: Build"
+  - "Customer Portal QA :: CPE Build"
+  - "Customer Portal QA :: JMS Build"
+  - "Customer Portal Staging :: Build"
+  - "Customer Portal Staging :: CPE Build"
+  - "Customer Portal Staging :: JMS Build"
+  - "Customer Portal Production :: Build"
+  - "Customer Portal Production :: CPE Build"
+  - "Customer Portal Production :: JMS Build"

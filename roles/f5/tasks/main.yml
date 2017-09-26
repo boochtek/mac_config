@@ -17,3 +17,6 @@
 
 - include: javascript.yml
   tags: javascript, js
+
+- include: ci.yml
+  tags: ci, cc, teamcity

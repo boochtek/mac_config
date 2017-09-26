@@ -5,3 +5,6 @@
 
 - name: Start Redis
   command: brew services start redis
+
+- name: Start CCMenu
+  command: open /Applications/CCMenu.app
