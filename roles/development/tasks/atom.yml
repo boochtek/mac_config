@@ -47,6 +47,7 @@
     - atom-pair
     - tag
     - platformio-ide-terminal
+    - print-code
 
 - name: Install Atom plugins for minimap
   command: "apm install {{ item }}"
