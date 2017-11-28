@@ -32,3 +32,17 @@
     name: Firefox
     path: /Applications/Firefox.app
     after: Google Chrome
+
+# Force handlers to run, so Firefox icon is in the dock before we try adding Chromium icon.
+- meta: flush_handlers
+
+- name: Install Chromium
+  homebrew_cask:
+    name: chromium
+
+- name: Add Chromium icon to Dock
+  include: add_to_dock.yml
+  vars:
+    name: Chromium
+    path: /Applications/Chromium.app
+    after: Firefox
