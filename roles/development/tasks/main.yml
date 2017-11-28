@@ -8,7 +8,8 @@
   homebrew:
     name: git
 
-
+- include: misc.yml
+  tags: misc
 - include: atom.yml
   tags: atom
 - include: emacs.yml

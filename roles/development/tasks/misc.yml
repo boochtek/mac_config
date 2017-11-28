@@ -1,0 +1,16 @@
+---
+
+# SLOCCount counts lines of source code (ignoring comments) for a large number of languages.
+- name: Install SLOCCount
+  homebrew:
+    name: sloccount
+
+# CLOC is a little slower than SLOCCount, but supports more languages and has nicer output.
+- name: Install CLOC
+  homebrew:
+    name: cloc
+
+# tmate is a fork of tmux that lets you easily and securely share your terminal with others. Great for pair programming.
+- name: Install tmate
+  homebrew:
+    name: tmate
