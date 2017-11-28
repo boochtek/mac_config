@@ -11,6 +11,14 @@
     path: /Applications/Google Chrome.app
     before: Safari
 
+# The next time the user starts Chrome, they'll be prompted whether they want to install any new extensions from this list.
+- name: Install Chrome Extensions
+  copy:
+    src: chrome_extension.json
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Google/Chrome/External Extensions/{{ item.value }}.json"
+    mode: 0640
+  with_items: "{{ chrome_extensions }}"
+
 # Force handlers to run, so Chrome icon is in the dock before we try adding Firefox icon.
 - meta: flush_handlers
 

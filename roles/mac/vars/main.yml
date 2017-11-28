@@ -1,0 +1,31 @@
+---
+
+# The next time the user starts Chrome, they'll be prompted whether they want to install any new extensions from this list.
+chrome_extensions:
+  Web Developer: bfbameneiokkgbdmiekhjnmfkcnldhhm
+  uBlock Origin: cjpalhdlnbpafiamejdnhcphjbkeiagm
+  XML Tree: gbammbheopgpmaagmckhpjbfgdfkpadb
+  Tampermonkey: dhdgffkkebhmkfjojejmpbldmpobfkfo
+  WebEx: jlhmfgmfgeifomenelglieieghnjghma
+  1Password: aomjjhallfgjeglblehebfpbcfeobpgk
+  Mercury Reader: oknpjjbmpnndlpmnhmekjpocelpnlfdi
+  Pocket: niloccemoadcdkdjlinkgdfekeahmflj
+
+# * Other extensions to consider:
+#     * Fair AdBlocker (instead of uBlock Origin)
+#     * The Great Suspender (klbibkeccnjlkjkiokjodocebajanakg) or Tab Wrangler
+#     * JSON Formatter or JSONView or JSON Viewer
+#     * Momentum or Live Start Page
+#     * Google Hangouts
+#     * CleanPrint or Print (idfnpgjblkahngbondojabhffkkdekbd)
+#     * Instapaper
+#     * Reading List
+#     * Poper Blocker (bkkbcggnhapdmkeljlodobbkopceiche - popups, overlays, etc.)
+#     * AdBlock for YouTube (cmedhionkhpnakcndndgjdbohmhepckk - blocks pre-roll vide ads)
+#     * Font Awesome Icon Finder
+#     * ModHeader
+#     * Stylus (clngdbkpkpeebahjckkjfobafhncgmne) or Stylish or Stylist (pabfempgigicdjjlccdgnbmeggkbjdhd - not updated in 4 years)
+#     * Sourcegraph
+#     * Lighthouse (runs a barrage of tests against web page)
+#     * AODocs (makes using Google Docs easier)
+#     * PageEdit
