@@ -32,6 +32,8 @@
   tags: terminal
 - include: utilities.yml
   tags: utilities
+- include: fan.yml
+  tags: fan
 - include: menubar.yml
   tags: menubar
 - include: bash.yml
