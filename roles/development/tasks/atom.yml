@@ -131,10 +131,8 @@
   args:
     creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
   with_items:
-    - language-crystal-actual
-    - linter-crystal
+    - ide-crystal
     - crystal-block
-    - crystal-tools
 
 - name: Install Atom plugins for Elm
   command: "apm install {{ item }}"
