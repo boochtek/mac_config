@@ -1,0 +1,37 @@
+---
+
+- name: Install (Haskell) Stack
+  homebrew:
+    name: stack
+
+- name: Initialize (Haskell) Stack
+  command: stack setup --no-reinstall
+  args:
+    creates:
+
+- name: Install Haskell helper programs
+  command: stack install {{ item }}
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/{{ item }}"
+  with_items:
+    - ghc-mod
+    - hlint
+    - stylish-haskell
+
+- name: Install Atom plugins for Haskell
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - atom-haskell
+    - language-haskell
+    - language-haskell-scoped
+    - ide-haskell
+    - ide-haskell-repl
+    - ide-haskell-cabal
+    - ide-haskell-hasktags
+    - ide-haskell-hoogle
+    - haskell-ghc-mod
+    - autocomplete-haskell
+    - haskell-pointfree
+    - haskell-scry
