@@ -15,3 +15,24 @@ appstore_apps_to_install:
   - name: Tweetbot for Twitter      # Nice Twitter client
     app: Tweetbot
   - name: Xcode                     # Needed to build some Homebrew packages - WARNING: Will take about an hour to download
+
+# NOTE: These are used in Finder windows and file open/save dialogs.
+sidebar_favorites:
+  - label: Applications
+    url:   file:///Applications
+  - label: Utilities
+    url:   file:///Applications/Utilities
+  - label: Home
+    url:   file://{{ ansible_env.HOME }}
+  - label: Desktop
+    url:   file://{{ ansible_env.HOME }}/Desktop
+  - label: Downloads
+    url:   file://{{ ansible_env.HOME }}/Downloads
+  - label: Documents
+    url:   file://{{ ansible_env.HOME }}/Documents
+  - label: Work
+    url:   file://{{ ansible_env.HOME }}/Work
+  - label: Portal
+    url:   file://{{ ansible_env.HOME }}/Work/F5/Silverline/Portal
+  - label: Personal
+    url:   file://{{ ansible_env.HOME }}/Personal

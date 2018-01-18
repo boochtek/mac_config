@@ -194,3 +194,24 @@
     type: bool
   notify:
     - Restart Finder
+
+- name: Install mysides utility
+  homebrew:
+    name: mysides
+
+- name: Determine Finder sidebar favorites
+  shell: mysides list | awk '{ print $1 }'
+  register: current_sidebar_favorites
+  changed_when: FALSE
+
+- name: Remove existing sidebar favorites if the current list doesn't match what we want
+  command: mysides remove '{{ item }}'
+  with_items: "{{ current_sidebar_favorites.stdout_lines }}"
+  when: current_sidebar_favorites.stdout_lines | replace('/Users/', '') != (sidebar_favorites | map(attribute='label') | list | replace('Home', ansible_env.HOME) | replace('/Users/', ''))
+
+- name: Set Finder sidebar favorites
+  command: mysides add '{{ item.label }}' '{{ item.url }}'
+  with_items: "{{ sidebar_favorites }}"
+  when: current_sidebar_favorites.stdout_lines | replace('/Users/', '') != (sidebar_favorites | map(attribute='label') | list | replace('Home', ansible_env.HOME) | replace('/Users/', ''))
+  notify:
+    - Restart Finder
