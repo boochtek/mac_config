@@ -1,0 +1,9 @@
+---
+
+- name: Install Pony programming language
+  homebrew:
+    name: ponyc
+
+- name: Install Pony package-management tool
+  homebrew:
+    name: pony-stable

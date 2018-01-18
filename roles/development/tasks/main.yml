@@ -30,6 +30,8 @@
   tags: elm
 - include: racket.yml
   tags: racket
+- include: pony.yml
+  tags: pony
 - include: haskell.yml
   tags: haskell
 - include: devops.yml
