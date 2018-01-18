@@ -20,12 +20,23 @@ ruby_versions:
 
 gems_for_all_rubies:
   - bundler
+  - railties
+  - rubocop
+  - pry
+  - pry-doc # All these Pry tools can be pulled in via `pry-full`, but that fails installing `pry-git` and `pry-debugger` in Ruby 2.5.0.
+  - pry-docmore
+  - pry-stack_explorer
+  - pry-rescue
+  - pry-theme
+  - pry-pretty-numeric
+  - pry-syntax-hacks
+  - pry-highlight
+  - pry-editline
+  - pry-developer_tools
+  - bond # Better tab completion for Pry
   - awesome_print
   - hirb
   - wirble
-  - pry
-  - railties
-  - rubocop
 
 gems_for_latest_ruby:
   - kramdown
