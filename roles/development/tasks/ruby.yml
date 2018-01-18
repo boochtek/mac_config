@@ -4,17 +4,24 @@
   homebrew:
     name: chruby
 
-- name: Ensure chruby is available in Bash
+- name: See if we've enabled chruby in its own profile.d file
+  stat:
+    path: ~/.profile.d/chruby.sh
+  register: profile_d_chruby
+
+- name: Ensure chruby is available in Bash (unless it's in its own profile.d file)
   lineinfile:
     dest: ~/.bash_profile
     line: source {{ homebrew_dir }}/share/chruby/chruby.sh
     regexp: '\s*source {{ homebrew_dir }}/share/chruby/chruby.sh'
+  when: profile_d_chruby.stat.exists == False
 
-- name: Enable chruby to automatically use `.ruby-version` when changing directories in Bash
+- name: Enable chruby to automatically use `.ruby-version` when changing directories in Bash (unless it's in its own profile.d file)
   lineinfile:
     dest: ~/.bash_profile
     line: source {{ homebrew_dir }}/share/chruby/auto.sh
     regexp: '\s*source {{ homebrew_dir }}/share/chruby/auto.sh'
+  when: profile_d_chruby.stat.exists == False
 
 - name: Install ruby-install
   homebrew:
