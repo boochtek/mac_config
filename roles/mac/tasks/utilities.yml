@@ -135,6 +135,11 @@
   homebrew:
     name: jq
 
+# YQ is a basially JQ for YAML.
+- name: Install YQ
+  homebrew:
+    name: yq
+
 # Sipcalc is a tool that calculates IP subnets.
 - name: Install Sipcalc
   homebrew:
