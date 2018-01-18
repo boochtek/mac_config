@@ -27,8 +27,6 @@
   args:
     creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
   with_items:
-    - pigments
-    - color-picker
     - highlight-line
     - trailing-spaces
     - semanticolor
@@ -43,11 +41,17 @@
     - sort-lines
     - wordcount
     - open-recent
-    - seti-icons
+    - file-icons  # I like seti-icons a bit better, but this has more icons and a default icon.
     - atom-pair
     - tag
     - platformio-ide-terminal
     - print-code
+    - change-case
+    - atom-transpose
+    - copy-path
+    - local-history
+    - sublime-style-column-selection  # Option+drag to select a rectangular area.
+    - touch-bar-utility
 
 - name: Install Atom plugins for minimap
   command: "apm install {{ item }}"
@@ -91,6 +95,10 @@
     - linter-csslint
     - linter-xmllint
     - xml-formatter
+    - pigments
+    - color-picker
+    - sass-autocompile
+    - atom-wrap-in-tag
 
 - name: Install Atom plugins for Ruby
   command: "apm install {{ item }}"
@@ -111,6 +119,9 @@
     - html2slim
     - language-haml
     - html2haml
+    - ruby-test
+    - rails-transporter
+    - rails-model-schema
 
 - name: Install Atom plugins for JavaScript
   command: "apm install {{ item }}"
@@ -122,6 +133,8 @@
     - language-javascript-semantic
     - javascript-snippets
     - linter-coffeelint
+    - prettier-atom
+    - autocomplete-modules
 
 - name: Install Atom plugins for Crystal
   command: "apm install {{ item }}"
