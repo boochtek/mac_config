@@ -7,8 +7,36 @@ These Ansible playbooks will configure Mac OS X the way we want, including:
   * Installing applications
   * Configuring applications
 
-These scripts are written for Mac OS X 10.11 (El Capitan).
-Ansible 2.1 is required, due to a couple features we're using.
+These scripts are written for macOS Sierra (10.12).
+
+
+Requirements
+------------
+
+You'll need Ansible and Homebrew.
+This presents a "chicken and egg" problem -- we install Homebrew via Ansible,
+but also install Ansible via Homebrew.
+To resolve this, you can start with either, or both.
+It's probably easiest to start with Ansible:
+
+~~~ shell
+sudo easy_install pip
+sudo pip install ansible
+~~~
+
+Or, starting with Homebrew, then Ansible:
+
+~~~ shell
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install ansible
+~~~
+
+We typically use newer features in Ansible, so be sure you've got the latest release.
+(The above procedures install the latest.)
+
+Another "chicken and egg" problem is that using `git` the first time will
+prompt you to install some XCode tools.
+Just accept that if you're prompted.
 
 Note that some of the tasks will prompt you for your password to complete the installation,
 so this isn't a 100% "fire-and-forget" process.

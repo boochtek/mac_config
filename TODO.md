@@ -1,7 +1,25 @@
 TODO
 ====
 
+* Remove duplication in misc and dev-tools
+    * SCM stuff
+    * Ack stuff
+    * man pages
+
+* Ansible updates
+    * Figure out the deal with having to have `add_to_dock.yml` in the top-level directory
+        * Probably need to change `include: add_to_dock.yml` to `import_task` or `include_task`
+    * Use `ansible_facts.xyz` instead of `ansible_xyz` for any facts
+        * WARNING: I believe that some `ansible_xyz` items are NOT facts, but magic variables
+    * Replace `with_xyz` with `loop`
+        * See https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.5.html#migrating-from-with-x-to-loop
+* Make sure locate DB is generated/updated
 * Update to latest Ruby versions
+    * Make sure the necessary gems are also installed
+    * Don't forget to include the handler
+    * Remove the ruby vars -- they're not used
+* Pull in everything from CenturyLink laptop
+* Install Node, Yarn, and some commonly-used packages
 * Automate accepting the license of the latest version of XCode
     * xcode_version=$(defaults read /Applications/Xcode.app/Contents/Resources/LicenseInfo licenseID)
     * sudo defaults write /Library/Preferences/com.apple.dt.Xcode IDELastGMLicenseAgreedTo $xcode_version
@@ -42,6 +60,7 @@ TODO
     * Wipe system and reinstall to test everything fully
         * Be sure to get a good backup first
 * Install and configure 1Password
+    * Isn't 1Password included via Mac App Store?
     * Perhaps in a `security.yml` file?
 * Install and configure browsers
     * Safari (configuration only, obviously)
@@ -95,9 +114,9 @@ Keyboard Mappings
     * DISABLE Mission Control / Show Dashboard
         * F12 should be a regular function key
     * CHANGE Mission Control / Switch to Desktop 1
-        * Command+1
+        * Command+Control+Option+1
     * CHANGE Mission Control / Switch to Desktop 2
-        * Command+2
+        * * Command+Control+Option+2
     * ADD App Shortcuts / Finder.app / Rename: F2
     * ADD App Shortcuts / Thunderbird.app / Send Now: Command+Enter
     * ADD App Shortcuts / Thunderbird.app / Send: Command+Enter
@@ -130,6 +149,9 @@ Ansible
     * https://github.com/boxen/puppet-osx/tree/master/manifests
     * https://github.com/bd808/puppet-osx/tree/master/manifests
     * https://github.com/xdissent/puppet-appstore
+* Ansible
+    * I think I might be treating playbooks as plays, plays as roles, so each role I'm making is too big
+        * Should make a playbook with several plays, instead of 1 play with several roles
 
 
 Utilities
