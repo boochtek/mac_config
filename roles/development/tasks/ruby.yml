@@ -3,6 +3,8 @@
 - name: Install chruby
   homebrew:
     name: chruby
+  notify:
+    - Load chruby
 
 - name: See if we've enabled chruby in its own profile.d file
   stat:
@@ -35,6 +37,8 @@
     version: "{{ item.version }}"
     sha256: "{{ item.sha256 }}"
   with_items: "{{ ruby_versions }}"
+  notify:
+    - Load chruby
 
 - name: Install common Ruby gems for all versions of Ruby
   include: gem_install.yml
@@ -46,6 +50,7 @@
     - "{{ ruby_versions }}"
     - "{{ gems_for_all_rubies }}"
 
+# NOTE: Other tasks may install other versions of Ruby
 - name: Install Ruby gems for latest version of Ruby
   include: gem_install.yml
   vars:
