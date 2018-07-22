@@ -59,7 +59,7 @@
     creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
   with_items:
     - minimap
-    - minimap-autohide
+    - minimap-autohider
     - minimap-selection
     - minimap-pigments
     - minimap-find-and-replace
