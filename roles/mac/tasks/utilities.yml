@@ -240,3 +240,11 @@
   with_items:
     - open-completion
     - launchctl-completion
+
+- name: Start Activity Monitor at login
+  osx_defaults:
+    domain: loginwindow
+    key: AutoLaunchedApplicationDictionary
+    value: [ "<dict><key>Name</key><string>Activity Monitor</string><key>Path</key><string>/Applications/Utilities/Activity Monitor.app</string><key>Hide</key><integer>0</integer></dict>" ]
+    type: array
+    array_add: TRUE
