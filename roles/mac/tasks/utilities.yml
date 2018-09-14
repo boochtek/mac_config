@@ -92,6 +92,11 @@
   homebrew:
     name: pidof
 
+# Allow listing of USB devices.
+- name: Install lsusb
+  homebrew:
+    name: lsusb
+
 # Watch will continuously run a command.
 - name: Install watch
   homebrew:
