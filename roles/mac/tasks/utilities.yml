@@ -42,6 +42,12 @@
   homebrew:
     name: httpie
 
+# Install telnet client (not the telnet server/service) to use for troubleshooting.
+# NOTE: We should really be using netcat (nc) to replace all uses of the telnet client.
+- name: Install Telnet client
+  homebrew:
+    name: telnet
+
 # HTop is a really nice replacement for top.
 # We set it to be run with setuid privileges so it can get CPU and RAM usage.
 - name: Install HTop
