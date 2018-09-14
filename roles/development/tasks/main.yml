@@ -34,5 +34,7 @@
   tags: pony
 - include: haskell.yml
   tags: haskell
+- include: lua.yml
+  tags: lua
 - include: devops.yml
   tags: devops

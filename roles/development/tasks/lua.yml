@@ -1,0 +1,9 @@
+---
+
+- name: Install Lua
+  homebrew:
+    name: lua
+
+- name: Install LuaRocks, Lua's package manager
+  homebrew:
+    name: luarocks
