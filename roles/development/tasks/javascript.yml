@@ -1,8 +1,18 @@
 ---
 
+
 - name: Install Node
   homebrew:
     name: node
+
+- name: Install ESLint
+  npm:
+    name: "{{ item }}"
+    global: TRUE
+  with_items:
+    - eslint
+    - eslint-plugin-react
+    - eslint-plugin-jsx
 
 - name: Install Electron
   npm:
@@ -14,21 +24,7 @@
     name: bower
     global: TRUE
 
-- name: Install ESLint
+- name: Install Prettier
   npm:
-    name: "{{ item }}"
-    global: TRUE
-  with_items:
-    - eslint
-    - eslint-plugin-react
-    - eslint-plugin-jsx
-
-- name: Install JSCS
-  npm:
-    name: jscs
-    global: TRUE
-
-- name: Install JSHint
-  npm:
-    name: jshint
+    name: prettier
     global: TRUE

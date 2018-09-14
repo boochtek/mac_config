@@ -24,8 +24,8 @@
   tags: perl
 - include: java.yml
   tags: java, jdk
-- include: node.yml
-  tags: node
+- include: javascript.yml
+  tags: [javascript, node]
 - include: elm.yml
   tags: elm
 - include: racket.yml
