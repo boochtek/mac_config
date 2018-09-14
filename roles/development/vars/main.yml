@@ -29,7 +29,6 @@ gems_for_all_rubies:
   - pry-rescue
   - pry-theme
   - pry-pretty-numeric
-  - pry-syntax-hacks
   - pry-highlight
   - pry-editline
   - pry-developer_tools
