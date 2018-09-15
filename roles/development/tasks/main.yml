@@ -30,6 +30,8 @@
   tags: elm
 - include: racket.yml
   tags: racket
+- include: nim.yml
+  tags: nim
 - include: pony.yml
   tags: pony
 - include: haskell.yml
