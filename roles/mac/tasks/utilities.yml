@@ -48,6 +48,18 @@
   homebrew:
     name: telnet
 
+# Install newer and more featureful [GNU variant of Netcat](http://netcat.sourceforge.net).
+# NOTE: This masks the MacOS BSD-derived version in /usr/bin, but should be a proper superset.
+# NOTE: Also consider using socat and ncat (which comes with nmap).
+- name: Install netcat
+  homebrew:
+    name: netcat
+
+# Install [Socat](http://www.dest-unreach.org/socat/), "netcat on steroids".
+- name: Install socat
+  homebrew:
+    name: socat
+
 # HTop is a really nice replacement for top.
 # We set it to be run with setuid privileges so it can get CPU and RAM usage.
 - name: Install HTop
@@ -146,10 +158,20 @@
   homebrew:
     name: jq
 
-# YQ is a basially JQ for YAML.
+# [Gron](https://github.com/tomnomnom/gron) "flattens" JSON to make it easier to grep.
+- name: Install Gron
+  homebrew:
+    name: gron
+
+# YQ is basically JQ for YAML.
 - name: Install YQ
   homebrew:
     name: yq
+
+# [Pup](https://github.com/EricChiang/pup) is basically JQ for HTML.
+- name: Install Pup
+  homebrew:
+    name: pup
 
 # Sipcalc is a tool that calculates IP subnets.
 - name: Install Sipcalc
