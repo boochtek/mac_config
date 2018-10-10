@@ -26,12 +26,13 @@ gems_for_all_rubies:
   - pry-doc # All these Pry tools can be pulled in via `pry-full`, but that fails installing `pry-git` and `pry-debugger` in Ruby 2.5.0.
   - pry-docmore
   - pry-stack_explorer
-  - pry-rescue
+  - pry-rescue # Put you in pry on any uncaught exception
   - pry-theme
   - pry-pretty-numeric
   - pry-highlight
   - pry-editline
   - pry-developer_tools
+  - pry-byebug
   - bond # Better tab completion for Pry
   - awesome_print
   - hirb
