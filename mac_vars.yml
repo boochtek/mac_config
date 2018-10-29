@@ -11,6 +11,7 @@ appstore_apps_to_install:
   - name: Collective                # Nice clipboard history/manager
   - name: Browser Fairy             # Use different browsers for different sites
   - name: Markoff                   # Nice Markdown previewer from Thoughbot
+  - name: Bear                      # Note-taking app
   - name: Slack                     # Team chat
   - name: Tweetbot for Twitter      # Nice Twitter client
     app: Tweetbot
