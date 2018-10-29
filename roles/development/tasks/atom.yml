@@ -52,6 +52,7 @@
     - local-history
     - sublime-style-column-selection  # Option+drag to select a rectangular area.
     - touch-bar-utility
+    - docblockr
 
 - name: Install Atom plugins for minimap
   command: "apm install {{ item }}"
