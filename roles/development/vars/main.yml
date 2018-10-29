@@ -46,4 +46,3 @@ gems_for_latest_ruby:
   - rsense
   - ruby-beautify
   - middleman
-  - middleman-presentation
