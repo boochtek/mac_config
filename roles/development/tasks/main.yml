@@ -18,6 +18,7 @@
   tags: web
 - include: postgresql.yml
   tags: [postgresql, postgres]
+
 - include: ruby.yml
   tags: ruby
 - include: perl.yml
@@ -26,6 +27,8 @@
   tags: java, jdk
 - include: javascript.yml
   tags: [javascript, node]
+- include: elixir.yml
+  tags: elixir
 - include: elm.yml
   tags: elm
 - include: racket.yml
