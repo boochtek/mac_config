@@ -225,18 +225,17 @@
   notify:
     - Restart Launch Services
 
-- name: Install newer versions of some tools that Mac OS X already has
+- name: Install newer versions of some tools that MacOS already has
   homebrew:
-    name: "{{ item }}"
-  with_items:
-    - coreutils # NOTE: Have to call these with `g` prefix.
-    - findutils # NOTE: Have to call these with `g` prefix.
-    - homebrew/dupes/diffutils
-    - homebrew/dupes/nano
-    - homebrew/dupes/grep # NOTE: Have to call these with `g` prefix.
-    - homebrew/dupes/less
-    - colordiff
-    - homebrew/dupes/unzip
+    name:
+      - coreutils # NOTE: Have to call these with `g` prefix.
+      - findutils # NOTE: Have to call these with `g` prefix.
+      - diffutils
+      - nano
+      - grep # NOTE: Have to call these with `g` prefix.
+      - less
+      - colordiff
+      - unzip
 
 # We have to use a command here, as the `homebrew` Ansible module doesn't support forced linking.
 - name: Force use of newer version of some tools
@@ -258,10 +257,9 @@
 
 - name: Install Bash completion for some macOS system tools
   homebrew:
-    name: "{{ item }}"
-  with_items:
-    - open-completion
-    - launchctl-completion
+    name:
+      - open-completion
+      - launchctl-completion
 
 - name: Start Activity Monitor at login
   osx_defaults:

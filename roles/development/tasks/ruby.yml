@@ -67,11 +67,10 @@
 
 - name: Install Bash completion for Ruby tools
   homebrew:
-    name: "{{ item }}"
-  with_items:
-    - ruby-completion
-    - bundler-completion
-    - gem-completion
-    - rake-completion
-    - rails-completion
-    - cap-completion # Capistrano
+    name:
+      - ruby-completion
+      - bundler-completion
+      - gem-completion
+      - rake-completion
+      - rails-completion
+      - cap-completion # Capistrano
