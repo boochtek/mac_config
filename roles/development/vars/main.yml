@@ -28,6 +28,8 @@ gems_for_all_rubies:
   - bundler
   - railties
   - rubocop
+  - rubocop-rspec
+  - rubocop-performance
   - pry
   - pry-doc # All these Pry tools can be pulled in via `pry-full`, but that fails installing `pry-git` and `pry-debugger` in Ruby 2.5.0.
   - pry-docmore

@@ -119,7 +119,6 @@
     - html2slim
     - language-haml
     - html2haml
-    - ruby-test
     - rails-transporter
     - rails-model-schema
 
