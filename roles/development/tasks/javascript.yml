@@ -5,6 +5,10 @@
   homebrew:
     name: node
 
+- name: Install YARN
+  homebrew:
+    name: yarn
+
 - name: Install ESLint
   npm:
     name: "{{ item }}"
@@ -27,4 +31,14 @@
 - name: Install Prettier
   npm:
     name: prettier
+    global: TRUE
+
+- name: Install TypeScript
+  npm:
+    name: typescript
+    global: TRUE
+
+- name: Install TypeScript Language Server (LSP)
+  npm:
+    name: typescript-language-server
     global: TRUE

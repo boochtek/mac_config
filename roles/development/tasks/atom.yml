@@ -135,6 +135,15 @@
     - prettier-atom
     - autocomplete-modules
 
+- name: Install Atom plugins for TypeScript
+  command: "apm install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+  with_items:
+    - atom-typescript
+    - atom-ide-ui  # Required by ide-typescript
+    - ide-typescript  # NOTE: Requires [TypeScript Language Server](https://github.com/theia-ide/typescript-language-server)
+
 - name: Install Atom plugins for Crystal
   command: "apm install {{ item }}"
   args:
