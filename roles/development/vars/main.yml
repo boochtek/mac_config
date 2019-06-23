@@ -6,17 +6,23 @@ rubies_dir: ~/.rubies
 # Note that SHA256 signatures are for BZ2 files; get them from the ruby-lang.org release announcements.
 ruby_versions:
   - engine: ruby
-    version: 2.5.3
-    sha256: 228a787ba68a7b20ac6e1d5af3d176d36e8ed600eb754d6325da341c3088ed76
+    version: 2.6.3
+    sha256: dd638bf42059182c1d04af0d5577131d4ce70b79105231c4cc0a60de77b14f2e
   - engine: ruby
-    version: 2.4.5
-    sha256: 276c8e73e51e4ba6a0fe81fb92669734e741ccea86f01c45e99f2c7ef7bcd1e3
+    version: 2.6.2
+    sha256: d126ada7f4147ce1029a80c2a37a0c4bfb37e9e82da8816662241a43faeb8915
   - engine: ruby
-    version: 2.3.8
-    sha256: 4d1a3a88e8cf9aea624eb73843fbfc60a9a281582660f86d5e4e00870397407c
+    version: 2.5.5
+    sha256: 1f2567a55dad6e50911ce42fcc705cf686924b897f597cabf803d88192024dcb
   - engine: ruby
-    version: 2.2.10
-    sha256: a54204d2728283c9eff0cf81d654f245fa5b3447d0824f1a6bc3b2c5c827381e
+    version: 2.4.6
+    sha256: 909f360debed1f22fdcfc9f5335c6eaa0713198db4a6c13bab426f8b89b28b02
+#  - engine: ruby
+#    version: 2.3.8
+#    sha256: 4d1a3a88e8cf9aea624eb73843fbfc60a9a281582660f86d5e4e00870397407c
+#  - engine: ruby
+#    version: 2.2.10
+#    sha256: a54204d2728283c9eff0cf81d654f245fa5b3447d0824f1a6bc3b2c5c827381e
 
 gems_for_all_rubies:
   - bundler

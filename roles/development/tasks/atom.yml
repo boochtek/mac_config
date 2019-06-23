@@ -37,7 +37,6 @@
     - autocomplete-paths
     - autocomplete-snippets
     - autocomplete-ctags
-    - bracket-matcher
     - sort-lines
     - wordcount
     - open-recent
