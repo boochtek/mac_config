@@ -66,7 +66,7 @@
   homebrew:
     name: htop-osx
 - name: Set 'htop_binary' to path of 'htop' binary
-  shell: ls -ltr1 {{ homebrew_dir }}/Cellar/htop-osx/*/bin/htop | tail
+  shell: ls -ltr1 {{ homebrew_dir }}/Cellar/htop/*/bin/htop | tail
   register: htop_binary
   changed_when: false
 - name: Set htop setuid root
@@ -242,7 +242,7 @@
 - name: Force use of newer version of some tools
   command: "brew link --force {{ item }}"
   with_items:
-    - homebrew/dupes/unzip
+    - unzip
   notify:
     - Rehash
 

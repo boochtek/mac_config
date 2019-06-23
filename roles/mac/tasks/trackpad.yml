@@ -68,6 +68,7 @@
     key: closeViewScrollWheelToggle
     value: "TRUE"
     type: bool
+  become: TRUE
 - name: Enable scroll-to-zoom when Control key is held down
   osx_defaults:
     domain: "{{ item }}"

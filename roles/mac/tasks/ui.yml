@@ -7,6 +7,7 @@
     key: reduceTransparency
     value: TRUE
     type: bool
+  become: TRUE
 
 - name: Disable animations when opening and closing windows
   osx_defaults:

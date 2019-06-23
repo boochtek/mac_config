@@ -3,22 +3,24 @@
 # System Preferences -> Accessibility -> Zoom -> Use scroll gesture with modifier keys to zoom
 - name: Enable zooming the display
   osx_defaults:
-    domain: com.apple.universalaccess
+    domain: com.apple.UniversalAccess
     key: closeViewScrollWheelToggle
     value: TRUE
     type: bool
+  become: TRUE
 
 - name: Zoom the display when holding Control and scrolling up with 2 fingers or scroll wheel
   osx_defaults:
-    domain: com.apple.universalaccess
+    domain: com.apple.UniversalAccess
     key: HIDScrollZoomModifierMask
-    value: 262144
+    value: "262144"
     type: int
 
 # System Preferences -> Accessibility -> Zoom -> Zoom follows the keyboard focus
 - name: When zooming the display, follow the keyboard focus
   osx_defaults:
-    domain: com.apple.universalaccess
+    domain: com.apple.UniversalAccess
     key: closeViewZoomFollowsFocus
     value: TRUE
     type: bool
+  become: TRUE

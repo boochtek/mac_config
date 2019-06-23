@@ -22,7 +22,7 @@
   when: mas_account.stdout == "Not signed in"
 
 - name: Install apps from App Store
-  shell: "echo 'Installing {{ item.name }}' && mas install $(mas search '{{ item.name }}' | grep ' {{ item.name }}$' | cut -f 1 -d ' ')"
+  shell: "echo 'Installing {{ item.name }}' && mas install $(mas search '{{ item.name }}' | grep '\\s*\\d*  {{ item.name }} ' | awk '{ print $1 }')"
   args:
     creates: "/Applications/{{ item.app if item.app is defined else item.name }}.app"
   with_items: "{{ appstore_apps_to_install }}"

@@ -3,6 +3,7 @@
 - name: Install Chrome
   homebrew_cask:
     name: google-chrome
+    accept_external_apps: TRUE
 
 - name: Add Chrome icon to Dock
   include: add_to_dock.yml
@@ -25,6 +26,7 @@
 - name: Install Firefox
   homebrew_cask:
     name: firefox
+    accept_external_apps: TRUE
 
 - name: Add Firefox icon to Dock
   include: add_to_dock.yml
@@ -39,6 +41,7 @@
 - name: Install Chromium
   homebrew_cask:
     name: chromium
+    accept_external_apps: TRUE
 
 - name: Add Chromium icon to Dock
   include: add_to_dock.yml
