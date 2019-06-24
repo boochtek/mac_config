@@ -1,0 +1,10 @@
+---
+
+# Power-saving settings. Times are in minutes.
+- name: Set energy-saving features (on battery)
+  command: pmset -b displaysleep 5 sleep 10
+  become: TRUE
+
+- name: Set energy-saving features (plugged in)
+  command: pmset -c displaysleep 15 sleep 30
+  become: TRUE

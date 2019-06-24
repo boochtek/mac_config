@@ -12,6 +12,8 @@
   tags: homebrew
 - include: appstore.yml
   tags: appstore
+- include: power.yml
+  tags: power
 - include: display.yml
   tags: display
 - include: ui.yml
