@@ -33,9 +33,7 @@
     - atom-beautify
     - pretty-json
     - auto-indent
-    - autocomplete-plus
     - autocomplete-paths
-    - autocomplete-snippets
     - autocomplete-ctags
     - sort-lines
     - wordcount
@@ -89,8 +87,6 @@
     creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
   with_items:
     - autoclose-html
-    - autocomplete-html
-    - language-sass
     - linter-tidy
     - linter-csslint
     - linter-xmllint
@@ -166,7 +162,6 @@
   args:
     creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
   with_items:
-    - language-java # Should be built in, but doesn't hurt to be explicit.
     - autocomplete-java
     - linter-javac
     - java-generator
