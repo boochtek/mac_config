@@ -53,43 +53,28 @@
     - 628
 
 # Seil is used to remap the Caps Lock key, so that Karabiner can remap it.
+# NOTE: As of MacOS Sierra, Karabiner-Elements includes Seil's functionality.
 #- name: Install Seil
 #  homebrew_cask:
 #    name: seil
-#
-#- name: Install Seil CLI stub
-#  copy:
-#    dest: /usr/local/bin/seil
-#    src: "{{ role_path }}/files/seil.sh"
-#    mode: 0755
-#
-## TODO: Had to manually start Seil GUI and close its window.
-#
-## TODO: Make this idempotent.
-## Map Caps Lock key to generate PC Application (Windows Menu) keycode.
-#- name: Configure Seil
-#  command: "seil {{ item }}"
-#  with_items:
-#    - "set enable_capslock 1"
-#    - "set keycode_capslock 110"
 
-## Karabiner allows remapping (almost) any key on the keyboard.
-#- name: Install Karabiner
-#  homebrew_cask:
-#    name: karabiner
-#
+# Karabiner allows remapping (almost) any key on the keyboard.
+- name: Install Karabiner
+  homebrew_cask:
+    name: karabiner-elements
+
 #- name: Install Karabiner CLI stub
 #  copy:
 #    dest: /usr/local/bin/karabiner
 #    src: "{{ role_path }}/files/karabiner.sh"
 #    mode: 0755
-#
-## TODO: Had to manually go into Security & Privacy preferences, Privacy Tab, Accessibility, and enable Karabiner_AXNotifier.
-## TODO: Had to manually start Karabiner GUI and close its window.
-#
-#- name: Hide Karabiner menubar icon
-#  osx_defaults:
-#    domain: org.pqrs.Karabiner
-#    key: isStatusbarEnable
-#    value: FALSE
-#    type: bool
+
+# TODO: Had to manually go into Security & Privacy preferences, Privacy Tab, Accessibility, and enable Karabiner_AXNotifier.
+# TODO: Had to manually start Karabiner GUI and close its window.
+
+- name: Hide Karabiner menubar icon
+  osx_defaults:
+    domain: org.pqrs.Karabiner
+    key: isStatusbarEnable
+    value: FALSE
+    type: bool

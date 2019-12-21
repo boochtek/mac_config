@@ -1,2 +1,3 @@
 #!/bin/sh
-/Applications/Karabiner.app/Contents/Library/bin/karabiner $@
+
+/Library/Application\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli $@
