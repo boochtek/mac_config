@@ -77,3 +77,6 @@ ansible-playbook -K mac.yml -t keyboard
 
 You can also leave out the `-K` if you know you won't need sudo access,
 and you won't be prompted for your password.
+
+The entire playbook will take several hours to run; many packages will be downloaded and compiled.
+Even if nothing new needs to be installed, the playbook will take about 8 minutes to run.

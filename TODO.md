@@ -1,6 +1,8 @@
 TODO
 ====
 
+* Add some stuff from Homebrew
+    * pygments (pygmentize CLI)
 * Remove duplication in misc and dev-tools
     * SCM stuff
     * Ack stuff
