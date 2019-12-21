@@ -1,5 +1,7 @@
 ---
 
+# TODO: Make these idempotent. Use output of `pmset -g custom`.
+
 # Power-saving settings. Times are in minutes.
 - name: Set energy-saving features (on battery)
   command: pmset -b displaysleep 5 sleep 10

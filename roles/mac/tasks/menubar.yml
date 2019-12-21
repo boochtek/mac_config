@@ -46,6 +46,9 @@
   ignore_errors: TRUE
   changed_when: FALSE
 
+# TODO: This doesn't work in MacOS Catalina; when run as root, "Could not find specified service".
+# TODO: Probably also need to `killall NotificationCenter`.
+# TODO: Can manually disable in Catalina by Option+clicking the Notification Center icon in the menu bar.
 - name: Disable Notification Center UI
   command: launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
   notify:
