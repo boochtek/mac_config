@@ -2,12 +2,17 @@
 
 # TODO: Split this out into separate handler files, once https://github.com/ansible/ansible/issues/13485 is resolved.
 
-
 - name: Restart Finder
   command: killall Finder
 
 - name: Restart Dock
   command: killall Dock
+
+- name: Restart smcFanControl
+  block:
+    - command: killall smcFanControl
+      ignore_errors: TRUE
+    - command: open /Applications/smcFanControl.app
 
 - name: Restart Control Strip
   command: killall ControlStrip

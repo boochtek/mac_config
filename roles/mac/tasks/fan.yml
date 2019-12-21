@@ -3,8 +3,15 @@
 - name: Install smcFanControl
   homebrew_cask:
     name: smcfancontrol
+  notify:
+    - Restart smcFanControl
 
-# TODO: This has not been tested yet. May need more items in the dictionaries.
+- name: Get list of configured fan speeds
+  shell: defaults read com.eidac.smcFanControl2 Favorites | grep Title | sed -Ee 's/[[:space:]]*Title = "(.*)";/\1/'
+  register: configured_fan_speeds
+  changed_when: FALSE
+  ignore_errors: TRUE
+
 - name: Configure smcFanControl fan speeds
   osx_defaults:
     domain: com.eidac.smcFanControl2
@@ -18,8 +25,10 @@
     - { name: "Medium RPM", left: 4000, right: 4000 }
     - { name: "High RPM", left: 5000, right: 5000 }
     - { name: "Maximum RPM", left: 5927, right: 5489 }
+  when: item.name not in configured_fan_speeds.stdout_lines
+  notify:
+    - Restart smcFanControl
 
-# TODO: This has not been tested yet. May need to add "Default" above to make the indexes line up.
 - name: Configure smcFanControl
   osx_defaults:
     domain: com.eidac.smcFanControl2
@@ -34,7 +43,9 @@
     - { key: SUHasLaunchedBefore, value: 1, type: int }
     - { key: TSensor, value: TC0P, type: string }
     - { key: Unit, value: 1, type: int }            # Show temperatures in Fahrenheit.
-    - { key: SelDefault, value: 2, type: int }      # Run at Medium RPM by default.
-    - { key: selac, value: 3, type: int }           # Run at Medium RPM when on AC.
-    - { key: selload, value: 3, type: int }         # Run at Medium RPM when charging.
-    - { key: selbatt, value: 2, type: int }         # Run at Low RPM when on battery.
+    - { key: SelDefault, value: 1, type: int }      # Run at Low RPM by default.
+    - { key: selac, value: 2, type: int }           # Run at Medium RPM when on AC.
+    - { key: selload, value: 2, type: int }         # Run at Medium RPM when charging.
+    - { key: selbatt, value: 1, type: int }         # Run at Low RPM when on battery.
+  notify:
+    - Restart smcFanControl
