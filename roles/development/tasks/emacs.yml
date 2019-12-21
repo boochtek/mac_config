@@ -1,23 +1,21 @@
 ---
 
-# Install Emacs from Homebrew, but compile in a bunch of stuff, including GUI.
-# This is basically the same as emacs-plus (from the Spacemacs author) but without the Spacemacs icon.
-# There's also a `caskroom/cask/emacs` package, but it doesn't seem to have the command-line emacs.
-- name: Install Emacs
+# Install Emacs from Homebrew and Homebrew Cask.
+# The Homebrew version no longer supports Cocoa GUI, nor compiling with any options.
+
+- name: Install Emacs TUI
   homebrew:
     name: emacs
-    install_options: "with-cocoa,with-imagemagick@6,with-gnutls,with-librsvg,with-modules"
 
-- name: Determine what version of Emacs is installed
-  shell: ls -1 /usr/local/Cellar/emacs/ | tail -1
-  register: emacs_version
-  changed_when: FALSE
-  ignore_errors: TRUE
+- name: Install Emacs GUI
+  homebrew_cask:
+    name: emacs
 
-- name: Install Emacs for Mac application
-  command: mv "/usr/local/Cellar/emacs/{{ emacs_version.stdout }}/Emacs.app" /Applications/Emacs.app
-  args:
-    creates: /Applications/Emacs.app
+# TODO: Make this idempotent.
+- name: Use Emacs TUI from CLI
+  command: brew link --overwrite emacs
+
+# TODO: Authorize Emacs GUI to run via spctl (Gatekeeper).
 
 - name: Check to see if Emacs icon is already in the Dock
   command: dockutil --find "Emacs"
