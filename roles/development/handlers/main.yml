@@ -1,0 +1,2 @@
+- name: Reload chruby
+  command: source {{ homebrew_dir }}/share/chruby/chruby.sh
