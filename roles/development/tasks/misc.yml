@@ -5,6 +5,12 @@
   homebrew:
     name: sloccount
 
+# SLOCCount depends on md5sha1sum, but we want those tools from coreutils instead.
+- name: Use md5sum and sha1sum from coreutils, not from the md5sha1sum package
+  homebrew:
+    name: md5sha1sum
+    state: unlinked
+
 # CLOC is a little slower than SLOCCount, but supports more languages and has nicer output.
 - name: Install CLOC
   homebrew:
