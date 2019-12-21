@@ -14,7 +14,7 @@
   changed_when: FALSE
 
 - name: Add {{ name }} icon to the Dock
-  command: dockutil --add '{{ path }}' --label '{{ name }}' --replacing '{{ name }}' --after '{{ after }}'
+  command: dockutil --add '{{ path }}' --label '{{ name }}' --replacing '{{ name }}' --before '{{ before | default("") }}' --after '{{ after | default("") }}'
   when: dock_icon.rc != 0
   notify:
     - Restart Dock
