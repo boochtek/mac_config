@@ -11,9 +11,11 @@
 
 - name: Restart Control Strip
   command: killall ControlStrip
+  ignore_errors: TRUE
 
 - name: Restart Touch Bar
   command: killall TouchBarAgent
+  ignore_errors: TRUE
 
 - name: Restart SystemUIServer
   command: killall SystemUIServer

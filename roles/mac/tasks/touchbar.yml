@@ -34,6 +34,7 @@
   notify:
     - Restart Control Strip
 
+# TODO: Make this idempotent.
 # NOTE: The Ansible osx_defaults module does not yet support a `dict_add` option or a `dict` type, so we have to use the command.
 - name: Show function keys in Touch Bar for specific apps, instead of Control Strip and/or per-app controls
   command: defaults write com.apple.touchbar.agent PresentationModePerApp -dict-add "{{ item }}" "functionKeys"
