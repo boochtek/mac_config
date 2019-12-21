@@ -24,8 +24,9 @@ ruby_versions:
 gems_for_all_rubies:
   - bundler
   - rubocop
-  - rubocop-rspec
   - rubocop-performance
+  - rubocop-rspec
+  - rubocop-rails
   - pry
   - pry-doc # All these Pry tools can be pulled in via `pry-full`, but that fails installing `pry-git` and `pry-debugger` in Ruby 2.5.0.
   - pry-docmore
@@ -50,4 +51,6 @@ gems_for_latest_ruby:
   - kramdown
   - rsense
   - ruby-beautify
+  - erb_lint
+  - slim_lint
   - middleman
