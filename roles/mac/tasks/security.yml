@@ -1,0 +1,5 @@
+---
+
+- name: Install Bitwarden
+  homebrew_cask:
+    name: bitwarden

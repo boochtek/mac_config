@@ -48,3 +48,5 @@
   tags: fonts
 - include: web.yml
   tags: web, browser, browsers
+- include: security.yml
+  tags: security
