@@ -41,7 +41,7 @@
   osx_defaults:
     domain: com.apple.screencapture
     key: location
-    value: ~/Pictures
+    value: "{{ ansible_env.HOME }}/Pictures"
     type: string
   notify:
     - Restart SystemUIServer

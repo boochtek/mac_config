@@ -74,7 +74,7 @@
     path: "{{ htop_binary.stdout }}"
     owner: root
     group: wheel
-    mode: u+s
+    mode: 4555  # u+s
   become: true
 
 # This is a little utility missing from Mac OS X, but common to all other OpenSSH installations.
