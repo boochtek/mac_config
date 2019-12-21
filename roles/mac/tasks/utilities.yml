@@ -97,7 +97,6 @@
 - name: Install lesspipe
   homebrew:
     name: lesspipe
-    install_options: syntax-highlighting
 
 # Pidof allows finding a process by name, similar to `pgrep` or `kill`.
 - name: Install pidof
