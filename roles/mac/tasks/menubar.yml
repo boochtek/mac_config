@@ -76,3 +76,20 @@
 #   with_items:
 #     - { "Bundle ID": "com.apple.CharacterPaletteIM", InputSourceKind: "Non Keyboard Input Method" }
 #     - { "Bundle ID": "com.apple.KeyboardViewer", InputSourceKind: "Non Keyboard Input Method" }
+
+- name: Have Collective start on boot
+  osx_defaults:
+    domain: com.generation-loss.collective
+    key: launchAtLogin
+    value: 1
+    type: integer
+
+- name: Trick Collective into thinking this is not the first time it's been run
+  osx_defaults:
+    domain: com.generation-loss.collective
+    key: firstRun
+    value: 0
+    type: integer
+
+- name: Start Collective
+  command: open /Applications/Collective.app
