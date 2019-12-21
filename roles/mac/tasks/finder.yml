@@ -145,8 +145,15 @@
   notify:
     - Restart Finder
 
+- name: Determine flags for ~/Library folder
+  command: stat -f '%f' ~/Library/
+  register: library_flags
+  changed_when: FALSE
+  ignore_errors: TRUE
+
 - name: Don't hide the ~/Library folder
   command: chflags nohidden ~/Library
+  when: library_flags.stdout == '32768'
   notify:
     - Restart Finder
 
