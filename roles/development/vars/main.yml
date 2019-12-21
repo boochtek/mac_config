@@ -23,7 +23,6 @@ ruby_versions:
 
 gems_for_all_rubies:
   - bundler
-  - railties
   - rubocop
   - rubocop-rspec
   - rubocop-performance
@@ -47,6 +46,7 @@ gems_for_all_rubies:
   - debase
 
 gems_for_latest_ruby:
+  - railties
   - kramdown
   - rsense
   - ruby-beautify
