@@ -4,8 +4,7 @@
   file:
     path: /usr/local
     state: directory
-    group: admin
-    mode: 0775
+    mode: 0755
   become: TRUE
 
 - name: Ensure the Homebrew cache directory exists and has proper permissions
@@ -25,15 +24,14 @@
   homebrew:
     update_homebrew: yes
 
-- name: Add tap for Homebrew Cask to allow installation of GUI apps 
+- name: Add tap for Homebrew Cask to allow installation of GUI apps
   homebrew_tap:
     tap: caskroom/cask
 
-- name: Add Homebrew taps to allow installation of non-standard versions of packages
+- name: Add Homebrew taps to allow installation of older versions of packages (like Java)
   homebrew_tap:
     tap:
-      - homebrew/versions
-      - caskroom/versions
+      - homebrew/cask-versions
 
 - name: Ensure Bash completion directory exists
   file:
@@ -79,8 +77,4 @@
 
 - name: Remove any old versions of Homebrew-installed packages
   command: brew cleanup
-  changed_when: FALSE
-
-- name: Remove any old versions of Homebrew Cask-installed packages
-  command: brew cask cleanup
   changed_when: FALSE
