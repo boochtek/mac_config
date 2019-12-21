@@ -7,6 +7,13 @@
   changed_when: FALSE
   ignore_errors: TRUE
 
+- name: Get the Xcode license type
+  command: defaults read /Applications/Xcode.app/Contents/Resources/LicenseInfo licenseType
+  register: xcode_license_type
+  changed_when: FALSE
+  ignore_errors: TRUE
+  when: xcode_dir.stat.exists
+
 - name: Get the Xcode license ID
   command: defaults read /Applications/Xcode.app/Contents/Resources/LicenseInfo licenseID
   register: xcode_license_id
@@ -14,17 +21,42 @@
   ignore_errors: TRUE
   when: xcode_dir.stat.exists
 
-- name: Get the last accepted license ID
+- name: Get the last accepted license ID (GM)
   command: defaults read /Library/Preferences/com.apple.dt.Xcode IDELastGMLicenseAgreedTo
-  register: accepted_xcode_license_id
+  register: accepted_xcode_license_id_gm
   changed_when: FALSE
   ignore_errors: TRUE
-  when: xcode_dir.stat.exists and xcode_license_id.stdout
+  when: xcode_dir.stat.exists and xcode_license_id.stdout is defined and xcode_license_type.stdout == 'GM'
+
+- name: Get the last accepted license ID (Beta)
+  command: defaults read /Library/Preferences/com.apple.dt.Xcode IDELastBetaLicenseAgreedTo
+  register: accepted_xcode_license_id_beta
+  changed_when: FALSE
+  ignore_errors: TRUE
+  when: xcode_dir.stat.exists and xcode_license_id.stdout is defined and xcode_license_type.stdout != 'GM'
 
 - name: Accept Xcode license
+  command: /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept
+  become: TRUE
+  when: xcode_dir.stat.exists and xcode_license_id.stdout is not defined
+
+- name: Accept Xcode license (GM) (backup plan)
+  osx_defaults:
+    domain: /Library/Preferences/com.apple.dt.Xcode
+    key: IDELastBetaLicenseAgreedTo
+    value: "{{ xcode_license_id.stdout }}"
+  become: TRUE
+  when: xcode_dir.stat.exists and xcode_license_type.stdout == 'GM' and xcode_license_id.stdout is defined and accepted_xcode_license_id_gm is defined and accepted_xcode_license_id_gm.stdout != xcode_license_id.stdout
+
+- name: Accept Xcode license (Beta) (backup plan)
   osx_defaults:
     domain: /Library/Preferences/com.apple.dt.Xcode
     key: IDELastGMLicenseAgreedTo
     value: "{{ xcode_license_id.stdout }}"
   become: TRUE
-  when: xcode_dir.stat.exists and xcode_license_id.stdout is defined and accepted_xcode_license_id is defined and accepted_xcode_license_id.stdout != xcode_license_id.stdout
+  when: xcode_dir.stat.exists and xcode_license_type.stdout != 'GM' and xcode_license_id.stdout is defined and accepted_xcode_license_id_beta is defined and accepted_xcode_license_id_beta.stdout != xcode_license_id.stdout
+
+- name: List installed packages
+  command: pkgutil --pkgs
+  register: installed_packages
+  changed_when: FALSE

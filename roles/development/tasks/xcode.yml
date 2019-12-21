@@ -1,0 +1,19 @@
+---
+
+# NOTE: Most of the Xcode installation and configuration happens in the `prerequisites` task.
+
+- name: Determine if we have Xcode installed
+  stat:
+    path: /Applications/Xcode.app
+  register: xcode_dir
+  changed_when: FALSE
+  ignore_errors: TRUE
+
+- name: Install Xcode packages
+  command: /usr/sbin/installer -dumplog -verbose -pkg "/Applications/Xcode.app/Contents/Resources/Packages/{{ item }}.pkg" -target /
+  with_items:
+    - MobileDevice
+    - MobileDeviceDevelopment
+    - XcodeSystemResources
+  when: "xcode_dir.stat.exists and 'com.apple.pkg.{{ item }}' in installed_packages"
+  become: TRUE

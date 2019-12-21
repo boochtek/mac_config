@@ -21,6 +21,8 @@
 
 - include: ruby.yml
   tags: ruby
+- include: xcode.yml
+  tags: xcode
 - include: perl.yml
   tags: perl
 - include: java.yml
