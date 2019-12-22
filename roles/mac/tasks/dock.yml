@@ -35,5 +35,7 @@
     - Messages
     - FaceTime
     - iBooks
+    - Podcasts
+    - TV
   notify:
     - Restart Dock
