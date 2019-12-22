@@ -19,7 +19,6 @@
     - unity-ui
     - soda-light-ui
     - solarized-light-syntax-modified
-    - base16-light-syntax
     - fonts
 
 - name: Install some miscellaneous Atom plugins
@@ -116,7 +115,7 @@
     - language-haml
     - html2haml
     - rails-transporter
-    - rails-model-schema
+    - rails-atom-schema
 
 - name: Install Atom plugins for JavaScript
   command: "apm install {{ item }}"
