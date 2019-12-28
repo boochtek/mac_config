@@ -5,12 +5,13 @@
     name: asdf
 
 - name: Get list of ASDF plugins installed
-  command: /usr/local/Cellar/asdf/0.7.5/bin/asdf plugin-list
+  command: /usr/local/opt/asdf/bin/asdf plugin-list
   register: asdf_plugins
+  ignore_errors: TRUE
   changed_when: FALSE
 
 - name: Install ASDF plugins for Elixir and Erlang
-  command: /usr/local/Cellar/asdf/0.7.5/bin/asdf plugin-add {{ item }}
+  command: /usr/local/opt/asdf/bin/asdf plugin-add {{ item }}
   with_items:
     - elixir
     - erlang
@@ -19,11 +20,11 @@
 # TODO: Maybe just do `asdf install` to get whatever is defined in `~/.tool-versions`.
 
 - name: Install Erlang VM and OTP (along with the Erlang programming language)
-  command: /usr/local/Cellar/asdf/0.7.5/bin/asdf install erlang 22.1.4
+  command: /usr/local/opt/asdf/bin/asdf install erlang 22.1.4
   args:
     creates: "{{ ansible_env.HOME }}/.asdf/installs/erlang/22.1.4"
 
 - name: Install Elixir programming language
-  command: /usr/local/Cellar/asdf/0.7.5/bin/asdf install elixir 1.9.1-otp-22
+  command: /usr/local/opt/asdf/bin/asdf install elixir 1.9.1-otp-22
   args:
     creates: "{{ ansible_env.HOME }}/.asdf/installs/elixir/1.9.1-otp-22"
