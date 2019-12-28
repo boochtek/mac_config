@@ -27,13 +27,11 @@ sidebar_favorites:
     url:   file://{{ ansible_env.HOME }}
   - label: Desktop
     url:   file://{{ ansible_env.HOME }}/Desktop
-  - label: Downloads
-    url:   file://{{ ansible_env.HOME }}/Downloads
   - label: Documents
     url:   file://{{ ansible_env.HOME }}/Documents
-  - label: Work
-    url:   file://{{ ansible_env.HOME }}/Work
-  - label: Portal
-    url:   file://{{ ansible_env.HOME }}/Work/F5/Silverline/Portal
+  - label: Downloads
+    url:   file://{{ ansible_env.HOME }}/Downloads
   - label: Personal
     url:   file://{{ ansible_env.HOME }}/Personal
+  - label: Work
+    url:   file://{{ ansible_env.HOME }}/Work

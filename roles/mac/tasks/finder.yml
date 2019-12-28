@@ -202,12 +202,21 @@
   notify:
     - Restart Finder
 
+# NOTE: mysides util will crash trying to list directories that don't exist.
+- name: Ensure Work and Personal directories exist
+  file:
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    state: directory
+  with_items:
+    - Work
+    - Personal
+
 - name: Install mysides utility
-  homebrew:
+  homebrew_cask:
     name: mysides
 
-- name: Determine Finder sidebar favorites
-  shell: mysides list | awk '{ print $1 }'
+- name: Determine existing Finder sidebar favorites
+  shell: mysides list | sed 's/^\(.*\) -> .*$/\1/' | grep -v '^$'
   register: current_sidebar_favorites
   changed_when: FALSE
 
