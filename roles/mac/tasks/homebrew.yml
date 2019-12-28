@@ -24,10 +24,6 @@
   homebrew:
     update_homebrew: yes
 
-- name: Add tap for Homebrew Cask to allow installation of GUI apps
-  homebrew_tap:
-    tap: caskroom/cask
-
 - name: Add Homebrew taps to allow installation of older versions of packages (like Java)
   homebrew_tap:
     tap:
@@ -52,7 +48,7 @@
   homebrew_tap:
     tap: "{{ item }}"
   with_items:
-    - caskroom/fonts
+    - homebrew/cask-fonts
     - niksy/pljoska
 
 # The Homebrew version of OpenSSL is needed to compile Bundler on El Capitan. See http://adarsh.io/bundler-failing-on-el-capitan/ for details.
