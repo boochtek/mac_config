@@ -193,6 +193,15 @@
   notify:
     - Restart Finder
 
+- name: Set sidebar width (to fit the width of all the items)
+  osx_defaults:
+    domain: com.apple.finder
+    key: SidebarWidth
+    value: 128
+    type: float
+  notify:
+    - Restart Finder
+
 - name: Hide tags section in Finder sidebar
   osx_defaults:
     domain: com.apple.finder
