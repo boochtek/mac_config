@@ -16,7 +16,7 @@
 - name: Enable Bash completion for Vagrant
   file:
     dest: "{{ bash_completion_dir }}/vagrant_bash_completion.sh"
-    src: /opt/vagrant/embedded/gems/gems/vagrant-{{ vagrant_version.stdout }}/contrib/bash/completion.sh
+    src: /opt/vagrant/embedded/gems/{{ vagrant_version.stdout }}/gems/vagrant-{{ vagrant_version.stdout }}/contrib/bash/completion.sh
     state: link
 
 - name: Install VirtualBox
