@@ -1,2 +1,8 @@
-- name: Reload chruby
-  command: source {{ homebrew_dir }}/share/chruby/chruby.sh
+- name: Load chruby
+  shell: source $(brew --prefix)/share/chruby/chruby.sh
+
+- name: Restart Dock
+  command: killall Dock
+
+- name: Restart Launch Services
+  command: /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user
