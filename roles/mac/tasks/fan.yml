@@ -1,16 +1,25 @@
 ---
 
+# NOTE: We assume that if there's a Touch Bar, we'll need to use Mac Fans Control,
+- name: Determine which fan control app to install
+  shell: ps auxw | grep -i [T]ouchBarServer
+  register: touch_bar
+  changed_when: FALSE
+  ignore_errors: TRUE
+
 - name: Install smcFanControl
   homebrew_cask:
     name: smcfancontrol
   notify:
     - Restart smcFanControl
+  when: touch_bar.stdout_lines | length == 0
 
 - name: Get list of configured fan speeds
   shell: defaults read com.eidac.smcFanControl2 Favorites | grep Title | sed -Ee 's/[[:space:]]*Title = "(.*)";/\1/'
   register: configured_fan_speeds
   changed_when: FALSE
   ignore_errors: TRUE
+  when: touch_bar.stdout_lines | length == 0
 
 - name: Configure smcFanControl fan speeds
   osx_defaults:
@@ -25,7 +34,7 @@
     - { name: "Medium RPM", left: 4000, right: 4000 }
     - { name: "High RPM", left: 5000, right: 5000 }
     - { name: "Maximum RPM", left: 5927, right: 5489 }
-  when: item.name not in configured_fan_speeds.stdout_lines
+  when: touch_bar.stdout_lines | length == 0 and item.name not in configured_fan_speeds.stdout_lines
   notify:
     - Restart smcFanControl
 
@@ -47,5 +56,17 @@
     - { key: selac, value: 2, type: int }           # Run at Medium RPM when on AC.
     - { key: selload, value: 2, type: int }         # Run at Medium RPM when charging.
     - { key: selbatt, value: 1, type: int }         # Run at Low RPM when on battery.
+  when: touch_bar.stdout_lines | length == 0
   notify:
     - Restart smcFanControl
+
+- name: Install Macs Fan Control
+  homebrew_cask:
+    name: macs-fan-control
+  when: touch_bar.stdout_lines | length >= 1
+  notify:
+    - Start Macs Fan Control
+
+- name: Trust the Macs Fan Control download
+  command: xattr -dr com.apple.quarantine '/Applications/Macs Fan Control.app'
+  when: touch_bar.stdout_lines | length >= 1

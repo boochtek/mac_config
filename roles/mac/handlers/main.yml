@@ -14,6 +14,9 @@
       ignore_errors: TRUE
     - command: open /Applications/smcFanControl.app
 
+- name: Start Macs Fan Control
+  command: open -a 'Macs Fan Control'
+
 - name: Restart Control Strip
   command: killall ControlStrip
   ignore_errors: TRUE
