@@ -45,7 +45,7 @@
 
 - name: Install QuickLook preview for archives (ZIP, tar, gzip, bzip2, ARJ, LZH, ISO, etc.)
   homebrew_cask:
-    name: betterzipql
+    name: betterzip
   notify:
     - Reload QuickLook daemon
 
