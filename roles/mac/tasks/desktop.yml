@@ -4,14 +4,14 @@
   homebrew:
     name: wallpaper
 
-- name: Download wallpaper image
-  get_url:
-    url: http://pic.1fotonin.com//data/wallpapers/20/WDF_683106.jpg
-    dest: "~/Pictures/WDF_683106.jpg"
-
-- name: Set wallpaper image
-  command: wallpaper "~/Pictures/WDF_683106.jpg"
-  changed_when: FALSE
+#- name: Download wallpaper image
+#  get_url:
+#    url: http://pic.1fotonin.com//data/wallpapers/20/WDF_683106.jpg
+#    dest: "~/Pictures/WDF_683106.jpg"
+#
+#- name: Set wallpaper image
+#  command: wallpaper "~/Pictures/WDF_683106.jpg"
+#  changed_when: FALSE
 
 - name: Hide everything on the desktop
   osx_defaults:
