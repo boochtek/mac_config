@@ -44,6 +44,8 @@
   tags: security
 - include: bash.yml
   tags: shell, bash
+- include: zsh.yml
+  tags: shell, zsh
 - include: utilities.yml
   tags: utilities
 - include: mail.yml
