@@ -63,6 +63,9 @@
   homebrew_cask:
     name: karabiner-elements
 
+- name: Trust the Karabiner download
+  command: xattr -dr com.apple.quarantine '/Applications/Karabiner-Elements.app'
+
 #- name: Install Karabiner CLI stub
 #  copy:
 #    dest: /usr/local/bin/karabiner

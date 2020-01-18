@@ -3,3 +3,6 @@
 - name: Install Bitwarden
   homebrew_cask:
     name: bitwarden
+
+- name: Trust the Bitwarden download
+  command: xattr -dr com.apple.quarantine '/Applications/Bitwarden.app'

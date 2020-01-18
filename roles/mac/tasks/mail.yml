@@ -21,6 +21,9 @@
   homebrew_cask:
     name: thunderbird
 
+- name: Trust the Thunderbird download
+  command: xattr -dr com.apple.quarantine '/Applications/Thunderbird.app'
+
 - name: Add Thunderbird icon to Dock
   include: add_to_dock.yml
   vars:

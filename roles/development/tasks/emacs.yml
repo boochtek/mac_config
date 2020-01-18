@@ -11,6 +11,9 @@
   homebrew_cask:
     name: emacs
 
+- name: Trust the Emacs download
+  command: xattr -dr com.apple.quarantine '/Applications/Emacs.app'
+
 # TODO: Make this idempotent.
 - name: Use Emacs TUI from CLI
   command: brew link --overwrite emacs

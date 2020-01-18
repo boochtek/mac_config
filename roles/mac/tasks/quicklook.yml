@@ -55,6 +55,9 @@
   notify:
     - Reload QuickLook daemon
 
+- name: Trust the QuickLook plugin downloads
+  command: xattr -dr com.apple.quarantine '{{ ansible_env.HOME }}/Library/QuickLook'
+
 # NOTE: This does not work in macOS El Capitan or Sierra. See http://apple.stackexchange.com/questions/205574/copy-text-from-quick-look-in-el-capitan-or-sierra
 - name: Enable text selection in QuickLook views
   osx_defaults:

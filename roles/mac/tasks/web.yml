@@ -12,6 +12,9 @@
     path: /Applications/Google Chrome.app
     before: Safari
 
+- name: Trust the Chrome download
+  command: xattr -dr com.apple.quarantine '/Applications/Google Chrome.app'
+
 # The next time the user starts Chrome, they'll be prompted whether they want to install any new extensions from this list.
 - name: Install Chrome Extensions
   copy:
@@ -28,6 +31,9 @@
     name: firefox
     accept_external_apps: TRUE
 
+- name: Trust the Firefox download
+  command: xattr -dr com.apple.quarantine '/Applications/Firefox.app'
+
 - name: Add Firefox icon to Dock
   include: add_to_dock.yml
   vars:
@@ -42,6 +48,9 @@
   homebrew_cask:
     name: chromium
     accept_external_apps: TRUE
+
+- name: Trust the Chromium download
+  command: xattr -dr com.apple.quarantine '/Applications/Chromium.app'
 
 - name: Add Chromium icon to Dock
   include: add_to_dock.yml
