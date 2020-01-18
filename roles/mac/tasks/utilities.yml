@@ -250,6 +250,7 @@
     name: proselint
 
 # This is a nice tool for creating PDFs from HTML
+# NOTE: This will prompt you for your password.
 - name: Install wkhtmltopdf
   homebrew_cask:
     name: wkhtmltopdf
