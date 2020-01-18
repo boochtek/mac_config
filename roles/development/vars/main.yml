@@ -6,20 +6,11 @@ rubies_dir: ~/.rubies
 # Note that SHA256 signatures are for BZ2 files; get them from the ruby-lang.org release announcements.
 ruby_versions:
   - engine: ruby
+    version: 2.7.0
+    sha256: 7aa247a19622a803bdd29fdb28108de9798abe841254fe8ea82c31d125c6ab26
+  - engine: ruby
     version: 2.6.5
     sha256: 97ddf1b922f83c1f5c50e75bf54e27bba768d75fea7cda903b886c6745e60f0a
-  - engine: ruby
-    version: 2.5.7
-    sha256: e67c69b141ed27158e47d9a4fe7e59749135b0f138dce06c8c15c3214543f56f
-  - engine: ruby
-    version: 2.4.9
-    sha256: f72bdef50246ef047ba3ce9c59d2081b949feb16f9a04e008108e98f1a995e99
-#  - engine: ruby
-#    version: 2.3.8
-#    sha256: 4d1a3a88e8cf9aea624eb73843fbfc60a9a281582660f86d5e4e00870397407c
-#  - engine: ruby
-#    version: 2.2.10
-#    sha256: a54204d2728283c9eff0cf81d654f245fa5b3447d0824f1a6bc3b2c5c827381e
 
 gems_for_all_rubies:
   - bundler
