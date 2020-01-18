@@ -65,6 +65,7 @@
     - minimap-find-and-replace
     - minimap-git-diff
     - minimap-highlight-selected
+    - highlight-selected  # Dependency of minimap-highlight-selected
 
 - name: Install Atom plugins for git
   command: "apm install {{ item }}"
@@ -139,8 +140,8 @@
     creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
   with_items:
     - atom-typescript
-    - atom-ide-ui  # Required by ide-typescript
-    - ide-typescript  # NOTE: Requires [TypeScript Language Server](https://github.com/theia-ide/typescript-language-server)
+    #- atom-ide-ui  # Required by ide-typescript
+    #- ide-typescript  # NOTE: Requires [TypeScript Language Server](https://github.com/theia-ide/typescript-language-server)
 
 - name: Install Atom plugins for Crystal
   command: "apm install {{ item }}"

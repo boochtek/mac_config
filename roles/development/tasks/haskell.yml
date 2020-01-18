@@ -14,7 +14,7 @@
   args:
     creates: "{{ ansible_env.HOME }}/.local/bin/{{ item }}"
   with_items:
-    - ghc-mod
+#    - ghc-mod
     - hlint
     - stylish-haskell
 
@@ -35,3 +35,7 @@
     - autocomplete-haskell
     - haskell-pointfree
     - haskell-scry
+    - hasklig
+    - linter
+    - intentions
+    - busy-signal
