@@ -14,39 +14,39 @@
   tags: appstore
 - include: power.yml
   tags: power
-- include: display.yml
-  tags: display
-- include: ui.yml
-  tags: ui
-- include: desktop.yml
-  tags: desktop
-- include: finder.yml
-  tags: finder
-- include: dock.yml
-  tags: dock
-- include: trackpad.yml
-  tags: trackpad
 - include: keyboard.yml
   tags: keyboard
+- include: trackpad.yml
+  tags: trackpad
 - include: touchbar.yml
   tags: touchbar
-- include: terminal.yml
-  tags: terminal
-- include: utilities.yml
-  tags: utilities
+- include: display.yml
+  tags: display
 - include: fan.yml
   tags: fan
-- include: menubar.yml
-  tags: menubar
-- include: bash.yml
-  tags: bash
-- include: quicklook.yml
-  tags: quicklook
-- include: mail.yml
-  tags: mail
+- include: ui.yml
+  tags: ui
 - include: fonts.yml
   tags: fonts
-- include: web.yml
-  tags: web, browser, browsers
+- include: menubar.yml
+  tags: menubar
+- include: finder.yml
+  tags: finder
+- include: quicklook.yml
+  tags: quicklook
+- include: dock.yml
+  tags: dock
+- include: desktop.yml
+  tags: desktop
+- include: terminal.yml
+  tags: terminal
 - include: security.yml
   tags: security
+- include: bash.yml
+  tags: shell, bash
+- include: utilities.yml
+  tags: utilities
+- include: mail.yml
+  tags: mail
+- include: web.yml
+  tags: web, browser, browsers
