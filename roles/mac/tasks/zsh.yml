@@ -3,7 +3,7 @@
 # Mac OS X 10.15 comes with ZSH 5.7, and uses it as the default shell for new accounts.
 
 - name: Set 'current_shell' to path of current shell
-  shell: dscl . -read ~ UserShell | sed 's/UserShell: //'
+  shell: "dscl . -read ~ UserShell | sed 's/UserShell: //'"
   register: current_shell
   changed_when: false
 
