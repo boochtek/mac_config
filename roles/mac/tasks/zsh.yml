@@ -9,5 +9,10 @@
 
 - name: Use ZSH as login shell
   command: "chsh -s /bin/zsh {{ ansible_user }}"
-  become: yes
+  become: TRUE
   when: "current_shell.stdout != ('/bin/zsh')"
+
+- name: Install Oh My ZSH
+  git:
+    dest: /usr/local/share/oh-my-zsh
+    repo: https://github.com/ohmyzsh/ohmyzsh.git
