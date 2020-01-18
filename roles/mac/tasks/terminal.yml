@@ -24,3 +24,55 @@
     name: Terminal
     path: /Applications/Terminal.app
     after: Finder
+
+# TODO: More iTerm2 config: '~/Library/Application Support/iTerm2/DynamicProfiles'
+
+- name: Install iTerm2
+  homebrew_cask:
+    name: iterm2
+
+- name:
+  command: xattr -dr com.apple.quarantine /Applications/iTerm.app
+
+- name: Configure iTerm2 (integer values)
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    type: int
+  with_dict:
+    CopySelection: 0  # General / Selection / UNCHECK Copy to pasteboard on selection
+    DoubleClickPerformsSmartSelection: 1  # General / Selection / CHECK Double-click performs smart selection
+    StatusBarPosition: 1  # Appearance / General / Status bar location: Bottom
+    DimBackgroundWindows: 1  # Appearance / Dimming / CHECK Dim background windows
+    DimOnlyText: 1  # Appearance / Dimming / CHECK Dimming affects only text, not background
+
+- name: Configure iTerm2 (string values)
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    type: string
+  with_dict:
+    SplitPaneDimmingAmount: 0.50  # Appearance / Dimming / Dimming amount: (move slider 3/4 to the right)
+
+- name: Configure iTerm2 (global key bindings)
+  command: defaults write com.googlecode.iterm2 GlobalKeyMap -dict-add '{{ item.key }}' '{{ item.value }}'
+  with_dict:
+    '0x09-0x40000': '{ Action = 0; }'  # Control+Tab: Next Tab
+    '0x19-0x60000': '{ Action = 2; }'  # Control+Shift+Tabe: Previous Tab
+
+- name: Load iTerm2 profile
+  file:
+    source:
+    destination: "{{ ansible_env.HOME }}/Library/Application Support/iTerm2/DynamicProfiles/"
+
+- name: Add iTerm2 icon to Dock
+  include: add_to_dock.yml
+  vars:
+    name: iTerm2
+    path: /Applications/iTerm.app
+    after: Finder
+
+- name: Open iTerm2
+  command: open -a iTerm
