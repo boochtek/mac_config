@@ -95,4 +95,20 @@
     type: integer
 
 - name: Start Collective
-  command: open /Applications/Collective.app
+  command: open -a Collective
+
+- name: Don't nag about their new app
+  osx_defaults:
+    domain: com.crowdcafe.windowmagnet
+    key: "{{ item }}"
+    value: 1
+    type: integer
+  with_items:
+    - alreadyClickedDynamoItem
+    - seenDynamo
+
+# TODO: Automate launching Magnet at login
+# TODO: Set appAlreadyLaunchedKey to 1
+
+- name: Start Magnet
+  command: open -a Magnet
