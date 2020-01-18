@@ -52,28 +52,18 @@
     - 610
     - 628
 
-# Seil is used to remap the Caps Lock key, so that Karabiner can remap it.
-# NOTE: As of MacOS Sierra, Karabiner-Elements includes Seil's functionality.
-#- name: Install Seil
-#  homebrew_cask:
-#    name: seil
-
 # Karabiner allows remapping (almost) any key on the keyboard.
 - name: Install Karabiner
   homebrew_cask:
     name: karabiner-elements
 
-- name: Trust the Karabiner download
-  command: xattr -dr com.apple.quarantine '/Applications/Karabiner-Elements.app'
-
-#- name: Install Karabiner CLI stub
-#  copy:
-#    dest: /usr/local/bin/karabiner
-#    src: "{{ role_path }}/files/karabiner.sh"
-#    mode: 0755
+- name: Install Karabiner CLI stub
+  copy:
+    dest: /usr/local/bin/karabiner
+    src: "{{ role_path }}/files/karabiner.sh"
+    mode: 0755
 
 # TODO: Had to manually go into Security & Privacy preferences, Privacy Tab, Accessibility, and enable Karabiner_AXNotifier.
-# TODO: Had to manually start Karabiner GUI and close its window.
 
 - name: Hide Karabiner menubar icon
   osx_defaults:
@@ -81,3 +71,6 @@
     key: isStatusbarEnable
     value: FALSE
     type: bool
+
+- name: Start Karabiner
+  command: open -a Karabiner-Elements
