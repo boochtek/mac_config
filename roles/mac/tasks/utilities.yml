@@ -123,6 +123,12 @@
   homebrew:
     name: midnight-commander
 
+# nnn is another visual (TUI) file manager, similar to Midnight Commander.
+# TODO: Look into [plugins](https://github.com/jarun/nnn/tree/master/plugins#introduction)
+- name: Install nnn
+  homebrew:
+    name: nnn
+
 # NcFTP and LFTP provide some useful features (bookmarks, resume, mirroring) that other FTP clients don't.
 - name: Install NcFTP
   homebrew:
