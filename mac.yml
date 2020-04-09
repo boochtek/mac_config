@@ -22,14 +22,6 @@
     - mac_vars.yml
 
 
-- hosts: mercy
-  roles:
-    - role: mercy
-      tags: mercy
-  vars_files:
-    - mac_vars.yml
-
-
 - hosts: centurylink
   roles:
     - role: centurylink
