@@ -74,3 +74,16 @@
 
 - name: Start Karabiner
   command: open -a Karabiner-Elements
+
+# Configuration of my Drop (Massdrop) CTRL keyboard.
+# NOTE: QMK has a ton of dependencies; Homebrew will take a while to download/compile them.
+- name: Install QMK
+  homebrew:
+    name: qmk/qmk/qmk
+
+- name: Install Massdrop firmware loader
+  get_url:
+    url: https://github.com/Massdrop/mdloader/releases/download/1.0.3/mdloader_mac
+    dest: /usr/local/sbin/mdloader
+    mode: 0555
+    group: admin
