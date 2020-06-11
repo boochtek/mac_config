@@ -23,6 +23,8 @@
   tags: ruby
 - include: xcode.yml
   tags: xcode
+- include: shell.yml
+  tags: shell, bash, zsh
 - include: perl.yml
   tags: perl
 - include: java.yml
