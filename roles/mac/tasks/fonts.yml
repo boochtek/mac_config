@@ -3,3 +3,15 @@
 - name: Install free Microsoft ClearType fonts
   homebrew_cask:
     name: font-microsoft-cleartype-family
+
+- name: Install JetBrains Mono font
+  homebrew_cask:
+    name: font-jetbrains-mono
+
+- name: Install Hack font (from Nerd Fonts, so we get all the extra symbol glyphs)
+  homebrew_cask:
+    name: font-hack-nerd-font-mono
+
+- name: Install Fira Code font
+  homebrew_cask:
+    name: font-fira-code
