@@ -16,6 +16,12 @@
     value: FALSE
     type: bool
 
+- name: Always show scroll bars
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowScrollBars
+    value: Always
+
 - name: Expand save dialogs by default
   osx_defaults:
     domain: NSGlobalDomain
