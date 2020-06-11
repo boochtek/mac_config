@@ -16,3 +16,7 @@
   git:
     dest: /usr/local/share/oh-my-zsh
     repo: https://github.com/ohmyzsh/ohmyzsh.git
+
+- name: Install ZSH completions
+  homebrew:
+    name: zsh-completions
