@@ -1,6 +1,10 @@
 TODO
 ====
 
+* Stop using `add_to_dock`
+    * Just use `dockutil` directly
+
+
 * Add some stuff from Homebrew
     * pygments (pygmentize CLI)
 * Remove duplication in misc and dev-tools
