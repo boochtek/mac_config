@@ -20,3 +20,7 @@
 - name: Install ZSH completions
   homebrew:
     name: zsh-completions
+
+- name: Install ZSH syntax highlighting
+  homebrew:
+    name: zsh-syntax-highlighting
