@@ -1,0 +1,14 @@
+---
+
+- name: Set screensaver timeout (10 minutes)
+  osx_defaults:
+    host: currentHost
+    domain: com.apple.screensaver
+    key: idleTime
+    value: 600
+    type: integer
+
+# This just adds a bunch of screensavers to choose from in System Preferences
+- name: Install XScreenSaver
+  homebrew_cask:
+    name: xscreensaver
