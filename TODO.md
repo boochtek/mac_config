@@ -1,6 +1,31 @@
 TODO
 ====
 
+Get all these (mostly) finished, in order to be useful
+------------------------------------------------------
+
+os/xcode-clt.sh         (untested)
+os/dock.sh              (done)
+os/finder.sh            (probably needs updates)
+os/homebrew.sh          (untested)
+os/hostname.sh          (untested)
+os/menubar.sh           (probably needs updates)
+os/misc.sh              (probably needs updates)
+hardware/trackpad.sh    (probably needs updates)
+hardware/printer.sh     (TODO)
+web/browsers.sh         (probably needs updates)
+editors/vim.sh          (may need updates)
+email/mail.sh           (probably needs updates)
+email/thunderbird.sh    (probably needs updates)
+dev/*.sh                (untested)
+
+Then see what's missing from the Ansible branch.
+NOTE: Add `--no-quarantine` to `brew install --cask` commands.
+TODO: Document Xcode CLT prerequisite.
+TODO: See what we can add for Big Sure (MacOS 11.0)
+
+Probably really old stuff
+-------------------------
 * Fix sublime setup
   * Add more plugins
     * AdvancedNewFile with show_files enabled.
@@ -14,7 +39,6 @@ TODO
 * Check that everything worked as expected
 * 1Password
 * brew cask install macs-fan-control # (or smcfancontrol)
-
 
 
 Utilities

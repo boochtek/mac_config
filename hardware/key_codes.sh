@@ -4,8 +4,8 @@
 ## These are used in Terminal.app and Library/KeyBindings/DefaultKeyBinding.Dict, among other places.
 
 
-source 'maps.sh'
-source 'arrays.sh'
+source '../util/maps.sh'
+source '../util/arrays.sh'
 
 
 # Apple (and previously NeXT) uses "private use" Unicode characters to represent function keys.

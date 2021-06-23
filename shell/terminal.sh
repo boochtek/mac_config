@@ -25,6 +25,7 @@ function main {
 
   # Define ANSI sequences for cursor keys (with and without modifiers).
   bind_cursor_keys 'Basic'
+  bind_function_keys 'Basic'
 
   # Copy "Basic" profile to "BoochTek", and configure "BoochTek" the way we want it.
   defaults+ copy com.apple.Terminal 'Window Settings.Basic' 'Window Settings.BoochTek'
@@ -158,6 +159,114 @@ function bind_cursor_keys {
   terminal_keybinding $PROFILE_NAME 'control option shift pg_down' "${CSI}6;8~"
 }
 
+# Where alternative bindings are possible, we're using the ones in the xterm terminfo.
+function bind_function_keys {
+  local PROFILE_NAME="$1"
+
+  terminal_keybinding $PROFILE_NAME 'F1'  "${ESC}OP"  # Alternatives: "${CSI}11~"
+  terminal_keybinding $PROFILE_NAME 'F2'  "${ESC}OQ"  # Alternatives: "${CSI}12~"
+  terminal_keybinding $PROFILE_NAME 'F3'  "${ESC}OR"  # Alternatives: "${CSI}13~"
+  terminal_keybinding $PROFILE_NAME 'F4'  "${ESC}OS"  # Alternatives: "${CSI}14~"
+  terminal_keybinding $PROFILE_NAME 'F5'  "${CSI}15~"
+  terminal_keybinding $PROFILE_NAME 'F6'  "${CSI}17~"
+  terminal_keybinding $PROFILE_NAME 'F7'  "${CSI}18~"
+  terminal_keybinding $PROFILE_NAME 'F8'  "${CSI}19~"
+  terminal_keybinding $PROFILE_NAME 'F9'  "${CSI}20~"
+  terminal_keybinding $PROFILE_NAME 'F10' "${CSI}21~"
+  terminal_keybinding $PROFILE_NAME 'F11' "${CSI}23~"
+  terminal_keybinding $PROFILE_NAME 'F12' "${CSI}24~"
+
+  terminal_keybinding $PROFILE_NAME 'shift F1'  "${CSI}1;2P"   # AKA F13; Alternatives: "${ESC}O2P", "${CSI}11;2~", "${CSI}25~"
+  terminal_keybinding $PROFILE_NAME 'shift F2'  "${CSI}1;2Q"   # AKA F14; Alternatives: "${ESC}O2Q", "${CSI}12;2~", "${CSI}26~"
+  terminal_keybinding $PROFILE_NAME 'shift F3'  "${CSI}1;2R"   # AKA F15; Alternatives: "${ESC}O2R", "${CSI}13;2~", "${CSI}28~"
+  terminal_keybinding $PROFILE_NAME 'shift F4'  "${CSI}1;2S"   # AKA F16; Alternatives: "${ESC}O2S", "${CSI}14;2~", "${CSI}29~"
+  terminal_keybinding $PROFILE_NAME 'shift F5'  "${CSI}15;2~"  # AKA F17; Alternatives: "${CSI}15;2~", "${CSI}31~"
+  terminal_keybinding $PROFILE_NAME 'shift F6'  "${CSI}17;2~"  # AKA F18; Alternatives: "${CSI}17;2~", "${CSI}32~"
+  terminal_keybinding $PROFILE_NAME 'shift F7'  "${CSI}18;2~"  # AKA F19; Alternatives: "${CSI}18;2~", "${CSI}33~"
+  terminal_keybinding $PROFILE_NAME 'shift F8'  "${CSI}19;2~"  # AKA F20; Alternatives: "${CSI}19;2~", "${CSI}34~"
+  terminal_keybinding $PROFILE_NAME 'shift F9'  "${CSI}20;2~"  # AKA F21
+  terminal_keybinding $PROFILE_NAME 'shift F10' "${CSI}21;2~"  # AKA F22
+  terminal_keybinding $PROFILE_NAME 'shift F11' "${CSI}23;2~"  # AKA F23
+  terminal_keybinding $PROFILE_NAME 'shift F12' "${CSI}24;2~"  # AKA F24
+
+  terminal_keybinding $PROFILE_NAME 'option F1'  "${CSI}1;3P"   # AKA F49; Alternatives: "${ESC}O3P"
+  terminal_keybinding $PROFILE_NAME 'option F2'  "${CSI}1;3Q"   # AKA F50; Alternatives: "${ESC}O3Q"
+  terminal_keybinding $PROFILE_NAME 'option F3'  "${CSI}1;3R"   # AKA F51; Alternatives: "${ESC}O3R"
+  terminal_keybinding $PROFILE_NAME 'option F4'  "${CSI}1;3S"   # AKA F52; Alternatives: "${ESC}O3S"
+  terminal_keybinding $PROFILE_NAME 'option F5'  "${CSI}15;3~"  # AKA F53
+  terminal_keybinding $PROFILE_NAME 'option F6'  "${CSI}17;3~"  # AKA F54
+  terminal_keybinding $PROFILE_NAME 'option F7'  "${CSI}18;3~"  # AKA F55
+  terminal_keybinding $PROFILE_NAME 'option F8'  "${CSI}19;3~"  # AKA F56
+  terminal_keybinding $PROFILE_NAME 'option F9'  "${CSI}20;3~"  # AKA F57
+  terminal_keybinding $PROFILE_NAME 'option F10' "${CSI}21;3~"  # AKA F58
+  terminal_keybinding $PROFILE_NAME 'option F11' "${CSI}23;3~"  # AKA F59
+  terminal_keybinding $PROFILE_NAME 'option F12' "${CSI}24;3~"  # AKA F60
+
+  terminal_keybinding $PROFILE_NAME 'option shift F1'  "${CSI}1;4P"   # AKA F61; Alternatives: "${ESC}O4P"
+  terminal_keybinding $PROFILE_NAME 'option shift F2'  "${CSI}1;4Q"   # AKA F62; Alternatives: "${ESC}O4Q"
+  terminal_keybinding $PROFILE_NAME 'option shift F3'  "${CSI}1;4R"   # AKA F63; Alternatives: "${ESC}O4R"
+  terminal_keybinding $PROFILE_NAME 'option shift F4'  "${CSI}1;4S"   # AKA F64; Alternatives: "${ESC}O4S"
+  terminal_keybinding $PROFILE_NAME 'option shift F5'  "${CSI}15;4~"  # AKA F65
+  terminal_keybinding $PROFILE_NAME 'option shift F6'  "${CSI}17;4~"  # AKA F66
+  terminal_keybinding $PROFILE_NAME 'option shift F7'  "${CSI}18;4~"  # AKA F67
+  terminal_keybinding $PROFILE_NAME 'option shift F8'  "${CSI}19;4~"  # AKA F68
+  terminal_keybinding $PROFILE_NAME 'option shift F9'  "${CSI}20;4~"  # AKA F69
+  terminal_keybinding $PROFILE_NAME 'option shift F10' "${CSI}21;4~"  # AKA F70
+  terminal_keybinding $PROFILE_NAME 'option shift F11' "${CSI}23;4~"  # AKA F71
+  terminal_keybinding $PROFILE_NAME 'option shift F12' "${CSI}24;4~"  # AKA F72
+
+  terminal_keybinding $PROFILE_NAME 'control F1'  "${CSI}1;5P"   # AKA F25; Alternatives: "${ESC}O5P", "${CSI}11;5~"
+  terminal_keybinding $PROFILE_NAME 'control F2'  "${CSI}1;5Q"   # AKA F26; Alternatives: "${ESC}O5Q", "${CSI}12;5~"
+  terminal_keybinding $PROFILE_NAME 'control F3'  "${CSI}1;5R"   # AKA F27; Alternatives: "${ESC}O5R", "${CSI}13;5~"
+  terminal_keybinding $PROFILE_NAME 'control F4'  "${CSI}1;5S"   # AKA F28; Alternatives: "${ESC}O5S", "${CSI}14;5~"
+  terminal_keybinding $PROFILE_NAME 'control F5'  "${CSI}15;5~"  # AKA F29
+  terminal_keybinding $PROFILE_NAME 'control F6'  "${CSI}17;5~"  # AKA F30
+  terminal_keybinding $PROFILE_NAME 'control F7'  "${CSI}18;5~"  # AKA F31
+  terminal_keybinding $PROFILE_NAME 'control F8'  "${CSI}19;5~"  # AKA F32
+  terminal_keybinding $PROFILE_NAME 'control F9'  "${CSI}20;5~"  # AKA F33
+  terminal_keybinding $PROFILE_NAME 'control F10' "${CSI}21;5~"  # AKA F34
+  terminal_keybinding $PROFILE_NAME 'control F11' "${CSI}23;5~"  # AKA F35
+  terminal_keybinding $PROFILE_NAME 'control F12' "${CSI}24;5~"  # AKA F36
+
+  terminal_keybinding $PROFILE_NAME 'control shift F1'  "${CSI}1;6P"   # AKA F37; Alternatives: "${ESC}O6P", "${CSI}11;6~"
+  terminal_keybinding $PROFILE_NAME 'control shift F2'  "${CSI}1;6Q"   # AKA F38; Alternatives: "${ESC}O6Q", "${CSI}12;6~"
+  terminal_keybinding $PROFILE_NAME 'control shift F3'  "${CSI}1;6R"   # AKA F38; Alternatives: "${ESC}O6R", "${CSI}13;6~"
+  terminal_keybinding $PROFILE_NAME 'control shift F4'  "${CSI}1;6S"   # AKA F40; Alternatives: "${ESC}O6S", "${CSI}14;6~"
+  terminal_keybinding $PROFILE_NAME 'control shift F5'  "${CSI}15;6~"  # AKA F41
+  terminal_keybinding $PROFILE_NAME 'control shift F6'  "${CSI}17;6~"  # AKA F42
+  terminal_keybinding $PROFILE_NAME 'control shift F7'  "${CSI}18;6~"  # AKA F43
+  terminal_keybinding $PROFILE_NAME 'control shift F8'  "${CSI}19;6~"  # AKA F44
+  terminal_keybinding $PROFILE_NAME 'control shift F9'  "${CSI}20;6~"  # AKA F45
+  terminal_keybinding $PROFILE_NAME 'control shift F10' "${CSI}21;6~"  # AKA F46
+  terminal_keybinding $PROFILE_NAME 'control shift F11' "${CSI}23;6~"  # AKA F47
+  terminal_keybinding $PROFILE_NAME 'control shift F12' "${CSI}24;6~"  # AKA F48
+
+  terminal_keybinding $PROFILE_NAME 'control option F1'  "${CSI}1;7P"   # Alternatives: "${ESC}O7P", "${CSI}11;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F2'  "${CSI}1;7Q"   # Alternatives: "${ESC}O7Q", "${CSI}12;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F3'  "${CSI}1;7R"   # Alternatives: "${ESC}O7R", "${CSI}13;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F4'  "${CSI}1;7S"   # Alternatives: "${ESC}O7S", "${CSI}14;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F5'  "${CSI}15;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F6'  "${CSI}17;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F7'  "${CSI}18;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F8'  "${CSI}19;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F9'  "${CSI}20;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F10' "${CSI}21;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F11' "${CSI}23;7~"
+  terminal_keybinding $PROFILE_NAME 'control option F12' "${CSI}24;7~"
+
+  terminal_keybinding $PROFILE_NAME 'control option shift F1'  "${CSI}1;8P"   # Alternatives: "${ESC}O8P", "${CSI}11;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F2'  "${CSI}1;8Q"   # Alternatives: "${ESC}O8Q", "${CSI}12;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F3'  "${CSI}1;8R"   # Alternatives: "${ESC}O8R", "${CSI}13;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F4'  "${CSI}1;8S"   # Alternatives: "${ESC}O8S", "${CSI}14;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F5'  "${CSI}15;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F6'  "${CSI}17;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F7'  "${CSI}18;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F8'  "${CSI}19;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F9'  "${CSI}20;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F10' "${CSI}21;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F11' "${CSI}23;8~"
+  terminal_keybinding $PROFILE_NAME 'control option shift F12' "${CSI}24;8~"
+}
 
 function terminal_keybinding {
   local profile="$1"

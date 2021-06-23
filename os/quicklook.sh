@@ -12,21 +12,27 @@ source 'homebrew.sh'
 
 # Preview Markdown files.
 brew cask install qlmarkdown
+xattr -dr com.apple.quarantine ~/Library/QuickLook/QLMarkdown.qlgenerator
 
 # Preview plain text files without a file extension (README, CHANGELOG, etc.).
 brew cask install qlstephen
+xattr -dr com.apple.quarantine ~/Library/QuickLook/QLStephen.qlgenerator
 
 # Preview source code files for various programming languages, with syntax highlighting.
 brew cask install qlcolorcode
+xattr -dr com.apple.quarantine ~/Library/QuickLook/QLColorCode.qlgenerator
 
 # Preview JSON files.
 brew cask install quicklook-json
+xattr -dr com.apple.quarantine ~/Library/QuickLook/QuickLookJSON.qlgenerator
 
 # Preview CSV files.
 brew cask install quicklook-csv
+xattr -dr com.apple.quarantine ~/Library/QuickLook/QuickLookCSV.qlgenerator
 
 # Preview diffs.
 brew cask install qlprettypatch
+xattr -dr com.apple.quarantine ~/Library/QuickLook/QLPrettyPatch.qlgenerator
 
 # Preview archives (ZIP, tar, gzip, bzip2, ARJ, LZH, ISO, etc.).
 brew cask install betterzipql

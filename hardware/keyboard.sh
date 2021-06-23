@@ -3,17 +3,16 @@
 ## Configure keyboard.
 
 
-source 'homebrew.sh'
-
-
 # Use function keys as standard function keys. (Require Fn modifier key to enable special media functions.)
 # Use all F1, F2, etc. keys as standard function keys
 # NOTE: This requires a reboot to take effect. See http://apple.stackexchange.com/questions/59178 for details.
+# NOTE: This doesn't really do anything with the Touch Bar.
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 
 # Make Caps Lock key do nothing. (We'll have Seil fix it later.)
 # See http://apple.stackexchange.com/a/88096 for more details.
 # TODO: Determine these programatically, and for each keyboard we find, loop through the vendor and product ID.
+# Apple's vendor ID is 1452. Product ID is 610 for internal keyboard on mid-2012 MacBook Pro, 628 for mid-2015 MacBook Pro.
 KEYBOARD_VENDOR=$(ioreg -n IOHIDKeyboard -r | grep '"VendorID"' | awk '{print $4}') # 1452 (0x05AC)
 KEYBOARD_PRODUCT=$(ioreg -n IOHIDKeyboard -r | grep '"ProductID"' | awk '{print $4}') # 610 (0x0262)
 KEYBOARD_ID=0  # TODO: Not sure if this is VendorIDSource, or if we have to keep track manually.
@@ -31,7 +30,7 @@ defaults write com.apple.BezelServices kDimTime -int 300
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 
-# Disable automatic fancy quotes, but enable automatic en-dash and em-dash substitution.
+# Disable automatic fancy quotes and dashes (because I don't want those changes when I'm coding).
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -boolean false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -boolean true
 
@@ -52,13 +51,20 @@ seil relaunch
 # TODO: Do I need to enable the
 
 
-brew cask install karabiner # Requires password.
+brew install --cask karabiner-elements # Requires password.
 cat > /usr/local/bin/karabiner <<'EOF' # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
 #!/bin/sh
-/Applications/Karabiner.app/Contents/Library/bin/karabiner $@
+/Library/Application\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli $@
 EOF
 chmod +x /usr/local/bin/karabiner
+
+# Start Karabiner
+# TODO: Had to manually go into Security & Privacy preferences, Privacy Tab, Accessibility, and enable Karabiner_AXNotifier.
+open -a Karabiner-Elements
+
+
 defaults write -app Karabiner isStatusWindowEnabled 0
+# Hide Karabiner menubar icon.
 defaults write -app Karabiner isStatusbarEnable 0
 karabiner reloadxml
 IS_LAPTOP=$(/usr/sbin/system_profiler SPHardwareDataType | grep "Model Identifier" | grep "Book")
@@ -90,6 +96,15 @@ ln -sf ~/config_files/karabiner.xml "~/Library/Application Support/Karabiner/pri
 #			http://apple.stackexchange.com/questions/13598/updating-modifier-key-mappings-through-defaults-command-tool#comment103161_88096
 #			http://superuser.com/questions/590526/switch-function-keys-on-os-x-via-via-command-line
 
+
+## Configuration of my Drop (Massdrop) CTRL keyboard.
+# NOTE: QMK has a ton of dependencies; Homebrew will take a while to download/compile them.
+brew install qmk/qmk/qmk
+
+## Install Massdrop firmware loader
+wget https://github.com/Massdrop/mdloader/releases/download/1.0.3/mdloader_mac -O /usr/local/sbin/mdloader
+chmod 0555 /usr/local/sbin/mdloader
+chgrp admin /usr/local/sbin/mdloader
 
 
 ## Key bindings (shortcuts) for apps.

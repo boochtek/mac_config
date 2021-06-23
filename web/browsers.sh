@@ -14,7 +14,7 @@ dockutil --add  '~/Applications/Google Chrome.app' --replacing 'Google Chrome' -
 
 # Chrome TODO (manual):
 #   * Make sure 1Password works properly. FIXME: Need cask apps deployed into /Applications instead of locally.
-
+#   * Install AdBlocker Ultimate extension
 
 # Install Firefox browser.
 brew cask install firefox

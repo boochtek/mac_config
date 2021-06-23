@@ -17,10 +17,23 @@
 ##    * iCloud Drive
 ##    * Airdrop
 
+#mysides remove "AirDrop" # Can't be removed for some unknown reason.
+mysides remove Home  # Note that it's named after the user, not actually named "Home".
+mysides remove Applications
+mysides remove Utilities
+mysides remove Desktop
+mysides remove Documents
+mysides remove Personal
+mysides remove Work
+mysides remove Projects
 
+mysides add Applications 'file:///Applications/'
+mysides add Utilities 'file:///Applications/Utilities'
+mysides add Home "file://$HOME"
+mysides add Personal "file://$HOME/Personal/"
+mysides add Work "file://$HOME/Work/"
+mysides add Downloads "file://$HOME/Downloads/"
 
-# Don't bother with the "desktop" behind all our windows. From http://lifehacker.com/hide-and-show-desktop-icons-on-os-x-with-an-automator-s-5704241
-defaults write com.apple.finder CreateDesktop false
 
 # Allow quitting Finder.
 defaults write com.apple.finder QuitMenuItem -bool true
@@ -69,12 +82,6 @@ chflags nohidden ~/Library
 
 # Set sidebar icon size to medium.
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
-
-# Don't show any special icons on desktop.
-defaults write ShowExternalHardDrivesOnDesktop -bool false
-defaults write ShowHardDrivesOnDesktop -bool false
-defaults write ShowRemovableMediaOnDesktop -bool false
-defaults write ShowMountedServersOnDesktop -bool false
 
 # Enable spring loading for directories, with no delay.
 defaults write NSGlobalDomain com.apple.springing.enabled -bool true
