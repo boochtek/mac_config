@@ -1,4 +1,4 @@
-brew install --cask visual-studio-code
+brew install --no-quarantine --cask visual-studio-code
 
 # TODO: Check `code --list-extensions` before trying to install each extension.
 
@@ -6,8 +6,6 @@ brew install --cask visual-studio-code
 code --install-extension pdconsec.vscode-print # Better of the 2 printing extensions.
 code --install-extension ban.spellright
 code --install-extension Tyriar.sort-lines
-code --install-extension 2gua.rainbow-brackets # TODO: I think this functionality is included in VS Code by default now.
-code --install-extension CoenraadS.bracket-pair-colorizer-2 # TODO: "     "
 code --install-extension alefragnani.project-manager
 code --install-extension christian-kohler.path-intellisense
 code --install-extension lostintangent.vsls-whiteboard
@@ -46,6 +44,7 @@ code --install-extension dbaeumer.vscode-eslint
 code --install-extension svelte.svelte-vscode
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension eg2.vscode-npm-script
+code --install-extension wix.vscode-import-cost
 
 # HTML
 code --install-extension abusaidm.html-snippets
