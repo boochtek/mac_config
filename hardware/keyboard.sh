@@ -122,9 +122,9 @@ defaults write -g NSUserKeyEquivalents -dict-add "Select Previous Tab" -string "
 defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "^\UF72D"
 defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "^\UF72C"
 
-# TODO: Might have to try \U21E5 instead of \U0011. Might also need to limit this to Terminal.
-defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "^\U0011"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "^\$\U0011"
+# TODO: Might have to try \U21E5 instead of \t. Might also need to limit this to Terminal.
+defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "$(echo -e '^\t')"
+defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(echo -e '^$\t')"
 
 
 
