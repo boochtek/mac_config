@@ -109,49 +109,6 @@ brew install homebrew/dupes/less
 #osascript -e 'tell application "System Events" to tell "Appearance Preferences" to set "Recent servers limit" to 0'
 
 
-## System Preferences > Energy Saver > Battery
-
-### Computer sleep: Never
-sudo pmset -b sleep 0
-
-### Display sleep: 10 min
-sudo pmset -b displaysleep 10
-
-### Put the hard disk(s) to sleep when possible: 10 min
-sudo pmset -b disksleep 10
-
-### Slightly dim the display when using this power source
-sudo pmset -b lessbright 0
-
-### Automatically reduce brightness before display goes to sleep
-sudo pmset -b halfdim 0
-
-### Restart automatically if the computer freezes
-sudo pmset -b panicrestart 15
-
-## System Preferences > Energy Saver > Power Adapter
-
-### Computer sleep: Never
-sudo pmset -c sleep 0
-
-### Display sleep: 10 min
-sudo pmset -c displaysleep 10
-
-### Put the hard disk(s) to sleep when possible: 10 min
-sudo pmset -c disksleep 10
-
-### Wake for network access
-sudo pmset -c womp 1
-
-### Automatically reduce brightness before display goes to sleep
-sudo pmset -c halfdim 0
-
-### Start up automatically after a power failure
-sudo pmset -c autorestart 1
-
-### Restart automatically if the computer freezes
-sudo pmset -c panicrestart 15
-
 
 ## System Preferences > Keyboard > Keyboard
 
@@ -160,24 +117,6 @@ defaults write com.apple.BezelServices 'kDim' -bool true
 
 ### Turn off when computer is not used for: 5 mins
 defaults write com.apple.BezelServices 'kDimTime' -int 300
-
-
-
-## System Preferences > Sharing
-
-# IP1=$(/sbin/ifconfig en1 | grep 'inet ' | awk '{ print $2 }')
-# COMPUTERNAME=$(host "$IP1" | awk '{ print $5 }' | awk -F. '{ print $1 }')
-# LOCALHOSTNAME=$(host "$IP1" | awk '{ print $5 }' | awk -F. '{ print $1 }')
-
-### Computer Name: $COMPUTERNAME
-if [ ! "$(/usr/sbin/networksetup -getcomputername)" = "$COMPUTERNAME" ]; then
-  sudo /usr/sbin/networksetup -setcomputername $COMPUTERNAME
-fi
-
-### Local Hostname: $LOCALHOSTNAME
-if [ ! "$(/usr/sbin/systemsetup -getlocalsubnetname)" = "Local Subnet Name: $LOCALHOSTNAME" ]; then
-  sudo /usr/sbin/systemsetup -setlocalsubnetname $LOCALHOSTNAME > /dev/null 2>&1
-fi
 
 
 ## System Preferences > Users & Groups
