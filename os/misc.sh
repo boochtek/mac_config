@@ -41,12 +41,18 @@ brew install ssh-copy-id
 # Tree is a nice tool to display a full directory hierarchy.
 brew install tree
 
+# `exa` is a command to replace `ls`, with more useful features (including a tree view).
+brew install exa
+
 # Pstree shows running processes as a tree, showing parent-child relationships.
 brew install pstree
 
 # Lesspipe is an input filter for `less`, allowing non-text files to be translated into text.
-brew install lesspipe --syntax-highlighting
+brew install lesspipe #--syntax-highlighting
 # TODO: Make sure it's used by less automatically
+
+# Lesspipe uses mdcat to "syntax highlight" Markdown files.
+brew install mdcat
 
 # Pidof allows finding a process by name, similar to `pgrep` or `kill`.
 brew install pidof
