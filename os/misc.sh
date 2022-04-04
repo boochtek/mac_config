@@ -198,7 +198,7 @@ defaults write com.apple.menuextra.clock 'DateFormat' -string 'EEE MMM d   h:mm:
 
 
 # F.lux changes the color temperature of your screen to match the time of day.
-brew cask install flux
+brew install --no-quarantine --cask flux
 
 # Qt is a cross-platform UI toolkit.
 brew install qt

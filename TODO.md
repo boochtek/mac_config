@@ -20,7 +20,6 @@ email/thunderbird.sh    (probably needs updates)
 dev/*.sh                (untested)
 
 Then see what's missing from the Ansible branch.
-NOTE: Add `--no-quarantine` to `brew install --cask` commands.
 TODO: Document Xcode CLT prerequisite.
 TODO: See what we can add for Big Sure (MacOS 11.0)
 
@@ -38,7 +37,7 @@ Probably really old stuff
 * Yosemite updates
 * Check that everything worked as expected
 * 1Password
-* brew cask install macs-fan-control # (or smcfancontrol)
+* brew install --no-quarantine --cask macs-fan-control # (or smcfancontrol)
 
 
 Utilities

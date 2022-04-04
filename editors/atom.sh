@@ -10,7 +10,7 @@ source 'dockutil.sh'
 
 
 # Install Atom Editor.
-brew cask install atom
+brew install --no-quarantine --cask atom
 
 
 # Install extensions.

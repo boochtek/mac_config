@@ -34,7 +34,7 @@ done
 
 # Install some gems for ONLY the latest Ruby.
 asdf shell ruby $CURRENT_RUBY_VERSION
-brew cask install wkhtmltopdf
+brew install --no-quarantine --cask wkhtmltopdf
 gem install kramdown
 gem install rsense
 gem install ruby-beautify

@@ -7,7 +7,7 @@ source 'dockutil.sh'
 
 
 # Install Thunderbird email client.
-brew cask install thunderbird
+brew install --no-quarantine --cask thunderbird
 
 # Add an icon to the Dock.
 dockutil --add  '~/Applications/Thunderbird.app' --replacing 'Thunderbird' --after Calendar

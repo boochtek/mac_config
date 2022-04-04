@@ -37,7 +37,7 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -boolean true
 
 # Remap the Caps Lock key to the "Application" key.
 # NOTE: Requires configuring the Caps Lock key to "No Action" in System Preferences.
-brew cask install seil # Requires password.
+brew install --no-quarantine --cask seil # Requires password.
 cat > /usr/local/bin/seil <<'EOF' # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
 #!/bin/sh
 /Applications/Seil.app/Contents/Library/bin/seil $@
@@ -51,7 +51,7 @@ seil relaunch
 # TODO: Do I need to enable the
 
 
-brew install --cask karabiner-elements # Requires password.
+brew install --no-quarantine --cask karabiner-elements # Requires password.
 cat > /usr/local/bin/karabiner <<'EOF' # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
 #!/bin/sh
 /Library/Application\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli $@

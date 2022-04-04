@@ -46,7 +46,7 @@ brew tap homebrew/cask-drivers
 brew tap homebrew/cask-fonts
 brew tap niksy/pljoska
 brew update
-brew cask install font-microsoft-cleartype-family
+brew install --no-quarantine --cask font-microsoft-cleartype-family
 
 # Enable Bash completion for Homebrew commands.
 if [[ ! -f $HOMEBREW_PREFIX/etc/bash_completion.d/brew_bash_completion.sh ]]; then

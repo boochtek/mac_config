@@ -16,11 +16,11 @@ brew install homebrew/boneyard/wkhtmltopdf
 
 
 ## Communication Methods
-brew cask install hipchat
+brew install --no-quarantine --cask hipchat
 # TODO: Google Hangouts SSB.
 brew tap nviennot/tmate
 brew install tmate
-brew cask install skype
+brew install --no-quarantine --cask skype
 
 ## PostgreSQL configuration.
 
