@@ -55,7 +55,7 @@ xcode-select --print-path
 
 # List packages that have been installed via MacOS Installer.
 # TODO: Not sure why this is in here.
-pkgutil --pkgs
+#pkgutil --pkgs
 
 
 

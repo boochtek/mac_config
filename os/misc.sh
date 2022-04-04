@@ -97,9 +97,6 @@ brew install colordiff
 brew install homebrew/dupes/nano
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/less
-brew install homebrew/dupes/
-brew install homebrew/dupes/
-brew install homebrew/dupes/
 
 
 ## From https://github.com/ptb/Mac-OS-X-Lion-Setup/blob/master/setup.sh

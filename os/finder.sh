@@ -17,6 +17,8 @@
 ##    * iCloud Drive
 ##    * Airdrop
 
+brew install mysides
+
 #mysides remove "AirDrop" # Can't be removed for some unknown reason.
 mysides remove Home  # Note that it's named after the user, not actually named "Home".
 mysides remove Applications

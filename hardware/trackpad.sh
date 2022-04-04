@@ -21,6 +21,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeF
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool TRUE
 
 # Enable scroll-to-zoom with Ctrl (^) modifier key (and 2 fingers).
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool TRUE
+# defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool TRUE
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
 defaults write com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 262144
+sudo defaults write com.apple.universalaccess closeViewScrollWheelToggle -int 1

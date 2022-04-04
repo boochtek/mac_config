@@ -9,9 +9,7 @@ defaults write ShowHardDrivesOnDesktop -bool false
 defaults write ShowRemovableMediaOnDesktop -bool false
 defaults write ShowMountedServersOnDesktop -bool false
 
-- name: Install OS X Wallpaper utility
-  homebrew:
-    name: wallpaper
+brew install wallpaper
 
 # TODO: Find this wallpaper image again, or a suitable replacement.
 
