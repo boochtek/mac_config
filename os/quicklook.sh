@@ -31,6 +31,12 @@ brew install --no-quarantine betterzip
 # Preview SSL/X509 certificate files (CRT, PEM, DER, etc.). (No longer available via Homebrew.)
 #brew install --no-quarantine cert-quicklook
 
+# Preview WEBP images.
+brew install --no-quarantine webpquicklook
+
+# Preview most video formats.
+brew install --no-quarantine qlvideo
+
 # Reload QuickLook daemon, so new plugins will work.
 qlmanage -r
 
