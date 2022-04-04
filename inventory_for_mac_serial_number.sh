@@ -21,6 +21,7 @@ C02JG2RXDKQ4  hope      mac workstation dev
 C02TH22UGTDY  FLD-ML-00021621       mac workstation dev f5
 C02XX2Z3JG5M  WM00219-ENG-CBuchek   mac workstation dev weedmaps
 C02ZX059MD6R  the-good-place        mac workstation dev
+C02C15H3MD6M  loaner    mac workstation dev truelink
 "
 
 
