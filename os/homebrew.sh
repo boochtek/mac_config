@@ -2,10 +2,13 @@
 
 ## Install Homebrew.
 
+# Determine if we're on Apple Silicon or Intel. Homebrew gets installed different places for each.
 if [[ $(arch) == 'i386' ]]; then
-    HOMEBREW_PREFIX='/usr/local'
+    export HOMEBREW_ARCH='x86_64'
+    export HOMEBREW_PREFIX='/usr/local'
 else
-    HOMEBREW_PREFIX='/opt/homebrew'
+    export HOMEBREW_ARCH='arm64e'
+    export HOMEBREW_PREFIX='/opt/homebrew'
 fi
 
 
@@ -54,6 +57,6 @@ if [[ ! -f $HOMEBREW_PREFIX/etc/bash_completion.d/brew_bash_completion.sh ]]; th
     ln -sf $HOMEBREW_PREFIX/Library/Contributions/brew_bash_completion.sh $HOMEBREW_PREFIX/etc/bash_completion.d/
 fi
 
-# Install libraries needed by other packages. (Per http://adarsh.io/bundler-failing-on-el-capitan/)
+# Install some libraries needed by other packages. (Per http://adarsh.io/bundler-failing-on-el-capitan/)
 brew install openssl
 brew link --force openssl # Probably only want this on El Capitan and later.
