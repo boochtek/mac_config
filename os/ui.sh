@@ -19,8 +19,10 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool FALSE
 ## Expand print dialogs by default.
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool TRUE
 
-## Save screen captures in `Pictures` instead of `Desktop`.
-defaults write com.apple.screencapture location -string "$HOME/Pictures"
+## Save screen captures in `Pictures/Screenshots` instead of `Desktop`.
+mkdir "$HOME/Pictures/Screenshots"
+defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
+killall SystemUIServer
 
 ## Save screen captures as PNG format instead of TIFF.
 defaults write com.apple.screencapture type -string 'PNG'

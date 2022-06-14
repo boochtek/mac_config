@@ -96,10 +96,6 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict Privileges -bool false
 defaults write com.apple.finder ShowSidebar -bool true
 defaults write com.apple.finder ShowRecentTags -bool false
 
-# Save screen captures in `Pictures` instead of `Desktop`.
-defaults write com.apple.screencapture location ~/Pictures
-killall SystemUIServer
-
 
 # Restart Finder so settings will take effect.
 killall Finder
