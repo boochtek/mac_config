@@ -37,6 +37,9 @@ brew install --no-quarantine webpquicklook
 # Preview most video formats.
 brew install --no-quarantine qlvideo
 
+# Preview AVIF images.
+brew install --no-quarantine avifquicklook
+
 # Reload QuickLook daemon, so new plugins will work.
 qlmanage -r
 
