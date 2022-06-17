@@ -13,14 +13,6 @@ sudo -v
 
 ## Install some command-line utilities that we like to have.
 
-# Mac OS X 10.9 comes with Bash 3.2. This will upgrade that to Bash 4.2.
-brew install bash
-if ! grep /usr/local/bin/bash /etc/shells >/dev/null; then
-  sudo sh -c "echo '/usr/local/bin/bash' >> /etc/shells"
-fi
-sudo chsh -s /usr/local/bin/bash $USER
-brew install bash-completion
-
 # Ack is great for searching for things within a repo.
 brew install ack
 
