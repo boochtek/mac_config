@@ -10,7 +10,12 @@ defaults write com.apple.dock autohide -bool TRUE
 
 # We use dockutil to add and remove icons in the Mac OS X dock.
 ## Install dockutil
-brew install --quiet dockutil
+# TODO: Once Homebrew gets dockutil 3.0, we can go back to using it.
+#brew install --quiet dockutil
+wget https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg
+sudo installer -pkg dockutil-3.0.2.pkg -target /
+rm dockutil-3.0.2.pkg
+
 
 ## Remove rarely-used Dock items.
 for dock_item in Siri Launchpad Contacts Notes Reminders Maps Messages FaceTime iBooks Podcasts TV ; do
