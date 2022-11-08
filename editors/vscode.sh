@@ -66,6 +66,7 @@ code --install-extension misogi.ruby-rubocop
 code --install-extension aki77.rails-partial
 code --install-extension aliariff.auto-add-brackets
 code --install-extension aki77.haml-lint # NOTE: Requires `gem install haml-lint`.
+code --install-extension kaiwood.endwise
 
 # JavaScript, TypeScript, and related frameworks
 code --install-extension robole.javascript-snippets
