@@ -35,7 +35,7 @@ code --install-extension akamud.vscode-theme-onelight
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension johnpapa.vscode-peacock
 
-# Git and GitHub
+# Git, GitHub, and GitLab
 code --install-extension codezombiech.gitignore
 code --install-extension donjayamanne.git-extension-pack
 code --install-extension donjayamanne.githistory
@@ -43,6 +43,7 @@ code --install-extension eamodio.gitlens
 code --install-extension GitHub.vscode-pull-request-github
 code --install-extension ziyasal.vscode-open-in-github
 code --install-extension mhutchie.git-graph
+code --install-extension GitLab.gitlab-workflow
 
 # Markdown
 code --install-extension bierner.github-markdown-preview
