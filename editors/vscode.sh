@@ -6,7 +6,6 @@ brew install --no-quarantine --cask visual-studio-code
 code --install-extension pdconsec.vscode-print # Better of the 2 printing extensions.
 code --install-extension ban.spellright
 code --install-extension Tyriar.sort-lines
-code --install-extension alefragnani.project-manager
 code --install-extension christian-kohler.path-intellisense
 code --install-extension lostintangent.vsls-whiteboard
 code --install-extension formulahendry.code-runner
@@ -25,6 +24,7 @@ code --install-extension oderwat.indent-rainbow
 code --install-extension wayou.vscode-todo-highlight
 code --install-extension Gruntfuggly.todo-tree
 code --install-extension esbenp.prettier-vscode
+code --install-extension ms-vscode.makefile-tools
 
 # Collaborative editing
 code --install-extension ms-vsliveshare.vsliveshare
@@ -76,16 +76,15 @@ code --install-extension donjayamanne.jquerysnippets
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension svelte.svelte-vscode
 code --install-extension christian-kohler.npm-intellisense
-code --install-extension eg2.vscode-npm-script
 code --install-extension wix.vscode-import-cost
 code --install-extension mgmcdermott.vscode-language-babel
 code --install-extension sburg.vscode-javascript-booster
 code --install-extension steoates.autoimport
 code --install-extension nicoespeon.abracadabra # Refactoring.
 code --install-extension wix.glean # Refactoring of React code.
+code --install-extension ms-playwright.playwright # End-to-end testing with Playwright.
 
 # HTML
-code --install-extension abusaidm.html-snippets
 code --install-extension sidthesloth.html5-boilerplate
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
@@ -126,7 +125,6 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension hashicorp.terraform
 
 # C, C++
-code --install-extension austin.code-gnu-global
 code --install-extension jbenden.c-cpp-flylint
 
 # Java
@@ -137,9 +135,8 @@ code --install-extension vscjava.vscode-java-pack
 code --install-extension vscjava.vscode-java-test
 code --install-extension vscjava.vscode-maven
 
-# Haskell, Elm, OCAML, ReasonML
+# Haskell, Elm, OCAML/ReasonML
 code --install-extension ocamllabs.ocaml-platform
-code --install-extension freebroccolo.reasonml
 code --install-extension justusadam.language-haskell
 code --install-extension sbrink.elm
 
@@ -148,3 +145,6 @@ code --install-extension evzen-wybitul.magic-racket
 
 # Swift
 code --install-extension Kasik96.swift
+
+# VimL
+code --install-extension XadillaX.viml
