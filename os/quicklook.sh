@@ -13,6 +13,10 @@ sudo -v
 # Preview Markdown files.
 brew install --quiet --cask --no-quarantine qlmarkdown
 
+# Preview source code files with syntax highlighting.
+# TODO: Customize. See https://github.com/sbarex/SourceCodeSyntaxHighlight#install-with-homebrew-cask.
+brew install --quiet --cask --no-quarantine syntax-highlight
+
 # Preview plain text files without a file extension (README, CHANGELOG, etc.).
 brew install --quiet --cask --no-quarantine qlstephen
 
