@@ -28,6 +28,10 @@ SHOW_FUNCTION_KEYS='{
     "com.googlecode.iterm2": "functionKeys"
 }'
 
+# Cache the sudo password.
+echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
+sudo -v
+
 # Change Touch Bar Control Strip (the right side of the Touch Bar, normally showing 4 icons).
 plutil -replace MiniCustomized -json "$TOUCH_BAR_ITEMS" ~/Library/Preferences/com.apple.controlstrip.plist
 #defaults write com.apple.controlstrip MiniCustomized -array com.apple.system.brightness com.apple.system.volume com.apple.system.mute com.apple.system.search

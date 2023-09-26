@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Cache the sudo password.
+echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
+sudo -v
+
 # TODO: Make these idempotent. Use output of `pmset -g custom`.
 
 ## Power-saving settings. Times are in minutes.

@@ -4,6 +4,10 @@
 
 # NOTE: You'll need to log out and back in for some of these (like tap-to-click) to work.
 
+# Cache the sudo password.
+echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
+sudo -v
+
 # Enable tap to click. (Don't have to press down on the trackpad -- just tap it.)
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool TRUE
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool TRUE

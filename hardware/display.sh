@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Cache the sudo password.
+echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
+sudo -v
+
 # Enable zooming the display.
 # System Preferences -> Accessibility -> Zoom -> Use scroll gesture with modifier keys to zoom
 sudo defaults write com.apple.UniversalAccess closeViewScrollWheelToggle -bool TRUE

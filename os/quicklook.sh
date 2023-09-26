@@ -6,6 +6,9 @@
 ##  Most of these were recommended by https://github.com/sindresorhus/quick-look-plugins
 ##  Text selection feature recommended by http://lifehacker.com/5874280/copy-text-from-quick-look-previews-with-a-terminal-hack
 
+# Cache the sudo password.
+echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
+sudo -v
 
 # Preview Markdown files.
 brew install --quiet --cask --no-quarantine qlmarkdown
