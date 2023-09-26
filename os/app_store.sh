@@ -23,13 +23,6 @@ if [[ ! -e '/Applications/Collective.app' ]]; then
     open -gj -a 'Collective'
 fi
 
-# Install 1Password password manager. Start it at login and now.
-if [[ ! -e '/Applications/1Password 7.app' ]]; then
-    mas list | grep -q '1Password 7' || mas lucky '1Password 7'
-    osascript -e 'tell application "System Events" to make login item with properties {path:"/Applications/1Password 7.app", hidden:true}' >/dev/null
-    open -gj -a '1Password 7'
-fi
-
 # Install Bear note-taking app. Start it at login and now.
 if [[ ! -e '/Applications/Bear.app' ]]; then
     mas list | grep -q 'Bear' || mas lucky 'Bear'

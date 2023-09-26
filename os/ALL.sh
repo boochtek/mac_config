@@ -7,6 +7,7 @@
 ./menubar.sh
 ./desktop.sh
 ./homebrew.sh
+./1password.sh
 ./misc.sh
 ./defaults+.sh
 ./quicklook.sh

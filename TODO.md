@@ -36,7 +36,6 @@ Probably really old stuff
   * Prompt for github user/repo if not installed, and not in git config
 * Yosemite updates
 * Check that everything worked as expected
-* 1Password
 * brew install --quiet --cask --no-quarantine macs-fan-control # (or smcfancontrol)
 
 
