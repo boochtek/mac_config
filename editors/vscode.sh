@@ -1,4 +1,4 @@
-brew install --no-quarantine --cask visual-studio-code
+brew install --quiet --cask --no-quarantine visual-studio-code
 
 # TODO: Check `code --list-extensions` before trying to install each extension.
 

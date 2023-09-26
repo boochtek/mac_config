@@ -1,6 +1,6 @@
 #!/bin/bash
 
-brew install --no-quarantine --cask iterm2
+brew install --quiet --cask --no-quarantine iterm2
 
 open -a /Applications/iTerm.app
 

@@ -51,7 +51,7 @@ seil relaunch
 # TODO: Do I need to enable the
 
 
-brew install --no-quarantine --cask karabiner-elements # Requires password.
+brew install --quiet --cask --no-quarantine karabiner-elements # Requires password.
 cat > /usr/local/bin/karabiner <<'EOF' # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
 #!/bin/sh
 /Library/Application\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli $@

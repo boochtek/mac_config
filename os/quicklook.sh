@@ -8,37 +8,37 @@
 
 
 # Preview Markdown files.
-brew install --no-quarantine --cask qlmarkdown
+brew install --quiet --cask --no-quarantine qlmarkdown
 
 # Preview plain text files without a file extension (README, CHANGELOG, etc.).
-brew install --no-quarantine --cask qlstephen
+brew install --quiet --cask --no-quarantine qlstephen
 
 # Preview source code files for various programming languages, with syntax highlighting.
-brew install --no-quarantine --cask qlcolorcode
+brew install --quiet --cask --no-quarantine qlcolorcode
 
 # Preview JSON files.
-brew install --no-quarantine --cask quicklook-json
+brew install --quiet --cask --no-quarantine quicklook-json
 
 # Preview CSV files.
-brew install --no-quarantine --cask quicklook-csv
+brew install --quiet --cask --no-quarantine quicklook-csv
 
 # Preview diffs.
-brew install --no-quarantine --cask qlprettypatch
+brew install --quiet --cask --no-quarantine qlprettypatch
 
 # Preview archives (ZIP, tar, gzip, bzip2, ARJ, LZH, ISO, etc.).
-brew install --no-quarantine betterzip
+brew install --quiet --cask --no-quarantine betterzip
 
 # Preview SSL/X509 certificate files (CRT, PEM, DER, etc.). (No longer available via Homebrew.)
-#brew install --no-quarantine cert-quicklook
+#brew install --quiet --cask --no-quarantine cert-quicklook
 
 # Preview WEBP images.
-brew install --no-quarantine webpquicklook
+brew install --quiet --cask --no-quarantine webpquicklook
 
 # Preview most video formats.
-brew install --no-quarantine qlvideo
+brew install --quiet --cask --no-quarantine qlvideo
 
 # Preview AVIF images.
-brew install --no-quarantine avifquicklook
+brew install --quiet --cask --no-quarantine avifquicklook
 
 # Reload QuickLook daemon, so new plugins will work.
 qlmanage -r

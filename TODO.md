@@ -37,7 +37,7 @@ Probably really old stuff
 * Yosemite updates
 * Check that everything worked as expected
 * 1Password
-* brew install --no-quarantine --cask macs-fan-control # (or smcfancontrol)
+* brew install --quiet --cask --no-quarantine macs-fan-control # (or smcfancontrol)
 
 
 Utilities

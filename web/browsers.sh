@@ -7,7 +7,7 @@ source 'dockutil.sh'
 
 
 # Install Chrome browser.
-brew install --no-quarantine --cask google-chrome
+brew install --quiet --cask --no-quarantine google-chrome
 
 # Add an icon to the Dock.
 dockutil --add  '/Applications/Google Chrome.app' --replacing 'Google Chrome' --before 'Safari'
@@ -17,9 +17,7 @@ dockutil --add  '/Applications/Google Chrome.app' --replacing 'Google Chrome' --
 #   * Install AdBlocker Ultimate extension
 
 # Install Firefox browser.
-brew install --no-quarantine --cask firefox
-
-# Add an icon to the Dock.
+brew install --quiet --cask --no-quarantine firefox
 dockutil --add  '/Applications/Firefox.app' --replacing 'Firefox' --after 'Safari'
 
 # Firefox TODO (manual):
