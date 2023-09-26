@@ -11,3 +11,4 @@
 ./defaults+.sh
 ./quicklook.sh
 ./dock.sh
+./fonts.sh
