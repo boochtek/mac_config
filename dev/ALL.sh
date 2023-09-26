@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ./xcode.sh
+./git.sh
 ./asdf.sh
 ./ruby.sh
 ./java.sh

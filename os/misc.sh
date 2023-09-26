@@ -138,15 +138,6 @@ brew install --no-quarantine --cask flux
 brew install qt
 brew install qt5
 
-## We'll use the Homebrew version of git, so we get the latest versions.
-## This was especially important for the CVE-2014-9390 vulnerability.
-sudo chown -R booch:admin /usr/local/share/
-sudo chown booch:admin /usr/local/lib
-brew install git
-brew link git
-# Suggested by Olivier Lacan https://twitter.com/olivierlacan/status/646741176922587141
-git config --global credential.helper osxkeychain
-
 
 ## Enable debugging menu in App Store (Not working for me in 10.10.5).
 sudo defaults write com.apple.appstore ShowDebugMenu -bool true
