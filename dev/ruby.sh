@@ -1,14 +1,13 @@
 #!/bin/bash
 
-RUBY_VERSION="${RUBY_VERSION:-3.1.1}"
-RUBY2_VERSION="${RUBY2_VERSION:-2.7.5}"
+RUBY_VERSION="${RUBY_VERSION:-3.2.2}"
 
 # Dependencies: `asdf`
 
 ## Install and configure various versions of Ruby.
+asdf plugin add ruby
 asdf plugin update ruby
 asdf install ruby "$RUBY_VERSION"
-asdf install ruby "$RUBY2_VERSION"
 # TODO: See if there are any old versions we want to get rid of. Maybe ask?
 #           Use `asdf uninstall ruby 2.7.1`
 #           Maybe set an `at` to remind you to run the script again?
@@ -40,6 +39,8 @@ gem install rsense
 gem install ruby-beautify
 gem install middleman
 gem install railties
+gem install rubocop rubocop-rspec rubocop-performance rubocop-rails
+gem install solargraph
 
 # Install Ruby LSP server.
 gem install ruby-lsp
