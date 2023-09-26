@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# AUTOMATE: Install https://redsweater.com/touche/ on-screen Touch Bar emulator. (Only if TouchBar services aren't running.)
+# AUTOMATE: Settings: Hide title bar, Automatically check for updates.
+
+# Install app to use Touch Bar to switch between apps.
+brew install --quiet --cask --no-quarantine touchswitcher
+
+# TODO: Install https://github.com/henryefranks/Pac-Bar.
+
+# TODO: Install https://www.utsire.com/touch-bar-piano/.
+
 # Items in the unexpanded Control Strip (JSON)
 TOUCH_BAR_ITEMS='[
     "com.apple.system.brightness",

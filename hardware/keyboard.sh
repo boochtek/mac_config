@@ -52,6 +52,7 @@ seil relaunch
 
 
 brew install --quiet --cask --no-quarantine karabiner-elements # Requires password.
+sudo mkdir -p /usr/local/bin
 cat > /usr/local/bin/karabiner <<'EOF' # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
 #!/bin/sh
 /Library/Application\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli $@
@@ -143,3 +144,10 @@ defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(
 #           UNCHECK Mission Control / Move right a space
 # This will allow us to use Ctrl+Shift+Up and Ctrl+Shift+Down for Sublime Text multi-line selection.
 # NOTE: Ideally, these should all be Command-prefixed, as they're global.
+
+# Pressing and holding a key pops up a menu of alternative related characters.
+# NOTE: This doesn't work in terminal apps, but should work for most other text inputs.
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool TRUE
+
+# Enable automatic spelling correction (in some places).
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool TRUE
