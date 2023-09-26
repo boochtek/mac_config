@@ -40,3 +40,13 @@ gem install rsense
 gem install ruby-beautify
 gem install middleman
 gem install railties
+
+# Install Ruby LSP server.
+gem install ruby-lsp
+mkdir "$HOME/.ruby-lsp"
+cat "$HOME/.ruby-lsp/Gemfile" << RUBY_LSP
+source 'https://rubygems.org'
+ruby '3.2.2'
+gem 'ruby-lsp'
+RUBY_LSP
+BUNDLE_GEMFILE="$HOME/.ruby-lsp/Gemfile" bundle
