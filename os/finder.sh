@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "${BASH_SOURCE%/*}/../os/homebrew.sh"
+
 ## Configure Finder the way we want it.
 
 ## Many of these settings come from https://github.com/mathiasbynens/dotfiles/blob/master/.osx.
@@ -9,8 +11,10 @@
 defaults write com.apple.finder QuitMenuItem -bool true
 
 # When opening a new window, start in the home directory.
-# FIXME/TODO: This is not working, even though changing it in Finder Preferences changes it.
-defaults write com.apple.finder NewWindowTargetPath "file://$HOME"
+defaults write com.apple.finder NewWindowTarget -string 'PfHm'
+
+# Keep folders on top when sorting by name. From https://github.com/sobolevn/dotfiles/blob/master/macos/settings.sh
+defaults write com.apple.finder _FXSortFoldersFirst -bool TRUE
 
 # Show file extensions.
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -72,43 +76,44 @@ defaults write com.apple.finder SidebarWidth -int 175
 defaults write com.apple.finder FK_SidebarWidth -int 175
 
 # Set the favorites in the side bar of Finder windows, as well as Open/Save dialogs.
-# TODO: Can I set them all (other than maybe Downloads) to display as columns?
-brew install mysides
-mysides remove "AirDrop" # Can only be removed manually because it has no actual name, and we can't remove by URI.
-mysides remove Recents
-mysides remove Home  # Note that it's named after the user, not actually named "Home".
-mysides remove Applications
-mysides remove Utilities
-mysides remove Desktop
-mysides remove .config
-mysides remove Documents
-mysides remove Work
-mysides remove Personal
-mysides remove Projects
-mysides remove Pictures
-mysides remove Music
-mysides remove Downloads
+brew install --quiet mysides
+mysides remove / > /dev/null # Oddly, AirDrop is named `/` here.
+mysides remove Recents > /dev/null
+mysides remove Home > /dev/null # Note that it's displayed with the username, not "Home".
+mysides remove Applications > /dev/null
+mysides remove Utilities > /dev/null
+mysides remove Desktop > /dev/null
+mysides remove Documents > /dev/null
+mysides remove Downloads > /dev/null
+mysides remove Projects > /dev/null
+mysides remove Pictures > /dev/null
+mysides remove Music > /dev/null
+mysides remove Movies > /dev/null
+mysides remove Screenshots > /dev/null
+mysides remove Config > /dev/null
+mysides remove Work > /dev/null
+mysides remove Personal > /dev/null
+mysides remove Developer > /dev/null
 
-mysides add Home "file://$HOME"
+mysides add Home "file://$HOME/"
+# TODO: This will eventually become `ln -s "$HOME/.config" "$HOME/Config Files"`
+[[ -d "$HOME/Config Files" ]] || ln -s "$HOME/config_files" "$HOME/Config Files"
+mysides add 'Config Files' "file://$HOME/Config%20Files/"
+[[ -d "$HOME/Developer" ]] || ln -s "$HOME/Work" "$HOME/Developer"
+mysides add Developer "file://$HOME/Developer/"
+[[ -d $HOME/Personal ]] && mysides add Personal "file://$HOME/Personal/"
+mysides add Downloads "file://$HOME/Downloads/"
+mysides add Pictures "file://$HOME/Pictures/"
+mysides add Screenshots "file://$HOME/Pictures/Screenshots/"
+mysides add Music "file://$HOME/Music/"
 mysides add Applications 'file:///Applications/'
 mysides add Utilities 'file:///Applications/Utilities'
-mysides add .config "file://$HOME/config_files/" # NOTE: We'll be moving this to `~/.config` soon.
-mysides add Work "file://$HOME/Work/"
-if [[ -d $HOME/Personal ]]; then
-    mysides add Personal "file://$HOME/Personal/"
-fi
-mysides add Pictures "file://$HOME/Pictures/"
-mysides add Music "file://$HOME/Music/"
-mysides add Downloads "file://$HOME/Downloads/"
-mysides add Recents "file:///System/Library/CoreServices/Finder.app/Contents/Resources/MyLibraries/myDocuments.cannedSearch/"
+mysides add Recents 'file:///System/Library/CoreServices/Finder.app/Contents/Resources/MyLibraries/myDocuments.cannedSearch/'
+
+# Prevent Time Machine from prompting to use new hard drives as backup volumes.
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Restart Finder so settings will take effect.
 killall Finder
 
-# TODO/FIXME: Don't index the Downloads folder. I don't think any of this is working.
-# sudo defaults write /.Spotlight-V100/VolumeConfiguration.plist Exclusions -array-add "$HOME/Downloads"
-# From http://superuser.com/a/591462 -- didn't seem to work.
-touch ~/Downloads/.metadata_never_index
-
-# Remove the index and force the volume to reindex. No longer required?
-#sudo mdutil -E /
+echo "$(tput setaf 4)MANUAL: Add your Downloads directory to System Settings / Siri & Spotlight / Spotlight Privacy$(tput sgr0)"
