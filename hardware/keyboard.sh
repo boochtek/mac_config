@@ -2,6 +2,7 @@
 
 ## Configure keyboard.
 
+source "${BASH_SOURCE%/*}/../os/homebrew.sh"
 
 # Use function keys as standard function keys. (Require Fn modifier key to enable special media functions.)
 # Use all F1, F2, etc. keys as standard function keys
@@ -35,20 +36,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -boolean false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -boolean true
 
 
-# Remap the Caps Lock key to the "Application" key.
-# NOTE: Requires configuring the Caps Lock key to "No Action" in System Preferences.
-brew install --no-quarantine --cask seil # Requires password.
-cat > /usr/local/bin/seil <<'EOF' # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
-#!/bin/sh
-/Applications/Seil.app/Contents/Library/bin/seil $@
-EOF
-chmod +x /usr/local/bin/seil
-seil set enable_capslock 1
-seil set keycode_capslock 110 # Application Key, per https://pqrs.org/osx/karabiner/faq.html.en#capslock
-seil relaunch
-
-# TODO: Seil doesn't seem to work until I run the GUI.
-# TODO: Do I need to enable the
+# NOTE: Seil is obsoleted on macOS Sierra (10.12) or later.
 
 
 brew install --quiet --cask --no-quarantine karabiner-elements # Requires password.
@@ -80,9 +68,6 @@ karabiner enable remap.pc_application2controlL # Or remap.jis_pc_application2con
 # TODO: For desktop keyboard, would like to use PC Style Copy/Paste #3, but that would require changing Fn key to Insert key. (And I don’t think I’ve been able to figure out how to do that.)
 
 
-# Make sure we've got our Karabiner customizations available.
-ln -sf ~/config_files/karabiner.xml "~/Library/Application Support/Karabiner/private.xml"
-
 # TODO: Can we get OPTION_R or OPTION_L by itself to do ^F2 (move focus to menu bar in Keyboard/Shortcuts/Keyboard)? NOTE: I usually remap that to Command+/.
 
 # TODO: F2 in Finder to rename, but not if in a text field.
@@ -100,12 +85,12 @@ ln -sf ~/config_files/karabiner.xml "~/Library/Application Support/Karabiner/pri
 
 ## Configuration of my Drop (Massdrop) CTRL keyboard.
 # NOTE: QMK has a ton of dependencies; Homebrew will take a while to download/compile them.
-brew install qmk/qmk/qmk
+#brew install qmk/qmk/qmk
 
 ## Install Massdrop firmware loader
-wget https://github.com/Massdrop/mdloader/releases/download/1.0.3/mdloader_mac -O /usr/local/sbin/mdloader
-chmod 0555 /usr/local/sbin/mdloader
-chgrp admin /usr/local/sbin/mdloader
+#wget https://github.com/Massdrop/mdloader/releases/download/1.0.3/mdloader_mac -O /usr/local/sbin/mdloader
+#chmod 0555 /usr/local/sbin/mdloader
+#chgrp admin /usr/local/sbin/mdloader
 
 
 ## Key bindings (shortcuts) for apps.
@@ -116,18 +101,16 @@ chgrp admin /usr/local/sbin/mdloader
 
 # Allow Ctrl+PageDown and Ctrl+PageUp to cycle between tabs, same as Ctrl+Tab and Ctrl+Shift+Tab.
 # FIXME: We'll probably have to use Karabiner to allow 2 sets of bindings for the same function.
-defaults write -g NSUserKeyEquivalents -dict-add "Next Tab" -string "^\UF72D"
-defaults write -g NSUserKeyEquivalents -dict-add "Previous Tab" -string "^\UF72C"
-defaults write -g NSUserKeyEquivalents -dict-add "Select Next Tab" -string "^\UF72D"
-defaults write -g NSUserKeyEquivalents -dict-add "Select Previous Tab" -string "^\UF72C"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "^\UF72D"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "^\UF72C"
+# defaults write -g NSUserKeyEquivalents -dict-add "Next Tab" -string "$(echo "^\UF72D")"
+# defaults write -g NSUserKeyEquivalents -dict-add "Previous Tab" -string "$(echo "^\UF72C")"
+# defaults write -g NSUserKeyEquivalents -dict-add "Select Next Tab" -string "$(echo "^\UF72D")"
+# defaults write -g NSUserKeyEquivalents -dict-add "Select Previous Tab" -string "$(echo "^\UF72C")"
+# defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "$(echo "^\UF72D")"
+# defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(echo "^\UF72C")"
 
 # TODO: Might have to try \U21E5 instead of \t. Might also need to limit this to Terminal.
-defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "$(echo -e '^\t')"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(echo -e '^$\t')"
-
-
+# defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "$(echo -e '^\t')"
+# defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(echo -e '^$\t')"
 
 
 # TODO: Allow Ctrl+Enter and/or Command+Enter to send emails (Command+Shift+D in Mac Mail).

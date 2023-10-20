@@ -1,7 +1,12 @@
-# misc.sh
+#!/bin/bash
+
+set -uo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
 
-source 'homebrew.sh'
+source "${BASH_SOURCE%/*}/../os/homebrew.sh"
 
 # Cache the sudo password.
 echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
@@ -24,17 +29,18 @@ brew install wget
 
 # HTop is a really nice replacement for top.
 brew install htop
-sudo chown root:wheel $HOMEBREW_PREFIX/Cellar/htop-osx/*/bin/htop
-sudo chmod u+s $HOMEBREW_PREFIX/Cellar/htop-osx/*/bin/htop
+sudo chown root:wheel "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
+sudo chmod u+s "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
 
 # This is a little utility missing from Mac OS X, but common to all other OpenSSH installations.
-brew install ssh-copy-id
+# TODO: It's no longer missing, as of MacOS Monterey (12.6).
+#brew install ssh-copy-id
 
 # Tree is a nice tool to display a full directory hierarchy.
 brew install tree
 
-# `exa` is a command to replace `ls`, with more useful features (including a tree view).
-brew install exa
+# [`eza`](https://eza.rocks) is a command to replace `ls`, with more useful features, including a tree view.
+brew install --quiet eza
 
 # Pstree shows running processes as a tree, showing parent-child relationships.
 brew install pstree
@@ -67,8 +73,8 @@ brew install nmap
 
 # Iftop shows network usage, similar to how `top` shows CPU usage.
 brew install iftop
-sudo chown root:wheel $HOMEBREW_PREFIX/Cellar/iftop/*/sbin/iftop
-sudo chmod u+s $HOMEBREW_PREFIX/Cellar/iftop/*/sbin/iftop
+sudo chown root:wheel "$HOMEBREW_PREFIX"/Cellar/iftop/*/sbin/iftop
+sudo chmod u+s "$HOMEBREW_PREFIX"/Cellar/iftop/*/sbin/iftop
 
 # Rsnapshot uses rsync to take snapshots of file systems to make remote incremental backups.
 brew install rsnapshot
@@ -81,20 +87,20 @@ brew install ngrep
 
 # Occasionally we need to decompress FLAC and RAR files.
 brew install flac
-brew install unrar
+brew install rar
 
 # It's nice to occasionally show a fortune.
 brew install fortune
 
-# Siege is an HTTP benchmarking tool.
-brew install siege
+# Pretty print JSON, YAML, and XML.
+brew install --quiet jq yq xq
 
 # Install some newer tools that Mac OS X already has.
-brew install homebrew/dupes/diffutils
+brew install diffutils
 brew install colordiff
-brew install homebrew/dupes/nano
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/less
+brew install nano
+brew install grep
+brew install less
 
 
 ## From https://github.com/ptb/Mac-OS-X-Lion-Setup/blob/master/setup.sh
@@ -132,11 +138,11 @@ defaults write com.apple.menuextra.clock 'DateFormat' -string 'EEE MMM d   h:mm:
 
 
 # F.lux changes the color temperature of your screen to match the time of day.
-brew install --no-quarantine --cask flux
+#brew install --quiet --cask --no-quarantine flux
 
 # Qt is a cross-platform UI toolkit.
-brew install qt
-brew install qt5
+# brew install qt
+# brew install qt@5
 
 
 ## Enable debugging menu in App Store (Not working for me in 10.10.5).
@@ -148,3 +154,12 @@ sudo defaults write com.apple.appstore ShowDebugMenu -bool true
 # brew install findutils
 # brew tap homebrew/dupes
 # brew install homebrew/dupes/grep
+
+# Telnet client only, for troubleshooting network services.
+brew install telnet
+
+# Prefsniff will show changes to preferences files, which can then be used with `defaults`.
+python3 -m pip install prefsniff
+
+# Show all processes in Activity Monitor
+defaults write com.apple.ActivityMonitor ShowCategory -int 0

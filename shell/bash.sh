@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# MacOS 12 (Monterey) comes with Bash 3.2. This will upgrade that to Bash 5.1.
+# MacOS 13 (Ventura) comes with Bash 3.2. This will upgrade that to Bash 5.2.
+# Apple will likely never upgrade Bash; they'll stick with the last GPL 2 version.
 brew install bash
 
 # Install Bash command-line completion.

@@ -3,18 +3,19 @@
 ./xcode.sh
 ./git.sh
 ./asdf.sh
+./docker.sh
 ./ruby.sh
-./java.sh
-./elm.sh
-./crystal.sh
-./racket.sh
 ./nim.sh
 ./elixir.sh
+./crystal.sh
+./racket.sh
+./elm.sh
 ./ocaml.sh
 ./haskell.sh
 ./io.sh
+./java.sh
 ./clojure.sh
-
+./shell.sh
 
 ## TODO: Lua
 ## TODO: Rust

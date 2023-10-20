@@ -1,5 +1,11 @@
 #!/bin/bash
 
+set -uo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
+
 ## Configure system menu bar the way we want it.
 
 ## Disable transparency in the menu bar. NOTE: Big Sur (macOS 11) seems to have dropped support for this.
@@ -13,10 +19,10 @@ defaults write com.apple.menuextra.clock IsAnalog -bool FALSE
 # System Preferences > Date & Time > Clock
 # Time options: Display the time with seconds: off
 # Date options: Show the day of the week: on
-# Date options: Show date: off
-defaults write com.apple.menuextra.clock DateFormat "EEE h:mm"
+# Date options: Show date: always
+defaults write com.apple.menuextra.clock DateFormat "EEE MMM d  h:mm"
 
-# Battery - show percentage charged.
+# Battery - show percentage charged. NOTE: Does not seem to work in MacOS Monterey.
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # TODO: Remove from menu bar - User (is that a default? any others?) (but leave on for Beth's laptop)

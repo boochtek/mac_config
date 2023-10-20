@@ -21,7 +21,7 @@ dev/*.sh                (untested)
 
 Then see what's missing from the Ansible branch.
 TODO: Document Xcode CLT prerequisite.
-TODO: See what we can add for Big Sure (MacOS 11.0)
+TODO: See what we can add for Big Sur (MacOS 11.0)
 
 Probably really old stuff
 -------------------------

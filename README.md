@@ -60,11 +60,27 @@ Even if nothing new needs to be installed, the scripts could take about 8 minute
 ./terminal.sh   # NOTE: This will kill Terminal when it's done.
 ~~~
 
-NOTE: When writing/updating these scripts, keep in mind that MacOS ships with Bash 3.2
-(and likely will never ship with anything newer, due to GPL versions)
-so we can't use any features introduced in Bash 4 or later:
+## Bash 3.2
+
+Keep in mind that MacOS ships with Bash 3.2.
+It likely will never ship with anything newer, due to Apple's dislike of GPLv3.
+So we can't use any features introduced in Bash 4 or later:
 * Associative arrays
 * Case-modification operators for parameter substitution
 * Globbing with `**` to match recursively
 * Escape codes in strings with `\u` and `\U` to represent Unicode characters
 * Negative array indices
+
+
+## Downloading and Installing MacOS Sonoma
+
+diskutil list external physical
+diskutil info -all
+
+diskutil partitionDisk <device> GPT JHFS+ 'Sonoma Installer'
+
+~~~ shell
+softwareupdate --fetch-full-installer
+sudo '/Applications/Install macOS Monterey.app/Contents/Resources/createinstallmedia' \
+  --volume '/Volumes/Sonoma Installer'
+~~~

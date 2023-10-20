@@ -27,7 +27,7 @@ fi
 # Set local name, if necessary.
 if [[ ! "$hostname" == "$(sudo /usr/sbin/systemsetup -getlocalsubnetname | cut -b 20-)" ]]; then
     echo "Setting local name: $hostname"
-    sudo /usr/sbin/systemsetup -setlocalsubnetname "$hostname"
+    sudo /usr/sbin/systemsetup -setlocalsubnetname "$hostname" &> /dev/null
 fi
 
 

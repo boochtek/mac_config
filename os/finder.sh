@@ -96,8 +96,7 @@ mysides remove Personal > /dev/null
 mysides remove Developer > /dev/null
 
 mysides add Home "file://$HOME/"
-# TODO: This will eventually become `ln -s "$HOME/.config" "$HOME/Config Files"`
-[[ -d "$HOME/Config Files" ]] || ln -s "$HOME/config_files" "$HOME/Config Files"
+[[ -d "$HOME/Config Files" ]] || ln -s "$HOME/.config" "$HOME/Config Files"
 mysides add 'Config Files' "file://$HOME/Config%20Files/"
 [[ -d "$HOME/Developer" ]] || ln -s "$HOME/Work" "$HOME/Developer"
 mysides add Developer "file://$HOME/Developer/"

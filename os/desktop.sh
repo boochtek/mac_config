@@ -13,7 +13,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 mkdir -p "$HOME/Pictures/Backgrounds"
 # TODO: Find this wallpaper image again, or a suitable replacement.
 # wget --directory-prefix=~/Pictures/Backgrounds http://pic.1fotonin.com//data/wallpapers/20/WDF_683106.jpg
-# wallpaper "~/Pictures/Backgrounds/WDF_683106.jpg"
+# wallpaper set "~/Pictures/Backgrounds/WDF_683106.jpg"
 
 # Restart Finder so settings will take effect.
 killall Finder

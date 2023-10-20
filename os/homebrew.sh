@@ -1,5 +1,10 @@
 #!/bin/bash
 
+command-exists () {
+    type -p "$1" >/dev/null
+}
+
+
 ## Install Homebrew.
 
 # Determine if we're on Apple Silicon or Intel. Homebrew gets installed different places for each.
@@ -16,7 +21,7 @@ export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
 
 # Install Homebrew itself, if it's not already installed.
 # Non-interactive, based on [https://github.com/Homebrew/homebrew/blob/go/install].
-if ! type -p brew >/dev/null; then
+if ! command-exists brew ; then
     # Create destination directory for Homebrew, and set permissions.
     sudo mkdir -p $HOMEBREW_PREFIX $HOMEBREW_PREFIX/include $HOMEBREW_PREFIX/share
     sudo chgrp admin $HOMEBREW_PREFIX
