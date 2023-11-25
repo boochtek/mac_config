@@ -15,7 +15,7 @@
 ./haskell.sh
 ./io.sh
 ./clojure.sh
-
+./shell.sh
 
 ## TODO: Lua
 ## TODO: Rust
