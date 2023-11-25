@@ -3,6 +3,7 @@
 ./xcode.sh
 ./git.sh
 ./asdf.sh
+./docker.sh
 ./ruby.sh
 ./java.sh
 ./elm.sh
