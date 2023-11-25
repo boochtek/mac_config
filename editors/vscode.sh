@@ -1,150 +1,175 @@
+#!/bin/bash
+
+# Variant of the unofficial Bash strict mode.
+set -uo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
+
 brew install --quiet --cask --no-quarantine visual-studio-code
 
-# TODO: Check `code --list-extensions` before trying to install each extension.
+dockutil --add  '/Applications/Visual Studio Code.app' --replacing 'Visual Studio Code' --after 'iTerm' &> /dev/null
+
+# The `code` command throws SIGPIPE when `grep --quiet` quits upon finding the first match.
+# So we use a temp file. And we clean up after ourselves, even on an early exit.
+# I also tried running the output through `tee`, but that only _reduced_ the errors.
+extension_list="$(mktemp)" ; trap 'rm $extension_list' EXIT
+code --list-extensions > "$extension_list"
+
+# Check before trying to install each extension, to see if it's already installed.
+install-code-extension() {
+    local extension_id="$1"
+    if ! grep --quiet --ignore-case -F "$extension_id" "$extension_list" ; then
+        code --install-extension "$extension_id"
+    fi
+}
+
 
 # Misc.
-code --install-extension pdconsec.vscode-print # Better of the 2 printing extensions.
-code --install-extension ban.spellright
-code --install-extension Tyriar.sort-lines
-code --install-extension christian-kohler.path-intellisense
-code --install-extension lostintangent.vsls-whiteboard
-code --install-extension formulahendry.code-runner
-code --install-extension wmaurer.change-case
-code --install-extension aaron-bond.better-comments
-code --install-extension albert.tabout # Tab out of quotes, brackets, etc.
-code --install-extension mrmlnc.vscode-duplicate # Duplicate a file or directory from left Explorer side bar.
-code --install-extension robole.snippets-ranger
-code --install-extension yatki.vscode-surround
-code --install-extension rebornix.toggle # Toggle any setting and bind to a keystroke.
-code --install-extension visualstudioexptteam.vscodeintellicode # IntelliCode for JavaScript, Python, Java, and SQL.
-code --install-extension deerawan.vscode-faker
-code --install-extension alefragnani.Bookmarks
-code --install-extension tomoki1207.pdf # Display (read-only) PDFs in the editor.
-code --install-extension oderwat.indent-rainbow
-code --install-extension wayou.vscode-todo-highlight
-code --install-extension Gruntfuggly.todo-tree
-code --install-extension esbenp.prettier-vscode
-code --install-extension ms-vscode.makefile-tools
+install-code-extension pdconsec.vscode-print # Better of the 2 printing extensions.
+install-code-extension streetsidesoftware.code-spell-checker
+install-code-extension Tyriar.sort-lines
+install-code-extension christian-kohler.path-intellisense
+install-code-extension lostintangent.vsls-whiteboard
+install-code-extension formulahendry.code-runner
+install-code-extension wmaurer.change-case
+install-code-extension aaron-bond.better-comments
+install-code-extension albert.tabout # Tab out of quotes, brackets, etc.
+install-code-extension mrmlnc.vscode-duplicate # Duplicate a file or directory from left Explorer side bar.
+install-code-extension robole.snippets-ranger
+install-code-extension yatki.vscode-surround
+install-code-extension rebornix.toggle # Toggle any setting and bind to a keystroke.
+install-code-extension visualstudioexptteam.vscodeintellicode # IntelliCode for JavaScript, Python, Java, and SQL.
+install-code-extension deerawan.vscode-faker
+install-code-extension alefragnani.Bookmarks
+install-code-extension tomoki1207.pdf # Display (read-only) PDFs in the editor.
+install-code-extension oderwat.indent-rainbow
+install-code-extension wayou.vscode-todo-highlight
+install-code-extension Gruntfuggly.todo-tree
+install-code-extension esbenp.prettier-vscode
+install-code-extension ms-vscode.makefile-tools
 
 # Collaborative editing
-code --install-extension ms-vsliveshare.vsliveshare
-code --install-extension ms-vsliveshare.vsliveshare-audio
+install-code-extension ms-vsliveshare.vsliveshare
+install-code-extension ms-vsliveshare.vsliveshare-audio
 
 # Themes
-code --install-extension akamud.vscode-theme-onelight
-code --install-extension vscode-icons-team.vscode-icons
-code --install-extension johnpapa.vscode-peacock
+install-code-extension akamud.vscode-theme-onelight
+install-code-extension vscode-icons-team.vscode-icons
 
 # Git, GitHub, and GitLab
-code --install-extension codezombiech.gitignore
-code --install-extension donjayamanne.git-extension-pack
-code --install-extension donjayamanne.githistory
-code --install-extension eamodio.gitlens
-code --install-extension GitHub.vscode-pull-request-github
-code --install-extension ziyasal.vscode-open-in-github
-code --install-extension mhutchie.git-graph
-code --install-extension GitLab.gitlab-workflow
+install-code-extension codezombiech.gitignore
+install-code-extension donjayamanne.git-extension-pack
+install-code-extension donjayamanne.githistory
+install-code-extension eamodio.gitlens
+install-code-extension GitHub.vscode-pull-request-github
+install-code-extension ziyasal.vscode-open-in-github
+install-code-extension mhutchie.git-graph
+install-code-extension GitLab.gitlab-workflow
 
 # Markdown
-code --install-extension bierner.github-markdown-preview
-code --install-extension bierner.markdown-checkbox
-code --install-extension bierner.markdown-emoji
-code --install-extension bierner.markdown-preview-github-styles
-code --install-extension bierner.markdown-yaml-preamble
-code --install-extension DavidAnson.vscode-markdownlint
-code --install-extension shd101wyy.markdown-preview-enhanced
-code --install-extension eliostruyf.vscode-front-matter # Markdown with front matter for Hugo, Jekyll, etc.
+install-code-extension bierner.github-markdown-preview
+install-code-extension bierner.markdown-checkbox
+install-code-extension bierner.markdown-emoji
+install-code-extension bierner.markdown-preview-github-styles
+install-code-extension bierner.markdown-yaml-preamble
+install-code-extension DavidAnson.vscode-markdownlint
+install-code-extension shd101wyy.markdown-preview-enhanced
+install-code-extension budparr.language-hugo-vscode  # Syntax highlighting and snippets for Hugo
+install-code-extension rusnasonov.vscode-hugo  # Build and serve Hugo sites
 
 # Ruby
-code --install-extension rebornix.ruby
-code --install-extension wingrunr21.vscode-ruby
-code --install-extension bung87.rails
-code --install-extension bung87.vscode-gemfile
-code --install-extension castwide.solargraph
-code --install-extension KoichiSasada.vscode-rdbg
-code --install-extension karunamurti.haml
-code --install-extension misogi.ruby-rubocop
-code --install-extension aki77.rails-partial
-code --install-extension aliariff.auto-add-brackets
-code --install-extension aki77.haml-lint # NOTE: Requires `gem install haml-lint`.
-code --install-extension kaiwood.endwise
+install-code-extension Shopify.ruby-lsp
+install-code-extension Shopify.ruby-extensions-pack
+install-code-extension bung87.rails
+install-code-extension bung87.vscode-gemfile
+install-code-extension castwide.solargraph
+install-code-extension KoichiSasada.vscode-rdbg
+install-code-extension karunamurti.haml
+install-code-extension LoranKloeze.ruby-rubocop-revived
+install-code-extension aki77.rails-partial
+install-code-extension aliariff.auto-add-brackets
+install-code-extension aki77.haml-lint # NOTE: Requires `gem install haml-lint`.
+install-code-extension kaiwood.endwise
+install-code-extension sorbet.sorbet-vscode-extension
 
 # JavaScript, TypeScript, and related frameworks
-code --install-extension robole.javascript-snippets
-code --install-extension xabikos.JavaScriptSnippets
-code --install-extension donjayamanne.jquerysnippets
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension svelte.svelte-vscode
-code --install-extension christian-kohler.npm-intellisense
-code --install-extension wix.vscode-import-cost
-code --install-extension mgmcdermott.vscode-language-babel
-code --install-extension sburg.vscode-javascript-booster
-code --install-extension steoates.autoimport
-code --install-extension nicoespeon.abracadabra # Refactoring.
-code --install-extension wix.glean # Refactoring of React code.
-code --install-extension ms-playwright.playwright # End-to-end testing with Playwright.
+install-code-extension robole.javascript-snippets
+install-code-extension xabikos.JavaScriptSnippets
+install-code-extension donjayamanne.jquerysnippets
+install-code-extension dbaeumer.vscode-eslint
+install-code-extension svelte.svelte-vscode
+install-code-extension christian-kohler.npm-intellisense
+install-code-extension wix.vscode-import-cost
+install-code-extension mgmcdermott.vscode-language-babel
+install-code-extension sburg.vscode-javascript-booster
+install-code-extension steoates.autoimport
+install-code-extension nicoespeon.abracadabra # Refactoring.
+install-code-extension wix.glean # Refactoring of React code.
+install-code-extension ms-playwright.playwright # End-to-end testing with Playwright.
 
 # HTML
-code --install-extension sidthesloth.html5-boilerplate
-code --install-extension formulahendry.auto-close-tag
-code --install-extension formulahendry.auto-rename-tag
+install-code-extension sidthesloth.html5-boilerplate
+install-code-extension formulahendry.auto-close-tag
+install-code-extension formulahendry.auto-rename-tag
 
 # CSS, SASS, Stylus, etc.
-code --install-extension syler.sass-indented
-code --install-extension sysoev.language-stylus
-code --install-extension thibaudcolas.stylelint
+install-code-extension syler.sass-indented
+install-code-extension sysoev.language-stylus
+install-code-extension stylelint.vscode-stylelint
 
 # JSON, XML, YAML, TOML, etc.
-code --install-extension DotJoshJohnson.xml
-code --install-extension richie5um2.vscode-sort-json
-code --install-extension redhat.vscode-yaml
+install-code-extension DotJoshJohnson.xml
+install-code-extension richie5um2.vscode-sort-json
+install-code-extension redhat.vscode-yaml
 
 # SVG
-code --install-extension cssho.vscode-svgviewer
+install-code-extension jock.svg
 
 # Elixir
-code --install-extension mjmcloug.vscode-elixir
+install-code-extension mjmcloug.vscode-elixir
 
 # Crystal
-code --install-extension faustinoaq.crystal-lang
+install-code-extension crystal-lang-tools.crystal-lang
 
 # Nim
-code --install-extension kosz78.nim
+install-code-extension kosz78.nim
 
 # MySQL
-code --install-extension formulahendry.vscode-mysql
+install-code-extension formulahendry.vscode-mysql
 
 # Shell: BASH, ZSH, etc.
-code --install-extension timonwong.shellcheck
-code --install-extension DeepInThought.vscode-shell-snippets
-code --install-extension foxundermoon.shell-format # NOTE: Requires `shfmt` command.
+install-code-extension timonwong.shellcheck
+install-code-extension DeepInThought.vscode-shell-snippets
+install-code-extension foxundermoon.shell-format # NOTE: Requires `shfmt` command.
 
 # DevOps
-code --install-extension shanoor.vscode-nginx
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension hashicorp.terraform
+install-code-extension shanoor.vscode-nginx
+install-code-extension ms-azuretools.vscode-docker
+install-code-extension hashicorp.terraform
 
 # C, C++
-code --install-extension jbenden.c-cpp-flylint
+install-code-extension jbenden.c-cpp-flylint
 
 # Java
-code --install-extension redhat.java
-code --install-extension vscjava.vscode-java-debug
-code --install-extension vscjava.vscode-java-dependency
-code --install-extension vscjava.vscode-java-pack
-code --install-extension vscjava.vscode-java-test
-code --install-extension vscjava.vscode-maven
+install-code-extension redhat.java
+install-code-extension vscjava.vscode-java-debug
+install-code-extension vscjava.vscode-java-dependency
+install-code-extension vscjava.vscode-java-pack
+install-code-extension vscjava.vscode-java-test
+install-code-extension vscjava.vscode-maven
 
 # Haskell, Elm, OCAML/ReasonML
-code --install-extension ocamllabs.ocaml-platform
-code --install-extension justusadam.language-haskell
-code --install-extension sbrink.elm
+install-code-extension ocamllabs.ocaml-platform
+install-code-extension justusadam.language-haskell
+install-code-extension sbrink.elm
 
 # Lisp, Scheme, Racket
-code --install-extension evzen-wybitul.magic-racket
+install-code-extension evzen-wybitul.magic-racket
 
 # Swift
-code --install-extension Kasik96.swift
+install-code-extension Kasik96.swift
 
 # VimL
-code --install-extension XadillaX.viml
+install-code-extension XadillaX.viml
