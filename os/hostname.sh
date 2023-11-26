@@ -5,7 +5,7 @@
 SCRIPT_DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Get desired host name. TODO: Replace `inventory_for_mac_serial_number.sh` with something simpler.
-hostname="$($SCRIPT_DIR/../inventory_for_mac_serial_number.sh | grep 'mac' | awk '{print $3}' | tr -d '\"' )"
+hostname="$("$SCRIPT_DIR/../inventory_for_mac_serial_number.sh" | grep 'mac' | awk '{print $3}' | tr -d '\"' )"
 echo "Desired hostname: $hostname"
 
 if [[ "$hostname" == '' ]]; then
@@ -27,7 +27,7 @@ fi
 # Set local name, if necessary.
 if [[ ! "$hostname" == "$(sudo /usr/sbin/systemsetup -getlocalsubnetname | cut -b 20-)" ]]; then
     echo "Setting local name: $hostname"
-    sudo /usr/sbin/systemsetup -setlocalsubnetname "$hostname"
+    sudo /usr/sbin/systemsetup -setlocalsubnetname "$hostname" &> /dev/null
 fi
 
 
