@@ -77,27 +77,27 @@ defaults write com.apple.finder FK_SidebarWidth -int 175
 
 # Set the favorites in the side bar of Finder windows, as well as Open/Save dialogs.
 brew install --quiet mysides
-mysides remove / > /dev/null # Oddly, AirDrop is named `/` here.
-mysides remove Recents > /dev/null
-mysides remove Home > /dev/null # Note that it's displayed with the username, not "Home".
-mysides remove Applications > /dev/null
-mysides remove Utilities > /dev/null
-mysides remove Desktop > /dev/null
-mysides remove Documents > /dev/null
-mysides remove Downloads > /dev/null
-mysides remove Projects > /dev/null
-mysides remove Pictures > /dev/null
-mysides remove Music > /dev/null
-mysides remove Movies > /dev/null
-mysides remove Screenshots > /dev/null
-mysides remove Config > /dev/null
-mysides remove Work > /dev/null
-mysides remove Personal > /dev/null
-mysides remove Developer > /dev/null
+mysides remove / >/dev/null # Oddly, AirDrop is named `/` here.
+mysides remove Recents >/dev/null
+mysides remove Home >/dev/null # Note that it's displayed with the username, not "Home".
+mysides remove Applications >/dev/null
+mysides remove Utilities >/dev/null
+mysides remove Desktop >/dev/null
+mysides remove Documents >/dev/null
+mysides remove Downloads >/dev/null
+mysides remove Projects >/dev/null
+mysides remove Pictures >/dev/null
+mysides remove Music >/dev/null
+mysides remove Movies >/dev/null
+mysides remove Screenshots >/dev/null
+mysides remove Config >/dev/null
+mysides remove Work >/dev/null
+mysides remove Personal >/dev/null
+mysides remove Developer >/dev/null
+mysides remove Library >/dev/null
 
 mysides add Home "file://$HOME/"
-# TODO: This will eventually become `ln -s "$HOME/.config" "$HOME/Config Files"`
-[[ -d "$HOME/Config Files" ]] || ln -s "$HOME/config_files" "$HOME/Config Files"
+[[ -d "$HOME/Config Files" ]] || ln -s "$HOME/.config" "$HOME/Config Files"
 mysides add 'Config Files' "file://$HOME/Config%20Files/"
 [[ -d "$HOME/Developer" ]] || ln -s "$HOME/Work" "$HOME/Developer"
 mysides add Developer "file://$HOME/Developer/"
@@ -106,6 +106,7 @@ mysides add Downloads "file://$HOME/Downloads/"
 mysides add Pictures "file://$HOME/Pictures/"
 mysides add Screenshots "file://$HOME/Pictures/Screenshots/"
 mysides add Music "file://$HOME/Music/"
+mysides add Library "file://$HOME/Library/"
 mysides add Applications 'file:///Applications/'
 mysides add Utilities 'file:///Applications/Utilities'
 mysides add Recents 'file:///System/Library/CoreServices/Finder.app/Contents/Resources/MyLibraries/myDocuments.cannedSearch/'
