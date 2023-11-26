@@ -4,12 +4,12 @@
 cd "$(dirname $0)"
 
 ./xcode-clt.sh
+./homebrew.sh
 ./hostname.sh
 ./ui.sh
 ./finder.sh
 ./menubar.sh
 ./desktop.sh
-./homebrew.sh
 ./1password.sh
 ./misc.sh
 ./defaults+.sh
