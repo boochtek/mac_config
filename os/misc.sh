@@ -83,9 +83,6 @@ brew install rar
 # It's nice to occasionally show a fortune.
 brew install fortune
 
-# Siege is an HTTP benchmarking tool.
-brew install siege
-
 # Install some newer tools that Mac OS X already has.
 brew install homebrew/dupes/diffutils
 brew install colordiff
