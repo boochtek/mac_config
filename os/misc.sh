@@ -83,6 +83,9 @@ brew install rar
 # It's nice to occasionally show a fortune.
 brew install fortune
 
+# Pretty print JSON, YAML, and XML.
+brew install --quiet jq yq xq
+
 # Install some newer tools that Mac OS X already has.
 brew install homebrew/dupes/diffutils
 brew install colordiff
