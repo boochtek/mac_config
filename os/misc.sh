@@ -87,11 +87,11 @@ brew install fortune
 brew install --quiet jq yq xq
 
 # Install some newer tools that Mac OS X already has.
-brew install homebrew/dupes/diffutils
-brew install colordiff
-brew install homebrew/dupes/nano
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/less
+brew install --quiet diffutils
+brew install --quiet colordiff
+brew install --quiet nano
+brew install --quiet grep
+brew install --quiet less
 
 
 ## From https://github.com/ptb/Mac-OS-X-Lion-Setup/blob/master/setup.sh
