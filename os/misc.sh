@@ -131,9 +131,6 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow 'SHOWFULLNAME' -b
 defaults write com.apple.menuextra.clock 'DateFormat' -string 'EEE MMM d   h:mm:ss a'
 
 
-# F.lux changes the color temperature of your screen to match the time of day.
-brew install --no-quarantine --cask flux
-
 # Qt is a cross-platform UI toolkit.
 brew install qt
 brew install qt5
