@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "${BASH_SOURCE%/*}/../os/homebrew.sh"
+
 # Show Debug menu in App Store app.
 defaults write com.apple.appstore 'ShowDebugMenu' -bool TRUE
 
@@ -8,13 +10,6 @@ defaults write com.apple.appstore 'ShowDebugMenu' -bool TRUE
 
 # Install MAS.
 brew install mas
-
-# Install Magnet window manager. Start it at login and now.
-if [[ ! -e '/Applications/Magnet.app' ]]; then
-    mas list | grep -q 'Magnet' || mas lucky 'Magnet'
-    osascript -e 'tell application "System Events" to make login item with properties {path:"/Applications/Magnet.app", hidden:true}' >/dev/null
-    open -gj -a 'Magnet'
-fi
 
 # Install Collective clipboard manager. Start it at login and now.
 if [[ ! -e '/Applications/Collective.app' ]]; then
@@ -40,3 +35,5 @@ fi
 # TODO: More apps from the App Store.
 # TODO: What else should we auto-start?
 # TODO: Add items to Dock, as appropriate. (Make sure we've installed dockutils before this gets run.)
+
+dockutil --remove  'App Store'
