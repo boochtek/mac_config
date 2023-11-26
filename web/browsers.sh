@@ -55,4 +55,11 @@ brew install --quiet --cask --no-quarantine firefox-developer-edition
 dockutil --add  '/Applications/Firefox Developer Edition.app' --replacing 'Firefox Developer Edition' --after 'Firefox'
 
 
+# We'll use [Finicky](https://github.com/johnste/finicky) to use different browsers for different sites and web apps.
+# Alternatives: [Choosy](https://www.choosyosx.com/), Browser Fairy, Browserosaurus, OpenIn, Browser ChooserX
+brew install --quiet --cask --no-quarantine finicky
+# WARNING: You'll be prompted to change your default browser to Finicky. Click **Use "Finicky"**.
+open -a Finicky
 
+# TODO: Make sure Finicky starts at login.
+#   Manual: System Settings / General / Login Items / + `/Applications/Finicky.app`
