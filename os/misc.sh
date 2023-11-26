@@ -1,7 +1,12 @@
-# misc.sh
+#!/bin/bash
+
+set -uo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
 
-source 'homebrew.sh'
+source "${BASH_SOURCE%/*}/../os/homebrew.sh"
 
 # Cache the sudo password.
 echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
@@ -24,8 +29,8 @@ brew install wget
 
 # HTop is a really nice replacement for top.
 brew install htop
-sudo chown root:wheel $HOMEBREW_PREFIX/Cellar/htop-osx/*/bin/htop
-sudo chmod u+s $HOMEBREW_PREFIX/Cellar/htop-osx/*/bin/htop
+sudo chown root:wheel "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
+sudo chmod u+s "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
 
 # This is a little utility missing from Mac OS X, but common to all other OpenSSH installations.
 brew install ssh-copy-id
@@ -67,8 +72,8 @@ brew install nmap
 
 # Iftop shows network usage, similar to how `top` shows CPU usage.
 brew install iftop
-sudo chown root:wheel $HOMEBREW_PREFIX/Cellar/iftop/*/sbin/iftop
-sudo chmod u+s $HOMEBREW_PREFIX/Cellar/iftop/*/sbin/iftop
+sudo chown root:wheel "$HOMEBREW_PREFIX"/Cellar/iftop/*/sbin/iftop
+sudo chmod u+s "$HOMEBREW_PREFIX"/Cellar/iftop/*/sbin/iftop
 
 # Rsnapshot uses rsync to take snapshots of file systems to make remote incremental backups.
 brew install rsnapshot
