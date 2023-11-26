@@ -8,13 +8,38 @@ source 'dockutil.sh'
 
 # Install Chrome browser.
 brew install --quiet --cask --no-quarantine google-chrome
-
-# Add an icon to the Dock.
 dockutil --add  '/Applications/Google Chrome.app' --replacing 'Google Chrome' --before 'Safari'
 
 # Chrome TODO (manual):
 #   * Make sure 1Password works properly. FIXME: Need cask apps deployed into /Applications instead of locally.
-#   * Install AdBlocker Ultimate extension
+#   * Install AdBlocker Ultimate extension.
+#   * Install OneTab (recommended by Mikhail).
+
+
+## Install Chromium browser.
+brew install --quiet --cask --no-quarantine chromium
+dockutil --add  '/Applications/Chromium.app' --replacing 'Chromium' --after 'Google Chrome'
+
+
+## Install Vivaldi browser.
+brew install --quiet --cask --no-quarantine vivaldi
+dockutil --add  '/Applications/Vivaldi.app' --replacing 'Vivaldi' --after 'Chromium'
+# MANUAL CONFIG:
+#   Preferences / Tabs / Tab Features / Tab Cycling
+#       SELECT Cycle in tab order
+
+
+## Install Arc browser.
+brew install --quiet --cask --no-quarantine arc
+dockutil --add  '/Applications/Arc.app' --replacing 'Arc' --after 'Vivaldi'
+# WARNING: The first time Arc starts up, it's got some fancy graphics and sound playing.
+
+
+# Install Microsoft Edge.
+# NOTE: You'll be prompted for your password.
+brew install --quiet --cask --no-quarantine microsoft-edge
+dockutil --add  '/Applications/Microsoft Edge.app' --replacing 'Microsoft Edge' --after 'Vivaldi'
+
 
 # Install Firefox browser.
 brew install --quiet --cask --no-quarantine firefox
@@ -23,7 +48,11 @@ dockutil --add  '/Applications/Firefox.app' --replacing 'Firefox' --after 'Safar
 # Firefox TODO (manual):
 #   * View / Toolbars / CHECK Bookmarks Toolbar
 #   * Addons
+#   * Make sure 1Password works properly.
+
+# Install Firefox browser Developer Edition.
+brew install --quiet --cask --no-quarantine firefox-developer-edition
+dockutil --add  '/Applications/Firefox Developer Edition.app' --replacing 'Firefox Developer Edition' --after 'Firefox'
 
 
-# Install Chromium browser.
-brew install --no-quarantine --cask chromium
+
