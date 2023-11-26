@@ -78,7 +78,7 @@ brew install midnight-commander
 
 # Occasionally we need to decompress FLAC and RAR files.
 brew install flac
-brew install unrar
+brew install rar
 
 # It's nice to occasionally show a fortune.
 brew install fortune
