@@ -163,3 +163,6 @@ sudo defaults write com.apple.appstore ShowDebugMenu -bool true
 # brew install findutils
 # brew tap homebrew/dupes
 # brew install homebrew/dupes/grep
+
+# Show all processes in Activity Monitor
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
