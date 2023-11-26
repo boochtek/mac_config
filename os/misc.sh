@@ -32,9 +32,6 @@ brew install htop
 sudo chown root:wheel "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
 sudo chmod u+s "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
 
-# This is a little utility missing from Mac OS X, but common to all other OpenSSH installations.
-brew install ssh-copy-id
-
 # Tree is a nice tool to display a full directory hierarchy.
 brew install tree
 
