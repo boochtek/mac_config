@@ -46,7 +46,20 @@ brew install lesspipe #--syntax-highlighting
 # TODO: Make sure it's used by less automatically
 
 # Lesspipe uses mdcat to "syntax highlight" Markdown files.
-brew install mdcat
+# Handles images (needs resvg for SVG), code highlighting, but not tables, footnotes, or HTML.
+brew install --quiet mdcat
+brew install --quiet resvg
+
+# Mdless seems to be a bit better than mdcat.
+# Handles images (including GIFs!), tables, footnotes.
+# Requires chafa or imgcat (not in Homebrew) for images, and pygments for code highlighting.
+brew install --quiet mdless
+brew install --quiet chafa
+brew install --quiet pygments
+
+# `bat` is a tool like `cat`, but does syntax highlighting, git diffs, paging, etc.
+# TODO: Use bat for (git) diff (`--diff`), ripgrep, man, less, .
+brew install --quiet bat
 
 # Pidof allows finding a process by name, similar to `pgrep` or `kill`.
 brew install pidof
