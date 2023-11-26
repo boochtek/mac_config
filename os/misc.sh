@@ -76,27 +76,6 @@ brew install pv
 # Midnight Commander (mc) is a visual (TUI) file manager, a clone of Norton Commander
 brew install midnight-commander
 
-# NcFTP and LFTP provide some useful features (bookmarks, resume, mirroring) that other FTP clients don't.
-brew install ncftp
-brew install lftp
-
-# NMap is a network tool for port scanning, network mapping, remote OS detection, firewall detection, and more.
-brew install nmap
-
-# Iftop shows network usage, similar to how `top` shows CPU usage.
-brew install iftop
-sudo chown root:wheel "$HOMEBREW_PREFIX"/Cellar/iftop/*/sbin/iftop
-sudo chmod u+s "$HOMEBREW_PREFIX"/Cellar/iftop/*/sbin/iftop
-
-# Rsnapshot uses rsync to take snapshots of file systems to make remote incremental backups.
-brew install rsnapshot
-
-# Tcpflow is like tcpdump, but shows TCP-layer streams instead of packets.
-brew install tcpflow
-
-# Ngrep is like a combination of tcpdump and grep.
-brew install ngrep
-
 # Occasionally we need to decompress FLAC and RAR files.
 brew install flac
 brew install unrar

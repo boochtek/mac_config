@@ -15,6 +15,7 @@ cd "$(dirname $0)"
 ./defaults+.sh
 ./quicklook.sh
 ./dock.sh
+./network.sh
 ./fonts.sh
 ./app_store.sh
 
