@@ -6,6 +6,7 @@ cd "$(dirname $0)"
 ./xcode-clt.sh
 ./homebrew.sh
 ./hostname.sh
+./security.sh
 ./ui.sh
 ./finder.sh
 ./menubar.sh
