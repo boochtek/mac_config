@@ -35,8 +35,8 @@ sudo chmod u+s "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
 # Tree is a nice tool to display a full directory hierarchy.
 brew install tree
 
-# `exa` is a command to replace `ls`, with more useful features (including a tree view).
-brew install exa
+# [`eza`](https://eza.rocks) is a command to replace `ls`, with more useful features, including a tree view.
+brew install --quiet eza
 
 # Pstree shows running processes as a tree, showing parent-child relationships.
 brew install pstree
