@@ -18,5 +18,6 @@ cd "$(dirname $0)"
 ./network.sh
 ./fonts.sh
 ./app_store.sh
+./virtualization.sh
 
 cd -
