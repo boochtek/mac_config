@@ -166,3 +166,6 @@ sudo defaults write com.apple.appstore ShowDebugMenu -bool true
 
 # Show all processes in Activity Monitor
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+# Prefsniff will show changes to preferences files, which can then be used with `defaults`.
+python3 -m pip install prefsniff
