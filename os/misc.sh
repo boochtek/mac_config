@@ -61,6 +61,9 @@ brew install --quiet pygments
 # TODO: Use bat for (git) diff (`--diff`), ripgrep, man, less, .
 brew install --quiet bat
 
+# fzf is a great fuzzy file-finder.
+brew install --quiet fzf
+
 # Pidof allows finding a process by name, similar to `pgrep` or `kill`.
 brew install pidof
 
