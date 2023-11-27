@@ -11,13 +11,6 @@ defaults write com.apple.appstore 'ShowDebugMenu' -bool TRUE
 # Install MAS.
 brew install mas
 
-# Install Collective clipboard manager. Start it at login and now.
-if [[ ! -e '/Applications/Collective.app' ]]; then
-    mas list | grep -q 'Collective' || mas lucky 'Collective'
-    osascript -e 'tell application "System Events" to make login item with properties {path:"/Applications/Collective.app", hidden:true}' >/dev/null
-    open -gj -a 'Collective'
-fi
-
 # Install Bear note-taking app. Start it at login and now.
 if [[ ! -e '/Applications/Bear.app' ]]; then
     mas list | grep -q 'Bear' || mas lucky 'Bear'

@@ -12,6 +12,7 @@ cd "$(dirname $0)"
 ./menubar.sh
 ./desktop.sh
 ./1password.sh
+./clipboard.sh
 ./misc.sh
 ./defaults+.sh
 ./quicklook.sh
