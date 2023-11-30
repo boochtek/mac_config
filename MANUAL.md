@@ -73,6 +73,12 @@ System Settings -> Displays -> Advanced
 - CHECK Slightly dim the display on battery
 - CHECK Prevent automatic sleeping on power adapter when the display is off
 
+## Dock
+
+System Settings -> Desktop & Dock
+
+- CHECK Minimize windows into application icon
+
 ## Sound
 
 Audio MIDI Setup
