@@ -25,8 +25,13 @@ install-code-extension() {
     fi
 }
 
+# AI
+install-code-extension github.copilot # Requires a Copilot account in GitHub. Must sign into GitHub through VS Code.
+install-code-extension github.copilot-chat
+
 # Voice
 install-code-extension pokey.cursorless
+install-code-extension github.heygithub # Requires a working `java` (Java 11+). Triggered with "Copilot".
 install-code-extension ms-vscode.vscode-speech
 
 # Misc.
