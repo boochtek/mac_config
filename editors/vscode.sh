@@ -25,6 +25,9 @@ install-code-extension() {
     fi
 }
 
+# Voice
+install-code-extension pokey.cursorless
+install-code-extension ms-vscode.vscode-speech
 
 # Misc.
 install-code-extension pdconsec.vscode-print # Better of the 2 printing extensions.
