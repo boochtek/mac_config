@@ -31,19 +31,19 @@ dockutil --add  '/Applications/Vivaldi.app' --replacing 'Vivaldi' --after 'Chrom
 
 ## Install Arc browser.
 brew install --quiet --cask --no-quarantine arc
-dockutil --add  '/Applications/Arc.app' --replacing 'Arc' --after 'Vivaldi'
+# dockutil --add  '/Applications/Arc.app' --replacing 'Arc' --after 'Vivaldi'
 # WARNING: The first time Arc starts up, it's got some fancy graphics and sound playing.
 
 
 # Install Microsoft Edge.
 # NOTE: You'll be prompted for your password.
 brew install --quiet --cask --no-quarantine microsoft-edge
-dockutil --add  '/Applications/Microsoft Edge.app' --replacing 'Microsoft Edge' --after 'Vivaldi'
+# dockutil --add  '/Applications/Microsoft Edge.app' --replacing 'Microsoft Edge' --after 'Vivaldi'
 
 
 # Install Firefox browser.
 brew install --quiet --cask --no-quarantine firefox
-dockutil --add  '/Applications/Firefox.app' --replacing 'Firefox' --after 'Safari'
+# dockutil --add  '/Applications/Firefox.app' --replacing 'Firefox' --after 'Safari'
 
 # Firefox TODO (manual):
 #   * View / Toolbars / CHECK Bookmarks Toolbar
@@ -63,3 +63,16 @@ open -a Finicky
 
 # TODO: Make sure Finicky starts at login.
 #   Manual: System Settings / General / Login Items / + `/Applications/Finicky.app`
+echo "MANUAL TASK: System Settings / General / Login Items / + '/Applications/Finicky.app'"
+
+mkdir -p /Applications/Browsers
+# ln -s '/Applications/Google Chrome.app' '/Applications/Browsers/Google Chrome.app'
+# ln -s '/Applications/Chromium.app' '/Applications/Browsers/Chromium.app'
+# ln -s '/Applications/Vivaldi.app' '/Applications/Browsers/Vivaldi.app'
+# ln -s '/Applications/Arc.app' '/Applications/Browsers/Arc.app'
+# ln -s '/Applications/Microsoft Edge.app' '/Applications/Browsers/Microsoft Edge.app'
+# ln -s '/Applications/Safari.app' '/Applications/Browsers/Safari.app'
+# ln -s '/Applications/Firefox Developer Edition.app' '/Applications/Browsers/Firefox Developer Edition.app'
+
+# I'd much prefer this go in the apps section of the Dock (after other browsers), but that doesn't seem possible.
+dockutil --add '/Applications/Browsers' --replacing 'Browsers' --section others --position beginning &> /dev/null

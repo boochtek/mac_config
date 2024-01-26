@@ -129,8 +129,8 @@ defaults write com.apple.menuextra.clock 'DateFormat' -string 'EEE MMM d   h:mm:
 
 
 # Qt is a cross-platform UI toolkit.
-brew install qt
-brew install qt5
+# brew install qt
+# brew install qt@5
 
 
 ## Enable debugging menu in App Store (Not working for me in 10.10.5).

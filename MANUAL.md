@@ -26,6 +26,13 @@ System Settings -> General -> Login Items
 
 - UNCHECK as many things as possible
 
+## Special characters
+
+Command + Control + Space
+
+- Add these to favorites:
+    - 🤣💯™️‽°℉℃µμ№†‡—–þÞ≤≥⌘⇧⌥⌃ⓘ✖️אℵ
+
 ## Displays
 
 System Settings -> Displays
@@ -105,6 +112,14 @@ Settings / Advanced
 
 - Command+P
     - Remote Tunnels: Turn on Remote Tunnel Access...
+
+### Allow VS Code to run Ruby-LSP
+
+Was getting an ENOENT error that asdf would not spawn /bin/sh.
+
+THIS DID NOT WORK:
+
+System Settings -> Privacy & Security -> Full Disk Access -> Toggle Visual Studio Code on
 
 
 ## Work

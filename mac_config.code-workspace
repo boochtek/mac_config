@@ -1,0 +1,31 @@
+{
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "../.config"
+        },
+        {
+            "path": "../bin"
+        },
+        {
+            "path": "../Work/radar"
+        },
+        {
+            "path": "../Work/checklists"
+        },
+        {
+            "path": "../Work/cheatsheets"
+        },
+        {
+            "path": "../Work/coding-standards"
+        }
+    ],
+    "settings": {
+        "workbench.colorCustomizations": {
+            "statusBar.background": "#ead0f3",
+            "activityBar.background": "#ead0f3"
+        }
+    }
+}

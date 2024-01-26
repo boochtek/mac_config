@@ -1,6 +1,14 @@
 TODO
 ====
 
+- Lots of things have stopped starting on login.
+  - Docker
+    - Manually add it to System Settings / General / Login Items
+  - TopNotch?
+    - Manually add it to System Settings / General / Login Items
+
+
+
 * Make `locate` usable:
     * sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 * hardware/printer.sh

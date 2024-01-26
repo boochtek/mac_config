@@ -85,12 +85,12 @@ karabiner enable remap.pc_application2controlL # Or remap.jis_pc_application2con
 
 ## Configuration of my Drop (Massdrop) CTRL keyboard.
 # NOTE: QMK has a ton of dependencies; Homebrew will take a while to download/compile them.
-brew install qmk/qmk/qmk
+#brew install qmk/qmk/qmk
 
 ## Install Massdrop firmware loader
-wget https://github.com/Massdrop/mdloader/releases/download/1.0.3/mdloader_mac -O /usr/local/sbin/mdloader
-chmod 0555 /usr/local/sbin/mdloader
-chgrp admin /usr/local/sbin/mdloader
+#wget https://github.com/Massdrop/mdloader/releases/download/1.0.3/mdloader_mac -O /usr/local/sbin/mdloader
+#chmod 0555 /usr/local/sbin/mdloader
+#chgrp admin /usr/local/sbin/mdloader
 
 
 ## Key bindings (shortcuts) for apps.
@@ -101,18 +101,16 @@ chgrp admin /usr/local/sbin/mdloader
 
 # Allow Ctrl+PageDown and Ctrl+PageUp to cycle between tabs, same as Ctrl+Tab and Ctrl+Shift+Tab.
 # FIXME: We'll probably have to use Karabiner to allow 2 sets of bindings for the same function.
-defaults write -g NSUserKeyEquivalents -dict-add "Next Tab" -string "^\UF72D"
-defaults write -g NSUserKeyEquivalents -dict-add "Previous Tab" -string "^\UF72C"
-defaults write -g NSUserKeyEquivalents -dict-add "Select Next Tab" -string "^\UF72D"
-defaults write -g NSUserKeyEquivalents -dict-add "Select Previous Tab" -string "^\UF72C"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "^\UF72D"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "^\UF72C"
+# defaults write -g NSUserKeyEquivalents -dict-add "Next Tab" -string "$(echo "^\UF72D")"
+# defaults write -g NSUserKeyEquivalents -dict-add "Previous Tab" -string "$(echo "^\UF72C")"
+# defaults write -g NSUserKeyEquivalents -dict-add "Select Next Tab" -string "$(echo "^\UF72D")"
+# defaults write -g NSUserKeyEquivalents -dict-add "Select Previous Tab" -string "$(echo "^\UF72C")"
+# defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "$(echo "^\UF72D")"
+# defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(echo "^\UF72C")"
 
 # TODO: Might have to try \U21E5 instead of \t. Might also need to limit this to Terminal.
-defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "$(echo -e '^\t')"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(echo -e '^$\t')"
-
-
+# defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "$(echo -e '^\t')"
+# defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(echo -e '^$\t')"
 
 
 # TODO: Allow Ctrl+Enter and/or Command+Enter to send emails (Command+Shift+D in Mac Mail).
