@@ -2,6 +2,7 @@
 
 ## Configure keyboard.
 
+source "${BASH_SOURCE%/*}/../os/homebrew.sh"
 
 # Use function keys as standard function keys. (Require Fn modifier key to enable special media functions.)
 # Use all F1, F2, etc. keys as standard function keys
@@ -35,23 +36,11 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -boolean false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -boolean true
 
 
-# Remap the Caps Lock key to the "Application" key.
-# NOTE: Requires configuring the Caps Lock key to "No Action" in System Preferences.
-brew cask install seil # Requires password.
-cat > /usr/local/bin/seil <<'EOF' # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
-#!/bin/sh
-/Applications/Seil.app/Contents/Library/bin/seil $@
-EOF
-chmod +x /usr/local/bin/seil
-seil set enable_capslock 1
-seil set keycode_capslock 110 # Application Key, per https://pqrs.org/osx/karabiner/faq.html.en#capslock
-seil relaunch
-
-# TODO: Seil doesn't seem to work until I run the GUI.
-# TODO: Do I need to enable the
+# NOTE: Seil is obsoleted on macOS Sierra (10.12) or later.
 
 
-brew install --cask karabiner-elements # Requires password.
+brew install --quiet --cask --no-quarantine karabiner-elements # Requires password.
+sudo mkdir -p /usr/local/bin
 cat > /usr/local/bin/karabiner <<'EOF' # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
 #!/bin/sh
 /Library/Application\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli $@
@@ -78,9 +67,6 @@ karabiner enable remap.pc_application2controlL # Or remap.jis_pc_application2con
 
 # TODO: For desktop keyboard, would like to use PC Style Copy/Paste #3, but that would require changing Fn key to Insert key. (And I don’t think I’ve been able to figure out how to do that.)
 
-
-# Make sure we've got our Karabiner customizations available.
-ln -sf ~/config_files/karabiner.xml "~/Library/Application Support/Karabiner/private.xml"
 
 # TODO: Can we get OPTION_R or OPTION_L by itself to do ^F2 (move focus to menu bar in Keyboard/Shortcuts/Keyboard)? NOTE: I usually remap that to Command+/.
 
@@ -122,9 +108,9 @@ defaults write -g NSUserKeyEquivalents -dict-add "Select Previous Tab" -string "
 defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "^\UF72D"
 defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "^\UF72C"
 
-# TODO: Might have to try \U21E5 instead of \U0011. Might also need to limit this to Terminal.
-defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "^\U0011"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "^\$\U0011"
+# TODO: Might have to try \U21E5 instead of \t. Might also need to limit this to Terminal.
+defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "$(echo -e '^\t')"
+defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(echo -e '^$\t')"
 
 
 
@@ -143,3 +129,10 @@ defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "^\
 #           UNCHECK Mission Control / Move right a space
 # This will allow us to use Ctrl+Shift+Up and Ctrl+Shift+Down for Sublime Text multi-line selection.
 # NOTE: Ideally, these should all be Command-prefixed, as they're global.
+
+# Pressing and holding a key pops up a menu of alternative related characters.
+# NOTE: This doesn't work in terminal apps, but should work for most other text inputs.
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool TRUE
+
+# Enable automatic spelling correction (in some places).
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool TRUE

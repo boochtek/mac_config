@@ -1,14 +1,13 @@
 #!/bin/bash
 
-RUBY_VERSION="${RUBY_VERSION:-3.1.1}"
-RUBY2_VERSION="${RUBY2_VERSION:-2.7.5}"
+RUBY_VERSION="${RUBY_VERSION:-3.2.2}"
 
 # Dependencies: `asdf`
 
 ## Install and configure various versions of Ruby.
+asdf plugin add ruby
 asdf plugin update ruby
 asdf install ruby "$RUBY_VERSION"
-asdf install ruby "$RUBY2_VERSION"
 # TODO: See if there are any old versions we want to get rid of. Maybe ask?
 #           Use `asdf uninstall ruby 2.7.1`
 #           Maybe set an `at` to remind you to run the script again?
@@ -34,9 +33,21 @@ done
 
 # Install some gems for ONLY the latest Ruby.
 asdf shell ruby $CURRENT_RUBY_VERSION
-brew cask install wkhtmltopdf
+brew install --quiet --cask --no-quarantine wkhtmltopdf
 gem install kramdown
 gem install rsense
 gem install ruby-beautify
 gem install middleman
 gem install railties
+gem install rubocop rubocop-rspec rubocop-performance rubocop-rails
+gem install solargraph
+
+# Install Ruby LSP server.
+gem install ruby-lsp
+mkdir "$HOME/.ruby-lsp"
+cat "$HOME/.ruby-lsp/Gemfile" << RUBY_LSP
+source 'https://rubygems.org'
+ruby '3.2.2'
+gem 'ruby-lsp'
+RUBY_LSP
+BUNDLE_GEMFILE="$HOME/.ruby-lsp/Gemfile" bundle

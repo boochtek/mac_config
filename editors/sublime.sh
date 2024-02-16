@@ -10,9 +10,9 @@ source 'dockutil.sh'
 
 
 # Install Sublime Text 3
-brew cask install sublime-text3
+brew install --quiet --cask --no-quarantine sublime-text3
 
-# The Homebrew Cask installation provides a binary named `subl`. We'll provide a couple other names for that.
+# The Homebrew installation provides a binary named `subl`. We'll provide a couple other names for that.
 ln -s subl /usr/local/bin/sublime
 ln -s subl /usr/local/bin/sublime-text
 
@@ -39,4 +39,3 @@ brew install ctags
 
 # Add an icon to the Dock.
 dockutil --add  '~/Applications/Sublime Text.app' --replacing 'Sublime Text'
-

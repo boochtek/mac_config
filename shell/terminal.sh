@@ -60,7 +60,7 @@ function main {
 }
 
 
-# System-wide default bindings: /System/Library/Frameworks/AppKit.framework/Resources/StandardKeyBinding.dict 
+# System-wide default bindings: /System/Library/Frameworks/AppKit.framework/Resources/StandardKeyBinding.dict
 # Actions specific to Terminal.app: /Applications/Utilities/Terminal.app/Contents/Resources/English.lproj/actions.strings
 # Also see http://www.hcs.harvard.edu/~jrus/Site/system-bindings.html
 # Also see http://xahlee.info/kbd/osx_keybinding_action_code.html and http://xahlee.info/kbd/osx_keybinding.html

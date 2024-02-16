@@ -1,7 +1,9 @@
 #!/bin/bash
 
 ./xcode.sh
+./git.sh
 ./asdf.sh
+./docker.sh
 ./ruby.sh
 ./java.sh
 ./elm.sh
@@ -13,7 +15,7 @@
 ./haskell.sh
 ./io.sh
 ./clojure.sh
-
+./shell.sh
 
 ## TODO: Lua
 ## TODO: Rust
