@@ -86,6 +86,15 @@ brew install fortune
 # Pretty print JSON, YAML, and XML.
 brew install --quiet jq yq xq
 
+# Install some linting tools.
+brew install proselint # English prose
+npm install --global markdownlint-cli
+brew install libxml2 # xmllint
+npm install --global jsonlint jsonlint
+brew install yamllint
+npm install --global eslint
+brew install ansible-lint
+
 # Install some newer tools that Mac OS X already has.
 brew install --quiet diffutils
 brew install --quiet colordiff
