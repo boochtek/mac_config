@@ -75,6 +75,7 @@ install-code-extension GitHub.vscode-pull-request-github
 install-code-extension ziyasal.vscode-open-in-github
 install-code-extension mhutchie.git-graph
 install-code-extension GitLab.gitlab-workflow
+install-code-extension github.vscode-github-actions
 
 # Markdown
 install-code-extension bierner.github-markdown-preview
@@ -101,6 +102,8 @@ install-code-extension aliariff.auto-add-brackets
 install-code-extension aki77.haml-lint # NOTE: Requires `gem install haml-lint`.
 install-code-extension kaiwood.endwise
 install-code-extension sorbet.sorbet-vscode-extension
+install-code-extension soutaro.rbs-syntax
+install-code-extension soutaro.steep-vscode
 
 # JavaScript, TypeScript, and related frameworks
 install-code-extension robole.javascript-snippets
@@ -168,10 +171,13 @@ install-code-extension vscjava.vscode-java-pack
 install-code-extension vscjava.vscode-java-test
 install-code-extension vscjava.vscode-maven
 
+# TODO: Kotlin
+
 # Haskell, Elm, OCAML/ReasonML
 install-code-extension ocamllabs.ocaml-platform
 install-code-extension justusadam.language-haskell
 install-code-extension sbrink.elm
+install-code-extension freebroccolo.reasonml
 
 # Lisp, Scheme, Racket
 install-code-extension evzen-wybitul.magic-racket
