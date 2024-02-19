@@ -51,9 +51,7 @@ fi
 
 
 # Allow installing non-standard versions of packages. (For example, Sublime Text 3, Java 6, and older versions of GCC.)
-brew tap homebrew/cask
 brew tap homebrew/cask-versions
-brew tap homebrew/cask-drivers
 
 
 # Enable Bash completion for Homebrew commands.
