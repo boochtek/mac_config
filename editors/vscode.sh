@@ -60,7 +60,6 @@ install-code-extension ms-vscode.makefile-tools
 
 # Collaborative editing
 install-code-extension ms-vsliveshare.vsliveshare
-install-code-extension ms-vsliveshare.vsliveshare-audio
 
 # Themes
 install-code-extension akamud.vscode-theme-onelight
@@ -161,6 +160,7 @@ install-code-extension ms-azuretools.vscode-docker
 install-code-extension hashicorp.terraform
 
 # C, C++
+install-code-extension ms-vscode.cpptools
 install-code-extension jbenden.c-cpp-flylint
 
 # Java
@@ -177,7 +177,6 @@ install-code-extension vscjava.vscode-maven
 install-code-extension ocamllabs.ocaml-platform
 install-code-extension justusadam.language-haskell
 install-code-extension sbrink.elm
-install-code-extension freebroccolo.reasonml
 
 # Lisp, Scheme, Racket
 install-code-extension evzen-wybitul.magic-racket
