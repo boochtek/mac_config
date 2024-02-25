@@ -35,6 +35,7 @@ install-code-extension github.heygithub # Requires a working `java` (Java 11+). 
 install-code-extension ms-vscode.vscode-speech
 
 # Misc.
+install-code-extension editorconfig.editorconfig
 install-code-extension pdconsec.vscode-print # Better of the 2 printing extensions.
 install-code-extension streetsidesoftware.code-spell-checker
 install-code-extension Tyriar.sort-lines
@@ -57,6 +58,7 @@ install-code-extension wayou.vscode-todo-highlight
 install-code-extension Gruntfuggly.todo-tree
 install-code-extension esbenp.prettier-vscode
 install-code-extension ms-vscode.makefile-tools
+install-code-extension Gruntfuggly.todo-tree
 
 # Collaborative editing
 install-code-extension ms-vsliveshare.vsliveshare
@@ -137,6 +139,12 @@ install-code-extension redhat.vscode-yaml
 # SVG
 install-code-extension jock.svg
 
+# Python
+install-code-extension ms-python.python
+install-code-extension ms-python.flake8
+install-code-extension ms-python.vscode-pylance
+install-code-extension ms-toolsai.jupyter
+
 # Elixir
 install-code-extension mjmcloug.vscode-elixir
 
@@ -161,6 +169,7 @@ install-code-extension hashicorp.terraform
 
 # C, C++
 install-code-extension ms-vscode.cpptools
+install-code-extension ms-vscode.cpptools-extension-pack
 install-code-extension jbenden.c-cpp-flylint
 
 # Java
