@@ -166,6 +166,7 @@ install-code-extension foxundermoon.shell-format # NOTE: Requires `shfmt` comman
 install-code-extension shanoor.vscode-nginx
 install-code-extension ms-azuretools.vscode-docker
 install-code-extension hashicorp.terraform
+install-code-extension ms-vscode-remote.remote-ssh-edit # Syntax highlighting for SSH config files.
 
 # C, C++
 install-code-extension ms-vscode.cpptools
