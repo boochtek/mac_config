@@ -2,6 +2,7 @@
 
 ./xcode.sh
 ./git.sh
+./github.sh
 ./asdf.sh
 ./docker.sh
 ./ruby.sh
