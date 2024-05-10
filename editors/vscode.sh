@@ -31,7 +31,6 @@ install-code-extension github.copilot-chat
 
 # Voice
 install-code-extension pokey.cursorless
-install-code-extension github.heygithub # Requires a working `java` (Java 11+). Triggered with "Copilot".
 install-code-extension ms-vscode.vscode-speech
 
 # Misc.
