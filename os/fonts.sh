@@ -12,8 +12,8 @@ brew install --quiet svn # required to install some fonts
 ## Install additional fonts.
 brew install --quiet --cask --no-quarantine niksy/pljoska/font-microsoft-cleartype-family
 brew install --quiet --cask --no-quarantine font-comic-mono
-brew install --quiet --cask --no-quarantine font-jetbrains-mono
-brew install --quiet --cask --no-quarantine font-fira-code
+brew install --quiet font-jetbrains-mono
+brew install --quiet font-fira-code
 brew install --quiet --cask --no-quarantine font-anonymous-pro
 brew install --quiet --cask --no-quarantine font-fira-mono
 brew install --quiet --cask --no-quarantine font-fira-sans
@@ -137,7 +137,7 @@ brew install --quiet --cask --no-quarantine font-work-sans
 # Icon fonts.
 brew install --quiet --cask --no-quarantine font-fontawesome
 brew install --quiet --cask --no-quarantine font-powerline-symbols
-brew install --quiet --cask --no-quarantine font-noto-color-emoji
+brew install --quiet font-noto-color-emoji
 brew install --quiet --cask --no-quarantine font-twitter-color-emoji
 brew install --quiet --cask --no-quarantine font-ligature-symbols
 brew install --quiet --cask --no-quarantine font-codicon # from MS VS Code
