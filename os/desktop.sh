@@ -17,3 +17,11 @@ mkdir -p "$HOME/Pictures/Backgrounds"
 
 # Restart Finder so settings will take effect.
 killall Finder
+
+
+# Install Rectangle window manager.
+brew install --cask --no-quarantine --quiet rectangle
+echo "TODO: Automate: System Settings > Privacy & Security > Accessibility > ENABLE Rectangle"
+open -a Rectangle
+echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Launch on login"
+echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Check for updates automatically"
