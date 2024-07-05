@@ -6,21 +6,21 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
-
 brew install --quiet --cask --no-quarantine visual-studio-code
 
-dockutil --add  '/Applications/Visual Studio Code.app' --replacing 'Visual Studio Code' --after 'iTerm' &> /dev/null
+dockutil --add '/Applications/Visual Studio Code.app' --replacing 'Visual Studio Code' --after 'iTerm' &>/dev/null
 
 # The `code` command throws SIGPIPE when `grep --quiet` quits upon finding the first match.
 # So we use a temp file. And we clean up after ourselves, even on an early exit.
 # I also tried running the output through `tee`, but that only _reduced_ the errors.
-extension_list="$(mktemp)" ; trap 'rm $extension_list' EXIT
-code --list-extensions > "$extension_list"
+extension_list="$(mktemp)"
+trap 'rm $extension_list' EXIT
+code --list-extensions >"$extension_list"
 
 # Check before trying to install each extension, to see if it's already installed.
 install-code-extension() {
     local extension_id="$1"
-    if ! grep --quiet --ignore-case -F "$extension_id" "$extension_list" ; then
+    if ! grep --quiet --ignore-case -F "$extension_id" "$extension_list"; then
         code --install-extension "$extension_id"
     fi
 }
@@ -43,11 +43,11 @@ install-code-extension lostintangent.vsls-whiteboard
 install-code-extension formulahendry.code-runner
 install-code-extension wmaurer.change-case
 install-code-extension aaron-bond.better-comments
-install-code-extension albert.tabout # Tab out of quotes, brackets, etc.
+install-code-extension albert.tabout           # Tab out of quotes, brackets, etc.
 install-code-extension mrmlnc.vscode-duplicate # Duplicate a file or directory from left Explorer side bar.
 install-code-extension robole.snippets-ranger
 install-code-extension yatki.vscode-surround
-install-code-extension rebornix.toggle # Toggle any setting and bind to a keystroke.
+install-code-extension rebornix.toggle                        # Toggle any setting and bind to a keystroke.
 install-code-extension visualstudioexptteam.vscodeintellicode # IntelliCode for JavaScript, Python, Java, and SQL.
 install-code-extension deerawan.vscode-faker
 install-code-extension alefragnani.Bookmarks
@@ -88,8 +88,8 @@ install-code-extension bierner.markdown-preview-github-styles
 install-code-extension bierner.markdown-yaml-preamble
 install-code-extension DavidAnson.vscode-markdownlint
 install-code-extension shd101wyy.markdown-preview-enhanced
-install-code-extension budparr.language-hugo-vscode  # Syntax highlighting and snippets for Hugo
-install-code-extension rusnasonov.vscode-hugo  # Build and serve Hugo sites
+install-code-extension budparr.language-hugo-vscode # Syntax highlighting and snippets for Hugo
+install-code-extension rusnasonov.vscode-hugo       # Build and serve Hugo sites
 
 # Ruby
 install-code-extension Shopify.ruby-lsp
@@ -119,8 +119,8 @@ install-code-extension wix.vscode-import-cost
 install-code-extension mgmcdermott.vscode-language-babel
 install-code-extension sburg.vscode-javascript-booster
 install-code-extension steoates.autoimport
-install-code-extension nicoespeon.abracadabra # Refactoring.
-install-code-extension wix.glean # Refactoring of React code.
+install-code-extension nicoespeon.abracadabra   # Refactoring.
+install-code-extension wix.glean                # Refactoring of React code.
 install-code-extension ms-playwright.playwright # End-to-end testing with Playwright.
 
 # HTML

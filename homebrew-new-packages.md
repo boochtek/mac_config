@@ -1,5 +1,4 @@
-New Homebrew Packages
-=====================
+# New Homebrew Packages
 
 These are new Homebrew packages that I have not reviewed yet.
 I like to see if there's anything new I might want to install.

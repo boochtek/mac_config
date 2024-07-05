@@ -140,7 +140,7 @@ brew install --quiet --cask --no-quarantine font-powerline-symbols
 brew install --quiet font-noto-color-emoji
 brew install --quiet --cask --no-quarantine font-twitter-color-emoji
 brew install --quiet --cask --no-quarantine font-ligature-symbols
-brew install --quiet --cask --no-quarantine font-codicon # from MS VS Code
+brew install --quiet --cask --no-quarantine font-codicon   # from MS VS Code
 brew install --quiet --cask --no-quarantine font-dashicons # from WordPress
 brew install --quiet --cask --no-quarantine font-devicons
 brew install --quiet --cask --no-quarantine font-foundation-icons # from Zurb Foundation
