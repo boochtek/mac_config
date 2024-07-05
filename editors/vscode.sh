@@ -57,7 +57,7 @@ install-code-extension wayou.vscode-todo-highlight
 install-code-extension Gruntfuggly.todo-tree
 install-code-extension esbenp.prettier-vscode
 install-code-extension ms-vscode.makefile-tools
-install-code-extension Gruntfuggly.todo-tree
+install-code-extension sohamkamani.code-eol # Render EOL characters.
 
 # Collaborative editing
 install-code-extension ms-vsliveshare.vsliveshare
@@ -65,6 +65,9 @@ install-code-extension ms-vsliveshare.vsliveshare
 # Themes
 install-code-extension akamud.vscode-theme-onelight
 install-code-extension vscode-icons-team.vscode-icons
+
+# Terminal
+install-code-extension flyfly6.terminal-in-status-bar
 
 # Git, GitHub, and GitLab
 install-code-extension codezombiech.gitignore
@@ -137,6 +140,7 @@ install-code-extension redhat.vscode-yaml
 
 # SVG
 install-code-extension jock.svg
+install-code-extension vitaliymaz.vscode-svg-previewer
 
 # Python
 install-code-extension ms-python.python
@@ -185,7 +189,7 @@ install-code-extension vscjava.vscode-maven
 # Haskell, Elm, OCAML/ReasonML
 install-code-extension ocamllabs.ocaml-platform
 install-code-extension justusadam.language-haskell
-install-code-extension sbrink.elm
+install-code-extension elmtooling.elm-ls-vscode
 
 # Lisp, Scheme, Racket
 install-code-extension evzen-wybitul.magic-racket
