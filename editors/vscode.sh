@@ -57,7 +57,8 @@ install-code-extension wayou.vscode-todo-highlight
 install-code-extension Gruntfuggly.todo-tree
 install-code-extension esbenp.prettier-vscode
 install-code-extension ms-vscode.makefile-tools
-install-code-extension sohamkamani.code-eol # Render EOL characters.
+install-code-extension sohamkamani.code-eol    # Render EOL characters.
+install-code-extension bun913.easy-date-insert # Insert today's date.
 
 # Collaborative editing
 install-code-extension ms-vsliveshare.vsliveshare
