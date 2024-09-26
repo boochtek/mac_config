@@ -1,9 +1,8 @@
 #!/bin/bash
 
-command-exists () {
+command-exists() {
     type -p "$1" >/dev/null
 }
-
 
 ## Install Homebrew.
 
@@ -48,11 +47,6 @@ if ! command-exists brew ; then
 else
     brew update
 fi
-
-
-# Allow installing non-standard versions of packages. (For example, Sublime Text 3, Java 6, and older versions of GCC.)
-brew tap homebrew/cask-versions
-
 
 # Enable Bash completion for Homebrew commands.
 if [[ ! -f $HOMEBREW_PREFIX/etc/bash_completion.d/brew_bash_completion.sh ]]; then

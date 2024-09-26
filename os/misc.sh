@@ -5,7 +5,6 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
-
 source "${BASH_SOURCE%/*}/../os/homebrew.sh"
 
 # Cache the sudo password.
@@ -15,7 +14,6 @@ sudo -v
 ### TODO: sysdig/csysdig!!!
 ### TODO: slackcat
 
-
 ## Install some command-line utilities that we like to have.
 
 # Ack is great for searching for things within a repo.
@@ -23,9 +21,6 @@ brew install ack
 
 # The Silver Searcher (ag) is similar to Ack, newer and possibly better, but I still prefer Ack.
 brew install the_silver_searcher
-
-# WGet is similar to Curl, but has some different options.
-brew install wget
 
 # HTop is a really nice replacement for top.
 brew install htop
@@ -102,17 +97,13 @@ brew install --quiet nano
 brew install --quiet grep
 brew install --quiet less
 
-
 ## From https://github.com/ptb/Mac-OS-X-Lion-Setup/blob/master/setup.sh
-
 
 # TODO: Don't need to keep track of recent documents, applications, or servers.
 # NOTE: These seem to be lumped together in one setting now, under "General Preferences",
 #osascript -e 'tell application "System Events" to tell "Appearance Preferences" to set "Recent applications limit" to 0'
 #osascript -e 'tell application "System Events" to tell "Appearance Preferences" to set "Recent documents limit" to 0'
 #osascript -e 'tell application "System Events" to tell "Appearance Preferences" to set "Recent servers limit" to 0'
-
-
 
 ## System Preferences > Keyboard > Keyboard
 
@@ -122,12 +113,10 @@ defaults write com.apple.BezelServices 'kDim' -bool true
 ### Turn off when computer is not used for: 5 mins
 defaults write com.apple.BezelServices 'kDimTime' -int 300
 
-
 ## System Preferences > Users & Groups
 
 ### Login Options > Display login window as: Name and password
 sudo defaults write /Library/Preferences/com.apple.loginwindow 'SHOWFULLNAME' -bool true
-
 
 ## System Preferences > Date & Time > Clock
 
@@ -136,15 +125,12 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow 'SHOWFULLNAME' -b
 ### Date options: Show date: on
 defaults write com.apple.menuextra.clock 'DateFormat' -string 'EEE MMM d   h:mm:ss a'
 
-
 # Qt is a cross-platform UI toolkit.
 brew install qt
 brew install qt5
 
-
 ## Enable debugging menu in App Store (Not working for me in 10.10.5).
 sudo defaults write com.apple.appstore ShowDebugMenu -bool true
-
 
 ## TODO: Should we get (updated) GNU utilities?
 # brew install coreutils

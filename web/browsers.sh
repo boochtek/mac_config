@@ -56,3 +56,8 @@ open -a Finicky
 
 # TODO: Make sure Finicky starts at login.
 #   Manual: System Settings / General / Login Items / + `/Applications/Finicky.app`
+
+# Terminal-based web browsers.
+brew install --quiet lynx
+brew install --quiet links
+brew install --quiet w3m
