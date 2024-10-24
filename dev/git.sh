@@ -26,3 +26,4 @@ git config --global credential.helper osxkeychain
 # Make diffs more human-readable.
 brew install --quiet diff-so-fancy
 brew install --quiet git-delta
+brew install --quiet difftastic
