@@ -10,6 +10,7 @@ brew install --quiet --cask --no-quarantine visual-studio-code
 
 dockutil --add '/Applications/Visual Studio Code.app' --replacing 'Visual Studio Code' --after 'iTerm' &>/dev/null
 
+# TODO: Move this list of extensions into a config file.
 # The `code` command throws SIGPIPE when `grep --quiet` quits upon finding the first match.
 # So we use a temp file. And we clean up after ourselves, even on an early exit.
 # I also tried running the output through `tee`, but that only _reduced_ the errors.
@@ -27,7 +28,6 @@ install-code-extension() {
 
 # AI
 install-code-extension github.copilot # Requires a Copilot account in GitHub. Must sign into GitHub through VS Code.
-install-code-extension github.copilot-chat
 
 # Voice
 install-code-extension pokey.cursorless
@@ -60,9 +60,6 @@ install-code-extension ms-vscode.makefile-tools
 install-code-extension sohamkamani.code-eol    # Render EOL characters.
 install-code-extension bun913.easy-date-insert # Insert today's date.
 
-# Collaborative editing
-install-code-extension ms-vsliveshare.vsliveshare
-
 # Themes
 install-code-extension akamud.vscode-theme-onelight
 install-code-extension vscode-icons-team.vscode-icons
@@ -73,20 +70,13 @@ install-code-extension flyfly6.terminal-in-status-bar
 # Git, GitHub, and GitLab
 install-code-extension codezombiech.gitignore
 install-code-extension donjayamanne.git-extension-pack
-install-code-extension donjayamanne.githistory
-install-code-extension eamodio.gitlens
 install-code-extension GitHub.vscode-pull-request-github
-install-code-extension ziyasal.vscode-open-in-github
 install-code-extension mhutchie.git-graph
 install-code-extension GitLab.gitlab-workflow
 install-code-extension github.vscode-github-actions
 
 # Markdown
 install-code-extension bierner.github-markdown-preview
-install-code-extension bierner.markdown-checkbox
-install-code-extension bierner.markdown-emoji
-install-code-extension bierner.markdown-preview-github-styles
-install-code-extension bierner.markdown-yaml-preamble
 install-code-extension DavidAnson.vscode-markdownlint
 install-code-extension shd101wyy.markdown-preview-enhanced
 install-code-extension budparr.language-hugo-vscode # Syntax highlighting and snippets for Hugo
@@ -96,7 +86,6 @@ install-code-extension rusnasonov.vscode-hugo       # Build and serve Hugo sites
 install-code-extension Shopify.ruby-lsp
 install-code-extension Shopify.ruby-extensions-pack
 install-code-extension bung87.rails
-install-code-extension bung87.vscode-gemfile
 install-code-extension castwide.solargraph
 install-code-extension KoichiSasada.vscode-rdbg
 install-code-extension karunamurti.haml
@@ -105,7 +94,6 @@ install-code-extension aki77.rails-partial
 install-code-extension aliariff.auto-add-brackets
 install-code-extension aki77.haml-lint # NOTE: Requires `gem install haml-lint`.
 install-code-extension kaiwood.endwise
-install-code-extension sorbet.sorbet-vscode-extension
 install-code-extension soutaro.rbs-syntax
 install-code-extension soutaro.steep-vscode
 
@@ -173,7 +161,6 @@ install-code-extension hashicorp.terraform
 install-code-extension ms-vscode-remote.remote-ssh-edit # Syntax highlighting for SSH config files.
 
 # C, C++
-install-code-extension ms-vscode.cpptools
 install-code-extension ms-vscode.cpptools-extension-pack
 install-code-extension jbenden.c-cpp-flylint
 
@@ -182,8 +169,6 @@ install-code-extension redhat.java
 install-code-extension vscjava.vscode-java-debug
 install-code-extension vscjava.vscode-java-dependency
 install-code-extension vscjava.vscode-java-pack
-install-code-extension vscjava.vscode-java-test
-install-code-extension vscjava.vscode-maven
 
 # TODO: Kotlin
 
@@ -196,7 +181,7 @@ install-code-extension elmtooling.elm-ls-vscode
 install-code-extension evzen-wybitul.magic-racket
 
 # Swift
-install-code-extension Kasik96.swift
+install-code-extension sswg.swift-lang
 
 # VimL
 install-code-extension XadillaX.viml
