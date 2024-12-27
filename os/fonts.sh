@@ -2,10 +2,6 @@
 
 source "${BASH_SOURCE%/*}/../os/homebrew.sh"
 
-## Allow installing fonts from different taps.
-brew tap homebrew/cask-fonts
-brew update
-
 brew install --quiet fontconfig
 brew install --quiet svn # required to install some fonts
 
@@ -34,10 +30,8 @@ brew install --quiet --cask --no-quarantine font-go
 brew install --quiet --cask --no-quarantine font-hack
 brew install --quiet --cask --no-quarantine font-hasklig
 brew install --quiet --cask --no-quarantine font-ia-writer-duo
-brew install --quiet --cask --no-quarantine font-ia-writer-duospace
 brew install --quiet --cask --no-quarantine font-ia-writer-mono
 brew install --quiet --cask --no-quarantine font-ia-writer-quattro
-brew install --quiet --cask --no-quarantine font-ibm-plex
 brew install --quiet --cask --no-quarantine font-ibm-plex-mono
 brew install --quiet --cask --no-quarantine font-ibm-plex-sans
 brew install --quiet --cask --no-quarantine font-ibm-plex-serif
@@ -103,7 +97,6 @@ brew install --quiet --cask --no-quarantine font-recursive-code
 brew install --quiet --cask --no-quarantine font-red-hat-display
 brew install --quiet --cask --no-quarantine font-red-hat-mono
 brew install --quiet --cask --no-quarantine font-red-hat-text
-brew install --quiet --cask --no-quarantine font-roboto
 brew install --quiet --cask --no-quarantine font-roboto-flex
 brew install --quiet --cask --no-quarantine font-roboto-mono
 brew install --quiet --cask --no-quarantine font-roboto-serif
@@ -141,7 +134,6 @@ brew install --quiet font-noto-color-emoji
 brew install --quiet --cask --no-quarantine font-twitter-color-emoji
 brew install --quiet --cask --no-quarantine font-ligature-symbols
 brew install --quiet --cask --no-quarantine font-codicon   # from MS VS Code
-brew install --quiet --cask --no-quarantine font-dashicons # from WordPress
 brew install --quiet --cask --no-quarantine font-devicons
 brew install --quiet --cask --no-quarantine font-foundation-icons # from Zurb Foundation
 brew install --quiet --cask --no-quarantine font-open-iconic

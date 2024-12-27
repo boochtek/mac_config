@@ -23,16 +23,19 @@ export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
 if ! command-exists brew ; then
     # Create destination directory for Homebrew, and set permissions.
     sudo mkdir -p $HOMEBREW_PREFIX $HOMEBREW_PREFIX/include $HOMEBREW_PREFIX/share
-    sudo chgrp admin $HOMEBREW_PREFIX
+    sudo chown ${USER}:admin $HOMEBREW_PREFIX
     sudo chmod g+rwx $HOMEBREW_PREFIX
-    sudo chgrp admin $HOMEBREW_PREFIX/include
+    sudo chown ${USER}:admin $HOMEBREW_PREFIX/include
     sudo chmod g+rwx $HOMEBREW_PREFIX/include
-    sudo chgrp admin $HOMEBREW_PREFIX/share
-    sudo chmod g+rx $HOMEBREW_PREFIX/share
+    sudo chown ${USER}:admin $HOMEBREW_PREFIX/share
+    sudo chmod g+rwx $HOMEBREW_PREFIX/share
 
     # Create cache directory for Homebrew, and set permissions.
     sudo mkdir -p /Library/Caches/Homebrew
     sudo chmod g+rwx /Library/Caches/Homebrew
+
+    # Tell git that it's OK for us to install to the directory.
+    git config --global --add safe.directory $HOMEBREW_PREFIX
 
     # Download the latest version of Homebrew using git.
     (
@@ -42,18 +45,9 @@ if ! command-exists brew ; then
         git fetch origin master:refs/remotes/origin/master -n
         git reset --hard origin/master
     )
+
     # Check for configuration issues.
     brew doctor
 else
     brew update
 fi
-
-# Enable Bash completion for Homebrew commands.
-if [[ ! -f $HOMEBREW_PREFIX/etc/bash_completion.d/brew_bash_completion.sh ]]; then
-    mkdir -p $HOMEBREW_PREFIX/etc/bash_completion.d
-    ln -sf $HOMEBREW_PREFIX/Library/Contributions/brew_bash_completion.sh $HOMEBREW_PREFIX/etc/bash_completion.d/
-fi
-
-# Install some libraries needed by other packages. (Per http://adarsh.io/bundler-failing-on-el-capitan/)
-brew install --quiet openssl
-brew link --force openssl # Probably only want this on El Capitan and later.

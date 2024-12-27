@@ -4,6 +4,8 @@
 
 set -euo pipefail; IFS=$'\n\t'
 
+source "${BASH_SOURCE%/*}/../os/homebrew.sh"
+
 
 # Install UTM system emulator and virtual machine.
 brew install --quiet --cask --no-quarantine utm

@@ -14,7 +14,6 @@ cd "$(dirname $0)"
 ./1password.sh
 ./clipboard.sh
 ./misc.sh
-./defaults+.sh
 ./quicklook.sh
 ./dock.sh
 ./network.sh

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "${BASH_SOURCE%/*}/../os/homebrew.sh"
+
 brew install --quiet --cask --no-quarantine 1password
 brew install --quiet 1password-cli
 
