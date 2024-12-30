@@ -13,7 +13,7 @@ brew install mas
 
 # Install Bear note-taking app. Start it at login and now.
 if [[ ! -e '/Applications/Bear.app' ]]; then
-    mas list | grep -q 'Bear' || mas lucky 'Bear'
+    mas list | grep -q 'Bear: Markdown Notes' || mas lucky 'Bear: Markdown Notes'
     osascript -e 'tell application "System Events" to make login item with properties {path:"/Applications/Bear.app", hidden:false}' >/dev/null
     open -gj -a 'Bear'
 fi
@@ -30,3 +30,6 @@ fi
 # TODO: Add items to Dock, as appropriate. (Make sure we've installed dockutils before this gets run.)
 
 dockutil --remove  'App Store'
+
+# Update all App Store apps.
+mas upgrade

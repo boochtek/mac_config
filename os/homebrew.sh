@@ -16,18 +16,20 @@ else
 fi
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_AUTO_UPDATE=1
-export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
+export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
 # Install Homebrew itself, if it's not already installed.
 # Non-interactive, based on [https://github.com/Homebrew/homebrew/blob/go/install].
-if ! command-exists brew ; then
+if ! command-exists "${HOMEBREW_PREFIX}/bin/brew" ; then
+    echo 'Installing Homebrew.'
+
     # Create destination directory for Homebrew, and set permissions.
     sudo mkdir -p $HOMEBREW_PREFIX $HOMEBREW_PREFIX/include $HOMEBREW_PREFIX/share
-    sudo chown ${USER}:admin $HOMEBREW_PREFIX
+    sudo chown "${USER}:admin" $HOMEBREW_PREFIX
     sudo chmod g+rwx $HOMEBREW_PREFIX
-    sudo chown ${USER}:admin $HOMEBREW_PREFIX/include
+    sudo chown "${USER}:admin" $HOMEBREW_PREFIX/include
     sudo chmod g+rwx $HOMEBREW_PREFIX/include
-    sudo chown ${USER}:admin $HOMEBREW_PREFIX/share
+    sudo chown "${USER}:admin" $HOMEBREW_PREFIX/share
     sudo chmod g+rwx $HOMEBREW_PREFIX/share
 
     # Create cache directory for Homebrew, and set permissions.

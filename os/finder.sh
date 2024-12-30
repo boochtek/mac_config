@@ -116,5 +116,3 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Restart Finder so settings will take effect.
 killall Finder
-
-echo "$(tput setaf 4)MANUAL: Add your Downloads directory to System Settings / Siri & Spotlight / Spotlight Privacy$(tput sgr0)"

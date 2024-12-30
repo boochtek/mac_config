@@ -7,9 +7,8 @@ These scripts will configure MacOS the way we want, including:
 * Installing applications
 * Configuring applications
 
-These scripts have existed since at least MacOS 10.9 (Mavericks).
-They should currently work on macOS 13 (Ventura).
-They'll be updated for macOS 14 (Sonoma) soon.
+These scripts currently support macOS 15 (Sequoia).
+They have existed since at least MacOS 10.9 (Mavericks).
 
 The scripts _should_ all be idempotent.
 (That means that you can run them as many times as you want.)
@@ -17,12 +16,67 @@ The scripts _should_ all be idempotent.
 
 ## Usage
 
-First, clone the repository:
+1. Make sure git is installed.
+
+~~~ shell
+git --version >/dev/null || echo 'Click on `Install` if prompted to install command-line developer tools. Wait until it finishes before continuing with the next step.'
+~~~
+
+2. Download the repo.
+    * Use the HTTPS URL if SSH is not set up yet.
+        * You'll want to switch to SSH if you want to commit changes.
+            * Edit `.git/config` to change `https://github.com/` to `git@github.com:`.
 
 ~~~ shell
 git clone https://github.com/boochtek/mac_config.git
 cd mac_config
 ~~~
+
+3. Edit `ENV.sh` to define various settings.
+    * Be sure to read through and change any settings, as appropriate.
+    * You can use `vi` or TextEdit instead of `pico`.
+        * macOS has `nano` as a soft link to `pico`.
+
+~~~ shell
+pico ENV.sh
+~~~
+
+4. Run the initialization.
+    * This will install CLT, Homebrew, and my config files.
+
+~~~ shell
+source init/ALL.sh
+~~~
+
+5. Set up the OS, hardware, and shell.
+
+~~~ shell
+./os/ALL.sh
+./hardware/ALL.sh
+./shell/ALL.sh
+~~~
+
+6. Install web tools.
+
+~~~ shell
+./web/ALL.sh
+~~~
+
+7. Install tools for development work.
+
+~~~ shell
+./editors/ALL.sh
+./dev/ALL.sh
+~~~
+
+8. Install the rest.
+
+~~~ shell
+email/ALL.sh
+work/ALL.sh
+~~~
+
+## OLD!
 
 Next, edit the config files:
 * inventory_for_mac_serial_number.sh - add your computer to the list
