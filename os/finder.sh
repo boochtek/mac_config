@@ -97,9 +97,9 @@ mysides remove Developer >/dev/null
 mysides remove Library >/dev/null
 
 mysides add Home "file://$HOME/"
-[[ -d "$HOME/Config Files" ]] || ln -s "$HOME/.config" "$HOME/Config Files"
+[[ -L "$HOME/Config Files" ]] || ln -s "$HOME/.config" "$HOME/Config Files"
 mysides add 'Config Files' "file://$HOME/Config%20Files/"
-[[ -d "$HOME/Developer" ]] || ln -s "$HOME/Work" "$HOME/Developer"
+[[ -L "$HOME/Developer" ]] || ln -s "$HOME/Work" "$HOME/Developer"
 mysides add Developer "file://$HOME/Developer/"
 [[ -d $HOME/Personal ]] && mysides add Personal "file://$HOME/Personal/"
 mysides add Downloads "file://$HOME/Downloads/"
