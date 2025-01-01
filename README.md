@@ -16,10 +16,12 @@ The scripts _should_ all be idempotent.
 
 ## Usage
 
+0. Open a Terminal window.
+
 1. Make sure git is installed.
 
 ~~~ shell
-git --version >/dev/null || echo 'Click on `Install` if prompted to install command-line developer tools. Wait until it finishes before continuing with the next step.'
+git --version 2>/dev/null || echo 'Follow prompts to install command line developer tools. When it finishes, continue with the next step.'
 ~~~
 
 2. Download the repo.
@@ -34,18 +36,18 @@ cd mac_config
 
 3. Edit `ENV.sh` to define various settings.
     * Be sure to read through and change any settings, as appropriate.
-    * You can use `vi` or TextEdit instead of `pico`.
+    * You can use `vi` or TextEdit instead of `nano`.
         * macOS has `nano` as a soft link to `pico`.
 
 ~~~ shell
-pico ENV.sh
+nano ENV.sh
 ~~~
 
 4. Run the initialization.
     * This will install CLT, Homebrew, and my config files.
 
 ~~~ shell
-source init/ALL.sh
+source ./init.sh
 ~~~
 
 5. Set up the OS, hardware, and shell.
@@ -139,3 +141,15 @@ softwareupdate --fetch-full-installer
 sudo '/Applications/Install macOS Monterey.app/Contents/Resources/createinstallmedia' \
   --volume '/Volumes/Sonoma Installer'
 ~~~
+
+
+## Using VirtualOS to Test
+
+I found [VirtualOS](https://github.com/yep/virtualOS), which will run MacOS inside a VM.
+This is great for testing these scripts.
+
+You won't need to dedicate a lot of CPU to the VM,
+but you'll need a lot of disk space.
+You'll need at least 50 GB to install the OS, developer tools, and apps.
+You should be fine with 16 GB of RAM, maybe less.
+I'm currently working with 4 CPUs, 16 GB RAM, and 60 GB disk.

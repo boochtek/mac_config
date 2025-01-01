@@ -5,7 +5,7 @@ TODO
     * sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 * hardware/printer.sh
 * See what's missing from the Ansible branch.
-* Document Xcode CLT prerequisite.
+
 
 Probably really old stuff
 -------------------------
