@@ -2,32 +2,25 @@
 
 ## Mac OS X has several places where the hostname is stored. This updates all of them.
 
-SCRIPT_DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+echo "Desired hostname: $HOSTNAME"
 
-# Get desired host name. TODO: Replace `inventory_for_mac_serial_number.sh` with something simpler.
-hostname="$("$SCRIPT_DIR/../inventory_for_mac_serial_number.sh" | grep 'mac' | awk '{print $3}' | tr -d '\"' )"
-echo "Desired hostname: $hostname"
-
-if [[ "$hostname" == '' ]]; then
+if [[ "$HOSTNAME" == '' ]]; then
     exit 1
 fi
 
 # Set host name, if necessary.
-if [[ ! "$hostname" == "$(hostname)" ]]; then
-    echo "Setting host name: $hostname"
-    sudo scutil --set HostName "$hostname"
+if [[ ! "$HOSTNAME" == "$(hostname)" ]]; then
+    sudo scutil --set HostName "$HOSTNAME"
 fi
 
 # Set computer name, if necessary.
-if [[ ! "$hostname" == "$(/usr/sbin/networksetup -getcomputername)" ]]; then
-    echo "Setting computer name: $hostname"
-    sudo /usr/sbin/networksetup -setcomputername "$hostname"
+if [[ ! "$SYSTEM_NAME" == "$(/usr/sbin/networksetup -getcomputername)" ]]; then
+    sudo /usr/sbin/networksetup -setcomputername "$SYSTEM_NAME"
 fi
 
 # Set local name, if necessary.
-if [[ ! "$hostname" == "$(sudo /usr/sbin/systemsetup -getlocalsubnetname | cut -b 20-)" ]]; then
-    echo "Setting local name: $hostname"
-    sudo /usr/sbin/systemsetup -setlocalsubnetname "$hostname" &> /dev/null
+if [[ ! "$HOSTNAME" == "$(sudo /usr/sbin/systemsetup -getlocalsubnetname | cut -b 20-)" ]]; then
+    sudo /usr/sbin/systemsetup -setlocalsubnetname "$HOSTNAME" &> /dev/null
 fi
 
 
