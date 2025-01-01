@@ -5,8 +5,6 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
-source "${BASH_SOURCE%/*}/../os/homebrew.sh"
-
 ## Configure system menu bar the way we want it.
 
 ## Disable transparency in the menu bar. NOTE: Big Sur (macOS 11) seems to have dropped support for this.

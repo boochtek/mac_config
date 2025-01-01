@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source "${BASH_SOURCE%/*}/../os/homebrew.sh"
-
 # NOTE: Adding apps to the Dock should happen in the scripts where said apps are installed.
 
 ## Disable animations when opening an application from the Dock.

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source "${BASH_SOURCE%/*}/../os/homebrew.sh"
-
 brew install --quiet fontconfig
 brew install --quiet svn # required to install some fonts
 

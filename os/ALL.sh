@@ -3,8 +3,6 @@
 # Make certain we're in the directory of this script.
 cd "$(dirname $0)"
 
-./xcode-clt.sh
-./homebrew.sh
 ./hostname.sh
 ./security.sh
 ./ui.sh

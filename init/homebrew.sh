@@ -1,12 +1,11 @@
-#!/bin/bash
+# This file is sourced to prepare to set up the Mac.
 
-command-exists() {
-    type -p "$1" >/dev/null
-}
+# This should work in Bash or Zsh (maybe others), but tell shellcheck it's Bash:
+# shellcheck shell=bash
 
 ## Install Homebrew.
 
-# Determine if we're on Apple Silicon or Intel. Homebrew gets installed different places for each.
+# Determine if on Apple Silicon or Intel. Homebrew gets installed different places for each.
 if [[ $(arch) == 'i386' ]]; then
     export HOMEBREW_ARCH='x86_64'
     export HOMEBREW_PREFIX='/usr/local'
@@ -16,6 +15,7 @@ else
 fi
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_CASK_OPTS='--no-quarantine'
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
 # Install Homebrew itself, if it's not already installed.
@@ -47,9 +47,9 @@ if ! command-exists "${HOMEBREW_PREFIX}/bin/brew" ; then
         git fetch origin master:refs/remotes/origin/master -n
         git reset --hard origin/master
     )
-
-    # Check for configuration issues.
-    brew doctor
 else
     brew update
 fi
+
+# Check for configuration issues.
+brew doctor

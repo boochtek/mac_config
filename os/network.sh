@@ -2,8 +2,6 @@
 
 set -euo pipefail; IFS=$'\n\t'
 
-source "${BASH_SOURCE%/*}/../os/homebrew.sh"
-
 # This adds the `ip` command. Note that it's incomplete, compared to the Linux version.
 #   `ip address`
 #   `ip route`

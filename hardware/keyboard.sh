@@ -2,8 +2,6 @@
 
 ## Configure keyboard.
 
-source "${BASH_SOURCE%/*}/../os/homebrew.sh"
-
 # Use function keys as standard function keys. (Require Fn modifier key to enable special media functions.)
 # Use all F1, F2, etc. keys as standard function keys
 # NOTE: This requires a reboot to take effect. See http://apple.stackexchange.com/questions/59178 for details.

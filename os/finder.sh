@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source "${BASH_SOURCE%/*}/../os/homebrew.sh"
-
 ## Configure Finder the way we want it.
 
 ## Many of these settings come from https://github.com/mathiasbynens/dotfiles/blob/master/.osx.

@@ -2,7 +2,6 @@
 
 # NOTE: I'm moving away from using `asdf` in favor of `mise`.
 
-# source "${BASH_SOURCE%/*}/../os/homebrew.sh"
 # source "${BASH_SOURCE%/*}/../util/colors.sh"
 
 ## Install ASDF version manager, and ensure its dependencies are installed.

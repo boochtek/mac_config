@@ -1,7 +1,5 @@
 #! /bin/bash
 
-source "${BASH_SOURCE%/*}/../os/homebrew.sh"
-
 # Cache the sudo password.
 echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
 sudo -v

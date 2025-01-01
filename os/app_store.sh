@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source "${BASH_SOURCE%/*}/../os/homebrew.sh"
-
 # Show Debug menu in App Store app.
 defaults write com.apple.appstore 'ShowDebugMenu' -bool TRUE
 
