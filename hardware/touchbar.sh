@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Return unless $HAS_TOUCH_BAR is set to 1.
+[[ "$HAS_TOUCH_BAR" == "1" ]] || return
+
+
 # AUTOMATE: Install https://redsweater.com/touche/ on-screen Touch Bar emulator. (Only if TouchBar services aren't running.)
 # AUTOMATE: Settings: Hide title bar, Automatically check for updates.
 
@@ -39,7 +43,6 @@ SHOW_FUNCTION_KEYS='{
 }'
 
 # Cache the sudo password.
-echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
 sudo -v
 
 # Change Touch Bar Control Strip (the right side of the Touch Bar, normally showing 4 icons).
