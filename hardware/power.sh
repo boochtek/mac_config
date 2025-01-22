@@ -9,8 +9,15 @@ sudo -v
 ## Power-saving settings. Times are in minutes.
 ## System Preferences > Energy Saver
 
+# NOTE: For `pmset`, `-b` = "on battery", `-c` = "charging", `-a` = "always".
+
 # Wake when opening the lid.
 sudo pmset -a lidwake 1
+
+# On battery, power down completely (persist to disk) when sleeping.
+# When plugged in, maintain power to RAM when sleeping, but persist to disk.
+sudo pmset -b hibernatemode 25
+sudo pmset -c hibernatemode 3
 
 # Prevent system from sleeping when closing the lid.
 sudo pmset -a disablesleep 1
