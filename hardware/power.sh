@@ -9,6 +9,12 @@ sudo -v
 ## Power-saving settings. Times are in minutes.
 ## System Preferences > Energy Saver
 
+# Wake when opening the lid.
+sudo pmset -a lidwake 1
+
+# Prevent system from sleeping when closing the lid.
+sudo pmset -a disablesleep 1
+
 # Set energy-saving features (on battery).
 sudo pmset -b displaysleep 5 sleep 10
 
