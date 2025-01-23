@@ -2,6 +2,13 @@
 
 set -euo pipefail; IFS=$'\n\t'
 
+# MSL is how long a packet may live in the network before it's considered lost.
+# TIME_WAIT is the time that a connection stays in the TIME_WAIT state after it's closed.
+# MSL defaults to 15000 ms. TIME_WAIT is 2×MSL.
+# Siege recommends setting MSL to 1 second for load testing. I'm setting it to 2 to be more conservative.
+sudo sysctl -w net.inet.tcp.msl=2000
+
+
 # This adds the `ip` command. Note that it's incomplete, compared to the Linux version.
 #   `ip address`
 #   `ip route`
