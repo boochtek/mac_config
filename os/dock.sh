@@ -16,7 +16,7 @@ defaults write com.apple.Dock autohide-delay -float 0
 brew install --quiet dockutil
 
 ## Remove rarely-used Dock items.
-for dock_item in Siri Launchpad Contacts Notes Reminders Maps Messages FaceTime iBooks Podcasts TV News ; do
+for dock_item in Siri Launchpad Contacts Notes Reminders Maps Messages FaceTime iBooks Podcasts TV News Freeform Keynote Numbers Pages ; do
     dockutil --remove "$dock_item" &> /dev/null
 done
 
