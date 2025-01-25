@@ -27,5 +27,8 @@ dockutil --find "Activity Monitor" &> /dev/null \
 ## Show CPU graph in Activity Monitor icon in Dock.
 defaults write com.apple.ActivityMonitor IconType -int 6
 
+## Show hidden apps in Dock, with dimmed icons.
+defaults write com.apple.Dock showhidden -bool TRUE
+
 ## Restart the Dock.
 killall Dock
