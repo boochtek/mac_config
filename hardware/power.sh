@@ -19,8 +19,8 @@ sudo pmset -a lidwake 1
 sudo pmset -b hibernatemode 25
 sudo pmset -c hibernatemode 3
 
-# Prevent system from sleeping when closing the lid.
-sudo pmset -a disablesleep 1
+# Make sure we don't have sleep completely disabled.
+sudo pmset -a disablesleep 0
 
 # Set energy-saving features (on battery).
 sudo pmset -b displaysleep 5 sleep 10
