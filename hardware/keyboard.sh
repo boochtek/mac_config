@@ -8,16 +8,6 @@
 # NOTE: This doesn't really do anything with the Touch Bar.
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 
-# Make Caps Lock key do nothing. (We'll have Seil fix it later.)
-# See http://apple.stackexchange.com/a/88096 for more details.
-# TODO: Determine these programatically, and for each keyboard we find, loop through the vendor and product ID.
-# Apple's vendor ID is 1452. Product ID is 610 for internal keyboard on mid-2012 MacBook Pro, 628 for mid-2015 MacBook Pro.
-KEYBOARD_VENDOR=$(ioreg -n IOHIDKeyboard -r | grep '"VendorID"' | awk '{print $4}') # 1452 (0x05AC)
-KEYBOARD_PRODUCT=$(ioreg -n IOHIDKeyboard -r | grep '"ProductID"' | awk '{print $4}') # 610 (0x0262)
-KEYBOARD_ID=0  # TODO: Not sure if this is VendorIDSource, or if we have to keep track manually.
-defaults -currentHost write -g "com.apple.keyboard.modifiermapping.$KEYBOARD_VENDOR-$KEYBOARD_PRODUCT-$KEYBOARD_ID" -array-add '<dict><key>HIDKeyboardModifierMappingDst</key><integer>-1</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>'
-
-
 # Automatically illuminate built-in MacBook keyboard in low light.
 defaults write com.apple.BezelServices kDim -bool true
 
@@ -32,9 +22,6 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # Disable automatic fancy quotes and dashes (because I don't want those changes when I'm coding).
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -boolean false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -boolean true
-
-
-# NOTE: Seil is obsoleted on macOS Sierra (10.12) or later.
 
 
 brew install --quiet --cask --no-quarantine karabiner-elements # Requires password.
