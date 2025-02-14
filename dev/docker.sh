@@ -7,3 +7,13 @@ brew install --quiet --cask --no-quarantine docker
 # Lazydocker provides a nice TUI for Docker and Docker Compose.
 # NOTE: If you want newer versions, use `jesseduffield/lazydocker/lazydocker`.
 brew install --quiet lazydocker
+
+# Install Kubernetes CLI tool.
+brew install --quiet kubernetes-cli
+
+# Install kubectx and kubens to switch between Kubernetes contexts and namespaces.
+brew install --quiet kubectx
+
+# Install some TUI apps to get info on Kubernetes clusters.
+brew install --quiet ktop
+brew install --quiet kdash
