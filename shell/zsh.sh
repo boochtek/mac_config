@@ -14,3 +14,6 @@ brew install --quiet zsh-autopair
 
 # Syntax highlighting as you type.
 brew install --quiet zsh-syntax-highlighting
+
+# Let's you know when you could use an alias.
+brew install --quiet zsh-you-should-use
