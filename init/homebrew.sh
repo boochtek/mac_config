@@ -21,6 +21,12 @@ export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 # Install Homebrew itself, if it's not already installed.
 # Non-interactive, based on [https://github.com/Homebrew/homebrew/blob/go/install].
 if ! command-exists "${HOMEBREW_PREFIX}/bin/brew" ; then
+
+    if ! sudo -v ; then
+        echo 'You need sudo access to install Homebrew!'
+        return 1
+    fi
+
     echo 'Installing Homebrew.'
 
     # Create destination directory for Homebrew, and set permissions.
@@ -37,11 +43,13 @@ if ! command-exists "${HOMEBREW_PREFIX}/bin/brew" ; then
     sudo chmod g+rwx /Library/Caches/Homebrew
 
     # Tell git that it's OK for us to install to the directory.
-    git config --global --add safe.directory $HOMEBREW_PREFIX
+    if ! git config --global --get-all safe.directory | grep -q "^$HOMEBREW_PREFIX$"; then
+        git config --global --add safe.directory "$HOMEBREW_PREFIX"
+    fi
 
     # Download the latest version of Homebrew using git.
     (
-        cd $HOMEBREW_PREFIX || exit
+        cd $HOMEBREW_PREFIX
         git init -q
         git remote add origin https://github.com/Homebrew/brew
         git fetch origin master:refs/remotes/origin/master -n
