@@ -7,7 +7,7 @@
 # If `CONFIG_FILES_URL` is not set, abort.
 if [[ -z "$CONFIG_FILES_URL" ]]; then
     echo 'CONFIG_FILES_URL is not set. Aborting.'
-    exit 1
+    return 1
 fi
 
 # Set `CONFIG_FILES_BRANCH` to `main` if it's not set.
