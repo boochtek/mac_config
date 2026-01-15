@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RUBY_VERSION="${RUBY_VERSION:-3.4.1}"
+RUBY_VERSION="${RUBY_VERSION:-4.0.1}"
 
 # Dependencies: `mise`
 
@@ -39,10 +39,12 @@ brew install --quiet --cask --no-quarantine wkhtmltopdf
 gem install kramdown
 gem install rsense
 gem install ruby-beautify
+gem install herb
+gem install erb-formatter
 gem install middleman
 gem install railties
 gem install rubocop rubocop-rspec rubocop-performance rubocop-rails
-gem install solargraph
+# gem install solargraph
 
 # Install Ruby LSP server.
 gem install ruby-lsp
@@ -53,3 +55,6 @@ ruby "$CURRENT_RUBY_VERSION"
 gem 'ruby-lsp'
 RUBY_LSP
 BUNDLE_GEMFILE="$HOME/.ruby-lsp/Gemfile" bundle
+
+# Install rubyfmt.
+brew install --quiet rubyfmt
