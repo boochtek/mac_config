@@ -2,3 +2,6 @@ OLD
 
 # Personal scratchpad of install errors / notes (not for the repo)
 ERRORS.txt
+
+# Client/employer-specific setup scripts — kept locally, never committed.
+work/
