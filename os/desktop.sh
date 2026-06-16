@@ -9,11 +9,33 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 
-# Set "wallpaper" for the desktop background.
+# Set a black-topped wallpaper so the menu bar reads as black (hides the notch and
+# gives a clean black bar). The generator uses only built-in tools (AppKit via
+# osascript), so there's nothing extra to install. See wallpaper/.
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+wallpaper_src="$script_dir/wallpaper/jwst-deep-field-smacs0723.jpg"
+wallpaper="$HOME/Pictures/Backgrounds/jwst-deep-field-smacs0723.jpg"
+
 mkdir -p "$HOME/Pictures/Backgrounds"
-# TODO: Find this wallpaper image again, or a suitable replacement.
-# wget --directory-prefix=~/Pictures/Backgrounds http://pic.1fotonin.com//data/wallpapers/20/WDF_683106.jpg
-# wallpaper set "~/Pictures/Backgrounds/WDF_683106.jpg"
+
+# Generate the black-bar wallpaper once (idempotent: skip if it already exists).
+if [[ ! -f "$wallpaper" ]]; then
+	SRC="$wallpaper_src" DST="$wallpaper" \
+		osascript -l JavaScript "$script_dir/wallpaper/generate-wallpaper.js"
+fi
+
+# Apply it only when it exists and isn't already set (idempotent: don't reset every
+# run, and don't point the desktop at a missing file if generation failed). The path
+# is passed as an argument, not interpolated into the AppleScript, so any characters
+# in it are safe.
+current_wallpaper="$(osascript -e 'tell application "System Events" to get picture of desktop 1')"
+if [[ -f "$wallpaper" && "$current_wallpaper" != "$wallpaper" ]]; then
+	osascript \
+		-e 'on run argv' \
+		-e 'tell application "System Events" to set picture of every desktop to (item 1 of argv)' \
+		-e 'end run' \
+		"$wallpaper"
+fi
 
 # Restart Finder so settings will take effect.
 killall Finder

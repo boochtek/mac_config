@@ -59,11 +59,12 @@ System Settings -> Displays -> Night Shift
 
 System Settings -> Wallpaper
 
-- Set all monitors to Auto-Rotate Backgrounds
-    - NOTE: Be sure there are appropriate background images in ~/Pictures/Backgrounds
-    - Add Folder: ~/Pictures/Backgrounds
-- Change picture: Every Hour
-    - CHECK Randomly
+- The wallpaper is set automatically by `os/desktop.sh` to a black-topped image
+  (see `os/wallpaper/`), so the menu bar reads as black — no menu-bar app needed.
+- Do NOT enable Auto-Rotate Backgrounds: only an image with a baked-in black top
+  keeps the menu bar black, so a rotating folder would break it.
+- To use a different picture: replace the source in `os/wallpaper/`, delete
+  `~/Pictures/Backgrounds/jwst-deep-field-smacs0723.jpg`, then re-run `os/desktop.sh`.
 
 System Settings -> Desktop & Dock
 
