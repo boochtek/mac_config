@@ -9,9 +9,6 @@
 - more settings
     - use `plist` to see what settings get changed
     - Safari
-- replace Bartender with [Hidden Bar](https://github.com/dwarvesf/hidden)
-    - or [Vanilla](https://matthewpalmer.net/vanilla/)
-    - or [Dozer](https://github.com/matthewpalmer/Dozer)
 - hardware/printer.sh
 - See what's missing from the Ansible branch.
 
