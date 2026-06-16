@@ -4,11 +4,6 @@
 
 - COMMITS!!!
 - rename as mac-setup
-- install Chrome extensions
-    - DOCUMENT installation
-    - 1Password ✔️
-    - OneTab
-    - tabs full of 'em
 - custom icons for top-level directories
     - at least the ones in the Finder sidebar
 - more settings
