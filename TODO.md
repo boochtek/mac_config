@@ -2,15 +2,12 @@
 
 ## Top Priority
 
-- COMMITS!!!
-- rename as mac-setup
 - custom icons for top-level directories
     - at least the ones in the Finder sidebar
 - more settings
     - use `plist` to see what settings get changed
     - Safari
 - hardware/printer.sh
-- See what's missing from the Ansible branch.
 
 ## Keyboard Mappings
 
@@ -69,4 +66,3 @@ These may be in Karabiner, or maybe just Mac key bindings.
 - Make `locate` usable:
     - sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 - hardware/printer.sh
-- See what's missing from the Ansible branch.

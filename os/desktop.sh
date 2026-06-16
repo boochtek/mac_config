@@ -9,6 +9,9 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 
+# Start the screensaver after 10 minutes of inactivity.
+defaults -currentHost write com.apple.screensaver idleTime -int 600
+
 # Set a black-topped wallpaper so the menu bar reads as black (hides the notch and
 # gives a clean black bar). The generator uses only built-in tools (AppKit via
 # osascript), so there's nothing extra to install. See wallpaper/.

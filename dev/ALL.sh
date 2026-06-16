@@ -25,10 +25,10 @@ cd "$(dirname "$0")" || exit 1
 ./haskell.sh
 ./io.sh
 ./clojure.sh
+./lua.sh
 ./shell.sh
 ./dbeaver.sh
 
-## TODO: Lua
 ## TODO: Rust
 ## TODO: Scala
 ## TODO: Idris

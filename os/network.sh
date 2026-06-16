@@ -1,13 +1,13 @@
 #!/bin/bash
 
-set -euo pipefail; IFS=$'\n\t'
+set -euo pipefail
+IFS=$'\n\t'
 
 # MSL is how long a packet may live in the network before it's considered lost.
 # TIME_WAIT is the time that a connection stays in the TIME_WAIT state after it's closed.
 # MSL defaults to 15000 ms. TIME_WAIT is 2×MSL.
 # Siege recommends setting MSL to 1 second for load testing. I'm setting it to 2 to be more conservative.
 sudo sysctl -w net.inet.tcp.msl=2000
-
 
 # This adds the `ip` command. Note that it's incomplete, compared to the Linux version.
 #   `ip address`
@@ -46,3 +46,18 @@ brew install --quiet tcpflow
 
 # Ngrep is like a combination of tcpdump and grep.
 brew install --quiet ngrep
+
+# Socat is "netcat on steroids" — a bidirectional relay between two data channels.
+brew install --quiet socat
+
+# Sipcalc is an IP subnet calculator.
+brew install --quiet sipcalc
+
+# MTR combines ping and traceroute into a single live network diagnostic.
+brew install --quiet mtr
+
+# Lsusb lists connected USB devices (the Linux command, missing from macOS).
+brew install --quiet lsusb
+
+# Ssh-copy-id installs your public key on a remote host (missing from macOS OpenSSH).
+brew install --quiet ssh-copy-id

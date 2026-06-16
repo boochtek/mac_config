@@ -53,6 +53,9 @@ brew install --quiet --cask qlvideo
 # Preview AVIF images.
 brew install --quiet --cask avifquicklook
 
+# Inspect the contents of .pkg installer packages before running them.
+brew install --quiet --cask suspicious-package
+
 # Reload QuickLook daemon, so new plugins will work.
 qlmanage -r
 

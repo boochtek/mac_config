@@ -81,6 +81,7 @@ System Settings -> Desktop & Dock
 System Settings -> Screen Saver
 
 - Set to Random
+- Idle timeout (10 min) is set by `os/desktop.sh`; this only picks the style.
 
 ## Power
 

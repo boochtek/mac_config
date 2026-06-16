@@ -89,12 +89,17 @@ brew install rar
 # It's nice to occasionally show a fortune.
 brew install fortune
 
+# CLOC counts lines of code, broken down by language, with nice output.
+brew install --quiet cloc
+
 # Search inside (and pretty-print) JSON, YAML, XML, Markdown.
 brew install --quiet jq yq xq mdq
 # TUI playground for jq.
 brew install --quiet jqp
 # JSON viewer with paging, syntax highlighting, and interactive collapse/expand.
 brew install --quiet jless
+# Gron "flattens" JSON into discrete assignments, making it greppable (and un-grons back).
+brew install --quiet gron
 
 # Install some linting tools.
 brew install proselint # English prose
@@ -111,6 +116,9 @@ brew install --quiet colordiff
 brew install --quiet nano
 brew install --quiet grep
 brew install --quiet less
+
+# Sometimes we get DOS-style text files and want to strip out the carriage returns.
+brew install --quiet dos2unix
 
 ## From https://github.com/ptb/Mac-OS-X-Lion-Setup/blob/master/setup.sh
 
@@ -163,3 +171,30 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 
 # Disable Liquid Glass tab styling.
 defaults write -g NSSolariumWindowTabs -bool NO
+
+# Duti sets the default app for a file type, identified by a Uniform Type Identifier
+# (UTI) or filename extension. Make Zed the default editor for text, code, markup, and
+# data files. (Launch Services needs Zed registered, so this only takes effect once the
+# Zed cask from editors/zed.sh is installed.)
+brew install --quiet duti
+if [[ -d "/Applications/Zed.app" ]]; then
+	# Broad text/markup/data categories, by UTI.
+	for uti in \
+		public.plain-text \
+		public.source-code \
+		public.shell-script \
+		net.daringfireball.markdown \
+		public.html \
+		public.xml \
+		public.json \
+		public.yaml; do
+		duti -s dev.zed.Zed "$uti" all || echo "  Could not set Zed as default for $uti."
+	done
+
+	# Programming-language and config files, by extension (each maps to its own type).
+	for ext in \
+		.js .jsx .ts .tsx .py .rb .rs .go \
+		.c .h .cpp .lua .sh .zsh .css .scss .toml .ini .conf; do
+		duti -s dev.zed.Zed "$ext" all || echo "  Could not set Zed as default for $ext."
+	done
+fi
