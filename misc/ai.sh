@@ -62,11 +62,17 @@ brew install --quiet --cask ollama
 ollama pull gemma4:31b      # Google Gemma 4 31B dense — deep reasoning
 ollama pull gemma4:26b      # Google Gemma 4 26B MoE (4B active) — fast daily driver
 ollama pull gemma4:e4b      # Google Gemma 4 E4B — tiny/instant for quick tasks
+ollama pull ssfdre38/gemma4-turbo  # Optimized/tuned 9B model, 51% faster than e4b on CPU
 ollama pull devstral        # Mistral Devstral 24B — agentic SWE, 68% SWE-bench
 ollama pull qwen3-coder     # Alibaba Qwen3-Coder 80B MoE (3B active) — agentic coding
 ollama pull qwen3.6         # Alibaba Qwen3.6 35B — agentic coding
 
 ollama pull glm-4.7-flash   # Zhipu GLM-4.7 Flash 30B MoE (3B active) — strong tool calling
+
+# OMLX might be better though, using Apple's MLX (Ollama may now too):
+brew tap jundot/omlx
+brew trust --formula jundot/omlx/omlx
+brew install --quiet omlx
 
 # TODO: Kimi K2.6 — #1 open-source LiveBench Coding, needs 128+ GB RAM
 # TODO: MiniMax M3 — near Opus-level SWE-bench, needs 128+ GB RAM
