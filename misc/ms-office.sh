@@ -6,6 +6,7 @@
 
 # Dependencies / nice-to-have.
 brew install --quiet --cask microsoft-auto-update
+brew trust --cask niksy/pljoska/font-microsoft-cleartype-family
 brew install --quiet niksy/pljoska/font-microsoft-cleartype-family
 
 # Install individual Office apps.
@@ -17,8 +18,8 @@ brew install --quiet --cask microsoft-excel
 # brew install --quiet --cask onedrive
 
 # Add to Dock.
-dockutil --add  '/Applications/Microsoft Word.app' --replacing 'Microsoft Word' --after 'Obsidian' &> /dev/null
-dockutil --add  '/Applications/Microsoft Excel.app' --replacing 'Microsoft Excel' --after 'Microsoft Word' &> /dev/null
+dockutil --add '/Applications/Microsoft Word.app' --replacing 'Microsoft Word' --after 'Obsidian' &>/dev/null
+dockutil --add '/Applications/Microsoft Excel.app' --replacing 'Microsoft Excel' --after 'Microsoft Word' &>/dev/null
 # dockutil --add  '/Applications/Microsoft PowerPoint.app' --replacing 'Microsoft PowerPoint' --after 'Microsoft Excel' &> /dev/null
 # dockutil --add  '/Applications/Microsoft Outlook.app' --replacing 'Microsoft Outlook' --after 'Mail' &> /dev/null
 # dockutil --add  '/Applications/Microsoft Remote Desktop.app' --replacing 'Microsoft Remote Desktop' --after 'iTerm' &> /dev/null

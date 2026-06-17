@@ -4,6 +4,7 @@ brew install --quiet fontconfig
 brew install --quiet svn # required to install some fonts
 
 ## Install additional fonts.
+brew trust --cask niksy/pljoska/font-microsoft-cleartype-family
 brew install --quiet --cask niksy/pljoska/font-microsoft-cleartype-family
 brew install --quiet --cask font-comic-mono
 brew install --quiet font-jetbrains-mono
@@ -131,7 +132,7 @@ brew install --quiet --cask font-powerline-symbols
 brew install --quiet font-noto-color-emoji
 brew install --quiet --cask font-twitter-color-emoji
 brew install --quiet --cask font-ligature-symbols
-brew install --quiet --cask font-codicon   # from MS VS Code
+brew install --quiet --cask font-codicon # from MS VS Code
 brew install --quiet --cask font-devicons
 brew install --quiet --cask font-foundation-icons # from Zurb Foundation
 brew install --quiet --cask font-open-iconic
