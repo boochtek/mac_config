@@ -14,6 +14,10 @@ defaults write com.apple.BezelServices kDim -bool true
 # Turn off keyboard illumination when computer is not used for 5 minutes.
 defaults write com.apple.BezelServices kDimTime -int 300
 
+echo "Please go to System Preferences > Keyboard > Keyboard Shortcuts > Modifier Keys,"
+echo "and set Globe/Fn to send Control, Control to send Option, and Option to send Globe/Fn."
+echo "Be sure you set it on the laptop's INTERNAL keyboard."
+
 # Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs).
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
@@ -88,18 +92,15 @@ chgrp admin /usr/local/sbin/mdloader
 # NOTE: We can replace `-g` with the app name (in reverse DNS form) for app-specific bindings.
 # NOTE: For a menu item in the preferences like A->B-C, use "\033A\033B\033C".
 
-# Allow Ctrl+PageDown and Ctrl+PageUp to cycle between tabs, same as Ctrl+Tab and Ctrl+Shift+Tab.
-# FIXME: We'll probably have to use Karabiner to allow 2 sets of bindings for the same function.
-defaults write -g NSUserKeyEquivalents -dict-add "Next Tab" -string "^\UF72D"
-defaults write -g NSUserKeyEquivalents -dict-add "Previous Tab" -string "^\UF72C"
-defaults write -g NSUserKeyEquivalents -dict-add "Select Next Tab" -string "^\UF72D"
-defaults write -g NSUserKeyEquivalents -dict-add "Select Previous Tab" -string "^\UF72C"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "^\UF72D"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "^\UF72C"
-
-# TODO: Might have to try \U21E5 instead of \t. Might also need to limit this to Terminal.
-defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "$(echo -e '^\t')"
-defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(echo -e '^$\t')"
+# Tab cycling (Ctrl+PageDown/PageUp) and CUA clipboard (Shift+Del, Ctrl+Ins,
+# Shift+Ins, Ctrl+Del) are deliberately NOT bound here with NSUserKeyEquivalents.
+# That mechanism REPLACES a menu item's single shortcut, so it would override
+# Command+X/C/V rather than adding the CUA chords as aliases -- and it only binds
+# Cocoa menu items. Instead these are key-level remaps in QMK firmware (K1 Pro)
+# and Karabiner (internal/other keyboards): the CUA chord sends Command+X/C/V and
+# Ctrl+PageDown/Up sends Ctrl+Tab / Ctrl+Shift+Tab, leaving the native Command
+# shortcuts intact. See the Karabiner rules "CUA cut and paste (on PC keyboard)"
+# and "Control+PageUp/PageDown cycles through tabs", and the K1 Pro QMK PRD (F3-F5).
 
 # TODO: Allow Ctrl+Enter and/or Command+Enter to send emails (Command+Shift+D in Mac Mail).
 
