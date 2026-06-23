@@ -44,21 +44,6 @@ sudo chmod +x /usr/local/bin/karabiner
 echo "Please go to System Preferences > Privacy & Security > Privacy > Accessibility and enable Karabiner-Elements."
 echo "Please go to System Preferences > General > Login Items & Extensions > Allow in the Background > ENABLE both Karabiner items."
 echo "Please go to System Preferences > General > Login Items & Extensions > Extensions > click on $(ⓘ) next to Driver Extensions > ENABLE Karabiner virtual HID device driver."
-return 0
-
-# Start Karabiner
-# TODO: Had to manually go into Security & Privacy preferences, Privacy Tab, Accessibility, and enable Karabiner_AXNotifier.
-open -a Karabiner-Elements
-
-defaults write -app Karabiner isStatusWindowEnabled 0
-# Hide Karabiner menubar icon.
-defaults write -app Karabiner isStatusbarEnable 0
-karabiner reloadxml
-IS_LAPTOP=$(/usr/sbin/system_profiler SPHardwareDataType | grep "Model Identifier" | grep "Book")
-if $IS_LAPTOP; then
-    karabiner enable remap.fnletter_to_ctrlletter
-fi
-karabiner enable remap.pc_application2controlL # Or remap.jis_pc_application2controlL_capslock, if you want CapsLock by itself to work as CapsLock.
 
 # TODO: Enable Fn-to-Insert mappings if not on laptop (or if we can identify Apple keyboard with numeric keypad. Better yet, only enable them in the XML file for that keyboard device.
 
@@ -79,12 +64,12 @@ karabiner enable remap.pc_application2controlL # Or remap.jis_pc_application2con
 
 ## Configuration of my Drop (Massdrop) CTRL keyboard.
 # NOTE: QMK has a ton of dependencies; Homebrew will take a while to download/compile them.
-brew install qmk/qmk/qmk
+# brew install qmk/qmk/qmk
 
 ## Install Massdrop firmware loader
-wget https://github.com/Massdrop/mdloader/releases/download/1.0.3/mdloader_mac -O /usr/local/sbin/mdloader
-chmod 0555 /usr/local/sbin/mdloader
-chgrp admin /usr/local/sbin/mdloader
+# wget https://github.com/Massdrop/mdloader/releases/download/1.0.3/mdloader_mac -O /usr/local/sbin/mdloader
+# chmod 0555 /usr/local/sbin/mdloader
+# chgrp admin /usr/local/sbin/mdloader
 
 ## Key bindings (shortcuts) for apps.
 
