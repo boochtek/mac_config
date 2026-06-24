@@ -45,12 +45,6 @@ echo "Please go to System Preferences > Privacy & Security > Privacy > Accessibi
 echo "Please go to System Preferences > General > Login Items & Extensions > Allow in the Background > ENABLE both Karabiner items."
 echo "Please go to System Preferences > General > Login Items & Extensions > Extensions > click on $(ⓘ) next to Driver Extensions > ENABLE Karabiner virtual HID device driver."
 
-# TODO: Enable Fn-to-Insert mappings if not on laptop (or if we can identify Apple keyboard with numeric keypad. Better yet, only enable them in the XML file for that keyboard device.
-
-# TODO: For desktop keyboard, would like to use PC Style Copy/Paste #3, but that would require changing Fn key to Insert key. (And I don’t think I’ve been able to figure out how to do that.)
-
-# TODO: Can we get OPTION_R or OPTION_L by itself to do ^F2 (move focus to menu bar in Keyboard/Shortcuts/Keyboard)? NOTE: I usually remap that to Command+/.
-
 # TODO: F2 in Finder to rename, but not if in a text field.
 # TODO: Enter in Finder to open, but not if in a text field.
 
@@ -62,22 +56,13 @@ echo "Please go to System Preferences > General > Login Items & Extensions > Ext
 #			http://apple.stackexchange.com/questions/13598/updating-modifier-key-mappings-through-defaults-command-tool#comment103161_88096
 #			http://superuser.com/questions/590526/switch-function-keys-on-os-x-via-via-command-line
 
-## Configuration of my Drop (Massdrop) CTRL keyboard.
-# NOTE: QMK has a ton of dependencies; Homebrew will take a while to download/compile them.
-# brew install qmk/qmk/qmk
-
-## Install Massdrop firmware loader
-# wget https://github.com/Massdrop/mdloader/releases/download/1.0.3/mdloader_mac -O /usr/local/sbin/mdloader
-# chmod 0555 /usr/local/sbin/mdloader
-# chgrp admin /usr/local/sbin/mdloader
-
 ## Key bindings (shortcuts) for apps.
 
 # NOTE: Use \u200b (zero-width space) to disable a shortcut for a menu item.
 # NOTE: We can replace `-g` with the app name (in reverse DNS form) for app-specific bindings.
-# NOTE: For a menu item in the preferences like A->B-C, use "\033A\033B\033C".
+# NOTE: For a menu item in the preferences like A->B->C, use "\033A\033B\033C".
 
-# Tab cycling (Ctrl+PageDown/PageUp) and CUA clipboard (Shift+Del, Ctrl+Ins,
+# NOTE: Tab cycling (Ctrl+PageDown/PageUp) and CUA clipboard (Shift+Del, Ctrl+Ins,
 # Shift+Ins, Ctrl+Del) are deliberately NOT bound here with NSUserKeyEquivalents.
 # That mechanism REPLACES a menu item's single shortcut, so it would override
 # Command+X/C/V rather than adding the CUA chords as aliases -- and it only binds

@@ -21,6 +21,14 @@ These may be in Karabiner, or maybe just Mac key bindings.
     - And corresponding key binding for reverse cycling.
 - Make Ctrl+Enter, Command+Enter send email (in Mail, Thunderbird, and all other email programs).
 - Do magic to make Finder opening and renaming more sane.
+- Switch iTerm to "Load preferences from a custom folder or URL" (iTerm Settings
+  → General), pointing it at a committed `com.googlecode.iterm2.plist`, so ALL
+  iTerm settings and key bindings reproduce on a fresh Mac. Today only the
+  Cmd+Shift+P → Open Quickly App Shortcut is scripted (`shell/iterm2.sh`); these
+  other custom `GlobalKeyMap` bindings are captured nowhere:
+    - Ctrl+Tab → next tab; Ctrl+Shift+Tab → previous tab
+    - Cmd+← → Ctrl-A (line start); Cmd+→ → Ctrl-E (line end)
+    - Shift+Return → newline; Cmd+Z → hex 0x1f
 
 ## Utilities
 
