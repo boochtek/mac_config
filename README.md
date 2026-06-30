@@ -65,6 +65,10 @@ source ./init.sh
 ./web/ALL.sh
 ~~~
 
+   Firefox extensions are installed via Enterprise Policies written into the app bundle.
+   **Restart Firefox after this step** to trigger extension installation.
+   Re-run `web/firefox.sh` after any Firefox update (Homebrew reinstalls the app bundle).
+
 7. Install tools for development work.
 
 ~~~ shell

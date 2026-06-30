@@ -22,11 +22,8 @@ dockutil --add '/Applications/Microsoft Edge.app' --replacing 'Microsoft Edge' -
 # Install Firefox browser.
 brew install --quiet --cask firefox
 dockutil --add '/Applications/Firefox.app' --replacing 'Firefox' --after 'Microsoft Edge'
-
-# Firefox TODO (manual):
-#   * View / Toolbars / CHECK Bookmarks Toolbar
-#   * Addons
-#   * Make sure 1Password works properly.
+# NOTE: Firefox extensions and preferences (bookmarks toolbar, vertical tabs, 1Password, etc.)
+#       are configured by ./firefox.sh via Enterprise Policies.
 
 # Install Firefox Developer Edition.
 brew install --quiet --cask firefox@developer-edition
