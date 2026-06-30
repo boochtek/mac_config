@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Install and Chrome web browser.
+## Install Chrome browser and extensions.
 
 # Install Chrome browser.
 brew install --quiet --cask google-chrome
@@ -8,8 +8,6 @@ dockutil --add '/Applications/Google Chrome.app' --replacing 'Google Chrome' --b
 
 # Chrome TODO (manual):
 #   * Make sure 1Password works properly. FIXME: Need cask apps deployed into /Applications instead of locally.
-#   * Install AdBlocker Ultimate extension.
-#   * Install OneTab (recommended by Mikhail).
 
 ## Install Chromium browser.
 #brew install --quiet --cask chromium
@@ -34,8 +32,10 @@ extension install chrome cjpalhdlnbpafiamejdnhcphjbkeiagm
 extension install chrome aeblfdkhhhdcdjpifhhbdiojplfjncoa
 
 # OneTab
-# TODO: Consider alternatives: [Session Buddy](https://chromewebstore.google.com/detail/session-buddy/edacconmaakjimmfgnblocblbcdcpbko)
 extension install chrome chphlpgkkbolifaimnlloiipkdnihall
+
+# [Tab Session Manager](https://chromewebstore.google.com/detail/tab-session-manager/iaiomicjabeggjcfkbimgmglanimpnae)
+extension install chrome iaiomicjabeggjcfkbimgmglanimpnae
 
 # [Web Developer](https://chromewebstore.google.com/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm)
 extension install chrome bfbameneiokkgbdmiekhjnmfkcnldhhm
@@ -46,12 +46,8 @@ extension install chrome fmkadmapgofadopljbjfkapdkoienihi
 # [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
 extension install chrome blipmdconlkpinefehnmjammfjpmpbjk
 
-# [Next Experience Developer Tools](https://chromewebstore.google.com/detail/next-experience-developer/ilkodijinjhpdnnfpccijledlapkfmhc)
-extension install chrome ilkodijinjhpdnnfpccijledlapkfmhc
-
-# Stylish
-# TODO: Consider alternatives: [Stylus](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
-extension install chrome fjnbnpbmkenffdnngjfgmeleoegfcffe
+# [Stylus](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
+extension install chrome clngdbkpkpeebahjckkjfobafhncgmne
 
 # [GitHub Code Folding](https://chromewebstore.google.com/detail/github-code-folding/lefcpjbffalgdcdgidjdnmabfenecjdf)
 extension install chrome lefcpjbffalgdcdgidjdnmabfenecjdf
@@ -91,3 +87,18 @@ extension install chrome mdjildafknihdffpkfmmpnpoiajfjnjd
 
 # [Just Read](https://chromewebstore.google.com/detail/just-read/dgmanlpmmkibanfdgjocnabmcaclkmod)
 extension install chrome dgmanlpmmkibanfdgjocnabmcaclkmod
+
+# [Raindrop.io](https://chromewebstore.google.com/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien)
+extension install chrome ldgfbffkinooeloadekpmfoklnobpien
+
+# [Video DownloadHelper](https://chromewebstore.google.com/detail/video-downloadhelper/lmjnegcaeklhafolokijcfjliaokphfk)
+extension install chrome lmjnegcaeklhafolokijcfjliaokphfk
+
+# [Terms of Service; Didn't Read](https://chromewebstore.google.com/detail/terms-of-service-didnt-re/hlifkpholllijblknnmbfagnkjneagid)
+extension install chrome hlifkpholllijblknnmbfagnkjneagid
+
+# [SponsorBlock](https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone)
+extension install chrome mnjggcdmjocbbbhaepdhchncahnbgone
+
+# [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+extension install chrome dhdgffkkebhmkfjojejmpbldmpobfkfo
