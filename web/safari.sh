@@ -1,3 +1,10 @@
+#!/bin/bash
+
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
 # safari.sh
 
 # Show the status bar at the bottom, so we can see URLs when we hover over links.

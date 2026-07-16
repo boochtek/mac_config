@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
 ## Configure keyboard.
 
 # Use function keys as standard function keys. (Require Fn modifier key to enable special media functions.)

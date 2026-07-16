@@ -4,7 +4,7 @@
 # I pay $14.99 for the Power User plan, so I can run it on 4 Macs and 4 iOS devices.
 
 # Variant of the unofficial Bash strict mode.
-set -uo pipefail
+set -Euo pipefail
 IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 [[ -n "${DEBUG+unset}" ]] && set -x

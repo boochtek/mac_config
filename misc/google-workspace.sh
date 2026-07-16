@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
 # Google Workspace CLI — agentic access to Gmail, Calendar, Drive, Sheets,
 # Docs, Chat, Tasks, Meet, and Admin Reports from the command line.
 #

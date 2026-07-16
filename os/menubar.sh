@@ -2,7 +2,7 @@
 
 ## Configure system menu bar the way we want it.
 
-set -uo pipefail
+set -Euo pipefail
 IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR

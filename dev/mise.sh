@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
 # NOTE: I'm moving away from using `asdf` in favor of `mise`.
 
 source "${BASH_SOURCE%/*}/../util/colors.sh"

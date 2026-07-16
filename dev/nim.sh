@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
 ## Install Nim via ASDF.
 #asdf plugin update nim
 #asdf install nim 1.4.2

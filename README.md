@@ -133,6 +133,26 @@ So we can't use any features introduced in Bash 4 or later:
 - Escape codes in strings with `\u` and `\U` to represent Unicode characters
 - Negative array indices
 
+## Strict Mode
+
+Every executed script starts with a strict-mode header:
+
+~~~ bash
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+~~~
+
+We use the `trap … ERR` handler (with `-E`/errtrace, so it also fires inside
+functions and subshells) instead of `set -e`: it fails fast **and** reports the
+script, line, and failing command. Run any script with `DEBUG=1` to trace it.
+
+Sourced libraries (`util/`), the bootstrap entry points (`init.sh`, `ENV.sh`,
+`init/`), and the `ALL.sh` orchestrators intentionally omit this header.
+Dual-use scripts (sourced *and* executed) guard it behind
+`[[ "${BASH_SOURCE[0]}" == "$0" ]]` so sourcing them can't exit the caller.
+
 ## TODO: Downloading and Installing MacOS Sonoma
 
 diskutil list external physical

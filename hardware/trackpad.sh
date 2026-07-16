@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
 ## Configure trackpad.
 
 # NOTE: You'll need to log out and back in for some of these (like tap-to-click) to work.

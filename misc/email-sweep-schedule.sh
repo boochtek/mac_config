@@ -31,7 +31,7 @@ cat > "$HOME/bin/email-sweep-daily" <<'WRAPPER'
 # Setup script:
 #   ~/mac-setup/misc/email-sweep-schedule.sh
 
-set -uo pipefail
+set -Euo pipefail
 
 LOG_ROOT="$HOME/Personal/Email/sweep-log"
 mkdir -p "$LOG_ROOT"

@@ -26,7 +26,7 @@ cat >"$HOME/bin/workflow-retro-monthly" <<'WRAPPER'
 # Setup script:
 #   ~/mac-setup/misc/workflow-retro-schedule.sh
 
-set -uo pipefail
+set -Euo pipefail
 
 LOG_ROOT="$HOME/.local/share/ai/retro-log"
 mkdir -p "$LOG_ROOT"

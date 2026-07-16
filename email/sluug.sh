@@ -52,7 +52,7 @@ curl -fsSL https://letsencrypt.org/certs/2024/r12.pem \
 #   * Injects NODE_EXTRA_CA_CERTS pointing at the R12 intermediate
 #   * Passes through any args (e.g., `test sluug` runs the IMAP+SMTP login probe)
 mkdir -p "$HOME/bin"
-cat > "$HOME/bin/sluug-mail-mcp" <<'WRAPPER'
+cat >"$HOME/bin/sluug-mail-mcp" <<'WRAPPER'
 #!/usr/bin/env bash
 # Wrapper for @codefuturist/email-mcp — used for the SLUUG IMAP account.
 # Credentials pulled from macOS Keychain. The R12 intermediate is needed
@@ -63,7 +63,10 @@ cat > "$HOME/bin/sluug-mail-mcp" <<'WRAPPER'
 #   sluug-mail-mcp test sluug       # run @codefuturist/email-mcp's IMAP+SMTP test
 #   sluug-mail-mcp <any-other-cmd>  # passed through to email-mcp
 
-set -euo pipefail
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
 MCP_EMAIL_PASSWORD="$(security find-generic-password -s sluug-mail-mcp -w)"
 export MCP_EMAIL_PASSWORD

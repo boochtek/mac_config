@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Enable strict mode + error trap only when run directly, not when sourced.
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    set -Euo pipefail
+    IFS=$'\n\t'
+    [[ -n "${DEBUG+unset}" ]] && set -x
+    trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+fi
+
 # NOTE: Adding apps to the Dock should happen in the scripts where said apps are installed.
 
 ## Disable animations when opening an application from the Dock.

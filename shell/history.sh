@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
 # Install ble.sh, the Bash Line Editor (like ZLE). Adds syntax highlighting, auto-completion, and more.
 #brew install --quiet ble.sh
 

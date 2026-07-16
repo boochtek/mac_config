@@ -2,8 +2,10 @@
 
 # Virtualization
 
-set -euo pipefail
+set -Euo pipefail
 IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
 # Install UTM system emulator and virtual machine.
 brew install --quiet --cask utm

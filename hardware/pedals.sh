@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
 # Despite deciding on the Elgato foot pedals, I prefer using Better Touch Tool over the Stream Deck app.
 # NOTE: You'll be prompted for your password.
 # brew install --quiet --cask elgato-stream-deck

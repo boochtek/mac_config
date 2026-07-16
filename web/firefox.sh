@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
 ## Configure Firefox via Enterprise Policies: extensions and preferences.
 ## Writes policies.json into each installed Firefox app bundle.
 ## Idempotent: re-running copies the same policies file.

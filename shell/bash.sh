@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -Euo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+
 # MacOS 13 (Ventura) comes with Bash 3.2. This will upgrade that to Bash 5.2.
 # Apple will likely never upgrade Bash; they'll stick with the last GPL 2 version.
 brew install bash
