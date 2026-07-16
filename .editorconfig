@@ -1,0 +1,16 @@
+# EditorConfig: https://editorconfig.org
+# shfmt reads these settings too, so shell scripts format to 4-space indentation
+# (matching this repo's convention) instead of shfmt's default tabs.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.md]
+# Two trailing spaces are a hard line break in Markdown — don't strip them.
+trim_trailing_whitespace = false
