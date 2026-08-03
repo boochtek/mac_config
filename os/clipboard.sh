@@ -9,23 +9,8 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 # brew install --quiet --cask maccy
 # open -a Maccy
 
-
-# I mostly like Collective, but its window looks crappy with my font size, and it doesn't show up on the right screen.
-# Also, it's hitting 100% CPU and hanging on startup. Then it has problems showing up on after I move it.
-# Install Collective clipboard manager. Start it at login and now.
-if [[ ! -e '/Applications/Collective.app' ]]; then
-    mas list | grep -q 'Collective' || mas lucky 'Collective'
-    osascript -e 'tell application "System Events" to make login item with properties {path:"/Applications/Collective.app", hidden:true}' >/dev/null
-    open -a Collective
-fi
-
-# MANUAL configuration: Preferences.
-#   General
-#       Hotkey: Shift+Command+V
-#       CHECK Launch at Login
-#       CHECK Check for updates automatically
-#       CHECK Fuzzy search
-
+# DID NOT LIKE: Collective (App Store). Its window looked wrong at my font size,
+# opened on the wrong screen, and hit 100% CPU / hung on startup.
 
 # DID NOT LIKE THAT MUCH: Install PopClip. NOTE: This is a paid app ($17) that can also be found on the App Store.
 # brew install --quiet --cask popclip
