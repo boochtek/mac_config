@@ -141,12 +141,14 @@ Every executed script starts with a strict-mode header:
 set -Euo pipefail
 IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
-trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 ~~~
 
 We use the `trap … ERR` handler (with `-E`/errtrace, so it also fires inside
 functions and subshells) instead of `set -e`: it fails fast **and** reports the
-script, line, and failing command. Run any script with `DEBUG=1` to trace it.
+script, line, and failing command. The diagnostic goes to **stderr**, so a script
+whose stdout is captured as a value (`ip="$(some-script)"`) fails cleanly instead
+of returning the error text. Run any script with `DEBUG=1` to trace it.
 
 Sourced libraries (`util/`), the bootstrap entry points (`init.sh`, `ENV.sh`,
 `init/`), and the `ALL.sh` orchestrators intentionally omit this header.

@@ -3,7 +3,7 @@
 set -Euo pipefail
 IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
-trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 # Return unless $HAS_TOUCH_ID is set to 1.
 [[ "$HAS_TOUCH_ID" == "1" ]] || return

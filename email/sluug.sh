@@ -66,7 +66,7 @@ cat >"$HOME/bin/sluug-mail-mcp" <<'WRAPPER'
 set -Euo pipefail
 IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
-trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 MCP_EMAIL_PASSWORD="$(security find-generic-password -s sluug-mail-mcp -w)"
 export MCP_EMAIL_PASSWORD

@@ -3,7 +3,7 @@
 set -Euo pipefail
 IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
-trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 # Install everything needed to re-program my QMK keyboards.
 for tap in qmk/qmk osx-cross/arm osx-cross/avr ; do

@@ -5,7 +5,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     set -Euo pipefail
     IFS=$'\n\t'
     [[ -n "${DEBUG+unset}" ]] && set -x
-    trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+    trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 fi
 
 ## Helper functions for working with Mac OS X key codes.

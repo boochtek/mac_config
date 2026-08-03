@@ -3,7 +3,7 @@
 set -Euo pipefail
 IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
-trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 # MSL is how long a packet may live in the network before it's considered lost.
 # TIME_WAIT is the time that a connection stays in the TIME_WAIT state after it's closed.

@@ -3,7 +3,7 @@
 # Variant of the unofficial Bash strict mode.
 set -Euo pipefail
 IFS=$'\n\t'
-trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 [[ -n "${DEBUG+unset}" ]] && set -x
 
 # Install ffmpeg. Note: It installs a lot of dependencies:
