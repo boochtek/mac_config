@@ -6,7 +6,7 @@ IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 # Return unless $HAS_TOUCH_ID is set to 1.
-[[ "$HAS_TOUCH_ID" == "1" ]] || return
+[[ "$HAS_TOUCH_ID" == "1" ]] || exit 0
 
 # Allow Touch ID while screen sharing. From https://apple.stackexchange.com/a/444202/403766
 defaults write com.apple.security.authorization ignoreArd -bool TRUE

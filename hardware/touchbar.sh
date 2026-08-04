@@ -6,7 +6,7 @@ IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 # Return unless $HAS_TOUCH_BAR is set to 1.
-[[ "$HAS_TOUCH_BAR" == "1" ]] || return
+[[ "$HAS_TOUCH_BAR" == "1" ]] || exit 0
 
 
 # AUTOMATE: Install https://redsweater.com/touche/ on-screen Touch Bar emulator. (Only if TouchBar services aren't running.)
@@ -48,7 +48,9 @@ SHOW_FUNCTION_KEYS='{
 }'
 
 # Cache the sudo password.
-sudo -v
+# Pre-authorize sudo. Skip the prompt when sudo is already passwordless, so
+# unattended runs (such as the VM test harness over SSH) do not fail here.
+sudo -n true 2>/dev/null || sudo -v
 
 # Change Touch Bar Control Strip (the right side of the Touch Bar, normally showing 4 icons).
 plutil -replace MiniCustomized -json "$TOUCH_BAR_ITEMS" ~/Library/Preferences/com.apple.controlstrip.plist

@@ -167,6 +167,15 @@ where it was written. Check with:
 find . -name '*.sh' -not -path './.git/*' ! -perm -u+x -exec head -1 {} \; -print | grep -B1 '^#!'
 ~~~
 
+**Source other files relative to the script, not the working directory.** Use
+`source "${BASH_SOURCE%/*}/../util/colors.sh"`; a bare `source 'colors.sh'` or a
+`'../util/colors.sh'` resolves against whatever directory the caller happened to
+be in, so it works only by luck.
+
+**A script that has nothing to do should `exit 0`, not `return`.** `return`
+outside a function is an error in an executed script — it only works when the
+file is sourced.
+
 ## TODO: Downloading and Installing MacOS Sonoma
 
 diskutil list external physical

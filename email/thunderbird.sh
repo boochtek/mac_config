@@ -7,8 +7,6 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 ## Install and configure Thunderbird email client.
 
-source 'homebrew.sh'
-source 'dockutil.sh'
 
 
 # Install Thunderbird email client.

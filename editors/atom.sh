@@ -10,8 +10,6 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 ## NOTE: Most configuration will happen in user-specific config files.
 
 
-source 'homebrew.sh'
-source 'dockutil.sh'
 
 
 # Install Atom Editor.
