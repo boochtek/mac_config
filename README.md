@@ -155,6 +155,18 @@ Sourced libraries (`util/`), the bootstrap entry points (`init.sh`, `ENV.sh`,
 Dual-use scripts (sourced *and* executed) guard it behind
 `[[ "${BASH_SOURCE[0]}" == "$0" ]]` so sourcing them can't exit the caller.
 
+## Script Conventions
+
+**A script with a shebang must be executable; a sourced file must not have one.**
+The `ALL.sh` orchestrators run their scripts as `./name.sh`, which needs the
+execute bit — and git tracks that bit, so a script committed without it fails
+with "Permission denied" on every fresh clone even though it works on the machine
+where it was written. Check with:
+
+~~~ shell
+find . -name '*.sh' -not -path './.git/*' ! -perm -u+x -exec head -1 {} \; -print | grep -B1 '^#!'
+~~~
+
 ## TODO: Downloading and Installing MacOS Sonoma
 
 diskutil list external physical
