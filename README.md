@@ -176,6 +176,14 @@ be in, so it works only by luck.
 outside a function is an error in an executed script — it only works when the
 file is sourced.
 
+**Scripts must be able to run unattended.** The VM test harness (see
+[test/README.md](test/README.md)) drives them over SSH, where nothing can answer
+a prompt. In particular use `sudo -n true || sudo -v` rather than a bare
+`sudo -v`: the latter tries to prompt and fails outright without a terminal,
+while this form uses passwordless sudo when it is available and still prompts
+interactively on real hardware. Steps that genuinely need a human belong in
+[MANUAL.md](MANUAL.md).
+
 ## TODO: Downloading and Installing MacOS Sonoma
 
 diskutil list external physical

@@ -21,8 +21,11 @@ export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 # Non-interactive, based on [https://github.com/Homebrew/homebrew/blob/go/install].
 if ! command-exists "${HOMEBREW_PREFIX}/bin/brew"; then
 
-    if ! sudo -v; then
-        echo 'You need sudo access to install Homebrew!'
+    # Prefer the non-interactive check: when sudo is already passwordless (or the
+    # credentials are still cached) `sudo -v` would otherwise try to prompt, which
+    # fails outright in a non-interactive session such as an SSH-driven test run.
+    if ! sudo -n true 2>/dev/null && ! sudo -v; then
+        echo 'You need sudo access to install Homebrew!' >&2
         return 1
     fi
 

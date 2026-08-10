@@ -7,7 +7,9 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 # Cache the sudo password.
 echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
-sudo -v
+# Pre-authorize sudo. Skip the prompt when sudo is already passwordless, so
+# unattended runs (such as the VM test harness over SSH) do not fail here.
+sudo -n true 2>/dev/null || sudo -v
 
 ### TODO: sysdig/csysdig!!!
 ### TODO: slackcat
