@@ -46,6 +46,8 @@ nano ENV.sh
 
 4. Run the initialization.
     - This will install CLT, Homebrew, and my config files.
+    - On a Mac with Touch ID, it first enables Touch ID for `sudo`, so the one
+      password prompt it takes to set that up is the only one you'll need.
 
 ~~~ shell
 source ./init.sh

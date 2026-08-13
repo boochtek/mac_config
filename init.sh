@@ -3,8 +3,10 @@
 # This should work in Bash or Zsh (maybe others), but tell shellcheck it's Bash:
 # shellcheck shell=bash
 
-if source ./ENV.sh ; then
+if source ./ENV.sh; then
     source ./init/shared-functions.sh
+    # Before anything that needs sudo, so the rest authenticates by fingerprint.
+    source ./init/touch-id.sh
     source ./init/command-line-tools.sh
     source ./init/homebrew.sh
     source ./init/config-files.sh
