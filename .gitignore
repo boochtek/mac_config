@@ -5,3 +5,6 @@ ERRORS.txt
 
 # Client/employer-specific setup scripts — kept locally, never committed.
 work/
+
+# VM test-run logs
+/test/logs/

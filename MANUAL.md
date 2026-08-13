@@ -65,6 +65,10 @@ System Settings -> Wallpaper
   keeps the menu bar black, so a rotating folder would break it.
 - To use a different picture: replace the source in `os/wallpaper/`, delete
   `~/Pictures/Backgrounds/jwst-deep-field-smacs0723.jpg`, then re-run `os/desktop.sh`.
+- Generating and applying the wallpaper both drive the window server, so they only
+  work from a logged-in GUI session. Run over SSH — as the VM test harness does —
+  `os/desktop.sh` prints `⚠ MANUAL STEP: set the desktop wallpaper` and carries on
+  with the rest of its settings. Re-run it at the desktop to finish the job.
 
 System Settings -> Desktop & Dock
 

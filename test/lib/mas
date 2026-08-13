@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# No-op `mas` shim for VM test runs.
+#
+# The Mac App Store CLI (`mas`) cannot authenticate inside a VM — Apple blocks
+# Apple ID sign-in in Virtualization.framework guests. The four App-Store
+# scripts (os/app_store.sh, os/1password.sh, os/clipboard.sh, os/virtualization.sh)
+# would otherwise hard-fail. This shim is placed on PATH ahead of Homebrew so
+# those `mas` calls log-and-succeed instead. The apps still won't install, so a
+# following `open -a <App>` may trip the script's ERR trap — that abort is
+# expected and reported by the harness as an App-Store-only gap.
+
+echo "[mas-shim] skipped in VM: mas $*" >&2
+exit 0

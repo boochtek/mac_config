@@ -201,13 +201,17 @@ sudo '/Applications/Install macOS Monterey.app/Contents/Resources/createinstallm
 ~~~
 
 
-## Using VirtualOS to Test
+## Testing in a VM
 
-I found [VirtualOS](https://github.com/yep/virtualOS), which will run MacOS inside a VM.
-This is great for testing these scripts.
+These scripts can be run against a disposable macOS VM, so a fresh-Mac setup —
+or a macOS upgrade — can be verified before it matters on real hardware:
 
-You won't need to dedicate a lot of CPU to the VM,
-but you'll need a lot of disk space.
-You'll need at least 50 GB to install the OS, developer tools, and apps.
-You should be fine with 16 GB of RAM, maybe less.
-I'm currently working with 4 CPUs, 16 GB RAM, and 60 GB disk.
+~~~ shell
+make setup   # one-time: install tart
+make image   # one-time: build the VM image
+make test    # run the suite on a throwaway clone
+~~~
+
+See [test/README.md](test/README.md) for the full workflow, and
+[docs/vm-test-harness-prd.md](docs/vm-test-harness-prd.md) for why it is built
+this way. Budget plenty of disk: each VM image runs about 20 GB.

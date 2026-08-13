@@ -26,23 +26,33 @@ wallpaper="$HOME/Pictures/Backgrounds/jwst-deep-field-smacs0723.jpg"
 
 mkdir -p "$HOME/Pictures/Backgrounds"
 
-# Generate the black-bar wallpaper once (idempotent: skip if it already exists).
-if [[ ! -f "$wallpaper" ]]; then
-	SRC="$wallpaper_src" DST="$wallpaper" \
-		osascript -l JavaScript "$script_dir/wallpaper/generate-wallpaper.js"
-fi
+# Both generating and applying the wallpaper drive the window server, which only
+# exists inside a logged-in GUI session. Over SSH (as when the VM test harness
+# runs this suite) osascript fails with "no main display", so probe for a usable
+# session first and report the step as manual rather than aborting the script.
+source "${BASH_SOURCE%/*}/../util/colors.sh"
+if current_wallpaper="$(osascript -e 'tell application "System Events" to get picture of desktop 1' 2>/dev/null)"; then
+    # Generate the black-bar wallpaper once (idempotent: skip if it already exists).
+    if [[ ! -f "$wallpaper" ]]; then
+        SRC="$wallpaper_src" DST="$wallpaper" \
+            osascript -l JavaScript "$script_dir/wallpaper/generate-wallpaper.js"
+    fi
 
-# Apply it only when it exists and isn't already set (idempotent: don't reset every
-# run, and don't point the desktop at a missing file if generation failed). The path
-# is passed as an argument, not interpolated into the AppleScript, so any characters
-# in it are safe.
-current_wallpaper="$(osascript -e 'tell application "System Events" to get picture of desktop 1')"
-if [[ -f "$wallpaper" && "$current_wallpaper" != "$wallpaper" ]]; then
-	osascript \
-		-e 'on run argv' \
-		-e 'tell application "System Events" to set picture of every desktop to (item 1 of argv)' \
-		-e 'end run' \
-		"$wallpaper"
+    # Apply it only when it exists and isn't already set (idempotent: don't reset
+    # every run, and don't point the desktop at a missing file if generation
+    # failed). The path is passed as an argument, not interpolated into the
+    # AppleScript, so any characters in it are safe.
+    if [[ -f "$wallpaper" && "$current_wallpaper" != "$wallpaper" ]]; then
+        osascript \
+            -e 'on run argv' \
+            -e 'tell application "System Events" to set picture of every desktop to (item 1 of argv)' \
+            -e 'end run' \
+            "$wallpaper"
+    fi
+else
+    printf '%s%s⚠ MANUAL STEP:%s set the desktop wallpaper — no GUI session here.\n' \
+        "$BOLD" "$YELLOW" "$RESET"
+    printf '    Re-run os/desktop.sh while logged in at the desktop.\n'
 fi
 
 # Restart Finder so settings will take effect.

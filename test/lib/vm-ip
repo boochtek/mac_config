@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Print a tart VM's IPv4 address on stdout. Exit 1, silently, if it has none yet
+# (a VM that just booted may not have finished DHCP).
+#
+# `tart ip` sometimes fails to resolve a running VM's address (observed on
+# macOS 26 hosts), so fall back to matching the VM's MAC against the host's DHCP
+# leases. Usage: vm-ip <vm-name>
+#
+# NOTE: stdout is this script's return value, so diagnostics go to stderr — the
+# usual house ERR trap echoes to stdout, which would corrupt `$(vm-ip ...)`.
+
+set -uo pipefail
+IFS=$'\n\t'
+[[ -n "${DEBUG+unset}" ]] && set -x
+trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
+
+vm="${1:?usage: vm-ip <vm-name>}"
+
+# Prefer tart's own resolver when it works.
+ip="$(tart ip --wait 5 "$vm" 2>/dev/null)" || ip=''
+if [[ -n "$ip" ]]; then
+    echo "$ip"
+    exit 0
+fi
+
+# Fallback: MAC -> DHCP lease. Missing config means the VM doesn't exist, which
+# is a real error; a missing lease just means "no address yet".
+config="$HOME/.tart/vms/$vm/config.json"
+[[ -f "$config" ]] || {
+    echo "vm-ip: no such VM: $vm" >&2
+    exit 2
+}
+mac="$(python3 -c "import json,sys; print(json.load(open(sys.argv[1]))['macAddress'])" "$config")"
+
+# The leases file strips leading zeros per octet (config "0a" is stored as "a"),
+# so normalize before matching.
+norm="$(awk -F: '{for(i=1;i<=NF;i++){o=$i; sub(/^0/,"",o); printf (i>1?":":"") o}}' <<<"$mac")"
+
+lease="$(awk -v mac="$norm" '
+    /^{/          {ip=""; hw=""}
+    /ip_address=/ {sub(/.*ip_address=/,""); ip=$0}
+    /hw_address=/ {sub(/.*hw_address=1,/,""); hw=$0}
+    /^}/          {if (hw == mac) last=ip}
+    END           {print last}
+' /var/db/dhcpd_leases)"
+
+# No lease yet is not an error worth shouting about — callers poll for this.
+[[ -n "$lease" ]] || exit 1
+echo "$lease"

@@ -14,3 +14,7 @@ indent_size = 4
 [*.md]
 # Two trailing spaces are a hard line break in Markdown — don't strip them.
 trim_trailing_whitespace = false
+
+[{Makefile,*.mk}]
+# Make requires real tabs for recipe indentation.
+indent_style = tab
