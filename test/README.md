@@ -186,7 +186,10 @@ the quickest way to spot a step that's blocked on a GUI prompt.
 ### The App Store gap
 
 A VM can't sign in to an Apple ID, so `mas` can't install anything.
-`test/lib/mas` is a no-op shim that keeps the scripts moving. **Exactly four app
+`test/lib/mas` is a no-op shim that keeps the scripts moving. It lives in
+`~/bin`, which [run.sh](run.sh) keeps ahead of Homebrew on `PATH` — `mas` is
+itself a Homebrew formula, and the real binary hangs where the shim returns.
+**Exactly four app
 installs go untested** — Bear and Firetask ([os/app_store.sh](../os/app_store.sh)),
 1Password for Safari ([os/1password.sh](../os/1password.sh)), and VirtualOS
 ([os/virtualization.sh](../os/virtualization.sh)) — plus `mas upgrade` and the

@@ -110,6 +110,9 @@ echo "Running suite (log: $LOG)"
         # init.sh is sourced, so a 'cd' inside it would redirect the whole run.
         # Keep group lookups absolute and run each from \$SETUP_DIR.
         [ \"\$PWD\" = \"\$SETUP_DIR\" ] || echo \"(WARNING: init.sh left the shell in \$PWD)\"
+        # init/homebrew.sh prepends Homebrew's bin, which shadows the ~/bin
+        # shims once 'brew install mas' provides the real binary. Restore ours.
+        export PATH=\"\$HOME/bin:\$PATH\"
         for g in $RUN_GROUPS; do
             echo \"----- \$g/ALL.sh -----\"
             if [ ! -f \"\$SETUP_DIR/\$g/ALL.sh\" ]; then

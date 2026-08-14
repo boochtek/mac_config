@@ -68,6 +68,10 @@ Images run ~20 GB apiece, so watch disk space with `df -h ~` (not Finder).
      or every group reporting `(SKIP: … does not exist)` → something sourced by
      `init.sh` changed the working directory. The run will still look like it
      succeeded. Only `work/ALL.sh` is legitimately absent.
+   - **Stalled with no output** → usually a real App-Store command that reached
+     the network instead of the shim. Every shimmed call should log
+     `[mas-shim] skipped in VM: …`; if real `mas` output appears instead,
+     something re-ordered `PATH` ahead of `~/bin` after `run.sh` set it.
 4. Re-run — `run.sh` rsyncs the working tree, so host edits take effect on the
    next clone. Clones are disposable; no state carries over.
 5. Repeat until the only remaining failures are the expected App-Store gaps.
