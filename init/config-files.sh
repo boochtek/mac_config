@@ -16,10 +16,14 @@ CONFIG_FILES_BRANCH="${CONFIG_FILES_BRANCH:-main}"
 #
 # This file is sourced, so the `cd` must stay in a subshell: a bare `cd` would
 # move the caller for the rest of the setup.
+#
+# A clone that fails is not fatal: the rest of the setup still runs, just
+# without the config files. `install.sh` needs the clone, so it is skipped.
 if [[ ! -d "$HOME/.config" ]]; then
-    if ! git clone "$CONFIG_FILES_URL" --branch="$CONFIG_FILES_BRANCH" "$HOME/.config"; then
-        echo "Failed to clone config files from $CONFIG_FILES_URL. Aborting." >&2
-        return 1
+    if git clone "$CONFIG_FILES_URL" --branch="$CONFIG_FILES_BRANCH" "$HOME/.config"; then
+        (cd "$HOME/.config" && ./install.sh)
+    else
+        echo "WARNING: Could not clone config files from $CONFIG_FILES_URL." >&2
+        echo "         Continuing without them; re-run init.sh to retry." >&2
     fi
-    (cd "$HOME/.config" && ./install.sh)
 fi
