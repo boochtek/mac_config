@@ -9,6 +9,40 @@
     - Safari
 - hardware/printer.sh
 
+## Packages Gone Away
+
+Found by a VM test run; each one aborts its script.
+
+- `homebrew/command-not-found` tap is deprecated and now empty
+  (`init/homebrew.sh`).
+- `mysides` was disabled upstream 2025-10-13, so the whole Finder sidebar
+  section of `os/finder.sh` cannot run. Needs a replacement.
+- `pidof` was disabled upstream 2026-01-12 (`os/misc.sh`).
+- `rar` is deprecated (fails Gatekeeper) and will be disabled 2026-09-01.
+- `qlstephen` is deprecated and will be disabled 2026-09-22 (`os/quicklook.sh`).
+- `os/fonts.sh` taps `niksy/pljoska`, which needs `git-lfs` to clone. `git-lfs`
+  is installed later, in `dev/`, so the tap fails. Install it earlier, or drop
+  the ClearType fonts.
+
+## Script Robustness
+
+Found by a VM test run. Each aborts the rest of its script via the ERR trap.
+
+- `killall` fails when the process isn't running: `os/ui.sh` (SystemUIServer)
+  and `os/desktop.sh` (Finder). Should tolerate a missing process.
+- `open -a 'Hidden Bar'` immediately after installing the cask fails with
+  "Unable to find application" — LaunchServices hasn't registered it yet
+  (`os/menubar.sh`). Try the full path under `/Applications`.
+- `dockutil --remove` errors for Dock items that aren't there (`os/dock.sh`).
+- `os/quicklook.sh` copies QLColorCode's `Info.plist` without checking that
+  QLColorCode is installed.
+- Installing the 1Password CLI cask can't write its zsh completions:
+  `Operation not permitted @ dir_s_mkdir - /opt/homebrew/share/zsh`.
+- macOS Bash 3.2 runs the ERR trap for `$(cmd 2>/dev/null)` used as an `if`
+  condition, even though the script handles the failure, so a deliberate probe
+  logs a misleading `Error on line N` (`os/desktop.sh`). Bash 5 does not.
+  Makes logs hard to triage; find a form that stays quiet on 3.2.
+
 ## Keyboard Mappings
 
 These may be in Karabiner, or maybe just Mac key bindings.
@@ -51,26 +85,4 @@ These may be in Karabiner, or maybe just Mac key bindings.
 ## User-Specific
 
 - Figure out how to restore from backups.
-- Pull config_files from GitHub.
 - Pull config_files.PRIVATE from wherever it belongs.
-
-## Really old stuff
-
-- Fix sublime setup
-    - Add more plugins
-        - AdvancedNewFile with show_files enabled.
-- Fix keyboard setup
-- Remove dock items
-- Prompt for hostname and set it
-    - Also hard drive name
-- Have it download and install Config Files
-    - Prompt for github user/repo if not installed, and not in git config
-- Yosemite updates
-- Check that everything worked as expected
-- brew install --quiet --cask macs-fan-control # (or smcfancontrol)
-
-## Old
-
-- Make `locate` usable:
-    - sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
-- hardware/printer.sh
