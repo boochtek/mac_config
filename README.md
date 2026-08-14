@@ -178,6 +178,11 @@ be in, so it works only by luck.
 outside a function is an error in an executed script — it only works when the
 file is sourced.
 
+**A sourced file must not change the caller's working directory.** `init.sh` and
+everything under `init/` are sourced, so a bare `cd` moves the shell for every
+step that follows and relative paths quietly resolve somewhere else. Keep it in
+a subshell: `(cd "$SOMEWHERE" && ./install.sh)`.
+
 **Scripts must be able to run unattended.** The VM test harness (see
 [test/README.md](test/README.md)) drives them over SSH, where nothing can answer
 a prompt. In particular use `sudo -n true || sudo -v` rather than a bare
