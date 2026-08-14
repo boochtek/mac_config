@@ -64,6 +64,10 @@ Images run ~20 GB apiece, so watch disk space with `df -h ~` (not Finder).
    - **Headless/interactive blocker** (a GUI prompt, `xcode-select --install`,
      a `sudo` password prompt) → make the step VM-safe (non-interactive flag,
      guard) or document why it needs a human.
+   - **Nothing ran at all** — a `(WARNING: init.sh left the shell in …)` line,
+     or every group reporting `(SKIP: … does not exist)` → something sourced by
+     `init.sh` changed the working directory. The run will still look like it
+     succeeded. Only `work/ALL.sh` is legitimately absent.
 4. Re-run — `run.sh` rsyncs the working tree, so host edits take effect on the
    next clone. Clones are disposable; no state carries over.
 5. Repeat until the only remaining failures are the expected App-Store gaps.

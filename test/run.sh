@@ -104,16 +104,20 @@ echo "Running suite (log: $LOG)"
     echo "===== run $RUN @ $(date) ====="
     vm_ssh "export PATH=\$HOME/bin:\$PATH NONINTERACTIVE=1
         cd ~/mac-setup || exit 1
+        SETUP_DIR=\"\$PWD\"
         echo '----- init.sh -----'
         source ./init.sh
+        # init.sh is sourced, so a 'cd' inside it would redirect the whole run.
+        # Keep group lookups absolute and run each from \$SETUP_DIR.
+        [ \"\$PWD\" = \"\$SETUP_DIR\" ] || echo \"(WARNING: init.sh left the shell in \$PWD)\"
         for g in $RUN_GROUPS; do
             echo \"----- \$g/ALL.sh -----\"
-            if [ ! -f \"\$g/ALL.sh\" ]; then
+            if [ ! -f \"\$SETUP_DIR/\$g/ALL.sh\" ]; then
                 echo \"(SKIP: \$g/ALL.sh does not exist)\"
-            elif [ ! -x \"\$g/ALL.sh\" ]; then
+            elif [ ! -x \"\$SETUP_DIR/\$g/ALL.sh\" ]; then
                 echo \"(SKIP: \$g/ALL.sh is not executable)\"
             else
-                \"./\$g/ALL.sh\" ; echo \"(\$g/ALL.sh exited \$?)\"
+                (cd \"\$SETUP_DIR\" && \"./\$g/ALL.sh\") ; echo \"(\$g/ALL.sh exited \$?)\"
             fi
         done"
 } 2>&1 | tee "$LOG"
