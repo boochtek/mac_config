@@ -18,7 +18,9 @@ echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
 sudo -n true 2>/dev/null || sudo -v
 
 # Preview Markdown files.
-brew install --quiet --cask qlmarkdown
+# brew install --quiet --cask qlmarkdown
+brew trust --cask xykong/tap/flux-markdown
+brew install --quiet --cask xykong/tap/flux-markdown
 
 # Preview source code files with syntax highlighting.
 # TODO: Customize. See https://github.com/sbarex/SourceCodeSyntaxHighlight#install-with-homebrew-cask.
