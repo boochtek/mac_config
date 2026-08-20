@@ -148,4 +148,9 @@ brew install --quiet --cask font-flow-circular
 brew install --quiet --cask font-flow-rounded
 
 # Humor Sans is meant to look like the font used in XKCD.
-brew install --quiet --cask font-humor-sans
+# It's been removed from Homebrew, due to not meeting the cask criteria.
+# Also available at https://github.com/shreyankg/xkcd-desktop/raw/refs/heads/master/Humor-Sans.ttf
+# http://antiyawn.com/uploads/Humor-Sans-1.0.ttf
+if ! [[ -f ~/Library/Fonts/Humor-Sans.ttf ]]; then
+    wget https://github.com/shreyankg/xkcd-desktop/raw/refs/heads/master/Humor-Sans.ttf -O ~/Library/Fonts/Humor-Sans.ttf
+fi
